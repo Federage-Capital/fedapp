@@ -2,25 +2,48 @@ import Head from "next/head"
 import { GetStaticPropsResult } from "next"
 import { DrupalNode } from "next-drupal"
 
+import { getGlobalElements } from "lib/get-global-elements"
+import { Meta, MetaProps } from "components/meta"
+import { useTranslation } from "next-i18next"
+
 import { drupal } from "lib/drupal"
-import { Layout } from "components/layout"
+import { Layout, LayoutProps } from "components/layout"
 import { NodeArticleTeaser } from "components/node--article--teaser"
+import siteConfig from "site.config"
 
 interface IndexPageProps {
   nodes: DrupalNode[]
 }
 
-export default function IndexPage({ nodes }: IndexPageProps) {
+export default function IndexPage({ nodes, menus }: IndexPageProps) {
+  const { t } = useTranslation()
+
   return (
-    <Layout>
-      <Head>
-        <title>Next.js for Drupal</title>
-        <meta
-          name="description"
-          content="A Next.js site powered by a Drupal backend."
-        />
-      </Head>
+    <Layout meta={{ title: t("The open source company") }} menus={menus}>
+
+
+
       <div>
+      <div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
+
+
+</div>
+<div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
+
+
+</div>
+<div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
+
+
+</div>
+<div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
+
+
+</div>
+
+
+
+
         <h1 className="mb-10 text-6xl font-black">Latest Articles.</h1>
         {nodes?.length ? (
           nodes.map((node) => (
@@ -55,6 +78,8 @@ export async function getStaticProps(
 
   return {
     props: {
+      ...(await getGlobalElements(context)),
+
       nodes,
     },
   }
