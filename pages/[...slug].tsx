@@ -1,30 +1,71 @@
-import * as React from "react"
 import { GetStaticPathsResult, GetStaticPropsResult } from "next"
-import Head from "next/head"
-import { DrupalNode } from "next-drupal"
+import { DrupalNode, DrupalTaxonomyTerm } from "next-drupal"
 
+import { PageProps } from "types"
 import { drupal } from "lib/drupal"
-import { NodeArticle } from "components/node--article"
-import { NodeBasicPage } from "components/node--basic-page"
-import { Layout } from "components/layout"
+import { getGlobalElements } from "lib/get-global-elements"
+import { getParams } from "lib/get-params"
+import { Layout, LayoutProps } from "components/layout"
+import { NodeArticle, NodeArticleProps } from "components/node--article"
+import { NodePage } from "components/node--page"
 
-const RESOURCE_TYPES = ["node--page", "node--article"]
 
-interface NodePageProps {
-  resource: DrupalNode
+const RESOURCE_TYPES = [
+  "node--page",
+  "node--article",
+
+]
+
+interface ResourcePageProps extends LayoutProps, PageProps {
+  resource: DrupalNode | DrupalTaxonomyTerm
 }
 
-export default function NodePage({ resource }: NodePageProps) {
+export default function ResourcePage({
+  resource,
+  additionalContent,
+  menus,
+  blocks,
+}: ResourcePageProps) {
   if (!resource) return null
 
   return (
-    <Layout>
-      <Head>
-        <title>{resource.title}</title>
-        <meta name="description" content="A Next.js site powered by Drupal." />
-      </Head>
-      {resource.type === "node--page" && <NodeBasicPage node={resource} />}
-      {resource.type === "node--article" && <NodeArticle node={resource} />}
+    <Layout
+      menus={menus}
+      blocks={blocks}
+      meta={{
+        title: resource.title || resource.name,
+      }}
+    >
+      {resource.type === "node--page" && (
+        <NodePage node={resource as DrupalNode} />
+      )}
+      {resource.type === "node--article" && (
+        <NodeArticle
+          node={resource as DrupalNode}
+          additionalContent={
+            additionalContent as NodeArticleProps["additionalContent"]
+          }
+        />
+      )}
+      {resource.type === "node--recipe" && (
+        <NodeRecipe node={resource as DrupalNode} />
+      )}
+      {resource.type === "taxonomy_term--recipe_category" && (
+        <TaxonomyTermRecipeCategory
+          term={resource as DrupalTaxonomyTerm}
+          additionalContent={
+            additionalContent as TaxonomyTermRecipeCategoryProps["additionalContent"]
+          }
+        />
+      )}
+      {resource.type === "taxonomy_term--tags" && (
+        <TaxonomyTermTags
+          term={resource as DrupalTaxonomyTerm}
+          additionalContent={
+            additionalContent as TaxonomyTermTagsProps["additionalContent"]
+          }
+        />
+      )}
     </Layout>
   )
 }
@@ -38,29 +79,23 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
 
 export async function getStaticProps(
   context
-): Promise<GetStaticPropsResult<NodePageProps>> {
+): Promise<GetStaticPropsResult<ResourcePageProps>> {
   const path = await drupal.translatePathFromContext(context)
 
-  if (!path) {
+  // If path is not found or the resource is not one we care about,
+  // return a 404.
+  if (!path || !RESOURCE_TYPES.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
     }
   }
 
-  const type = path.jsonapi.resourceName
-
-  let params = {}
-  if (type === "node--article") {
-    params = {
-      include: "field_image,uid",
-    }
-  }
-
+  // Fetch the resource from Drupal.
   const resource = await drupal.getResourceFromContext<DrupalNode>(
     path,
     context,
     {
-      params,
+      params: getParams(path.jsonapi.resourceName)?.getQueryObject(),
     }
   )
 
@@ -73,16 +108,71 @@ export async function getStaticProps(
   }
 
   // If we're not in preview mode and the resource is not published,
-  // Return page not found.
+  // Return 404.
   if (!context.preview && resource?.status === false) {
     return {
       notFound: true,
     }
   }
 
+  // Fetch additional content for pages.
+  let additionalContent: PageProps["additionalContent"] = {}
+
+  if (resource.type === "node--article") {
+    // Fetch featured articles.
+    additionalContent["featuredArticles"] =
+      await drupal.getResourceCollectionFromContext("node--article", context, {
+        params: getParams("node--article")
+          .addFilter("id", resource.id, "<>")
+          .addPageLimit(3)
+          .addSort("created", "DESC")
+          .getQueryObject(),
+      })
+  }
+
+  if (resource.type === "taxonomy_term--recipe_category") {
+    // Fetch the term content.
+    additionalContent["termContent"] =
+      await drupal.getResourceCollectionFromContext("node--recipe", context, {
+        params: getParams("node--recipe", "card")
+          .addSort("created", "DESC")
+          .addFilter("field_recipe_category.id", resource.id, "IN")
+          .getQueryObject(),
+      })
+  }
+
+  if (resource.type === "taxonomy_term--tags") {
+    // Fetch the term content.
+    // Tags can show both recipes and articles.
+    additionalContent["termContent"] = [
+      ...(await drupal.getResourceCollectionFromContext(
+        "node--recipe",
+        context,
+        {
+          params: getParams("node--recipe", "card")
+            .addSort("created", "DESC")
+            .addFilter("field_tags.id", resource.id, "IN")
+            .getQueryObject(),
+        }
+      )),
+      ...(await drupal.getResourceCollectionFromContext(
+        "node--article",
+        context,
+        {
+          params: getParams("node--article", "card")
+            .addSort("created", "DESC")
+            .addFilter("field_tags.id", resource.id, "IN")
+            .getQueryObject(),
+        }
+      )),
+    ]
+  }
+
   return {
     props: {
+      ...(await getGlobalElements(context)),
       resource,
+      additionalContent,
     },
   }
 }

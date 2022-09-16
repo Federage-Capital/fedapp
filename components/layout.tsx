@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Meta, MetaProps } from "components/meta"
 import { PreviewAlert } from "components/preview-alert"
 import { Header, HeaderProps } from "components/header"
