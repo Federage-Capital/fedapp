@@ -94,7 +94,6 @@ export function FormArticle({ className, ...props }: FormArticleProps) {
         <textarea
           id="body"
           name="body"
-          required
           className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
         ></textarea>
       </div>

@@ -1,6 +1,6 @@
 # See https://next-drupal.org/docs/environment-variables
 NEXT_PUBLIC_DRUPAL_BASE_URL=https://fed.septembre.io
-NEXT_IMAGE_DOMAIN=fed.septembre.io
+NEXT_IMAGE_DOMAIN=septembre.io
 
 NEXTAUTH_SECRET=secret
 NEXTAUTH_URL=http://localhost:3000
