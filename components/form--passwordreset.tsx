@@ -1,0 +1,103 @@
+import * as React from "react"
+import classNames from "classnames"
+import { useTranslation } from "next-i18next"
+import { signIn } from "next-auth/react"
+import { useRouter } from "next/router"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
+
+import { useForm } from "react-hook-form"
+import { contactFormSchema2 } from "../validations/create_account"
+
+interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
+
+
+export function FormCreate2({ className, ...props }: FormCreateProps) {
+  const [status, setStatus] = React.useState<"error" | "success">()
+  const { register, handleSubmit, formState, reset } = useForm<FormData>({
+    resolver: yupResolver(contactFormSchema2),
+  })
+
+  // This makes a POST to a custom API route.
+  // The Drupal base URL and the webform_id are NOT exposed.
+  async function onSubmit(data: FormData) {
+    const response2 = await fetch(`https://fed.septembre.io/user/lost-password?_format=json`, {
+        method: "POST",
+        body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+    })
+
+    if (response2.ok) {
+      reset()
+      return setStatus("success")
+    }
+
+    return setStatus("error")
+  }
+
+  return (
+
+<div>
+    {status === "error" ? (
+      <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+        Il y a une erreur. Veuillez recommencer.
+      </div>
+    ) : null}
+    {status === "success" ? (
+      <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
+        Votre message a été envoyé. Merci.
+      </div>
+    ) : null}
+    {Object.values(formState.errors)?.length ? (
+      <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+        {Object.values(formState.errors).map((error, index) => (
+          <p key={index}>{error.message}</p>
+        ))}
+      </div>
+    ) : null}
+
+    <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
+      <div>
+
+      </div>
+      <div>
+        <label
+          htmlFor="mail"
+          className="block text-sm font-medium text-gray-700"
+        >
+
+
+        </label>
+        <input
+          id="mail"
+          name="mail"
+          type="mail"
+          placeholder="mon@entreprise.com"
+          className="d-inline-block w-3/6 px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          {...register("mail")}
+        />
+        <button
+          type="submit"
+          data-cy="btn-submit"
+          className="justify-center px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+        >
+          Enregistrement
+        </button>
+      </div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+
+    </form>
+    </div>
+  )
+}
