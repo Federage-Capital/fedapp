@@ -82,9 +82,9 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
         <button
           type="submit"
           data-cy="btn-submit"
-          className="justify-center px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+          className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
         >
-          Enregistrement
+          Réinitialisation du mot de passe
         </button>
       </div>
       <div>

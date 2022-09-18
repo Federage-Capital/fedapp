@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { getSession } from "next-auth/react"
 import { JsonApiErrors } from "next-drupal"
-
 import { drupal } from "lib/drupal"
 
 export default async function handler(
@@ -9,40 +8,35 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    // // Only accept DELETE requests.
-    // if (req.method !== "DELETE") {
-    //   return res.status(405).end()
-    // }
 
     // Check if the user is authenticated.
     const session = await getSession({ req })
+
     if (!session) {
       return res.status(403).end()
     }
 
-    const id = req.query.id as string
-
-    // Delete the article.
-    if (req.method == "DELETE") {
-      const deleted = await drupal.deleteResource("node--article", id, {
-        withAuth: session.accessToken,
+    // Get the user.
+    if (req.method == "GET") {
+      const edit = await drupal.getResource("user--user", "51204d9c-332f-4310-9af0-8c6b4e29db12", {
       })
 
-      if (!deleted) {
+      if (!edit) {
         throw new Error()
       }
+
+      return
     }
 
-    // Edit the article.
-    if (req.method == "PUT") {
-      const edit = await drupal.updateResource("node--article", id, {
+    // Edit the user.
+    if (req.method == "PATCH") {
+      const edit = await drupal.updateResource("user--user", "51204d9c-332f-4310-9af0-8c6b4e29db12", {
         data: {
           attributes: {
-            title: "Title of Article",
+            display_name: "Clementz23",
           },
         },
-      },
-    )
+      })
 
       if (!edit) {
         throw new Error()

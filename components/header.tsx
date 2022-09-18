@@ -4,11 +4,11 @@ import { DrupalMenuLinkContent } from "next-drupal"
 import classNames from "classnames"
 
 import siteConfig from "site.config"
-import { Logo } from "components/logo"
 import { LocaleSwitcher } from "components/locale-switcher"
 import { MenuMain } from "components/menu-main"
 import { MenuUser } from "components/menu-user"
 import { FormSearch } from "components/form--search"
+import Image from "next/image"
 
 export interface HeaderProps {
   menus: {
@@ -37,12 +37,14 @@ export function Header({ menus }: HeaderProps) {
       <div className="container relative flex-wrap items-center justify-between py-6 md:flex lg:py-10">
         <Link href="/" passHref>
           <a className="flex justify-start">
-            <Logo className="w-48 h-12 text-primary lg:h-16 lg:w-52" />
+
+          <Image src="/federage-logo.svg" height={100} width={400}  />
+
             <span className="sr-only">{siteConfig.name}</span>
           </a>
         </Link>
         <button
-          className="absolute transition-all border beorder-transparent md:hidden right-4 top-8 hover:border-link"
+          className="absolute transition-all border beorder-transparent md:hidden right-4 top-12 hover:border-link"
           onClick={() => setShowMenu(!showMenu)}
         >
           <svg

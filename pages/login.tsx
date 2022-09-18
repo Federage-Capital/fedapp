@@ -28,12 +28,12 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
   const [openTab, setOpenTab] = React.useState(1);
 
   return (
-    <Layout meta={{ title: t("login") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
       <PageHeader
-        heading={t("login")}
+        heading={t("Connexion")}
         breadcrumbs={[
           {
-            title: t("login"),
+            title: t("Connexion"),
           },
         ]}
       />
@@ -62,7 +62,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 href="#link1"
                 role="tablist"
               >
-                Login
+                Connexion
               </a>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -81,7 +81,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 href="#link2"
                 role="tablist"
               >
-                 Forgot Password
+                 Mot de passe oublié
               </a>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -100,7 +100,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 href="#link3"
                 role="tablist"
               >
-                 Create Account
+                 Inscription
               </a>
             </li>
           </ul>

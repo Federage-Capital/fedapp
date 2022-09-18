@@ -4,6 +4,7 @@ import { getSession } from "next-auth/react"
 import { promises as fs } from "fs"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params"
 import { DrupalFile, DrupalMedia, DrupalNode, JsonApiErrors } from "next-drupal"
+
 import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
@@ -102,14 +103,14 @@ export default async function handler(
 
     // Create the node--article resource with the media--image relationship.
     const article = await drupal.createResource<DrupalNode>(
-      "node--article",
+      "node--financement",
       {
         data: {
           attributes: {
             title: fields.title,
             body: {
               value: fields.body,
-              format: "basic_html",
+              format: "full_html",
             },
           },
           relationships: {
@@ -125,7 +126,7 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("node--article", ["title"])
+          .addFields("node--financement", ["title"])
           .getQueryObject(),
       }
     )

@@ -29,13 +29,13 @@ export function NodeArticleRow({ node, ...props }: NodeArticleRowProps) {
 
   return (
     <article
-      className="relative grid grid-cols-[120px_1fr] items-start gap-4 p-4 overflow-hidden bg-white border border-border group"
+      className="relative grid grid-cols-[120px_1fr] items-start gap-4 p-4 overflow-hidden bg-red border border-border group"
       {...props}
     >
       <MediaImage media={node.field_media_image} width={115} height={75} />
       <div className="flex items-start justify-between text-text">
         <div>
-          <h2 className="flex-1 font-serif text-xl">{node.title}</h2>
+          <h2 className="flex-1 text-xl">{node.title}</h2>
           <p className="text-sm text-gray">
             {formatDate(node.created)} -{" "}
             {node.status ? t("published") : t("draft")}
@@ -43,7 +43,7 @@ export function NodeArticleRow({ node, ...props }: NodeArticleRowProps) {
         </div>
         <button
           onClick={() => handleDelete()}
-          className="px-2 py-1 text-white rounded-md hover:bg-error bg-error/80"
+          className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
         >
           {t("delete")}
         </button>

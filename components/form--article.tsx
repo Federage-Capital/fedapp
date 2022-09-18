@@ -25,10 +25,8 @@ export function FormArticle({ className, ...props }: FormArticleProps) {
       method: "POST",
       body: data,
     })
-
     if (!response.ok) {
       const errors = await response.json()
-
       return setFormStatus({
         status: "error",
         message: errors?.map((error) => error.detail),

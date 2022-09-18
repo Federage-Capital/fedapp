@@ -9,8 +9,9 @@ import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 
 import "styles/globals.css"
+import 'styles/styles.css'
 
-NProgress.configure({ showSpinner: false })
+NProgress.configure({ showSpinner: true })
 
 Router.events.on("routeChangeStart", () => NProgress.start())
 Router.events.on("routeChangeComplete", () => NProgress.done())

@@ -9,10 +9,10 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    // // Only accept DELETE requests.
-    // if (req.method !== "DELETE") {
-    //   return res.status(405).end()
-    // }
+    // Only accept DELETE requests.
+    if (req.method !== "DELETE") {
+      return res.status(405).end()
+    }
 
     // Check if the user is authenticated.
     const session = await getSession({ req })
@@ -23,30 +23,12 @@ export default async function handler(
     const id = req.query.id as string
 
     // Delete the article.
-    if (req.method == "DELETE") {
-      const deleted = await drupal.deleteResource("node--article", id, {
-        withAuth: session.accessToken,
-      })
+    const deleted = await drupal.deleteResource("node--financement", id, {
+      withAuth: session.accessToken,
+    })
 
-      if (!deleted) {
-        throw new Error()
-      }
-    }
-
-    // Edit the article.
-    if (req.method == "PUT") {
-      const edit = await drupal.updateResource("node--article", id, {
-        data: {
-          attributes: {
-            title: "Title of Article",
-          },
-        },
-      },
-    )
-
-      if (!edit) {
-        throw new Error()
-      }
+    if (!deleted) {
+      throw new Error()
     }
 
     res.end()

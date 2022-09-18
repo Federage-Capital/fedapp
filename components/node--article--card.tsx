@@ -16,7 +16,7 @@ export function NodeArticleCard({ node, ...props }: NodeArticleCardProps) {
       className="relative flex flex-col p-4 space-y-4 overflow-hidden bg-white border border-border group"
       {...props}
     >
-      <h2 className="flex-1 font-serif text-2xl">{node.title}</h2>
+      <h2 className="flex-1 text-2xl">{node.title}</h2>
       <MediaImage media={node.field_media_image} width={335} height={225} />
       <Link href={node.path.alias} passHref>
         <a className="inline-flex items-center uppercase hover:underline text-link">

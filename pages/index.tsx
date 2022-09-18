@@ -27,22 +27,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
       <div>
-      <div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
 
-
-</div>
-<div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
-
-
-</div>
-<div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
-
-
-</div>
-<div class="max-w-7xl mx-auto mb-10 h-4-5 text-center">
-
-
-</div>
 
 
 

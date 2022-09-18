@@ -17,6 +17,7 @@ export function Layout({ meta, menus, blocks, children }: LayoutProps) {
       <Meta {...meta} />
       <div className="max-w-screen-2xl px-6 mx-auto">
         <PreviewAlert />
+
         <Header menus={{ main: menus.main }} />
         <main className="flex-1 pb-10 bg-body">{children}</main>
         <Footer menus={{ footer: menus.footer }} blocks={blocks} />
