@@ -8,6 +8,7 @@ export function getParams(
   const params = new DrupalJsonApiParams()
 
   name = mode ? `${name}--${mode}` : name
+
   if (name === "node--financement") {
     return params
       .addInclude([

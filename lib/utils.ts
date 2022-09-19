@@ -1,9 +1,3 @@
-export function absoluteUrl(input: string) {
-  return `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${input}`
-}
-
-
-
 import siteConfig from "site.config"
 
 export function truncate(value: string, length: number, suffix = "...") {

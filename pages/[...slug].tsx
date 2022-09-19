@@ -13,7 +13,7 @@ import { NodePage } from "components/node--page"
 const RESOURCE_TYPES = [
   "node--page",
   "node--article",
-
+  "node--financement",
 ]
 
 interface ResourcePageProps extends LayoutProps, PageProps {

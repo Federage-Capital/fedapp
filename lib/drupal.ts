@@ -6,8 +6,8 @@ export const drupal = new DrupalClient(
     frontPage: "/home",
     previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
     auth: {
-      clientId: '54334bf1-55c3-4fe4-b739-5cfb41cd56d7',
-      clientSecret: 'secret',
+      clientId: process.env.DRUPAL_CLIENT_ID,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET,
     },
   }
 )

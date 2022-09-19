@@ -81,7 +81,6 @@ export function FormArticle({ className, ...props }: FormArticleProps) {
           type="file"
           id="image"
           name="image"
-          required
           className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
         />
       </div>
