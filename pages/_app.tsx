@@ -1,4 +1,3 @@
-import { AppProps } from "next/app"
 import * as React from "react"
 import Router from "next/router"
 import { SessionProvider } from "next-auth/react"
@@ -7,11 +6,9 @@ import { Hydrate } from "react-query/hydration"
 import { appWithTranslation } from "next-i18next"
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
-
 import "styles/globals.css"
-import 'styles/styles.css'
 
-NProgress.configure({ showSpinner: true })
+NProgress.configure({ showSpinner: false })
 
 Router.events.on("routeChangeStart", () => NProgress.start())
 Router.events.on("routeChangeComplete", () => NProgress.done())

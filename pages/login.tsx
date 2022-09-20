@@ -19,13 +19,13 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
   const { status } = useSession()
+  const [openTab, setOpenTab] = React.useState(1);
 
   if (status === "authenticated") {
     router.push("/")
     return null
   }
 
-  const [openTab, setOpenTab] = React.useState(1);
 
   return (
     <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>

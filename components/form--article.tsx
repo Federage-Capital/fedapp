@@ -29,7 +29,7 @@ export function FormArticle({ className, ...props }: FormArticleProps) {
       const errors = await response.json()
       return setFormStatus({
         status: "error",
-        message: errors?.map((error) => error.detail),
+        message: errors.message,
       })
     }
 
