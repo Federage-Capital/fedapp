@@ -21,7 +21,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
 
     setFormStatus({ status: "fetching" })
 
-    const response = await fetch("/api/articles", {
+    const response = await fetch("/api/financements", {
       method: "POST",
       body: data,
     })
@@ -84,7 +84,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           id="field_choisir_une_categorie"
           name="field_choisir_une_categorie"
           maxLength={255}
-          required
+          
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
@@ -106,7 +106,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           id="field_date_de_livraison"
           name="field_date_de_livraison"
           maxLength={255}
-          required
+
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
@@ -119,7 +119,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           id="field_estimation_du_prix"
           name="field_estimation_du_prix"
           maxLength={255}
-          required
+
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
@@ -132,7 +132,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           id="field_objet_du_financement"
           name="field_objet_du_financement"
           maxLength={255}
-          required
+
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
@@ -145,7 +145,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           id="field_tags"
           name="field_tags"
           maxLength={255}
-          required
+
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
@@ -158,7 +158,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           id="field_type_de_financement"
           name="field_type_de_financement"
           maxLength={255}
-          required
+
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>

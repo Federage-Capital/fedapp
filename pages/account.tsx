@@ -22,6 +22,7 @@ interface AccountPageProps extends LayoutProps {
 
 export default function AccountsPage({
   articles,
+  financements,
   user,
   node,
   menus,
@@ -345,13 +346,29 @@ export default function AccountsPage({
           </Modal>
         </div>
         <div className="articles">
-          <h1>Your articles</h1>
+          <h1>Your content</h1>
           <Link href="/articles/new" passHref>
-            <a className="px-3 py-0.5 d-flex align-center font-serif text-lg text-center text-white transition-colors border-2 rounded-md lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-              Create an article
+            <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+              New Article
+            </a>
+          </Link>
+          <Link href="/financements/new" passHref>
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+              Nouveau financement
             </a>
           </Link>
         </div>
+        {financements?.length ? (
+          <div className="grid max-w-2xl gap-4 mx-auto">
+            {financements.map((financement) => (
+              <NodeArticleRow key={financement.id} node={financement} />
+            ))}
+          </div>
+        ) : (
+          <p className="font-serif text-2xl text-center text-text">
+            {t("you-have-no-financements")}
+          </p>
+        )}
         {articles?.length ? (
           <div className="grid max-w-2xl gap-4 mx-auto">
             {articles.map((article) => (
@@ -437,6 +454,30 @@ export async function getServerSideProps(
     }
   );
 
+  // Fetch all financements sorted by the user.
+  const financements = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "node--financement",
+    context,
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["field_media_image.field_media_image", "uid.user_picture"])
+        .addFields("node--article", [
+          "title",
+          "path",
+          "field_media_image",
+          "status",
+          "created",
+          "uid",
+        ])
+        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+        .addFields("media--image", ["field_media_image"])
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
+        .addSort("created", "DESC")
+        .getQueryObject(),
+      withAuth: session.accessToken,
+    }
+  );
+
   // Fetch user info
   const user = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "user--user",
@@ -461,6 +502,8 @@ export async function getServerSideProps(
     props: {
       ...(await getGlobalElements(context)),
       articles,
+      financements,
+
       user,
     },
   };

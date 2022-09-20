@@ -4,7 +4,6 @@ import { getSession } from "next-auth/react"
 import { promises as fs } from "fs"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params"
 import { DrupalFile, DrupalMedia, DrupalNode, JsonApiErrors } from "next-drupal"
-
 import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
