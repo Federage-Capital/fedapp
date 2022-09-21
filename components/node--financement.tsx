@@ -3,11 +3,11 @@ import { DrupalNode } from "next-drupal"
 
 import { absoluteUrl, formatDate } from "lib/utils"
 
-interface NodeArticleProps {
+interface NodeFinancementProps {
   node: DrupalNode
 }
 
-export function NodeArticle({ node, ...props }: NodeArticleProps) {
+export function NodeFinancement({ node, ...props }: NodeArticleProps) {
   return (
     <article {...props}>
       <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
@@ -44,6 +44,12 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
           className="mt-6 text-xl leading-loose prose"
         />
       )}
+    <p>  {node.field_choisir_une_categorie.name}</p>
+        <p>  {node.field_date_de_livraison}</p>
+        <p>  {node.field_estimation_du_prix}</p>
+        <p>  {node.field_objet_du_financement.name}</p>
+        <p>  {node.field_tags.name}</p>
+        <p>  {node.field_type_de_financement.name} </p>
     </article>
   )
 }

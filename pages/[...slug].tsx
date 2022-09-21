@@ -8,6 +8,8 @@ import { getParams } from "lib/get-params"
 import { Layout, LayoutProps } from "components/layout"
 import { NodeArticle, NodeArticleProps } from "components/node--article"
 import { NodePage } from "components/node--page"
+import { NodeFinancement, NodeFinancementProps } from "components/node--financement"
+
 
 
 const RESOURCE_TYPES = [
@@ -44,6 +46,15 @@ export default function ResourcePage({
           node={resource as DrupalNode}
           additionalContent={
             additionalContent as NodeArticleProps["additionalContent"]
+          }
+        />
+      )}
+
+      {resource.type === "node--financement" && (
+        <NodeFinancement
+          node={resource as DrupalNode}
+          additionalContent={
+            additionalContent as NodeFinancementProps["additionalContent"]
           }
         />
       )}
