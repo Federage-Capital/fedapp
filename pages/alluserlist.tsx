@@ -17,9 +17,10 @@ import { PageHeader } from "components/page-header"
 interface AlluserlistPageProps extends LayoutProps {
   user: DrupalNode[];
  groups: DrupalNode[];
+ grouprelatioshiptype: DrupalNode[];
 }
 
-export default function AlluserlistPage({ menus, blocks, users, groups, members, }: AlluserlistPageProps) {
+export default function AlluserlistPage({ menus, blocks, users, groups, members, greltypes }: AlluserlistPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
   const { status } = useSession()
@@ -36,7 +37,25 @@ export default function AlluserlistPage({ menus, blocks, users, groups, members,
         ]}
       />
 
-    <p>  Groupes : group--contracteur : - role admin = Mes groupes admin - tous les groupes publiés visibles </p>
+      <p>  group relatioship type : ????</p>
+      {greltypes.map((greltype) => (
+               <li key={greltypes.id}>
+                   <a className="text-sm font-semibold transition-colors hover:bg-black hover:underline">
+                <p>   {greltypes}</p>
+
+                   </a>
+               </li>
+             ))}
+
+
+
+
+
+
+             <p>  Tous les Projets </p>
+             <p>  Tous les Projets </p>
+
+    <p>  Tous les Projets </p>
     {groups.map((group) => (
              <li key={group.id}>
                  <a className="text-sm font-semibold transition-colors hover:bg-black hover:underline">
@@ -44,22 +63,45 @@ export default function AlluserlistPage({ menus, blocks, users, groups, members,
 <p> {group.langcode}</p>
 <p>révision le  {group.revision_created}</p>
 <p>créé le   {group.created}</p>
+<p>Proprio  du projet {group.uid.display_name}</p>
+<Link href={group.path.alias} passHref>
+  <a className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
+chemin : {group.path.alias}
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-4 h-4 ml-2"
+    >
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  </a>
+</Link>
                  </a>
              </li>
            ))}
 
 
-<p>  Membres : group_content--contracteur-group_membership : toutes les participations dans tous les groupes</p>
+<p>  Membres : toutes les participations dans tous les groupes</p>
 {members.map((member) => (
          <li key={member.id}>
              <a className="text-sm font-semibold transition-colors hover:bg-black hover:underline">
-          <p>   {member.label}</p>
+
+            <p> Type de groupe  {member.type}</p>
+            <p> Id user dans le  groupe  {member.id}</p>
+              <p> Id user dans le  groupe Drupal Internat ID  {member.drupal_internal__id}</p>
+              <p>   {member.label}</p>
 <p> {member.path.alias}</p>
 <p> {member.revision_created}</p>
-<p> {member.created}</p>
+<p> {member.uid.type}</p>
              </a>
          </li>
        ))}
+
+
 
     </Layout>
   )
@@ -86,22 +128,50 @@ export async function getServerSideProps(
 
 
 const groups = await drupal.getResourceCollection<DrupalNode[]>(
-  "group--contracteur",
+  "group--projets_federage",
   {
+    params: new DrupalJsonApiParams()
+      .addInclude(["uid", "group_type", "revision_user"])
+      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+
+      .addSort("created", "DESC")
+      .getQueryObject(),
+
     withAuth: session.accessToken,
 
   }
 
 )
 
+const greltypes = await drupal.getResourceCollection<DrupalNode[]>(
+  "group_relationship_type--group_relationship_type",
+  {
+
+    withAuth: session.accessToken,
+
+  }
+
+)
 const members = await drupal.getResourceCollection<DrupalNode[]>(
-  "group_content--contracteur-group_membership",
+  "group_relationship--projets_federage-9376111be951852",
   {
+    params: new DrupalJsonApiParams()
+      .addInclude(["uid" ])
+      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+
+      .addSort("created", "DESC")
+      .getQueryObject(),
+      params: {
+
+      },
     withAuth: session.accessToken,
 
   }
 
 )
+
+
+
 
 
 
@@ -110,6 +180,7 @@ const members = await drupal.getResourceCollection<DrupalNode[]>(
        ...(await getGlobalElements(context)),
        groups,
        members,
+       greltypes,
      },
    };
  }

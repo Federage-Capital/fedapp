@@ -106,9 +106,32 @@ export function getParams(
         "meta",
       ])
       .addFields("user--user", ["display_name", "user_picture"])
-      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+      .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta2"])
   }
 
+  if (name === "group_relationship_type--group_relationship_type") {
+    return params
+      .addInclude([
+        "uid",
+        "group_relationship_type",
+        "entity_id",
+      ])
+      .addFields("group_relationship_type--group_relationship_type", [
+        "title",
+        "status",
+        "path",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "group_type",
+        "drupal_internal__id",
+        "id",
+        "meta",
+      ])
+      .addFields("user--user", ["display_name", "user_picture"])
+      .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
+  }
 
   if (name === "menu_link_content--menu_link_content") {
     return params.addFields("menu_link_content--menu_link_content", [

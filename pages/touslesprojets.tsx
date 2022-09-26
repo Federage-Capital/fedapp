@@ -69,13 +69,17 @@ chemin : {onefederage.path.alias}
 tous les all financements :
 {allfinancements.map((onefinancement) => (
          <li key={onefinancement.id}>
+        <p>Quel projet ? : {onefinancement.gid.id}</p>
+        {onefinancement.label}
+        {onefinancement.label}
+
           <p> Nom : {onefinancement.label}</p>
 <p>lang : {onefinancement.langcode}</p>
 <p>révision le : {onefinancement.revision_created}</p>
 <p>créé le : {onefinancement.created}</p>
 <p>Id du financement : {onefinancement.entity_id.id}</p>
-<p>Id du node financement : {onefinancement.entity_id.resourceIdObjMeta.drupal_internal__target_id}</p>
-<a href={onefinancement.entity_id.resourceIdObjMeta.drupal_internal__target_id} className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
+<p>Id du node financement : node/{onefinancement.entity_id.resourceIdObjMeta.drupal_internal__target_id}</p>
+<a href={onefinancement.entity_id.id} className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
 chemin : {onefinancement.entity_id.resourceIdObjMeta.drupal_internal__target_id}
     <svg
       viewBox="0 0 24 24"
@@ -121,8 +125,9 @@ const allfinancements = await drupal.getResourceCollectionFromContext<DrupalNode
   "group_relationship--projets_federage-b5856fc584d18c4",
   {
     params: new DrupalJsonApiParams()
-      .addInclude(["uid", "group_relationship_type", "entity_id", "meta" ])
-      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+      .addInclude(["uid", "group_relationship_type", "group--projets_federage", "entity_id", "meta","gid"])
+      .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
+      .addFields("group--projets_federage", ["id", "type","meta2"])
 
       .addSort("created", "DESC")
       .getQueryObject(),
@@ -136,7 +141,7 @@ const allfinancements = await drupal.getResourceCollectionFromContext<DrupalNode
      props: {
        ...(await getGlobalElements(context)),
        allfederages,
-allfinancements,
+       allfinancements,
      },
    };
  }
