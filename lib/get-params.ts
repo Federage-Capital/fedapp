@@ -63,6 +63,53 @@ export function getParams(
       .addFields("taxonomy_term--tags", ["name", "path"])
   }
 
+
+  if (name === "group--projets_federage") {
+    return params
+      .addInclude([
+        "uid",
+        "group_type",
+      ])
+      .addFields("group--projets_federage", [
+        "title",
+        "status",
+        "path",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "group_type",
+        "drupal_internal__id",
+      ])
+      .addFields("user--user", ["display_name", "user_picture"])
+      .addFields("group_relationship_type--group_relationship_type", ["id", "type","drupal_internal__id"])
+  }
+
+  if (name === "group_relationship--projets_federage-b5856fc584d18c4") {
+    return params
+      .addInclude([
+        "uid",
+        "group_relationship_type",
+        "entity_id",
+      ])
+      .addFields("group_relationship--projets_federage-b5856fc584d18c4", [
+        "title",
+        "status",
+        "path",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "group_type",
+        "drupal_internal__id",
+        "id",
+        "meta",
+      ])
+      .addFields("user--user", ["display_name", "user_picture"])
+      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+  }
+
+
   if (name === "menu_link_content--menu_link_content") {
     return params.addFields("menu_link_content--menu_link_content", [
       "title,url",

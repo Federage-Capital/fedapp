@@ -9,6 +9,7 @@ import { Layout, LayoutProps } from "components/layout"
 import { NodeArticle, NodeArticleProps } from "components/node--article"
 import { NodePage } from "components/node--page"
 import { NodeFinancement, NodeFinancementProps } from "components/node--financement"
+import { NodeGroupFinancement, NodeGroupFinancementProps } from "components/node--groupfederage"
 
 
 
@@ -16,6 +17,7 @@ const RESOURCE_TYPES = [
   "node--page",
   "node--article",
   "node--financement",
+  "group--projets_federage",
 ]
 
 interface ResourcePageProps extends LayoutProps, PageProps {
@@ -46,6 +48,14 @@ export default function ResourcePage({
           node={resource as DrupalNode}
           additionalContent={
             additionalContent as NodeArticleProps["additionalContent"]
+          }
+        />
+      )}
+      {resource.type === "group--projets_federage" && (
+        <NodeGroupFinancement
+          node={resource as DrupalNode}
+          additionalContent={
+            additionalContent as NodeGroupFinancement["additionalContent"]
           }
         />
       )}

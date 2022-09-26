@@ -7,7 +7,7 @@ import { appWithTranslation } from "next-i18next"
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import "styles/globals.css"
-import 'styles/styles.css'
+import "styles/styles.css"
 
 
 NProgress.configure({ showSpinner: true })

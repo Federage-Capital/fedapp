@@ -358,25 +358,31 @@ export default function AccountsPage({
             </a>
           </Link>
         </div>
+
+
         {financements?.length ? (
           <div className="grid max-w-2xl gap-4 mx-auto">
+          Financements
             {financements.map((financement) => (
               <NodeArticleRow key={financement.id} node={financement} />
             ))}
           </div>
         ) : (
-          <p className="font-serif text-2xl text-center text-text">
+          <p className="text-2xl text-center text-text">
             {t("you-have-no-financements")}
           </p>
         )}
+
+
         {articles?.length ? (
           <div className="grid max-w-2xl gap-4 mx-auto">
+              Articles
             {articles.map((article) => (
               <NodeArticleRow key={article.id} node={article} />
             ))}
           </div>
         ) : (
-          <p className="font-serif text-2xl text-center text-text">
+          <p className="text-2xl text-center text-text">
             {t("you-have-no-articles")}
           </p>
         )}
@@ -399,7 +405,7 @@ export default function AccountsPage({
         .articles {
           font-size: 30px;
           font-family: Scope One, ui-serif, Georgia, Cambria, "Times New Roman",
-            Times, serif;
+            Times, sans-serif;
         }
         .actions {
           display: flex;
