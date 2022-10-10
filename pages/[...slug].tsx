@@ -55,7 +55,7 @@ export default function ResourcePage({
         <NodeGroupFinancement
           node={resource as DrupalNode}
           additionalContent={
-            additionalContent as NodeGroupFinancement["additionalContent"]
+            additionalContent as NodeGroupFinancementProps["additionalContent"]
           }
         />
       )}
@@ -150,6 +150,8 @@ export async function getStaticProps(
           .getQueryObject(),
       })
   }
+
+
 
   if (resource.type === "taxonomy_term--recipe_category") {
     // Fetch the term content.

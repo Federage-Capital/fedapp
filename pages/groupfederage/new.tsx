@@ -4,32 +4,32 @@ import { useTranslation } from "next-i18next"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormGroupfinancement } from "components/form--groupfinancement"
+import { FormArticle } from "components/form--groupfederage"
 
-interface NewGroupfinancementPageProps extends LayoutProps {}
+interface NewArticlesPageProps extends LayoutProps {}
 
 export default function NewArticlesPage({
   menus,
   blocks,
-}: NewGroupfinancementPageProps) {
+}: NewArticlesPageProps) {
   const { t } = useTranslation()
 
   return (
-    <Layout meta={{ title: t("new-financement") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
       <PageHeader
-        heading={t("new-financement")}
+        heading={t("new-groupfederage")}
         breadcrumbs={[
           {
             title: t("my-account"),
             url: "/account",
           },
           {
-            title: t("new-financement"),
+            title: t("new-groupfederage"),
           },
         ]}
       />
       <div className="container pb-10">
-        <FormGroupfinancement className="max-w-2xl mx-auto" />
+        <FormArticle className="max-w-2xl mx-auto" />
       </div>
     </Layout>
   )

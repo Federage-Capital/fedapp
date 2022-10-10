@@ -14,7 +14,7 @@ interface ArticlePageProps extends LayoutProps {
 }
 
 export default function ArticlesPage({
-  financements,
+  articles,
   menus,
   blocks,
 }: ArticlePageProps) {
@@ -25,20 +25,20 @@ export default function ArticlesPage({
       menus={menus}
       blocks={blocks}
       meta={{
-        title: t("financements"),
+        title: t("articles"),
       }}
     >
       <PageHeader
-        heading={t("financements")}
+        heading={t("articles")}
         breadcrumbs={[
           {
-            title: t("financements"),
+            title: t("articles"),
           },
         ]}
       />
       <div className="container">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {financements.map((financement) => (
+          {articles.map((article) => (
             <NodeArticleCard key={article.id} node={article} />
           ))}
         </div>
@@ -51,11 +51,11 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<ArticlePageProps>> {
   // Fetch all published articles sorted by date.
-  const financements = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-    "node--financement",
+  const articles = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "group--projets_federage",
     context,
     {
-      params: getParams("node--article", "card")
+      params: getParams("group--projets_federage", "card")
         .addSort("created", "DESC")
         .getQueryObject(),
     }
@@ -64,7 +64,7 @@ export async function getStaticProps(
   return {
     props: {
       ...(await getGlobalElements(context)),
-      financements,
+      articles,
     },
   }
 }

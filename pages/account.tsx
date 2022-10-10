@@ -23,10 +23,12 @@ interface AccountPageProps extends LayoutProps {
 export default function AccountsPage({
   articles,
   financements,
+  financementsdansgr,
   user,
   node,
   menus,
   blocks,
+  grfederagenodes,
 }: AccountPageProps) {
   const { t } = useTranslation();
   const { data } = useSession();
@@ -357,7 +359,86 @@ export default function AccountsPage({
               Nouveau financement
             </a>
           </Link>
+          <Link href="/groupfederage/new" passHref>
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+              Nouveau groupe de financement
+            </a>
+          </Link>
+
+          <Link href="/groupfederage/new" passHref>
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+              Nouveau financement dans un groupe
+            </a>
+          </Link>
+
         </div>
+
+
+<p>  Tous vos projets et financements dont vous êtes propriétaire ou auxquels vous participez </p>
+{grfederagenodes.map((nodefed) => (
+         <li key={nodefed.id}>
+
+         <p>  Titre du groupe de financement :  {nodefed.gid.label}</p>
+         <p>  path vers le détails du financement ;  node/{nodefed.drupal_internal__id}</p>
+         <Link href={nodefed.gid.path.alias} passHref>
+         <a className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
+         chemin : {nodefed.gid.path.alias}
+           <svg
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             strokeWidth="2"
+             strokeLinecap="round"
+             strokeLinejoin="round"
+             className="w-4 h-4 ml-2"
+           >
+             <path d="M5 12h14M12 5l7 7-7 7" />
+           </svg>
+         </a>
+         </Link>
+
+         <p>  Titre du fin  : {nodefed.label}</p>
+         <p>  id du fin : {nodefed.id}</p>
+         chemin : {nodefed.entity_id.path.alias}
+
+
+         </li>
+       ))}
+
+
+
+
+         {financementsdansgr.map((grfinancement) => (
+                  <li key={grfinancement.id}>
+
+                  <p>  Titre du groupe de financement :  {grfinancement.label}</p>
+                  <p>  path vers le détails du financement ;  node/{grfinancement.path.alias}</p>
+                  <Link href={grfinancement.path.alias} passHref>
+                  <a className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
+                  chemin : {grfinancement.path.alias}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4 ml-2"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                  </Link>
+
+                  <p>  Titre du fin  : {grfinancement.label}</p>
+                  <p>  id du fin : {grfinancement.drupal_internal__id}</p>
+                  chemin : {grfinancement.path.alias}
+
+
+                  </li>
+                ))}
+
+
 
 
         {financements?.length ? (
@@ -378,6 +459,7 @@ export default function AccountsPage({
           <div className="grid max-w-2xl gap-4 mx-auto">
               Articles
             {articles.map((article) => (
+
               <NodeArticleRow key={article.id} node={article} />
             ))}
           </div>
@@ -436,6 +518,13 @@ export async function getServerSideProps(
     };
   }
 
+  const params = new DrupalJsonApiParams()
+      .addInclude(["uid.user_picture"])
+      .addSort("created", "ASC")
+
+
+
+
   // Fetch all articles sorted by the user.
   const articles = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "node--article",
@@ -484,6 +573,44 @@ export async function getServerSideProps(
     }
   );
 
+  const financementsdansgr = await drupal.getResourceCollection<DrupalNode[]>(
+    "group--projets_federage",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid", "group_type", "revision_user"])
+        .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+        .addFields("group_type--group_type", ["id", "type","meta"])
+
+        .addFields("user--user", ["display_name", "user_picture"])
+        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
+
+  const grfederagenodes = await drupal.getResourceCollection<DrupalNode[]>(
+    "group_relationship--projets_federage-b5856fc584d18c4",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid", "group_type", "gid","entity_id"])
+
+        .addFields("group--projets_federage", ["label", "path"])
+        .addFields("user--user", ["display_name", "user_picture"])
+        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
   // Fetch user info
   const user = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "user--user",
@@ -509,8 +636,9 @@ export async function getServerSideProps(
       ...(await getGlobalElements(context)),
       articles,
       financements,
-
+      financementsdansgr,
       user,
+      grfederagenodes,
     },
   };
 }

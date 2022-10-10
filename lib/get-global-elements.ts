@@ -25,7 +25,7 @@ export async function getGlobalElements(
   const footerMenu = await drupal.getMenu("footer", menuOpts)
 
   // Fetch recipes collections view.
-
+  // Fetch recipes collections view.
 
   // Fetch the footer promo block.
   // You would normally use drupal.getResource() here to fetch the block by uuid.
@@ -44,7 +44,6 @@ export async function getGlobalElements(
       footer: footerMenu.items,
     },
     blocks: {
-
     },
   }
 }
