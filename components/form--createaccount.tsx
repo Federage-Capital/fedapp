@@ -63,12 +63,16 @@ return setStatus("error")
 
 <div>
 
-    <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
-      <div>
+    <form className={classNames("grid gap-4","inputWithButton", className)}
+
+        onSubmit={handleSubmit(onSubmit)}>
+
+
+        <div className="grid">
 
       <input
-        id="name"
-        name="name"
+        id="typestructure"
+        name="typestructure"
         type="text"
         placeholder="Type de structure"
         className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
@@ -76,8 +80,8 @@ return setStatus("error")
       />
 
       <input
-        id="name"
-        name="name"
+        id="siren"
+        name="siren"
         type="text"
         placeholder="Numéro SIREN"
         className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"

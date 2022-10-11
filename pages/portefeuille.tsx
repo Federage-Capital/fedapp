@@ -13,16 +13,12 @@ import { PageHeader } from "components/page-header";
 import { NodeArticleRow } from "components/node--article--row";
 import useModal from "../hooks/useModal";
 import Modal from "../components/modal";
-import Image, { ImageProps } from "next/image"
-import { absoluteURL } from "lib/utils"
 
 interface AccountPageProps extends LayoutProps {
   articles: DrupalNode[];
   user: DrupalNode[];
   node: DrupalNode;
 }
-
-
 
 export default function AccountsPage({
   articles,
@@ -32,15 +28,8 @@ export default function AccountsPage({
   node,
   menus,
   blocks,
-  media,
-  objectFit,
-  priority,
-
   grfederagenodes,
 }: AccountPageProps) {
-
-
-
   const { t } = useTranslation();
   const { data } = useSession();
   const router = useRouter();
@@ -95,9 +84,6 @@ export default function AccountsPage({
   const handleNewPassword = (e) => {
     setNewPassword(e.target.value);
   };
-
-
-
 
   async function editUser() {
     const basicAuthCredential = user[0].display_name + ":" + password;
@@ -237,30 +223,10 @@ export default function AccountsPage({
             <b>Email: </b>
             {user[0].mail}
           </h2>
-          {user[0].user_picture && (
-            <h2>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
-            />
-              <b>picture: </b>
-              <Image
-                src={absoluteURL(user[0].user_picture.uri.url)}
-                objectFit={objectFit}
-                alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
-                title={user[0].user_picture.resourceIdObjMeta.title}
-                priority={priority}
-                width={200}
-                height={200}
-              />
-            </h2>
-          )}
           {user[0].field_user_slogan && (
             <h2>
               <b>Slogan: </b>
-              {user[0].field_user_slogan.value}
+              {user[0].field_user_slogan}
             </h2>
           )}
           {user[0].field_site_internet && (
@@ -651,18 +617,14 @@ export async function getServerSideProps(
     context,
     {
       params: new DrupalJsonApiParams()
-      .addInclude(["user_picture"])
-      .addFields("user--user", [
+        .addFields("user--user", [
           "display_name",
           "mail",
           "drupal_internal__uid",
           "field_description",
           "field_site_internet",
           "field_user_slogan",
-            "user_picture",
         ])
-        .addFields("file--file", ["uri", "resourceIdObjMeta"])
-
         .addFilter("drupal_internal__uid", session.user.userId)
         .getQueryObject(),
       withAuth: session.accessToken,

@@ -7,7 +7,7 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import { useForm } from "react-hook-form"
-import { contactFormSchema2 } from "../validations/create_account_copie"
+import { contactFormSchema2 } from "../validations/resetaccount.ts"
 
 interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
 
@@ -59,15 +59,18 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
       </div>
     ) : null}
 
-    <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
-      <div>
+    <form className={classNames("grid gap-4","inputWithButton", className)}
 
+        onSubmit={handleSubmit(onSubmit)}>
+
+
+        <div className="grid">
 
         <input
           id="mail"
           name="mail"
           type="mail"
-          placeholder="Votre email"
+          placeholder="Adresse mail"
           className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           {...register("mail")}
         />
@@ -76,7 +79,7 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
           data-cy="btn-submit"
           className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
         >
-          Réinitialisation du mot de passe
+          Enregistrement
         </button>
       </div>
       <div>
