@@ -61,35 +61,29 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
           {formStatus.message}
         </p>
       )}
-      <div className="grid gap-2">
-        <label htmlFor="username" className="font-semibold text-text">
-          {t("username")} <span className="text-sm text-red-500">*</span>
-        </label>
+
+      <div className="grid">
+
         <input
           id="username"
           name="username"
           maxLength={255}
+          placeholder="login"
           required
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+          className="relative block w-full px-3 py-2 mt-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         />
-        <p className="text-sm text-text">{t("enter-your-drupal-username")}</p>
-      </div>
-      <div className="grid gap-2">
-        <label htmlFor="password" className="font-semibold text-text">
-          {t("password")} <span className="text-sm text-red-500">*</span>
-        </label>
+
         <input
           type="password"
           id="password"
           name="password"
+          placeholder="Mot de passe"
           required
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+          className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         />
-        <p className="text-sm text-text">
-          {t("enter-the-password-that-accompanies-your-username")}
-        </p>
-      </div>
-      <div>
+
+
+
         <input
           type="submit"
           className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"

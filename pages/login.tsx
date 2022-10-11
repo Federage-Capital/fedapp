@@ -39,6 +39,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
       />
       {status === "unauthenticated" && (
         <div className="container pb-10">
+        <h3 className="mb-10 text-1xl font-grey text-center">Saisir les identifiants du compte  pour se connecter</h3>
 
 <div className="flex flex-wrap">
         <div className="w-full">
@@ -51,7 +52,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 className={
                   "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                   (openTab === 1
-                    ? "text-white bg-" + "-600"
+                    ? "bg-" + "-600"
                     : "text-" + "-600 bg-white")
                 }
                 onClick={e => {
@@ -70,7 +71,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 className={
                   "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                   (openTab === 2
-                    ? "text-white bg-" + "-600"
+                    ? "bg-" + "-600"
                     : "text-" + "-600 bg-white")
                 }
                 onClick={e => {
@@ -89,7 +90,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 className={
                   "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                   (openTab === 3
-                    ? "text-white bg-" + "-600"
+                    ? "bg-" + "-600"
                     : "text-" + "-600 bg-white")
                 }
                 onClick={e => {
@@ -104,7 +105,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">

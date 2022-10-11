@@ -62,21 +62,13 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
     <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
       <div>
 
-      </div>
-      <div>
-        <label
-          htmlFor="mail"
-          className="block text-sm font-medium text-gray-700"
-        >
 
-
-        </label>
         <input
           id="mail"
           name="mail"
           type="mail"
-          placeholder="mon@entreprise.com"
-          className="d-inline-block w-3/6 px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          placeholder="Votre email"
+          className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           {...register("mail")}
         />
         <button

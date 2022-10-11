@@ -32,7 +32,25 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
 
-        <h1 className="mb-10 text-6xl font-black">Latest Articles.</h1>
+        <h1 className="mb-10 text-5xl font-black text-center"><p>Tous acteurs de </p> <p>l'économie réelle.</p></h1>
+        <h2 className="mb-10 text-3xl font-grey text-center">Solution de financement-capital  pour entreprises</h2>
+
+<h3 className="mb-10 text-1xl font-grey text-left">SECTIONS</h3>
+<h4>
+<p>Démarrer</p>
+<p>S'inscrire pour commencer un financement</p>
+<br/>
+<p>Explorer</p>
+<p>Découvrir les besoins des entreprises</p>
+<br/>
+
+<p>Blog</p>
+<p>Apprendre sur le financement-capital</p>
+<br/>
+
+<p>Documentation</p>
+<p>Supports techniques de l’application</p>
+</h4>
         {nodes?.length ? (
           nodes.map((node) => (
             <div key={node.id}>

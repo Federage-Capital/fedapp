@@ -20,7 +20,7 @@ export function Header({ menus }: HeaderProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
 
   return (
-    <header className="bg-white">
+    <header>
       <div className="container">
         <div className="grid items-center justify-between grid-cols-3 py-4 border-b border-gray-lighter md:py-6">
           <div>
@@ -38,13 +38,13 @@ export function Header({ menus }: HeaderProps) {
         <Link href="/" passHref>
           <a className="flex justify-start">
 
-          <Image src="/federage-logo.svg" height={100} width={400}  />
+          <Image src="/federage-logo.svg" height={32} width={154}  />
 
             <span className="sr-only">{siteConfig.name}</span>
           </a>
         </Link>
         <button
-          className="absolute transition-all border beorder-transparent md:hidden right-4 top-12 hover:border-link"
+          className="absolute transition-all border beorder-transparent md:hidden right-4 top-6 hover:border-link"
           onClick={() => setShowMenu(!showMenu)}
         >
           <svg

@@ -365,7 +365,7 @@ export default function AccountsPage({
             </a>
           </Link>
 
-          <Link href="/groupfederage/new" passHref>
+          <Link href="/financement/new" passHref>
           <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau financement dans un groupe
             </a>
