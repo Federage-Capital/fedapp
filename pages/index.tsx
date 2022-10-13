@@ -5,7 +5,6 @@ import { DrupalNode } from "next-drupal"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Meta, MetaProps } from "components/meta"
 import { useTranslation } from "next-i18next"
-import { Footer, FooterProps } from "components/footer"
 
 import { drupal } from "lib/drupal"
 import { Layout, LayoutProps } from "components/layout"
