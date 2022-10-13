@@ -15,6 +15,12 @@ import useModal from "../hooks/useModal";
 import Modal from "../components/modal";
 import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
+import { Tetiere } from "components/tetiere";
+
+import { Fragment, useState } from 'react'
+import { Listbox, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+
 
 interface AccountPageProps extends LayoutProps {
   articles: DrupalNode[];
@@ -41,6 +47,7 @@ export default function AccountsPage({
 
 
 
+
   const { t } = useTranslation();
   const { data } = useSession();
   const router = useRouter();
@@ -57,6 +64,9 @@ export default function AccountsPage({
   const [slogan, setSlogan] = React.useState(user[0]?.field_user_slogan);
   const [website, setWebsite] = React.useState(
     user[0]?.field_site_internet?.uri
+  );
+  const [logo, setLogo] = React.useState(
+    user[0]?.user_picture?.uri
   );
   const [password, setPassword] = React.useState("");
   const [newpassword, setNewPassword] = React.useState("");
@@ -81,6 +91,11 @@ export default function AccountsPage({
     setWebsite(e.target.value);
   };
 
+  // Handling the logo change
+  const handleLogo = (e) => {
+    setLogo(e.target.value);
+  };
+
   // Handling the email change
   const handleSlogan = (e) => {
     setSlogan(e.target.value);
@@ -97,6 +112,9 @@ export default function AccountsPage({
   };
 
 
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 
 
   async function editUser() {
@@ -123,6 +141,7 @@ export default function AccountsPage({
             },
           ],
           field_site_internet: [{ uri: website }],
+          user_picture: [{ uri: logo }],
           field_user_slogan: [
             {
               value: slogan,
@@ -134,6 +153,7 @@ export default function AccountsPage({
             },
           ],
         }),
+
         headers: {
           "Content-Type": "application/json",
           "access-control-allow-origin": "http://localhost:3000/",
@@ -207,30 +227,91 @@ export default function AccountsPage({
       menus={menus}
       blocks={blocks}
       meta={{
-        title: t("my-account"),
+        title: t("mon-portefeuille"),
       }}
     >
       <PageHeader
-        heading={t("my-account")}
+        heading={t("mon-portefeuille")}
         breadcrumbs={[
           {
-            title: t("my-account"),
+            title: t("mon-portefeuille"),
           },
         ]}
       ></PageHeader>
       <div className="container" id="account">
+
+
+
         <div className="title">
-          <h1>Welcome {user[0].display_name}</h1>
           <div className="mb-4">
-            <button
-              className="modal-toggle text-underline mr-4"
-              onClick={togglePasswordForm}
-            >
-              <u>Edit password</u>
-            </button>
-            <button className="modal-toggle" onClick={toggleUserDataForm}>
-              <u>Edit profile</u>
-            </button>
+
+          <Listbox>
+               {({ open }) => (
+                 <>
+                   <Listbox.Label className="sr-only"> Change published status </Listbox.Label>
+                   <div className="relative">
+                     <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
+                       <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
+                         <div className="inline-flex items-center rounded-l-md border border-transparent bg-indigo-500 py-2 pl-3 pr-4 text-white shadow-sm">
+                          Welcome : {user[0].display_name}
+                         </div>
+                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md bg-indigo-500 p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+                           <span className="sr-only">Change published status</span>
+                           <ChevronDownIcon className="h-5 w-5 text-white" aria-hidden="true" />
+                         </Listbox.Button>
+                       </div>
+                     </div>
+
+                     <Transition
+                       show={open}
+                       as={Fragment}
+                       leave="transition ease-in duration-100"
+                       leaveFrom="opacity-100"
+                       leaveTo="opacity-0"
+                     >
+                       <Listbox.Options className="absolute right-0 z-10 mt-2 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                           <Listbox.Option
+
+                           >
+                           <ul class="absolute right-0 z-10 mt-2 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
+
+                           <li class="text-gray-900 cursor-default select-none p-4 text-sm" id="listbox-option-0" role="option">
+                                  <div class="flex flex-col">
+                                    <div class="flex justify-between">
+
+
+                                    </div>
+                                    <p class="text-gray-500 mt-2"><button className="modal-toggle" onClick={toggleUserDataForm}>
+                                      <u>Edit profile</u>
+                                    </button></p>
+                                  </div>
+                                </li>
+                                <li class="text-gray-900 cursor-default select-none p-4 text-sm" id="listbox-option-0" role="option">
+                                       <div class="flex flex-col">
+                                         <div class="flex justify-between">
+
+                                         </div>
+                                         <p class="text-gray-500 mt-2">
+                                                     <button
+                                                       className="modal-toggle text-underline mr-4"
+                                                       onClick={togglePasswordForm}
+                                                     >
+                                                       <u>Edit password</u>
+                                                     </button></p>
+                                       </div>
+                                     </li>
+                                 </ul>
+                           </Listbox.Option>
+
+                       </Listbox.Options>
+                     </Transition>
+                   </div>
+                 </>
+               )}
+             </Listbox>
+
+
+
           </div>
 
           <h2>
@@ -239,12 +320,8 @@ export default function AccountsPage({
           </h2>
           {user[0].user_picture && (
             <h2>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
-            />
+
+
               <b>picture: </b>
               <Image
                 src={absoluteURL(user[0].user_picture.uri.url)}
@@ -336,6 +413,18 @@ export default function AccountsPage({
                 />
               </div>
               <div className="form-group">
+                Add your logo
+
+                <input
+                  placeholder="Add your logo"
+                  type="file"
+                  id="image"
+                  name="image"
+                />
+
+
+              </div>
+              <div className="form-group">
                 Website
                 <input
                   placeholder="Add your website"
@@ -382,25 +471,24 @@ export default function AccountsPage({
           </Modal>
         </div>
         <div className="articles">
-          <h1>Your content</h1>
           <Link href="/articles/new" passHref>
-            <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+            <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               New Article
             </a>
           </Link>
           <Link href="/financements/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau financement
             </a>
           </Link>
           <Link href="/groupfederage/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau groupe de financement
             </a>
           </Link>
 
           <Link href="/financement/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau financement dans un groupe
             </a>
           </Link>
