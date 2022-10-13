@@ -2,6 +2,8 @@ import classNames from "classnames"
 import { DrupalMenuLinkContent } from "next-drupal"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { MenuUser } from "components/menu-user"
+import * as React from "react"
 
 interface MenuMainProps {
   items: DrupalMenuLinkContent[]
@@ -9,6 +11,7 @@ interface MenuMainProps {
 
 export function MenuMain({ items, ...props }: MenuMainProps) {
   const router = useRouter()
+  const [showMenu, setShowMenu] = React.useState<Boolean>(false)
 
   return (
     <nav {...props}>
@@ -38,6 +41,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
           )
         })}
       </ul>
+
     </nav>
   )
 }

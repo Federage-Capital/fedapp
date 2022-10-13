@@ -8,7 +8,6 @@ import { useTranslation } from "next-i18next"
 import { Footer, FooterProps } from "components/footer"
 
 import { drupal } from "lib/drupal"
-import { Layout, LayoutProps } from "components/layout"
 import { NodeArticleTeaser } from "components/node--article--teaser"
 import siteConfig from "site.config"
 
@@ -22,47 +21,61 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
   const { t } = useTranslation()
 
   return (
-    <Layout meta={{ title: t("The open source company") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Tous acteurs de l'économie réelle") }} menus={menus} blocks={blocks}>
 
 
 
-      <div>
+      <div class="max-w-screen-lg px-6 mx-auto">
 
 
+<div class="container height-1-2 pt-25">
 
 
+        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-800">l'économie réelle.</span></h1>
+        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital  pour entreprises</h2>
 
-        <h1 className="mb-10 text-5xl font-black text-center"><p>Tous acteurs de </p> <p>l'économie réelle.</p></h1>
-        <h2 className="mb-10 text-3xl font-grey text-center">Solution de financement-capital  pour entreprises</h2>
+</div>
 
-<h3 className="mb-10 text-1xl font-grey text-left">SECTIONS</h3>
-<h4>
-<p>Démarrer</p>
+
+<h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
+<hr class="mb-10"/>
+<div class="grid grid-cols-6 gap-4">
+  <div>01</div>
+<div class="col-span-5"><h2 class="text-xl">Démarrer</h2>
 <p>S'inscrire pour commencer un financement</p>
-<br/>
-<p>Explorer</p>
-<p>Découvrir les besoins des entreprises</p>
-<br/>
+</div>
+  <hr class="col-span-6 my-10"/>
+  <div>02</div>
+  <div class="col-span-5">
+  <h2 class="text-xl">Explorer</h2>
+  <p>Découvrir les besoins des entreprises</p>
+  </div>
+    <hr class="col-span-6 my-10"/>
 
-<p>Blog</p>
-<p>Apprendre sur le financement-capital</p>
-<br/>
+    <div>03</div>
+    <div class="col-span-5">
+    <h2 class="text-xl">Blog</h2>
+    <p>Apprendre sur le financement-capital</p>
+    </div>
+      <hr class="col-span-6 my-10"/>
 
-<p>Documentation</p>
-<p>Supports techniques de l’application</p>
-</h4>
-        {nodes?.length ? (
-          nodes.map((node) => (
-            <div key={node.id}>
-              <NodeArticleTeaser node={node} />
-              <hr className="my-20" />
+
+          <div>04</div>
+          <div class="col-span-5">
+          <h2 class="text-xl">Documentation</h2>
+          <p>Supports techniques de l’application</p>
+                    </div>
+            <hr class="col-span-6 my-10"/>
             </div>
-          ))
-        ) : (
-          <p className="py-4">No nodes found</p>
-        )}
+
+
+
+
+
+
+
+
       </div>
-      <Footer menus={{ footer: menus.footer }} blocks={blocks} />
 
     </Layout>
   )

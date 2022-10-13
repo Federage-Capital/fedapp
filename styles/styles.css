@@ -25,3 +25,14 @@ background-color: rgba(221, 1, 43, 1);
   background-color: rgba(1, 43, 255, 1);
   color:#FFFF;
     }
+
+.height-1-2{
+height: 50vh;
+  }
+
+  .pt-25{
+padding-top:20%;
+    }
+
+
+    /* Modifs Arnaud */

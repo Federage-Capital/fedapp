@@ -472,23 +472,23 @@ export default function AccountsPage({
         </div>
         <div className="articles">
           <Link href="/articles/new" passHref>
-            <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+            <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               New Article
             </a>
           </Link>
           <Link href="/financements/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau financement
             </a>
           </Link>
           <Link href="/groupfederage/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau groupe de financement
             </a>
           </Link>
 
           <Link href="/financement/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
               Nouveau financement dans un groupe
             </a>
           </Link>

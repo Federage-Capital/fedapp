@@ -76,7 +76,7 @@ return setStatus("error")
         type="text"
         placeholder="Type de structure"
         className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-        {...register("name")}
+        {...register("typesdestructure")}
       />
 
       <input
@@ -85,7 +85,7 @@ return setStatus("error")
         type="text"
         placeholder="Numéro SIREN"
         className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-        {...register("name")}
+        {...register("siren")}
       />
 
       <input
