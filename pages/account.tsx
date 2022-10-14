@@ -349,7 +349,13 @@ financementsdansgr,
                )}
              </Listbox>
 
-
+             <p className="text-2xl text-center text-text">
+             <Link href="/groupfederage/new" passHref>
+             <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                Créez une SEP
+               </a>
+             </Link>
+             </p>
 
           </div>
 
