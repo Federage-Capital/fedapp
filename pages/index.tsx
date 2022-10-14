@@ -25,10 +25,10 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
 
-      <div class="max-w-screen-lg px-6 mx-auto">
+      <div className="max-w-screen-lg px-6 mx-auto">
 
 
-<div class="container height-1-2 pt-25">
+<div className="container pt-25 pb-25">
 
 
         <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-800">l'économie réelle.</span></h1>

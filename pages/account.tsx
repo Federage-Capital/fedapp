@@ -11,15 +11,19 @@ import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
 import { NodeArticleRow } from "components/node--article--row";
+import { NodeGroupfederageRow } from "components/node--groupfederage--row";
+
 import useModal from "../hooks/useModal";
 import Modal from "../components/modal";
 import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
-import { Tetiere } from "components/tetiere";
+import { MediaImage } from "components/media--image"
+import { ChartDemo } from "components/chartdemo";
 
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { formatDate } from "lib/utils"
 
 
 interface AccountPageProps extends LayoutProps {
@@ -31,9 +35,8 @@ interface AccountPageProps extends LayoutProps {
 
 
 export default function AccountsPage({
-  articles,
-  financements,
-  financementsdansgr,
+financementsdansgr,
+
   user,
   node,
   menus,
@@ -41,8 +44,6 @@ export default function AccountsPage({
   media,
   objectFit,
   priority,
-
-  grfederagenodes,
 }: AccountPageProps) {
 
 
@@ -116,6 +117,9 @@ export default function AccountsPage({
     return classes.filter(Boolean).join(' ')
   }
 
+  const { status } = useSession()
+  const [openTab, setOpenTab] = React.useState(1);
+
 
   async function editUser() {
     const basicAuthCredential = user[0].display_name + ":" + password;
@@ -141,7 +145,7 @@ export default function AccountsPage({
             },
           ],
           field_site_internet: [{ uri: website }],
-          user_picture: [{ uri: logo }],
+          user_picture: [{ url: logo }],
           field_user_slogan: [
             {
               value: slogan,
@@ -222,6 +226,21 @@ export default function AccountsPage({
     editPassword();
   };
 
+
+  async function handleDelete() {
+    if (!window?.confirm(t("are-you-use-you-want-to-delete-this-article"))) {
+      return
+    }
+
+    const response = await fetch(`/api/group/projets_federage/${financementsdansgr.id}`, {
+      method: "DELETE",
+    })
+
+    if (response?.ok) {
+      router.reload()
+    }
+  }
+
   return (
     <Layout
       menus={menus}
@@ -252,12 +271,32 @@ export default function AccountsPage({
                    <div className="relative">
                      <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
                        <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
-                         <div className="inline-flex items-center rounded-l-md border border-transparent bg-indigo-500 py-2 pl-3 pr-4 text-white shadow-sm">
-                          Welcome : {user[0].display_name}
+                         <div className="inline-flex items-center rounded-l-md border border-transparent  py-2 pl-3 pr-4  shadow-sm">
+
+
+
+                          {user[0].user_picture && (
+                            <h2>
+
+
+                              <Image
+                                src={absoluteURL(user[0].user_picture.uri.url)}
+                                objectFit={objectFit}
+                                alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
+                                title={user[0].user_picture.resourceIdObjMeta.title}
+                                priority={priority}
+                                width={70}
+                                height={70}
+                                class='rounded-full'
+                              />
+                            </h2>
+                          )}
+                          <p>{user[0].display_name}</p>
+
                          </div>
-                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md bg-indigo-500 p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
                            <span className="sr-only">Change published status</span>
-                           <ChevronDownIcon className="h-5 w-5 text-white" aria-hidden="true" />
+                           <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
                          </Listbox.Button>
                        </div>
                      </div>
@@ -269,7 +308,7 @@ export default function AccountsPage({
                        leaveFrom="opacity-100"
                        leaveTo="opacity-0"
                      >
-                       <Listbox.Options className="absolute right-0 z-10 mt-2 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                       <Listbox.Options className="absolute left-0 z-10 mt-2 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                            <Listbox.Option
 
                            >
@@ -314,51 +353,9 @@ export default function AccountsPage({
 
           </div>
 
-          <h2>
-            <b>Email: </b>
-            {user[0].mail}
-          </h2>
-          {user[0].user_picture && (
-            <h2>
 
 
-              <b>picture: </b>
-              <Image
-                src={absoluteURL(user[0].user_picture.uri.url)}
-                objectFit={objectFit}
-                alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
-                title={user[0].user_picture.resourceIdObjMeta.title}
-                priority={priority}
-                width={200}
-                height={200}
-              />
-            </h2>
-          )}
-          {user[0].field_user_slogan && (
-            <h2>
-              <b>Slogan: </b>
-              {user[0].field_user_slogan.value}
-            </h2>
-          )}
-          {user[0].field_site_internet && (
-            <h2>
-              <b>Website: </b>
-              {user[0].field_site_internet.uri}
-            </h2>
-          )}
-          {user[0].field_description?.value && (
-            <>
-              <h2>
-                <b>Description: </b>
-              </h2>
-              <p
-                className="description"
-                dangerouslySetInnerHTML={{
-                  __html: user[0].field_description.value,
-                }}
-              ></p>
-            </>
-          )}
+
         </div>
         <div className="actions">
           <Modal
@@ -470,157 +467,163 @@ export default function AccountsPage({
             </form>
           </Modal>
         </div>
-        <div className="articles">
-          <Link href="/articles/new" passHref>
-            <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-              New Article
-            </a>
-          </Link>
-          <Link href="/financements/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-              Nouveau financement
-            </a>
-          </Link>
-          <Link href="/groupfederage/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-              Nouveau groupe de financement
-            </a>
-          </Link>
 
-          <Link href="/financement/new" passHref>
-          <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-              Nouveau financement dans un groupe
-            </a>
-          </Link>
+        <div className="flex flex-wrap">
+                <div className="w-full">
+                  <ul
+                    className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
+                    role="tablist"
+                  >
+                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                      <a
+                        className={
+                          "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                          (openTab === 1
+                            ? "bg-" + "-600"
+                            : "text-" + "-600 bg-white")
+                        }
+                        onClick={e => {
+                          e.preventDefault();
+                          setOpenTab(1);
+                        }}
+                        data-toggle="tab"
+                        href="#link1"
+                        role="tablist"
+                      >
+                        Total
+                      </a>
+                    </li>
+                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                      <a
+                        className={
+                          "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                          (openTab === 2
+                            ? "bg-" + "-600"
+                            : "text-" + "-600 bg-white")
+                        }
+                        onClick={e => {
+                          e.preventDefault();
+                          setOpenTab(2);
+                        }}
+                        data-toggle="tab"
+                        href="#link2"
+                        role="tablist"
+                      >
+En cours
+                      </a>
+                    </li>
+                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                      <a
+                        className={
+                          "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                          (openTab === 3
+                            ? "bg-" + "-600"
+                            : "text-" + "-600 bg-white")
+                        }
+                        onClick={e => {
+                          e.preventDefault();
+                          setOpenTab(3);
+                        }}
+                        data-toggle="tab"
+                        href="#link3"
+                        role="tablist"
+                      >
+                         Demandes
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
+                    <div className="px-4 py-5 flex-auto">
+                      <div className="tab-content tab-space">
+                        <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                          <p>
+<ChartDemo />
 
-        </div>
+{financementsdansgr?.length ? (
+  <div className="">
 
-
-<p>  Tous vos projets et financements dont vous êtes propriétaire ou auxquels vous participez </p>
-{grfederagenodes.map((nodefed) => (
-         <li key={nodefed.id}>
-
-         <p>  Titre du groupe de financement :  {nodefed.gid.label}</p>
-         <p>  path vers le détails du financement ;  node/{nodefed.drupal_internal__id}</p>
-         <Link href={nodefed.gid.path.alias} passHref>
-         <a className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
-         chemin : {nodefed.gid.path.alias}
-           <svg
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             strokeWidth="2"
-             strokeLinecap="round"
-             strokeLinejoin="round"
-             className="w-4 h-4 ml-2"
-           >
-             <path d="M5 12h14M12 5l7 7-7 7" />
-           </svg>
-         </a>
-         </Link>
-
-         <p>  Titre du fin  : {nodefed.label}</p>
-         <p>  id du fin : {nodefed.id}</p>
-         chemin : {nodefed.entity_id.path.alias}
-
-
-         </li>
-       ))}
-
-
-
-
-         {financementsdansgr.map((grfinancement) => (
-                  <li key={grfinancement.id}>
-
-                  <p>  Titre du groupe de financement :  {grfinancement.label}</p>
-                  <p>  path vers le détails du financement ;  node/{grfinancement.path.alias}</p>
-                  <Link href={grfinancement.path.alias} passHref>
-                  <a className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
-                  chemin : {grfinancement.path.alias}
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-4 h-4 ml-2"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                  </Link>
-
-                  <p>  Titre du fin  : {grfinancement.label}</p>
-                  <p>  id du fin : {grfinancement.drupal_internal__id}</p>
-                  chemin : {grfinancement.path.alias}
+  <h3 className="mb-2 text-lg font-black text-gray-400 text-left">ACTIFS</h3>
+                      {financementsdansgr.map((grfinancement) => (
 
 
-                  </li>
-                ))}
+                               <li key={grfinancement.id}>
+
+                               <div
+                                 className="relative grid grid-cols-[120px_1fr] items-start gap-4 p-4 overflow-hidden bg-red border border-border group"
+
+                               >
+                                 <div className="flex items-start justify-between text-text">
+                                   <div>
+                                     <p className="text-sm text-gray">
+                                     </p>
+                                   </div>
+<Link href={grfinancement.path.alias} passHref>
+<a className="flex-1 text-xl">
+<h2>{grfinancement.label}</h2>
+
+</a>
+</Link>
+
+
+                                   Créé le  : {formatDate(grfinancement.created)} -{" "}
+                                   Modifié le :  {formatDate(grfinancement.changed)} -{" "}
+
+                        les membres
+                                   <button
+                                     onClick={() => handleDelete()}
+                                     className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
+                                   >
+                                     {t("delete")}
+                                   </button>
+                                 </div>
+                               </div>
+
+                               </li>
+
+                             ))}
+                             </div>
+                           ) : (
+                             <p className="text-2xl text-center text-text">
+                             <Link href="/groupfederage/new" passHref>
+                             <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                                Créez votre première SEP
+                               </a>
+                             </Link>
+                             </p>
+                           )}
+
+                          </p>
+                        </div>
+                        <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                          <p>
+
+
+                          </p>
+                        </div>
+                        <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                          <p>
 
 
 
 
-        {financements?.length ? (
-          <div className="grid max-w-2xl gap-4 mx-auto">
-          Financements
-            {financements.map((financement) => (
-              <NodeArticleRow key={financement.id} node={financement} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-2xl text-center text-text">
-            {t("you-have-no-financements")}
-          </p>
-        )}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
-        {articles?.length ? (
-          <div className="grid max-w-2xl gap-4 mx-auto">
-              Articles
-            {articles.map((article) => (
 
-              <NodeArticleRow key={article.id} node={article} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-2xl text-center text-text">
-            {t("you-have-no-articles")}
-          </p>
-        )}
+
       </div>
       <style jsx global>{`
-        .title {
-          display: flex;
-          flex-direction: column;
-          align-items: left;
-          padding-bottom: 30px;
-          width: 60%;
-        }
-        .articles {
-          width: 60%;
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 30px;
-        }
-        .title > h1,
-        .articles {
-          font-size: 30px;
-          font-family: Scope One, ui-serif, Georgia, Cambria, "Times New Roman",
-            Times, sans-serif;
-        }
-        .actions {
-          display: flex;
-          flex-direction: column;
-        }
 
-        .form-group {
-          display: flex;
-          flex-direction: column;
-          margin-top: 5px;
-        }
+
+
+
+
       `}</style>
     </Layout>
   );
@@ -644,95 +647,26 @@ export async function getServerSideProps(
       .addInclude(["uid.user_picture"])
       .addSort("created", "ASC")
 
+      const financementsdansgr = await drupal.getResourceCollection<DrupalNode[]>(
+        "group--projets_federage",
+        {
+          params: new DrupalJsonApiParams()
+            .addInclude(["uid", "group_type", "revision_user"])
+            .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+            .addFields("group_type--group_type", ["id", "type","meta"])
 
+            .addFields("user--user", ["display_name", "user_picture"])
+            .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
+            .addSort("created", "DESC")
+            .getQueryObject(),
 
-  // Fetch all articles sorted by the user.
-  const articles = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-    "node--article",
-    context,
-    {
-      params: new DrupalJsonApiParams()
-        .addInclude(["field_media_image.field_media_image", "uid.user_picture"])
-        .addFields("node--article", [
-          "title",
-          "path",
-          "field_media_image",
-          "status",
-          "created",
-          "uid",
-        ])
-        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
-        .addFields("media--image", ["field_media_image"])
-        .addFields("file--file", ["uri", "resourceIdObjMeta"])
-        .addSort("created", "DESC")
-        .getQueryObject(),
-      withAuth: session.accessToken,
-    }
-  );
+          withAuth: session.accessToken,
 
-  // Fetch all financements sorted by the user.
-  const financements = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-    "node--financement",
-    context,
-    {
-      params: new DrupalJsonApiParams()
-        .addInclude(["field_media_image.field_media_image", "uid.user_picture"])
-        .addFields("node--article", [
-          "title",
-          "path",
-          "field_media_image",
-          "status",
-          "created",
-          "uid",
-        ])
-        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
-        .addFields("media--image", ["field_media_image"])
-        .addFields("file--file", ["uri", "resourceIdObjMeta"])
-        .addSort("created", "DESC")
-        .getQueryObject(),
-      withAuth: session.accessToken,
-    }
-  );
+        }
 
-  const financementsdansgr = await drupal.getResourceCollection<DrupalNode[]>(
-    "group--projets_federage",
-    {
-      params: new DrupalJsonApiParams()
-        .addInclude(["uid", "group_type", "revision_user"])
-        .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
-        .addFields("group_type--group_type", ["id", "type","meta"])
+      )
 
-        .addFields("user--user", ["display_name", "user_picture"])
-        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
-
-        .addSort("created", "DESC")
-        .getQueryObject(),
-
-      withAuth: session.accessToken,
-
-    }
-
-  )
-
-  const grfederagenodes = await drupal.getResourceCollection<DrupalNode[]>(
-    "group_relationship--projets_federage-b5856fc584d18c4",
-    {
-      params: new DrupalJsonApiParams()
-        .addInclude(["uid", "group_type", "gid","entity_id"])
-
-        .addFields("group--projets_federage", ["label", "path"])
-        .addFields("user--user", ["display_name", "user_picture"])
-        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
-
-        .addSort("created", "DESC")
-        .getQueryObject(),
-
-      withAuth: session.accessToken,
-
-    }
-
-  )
   // Fetch user info
   const user = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "user--user",
@@ -760,11 +694,9 @@ export async function getServerSideProps(
   return {
     props: {
       ...(await getGlobalElements(context)),
-      articles,
-      financements,
       financementsdansgr,
+
       user,
-      grfederagenodes,
     },
   };
 }

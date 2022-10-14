@@ -15,7 +15,7 @@ export function Layout({ meta, menus, blocks, children }: LayoutProps) {
   return (
     <>
       <Meta {...meta} />
-      <div className="max-w-screen-2xl px-6 mx-auto">
+      <div className="max-w-screen-lg px-6 mx-auto">
         <PreviewAlert />
 
         <Header menus={{ main: menus.main }} />
