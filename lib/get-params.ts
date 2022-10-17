@@ -69,20 +69,28 @@ export function getParams(
       .addInclude([
         "uid",
         "group_type",
+        "field_categorie",
       ])
       .addFields("group--projets_federage", [
-        "title",
         "status",
         "path",
         "body",
         "created",
         "uid",
         "label",
+        "field_description",
+        "field_estimation_du_prix",
+        "field_date_de_livraison",
+        "field_categorie",
         "group_type",
+
         "drupal_internal__id",
       ])
       .addFields("user--user", ["display_name", "user_picture"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","drupal_internal__id"])
+      .addFields("taxonomy_term--categorie", ["name", "drupal_internal__tid"])
+
+
   }
 
   if (name === "group_relationship--projets_federage-b5856fc584d18c4") {

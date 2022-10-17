@@ -81,11 +81,51 @@ export function FormGroupfin({ className, ...props }: FormArticleProps) {
           {t("Description")} <span className="text-sm text-red-500">*</span>
         </label>
         <textarea
-          id="descritpion"
-          name="description"
+          id="field_description"
+          name="field_description"
           className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
         ></textarea>
       </div>
+
+      <div className="grid gap-2">
+        <label htmlFor="description" className="font-semibold text-text">
+          {t("field_estimation_du_prix")} <span className="text-sm text-red-500">*</span>
+        </label>
+        <textarea
+          id="field_estimation_du_prix"
+          name="field_estimation_du_prix"
+          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        ></textarea>
+      </div>
+      <div className="grid gap-2">
+        <label htmlFor="field_date_de_livraison" className="font-semibold text-text">
+          {t("field_date_de_livraison")} <span className="text-sm text-red-500">*</span>
+        </label>
+        <textarea
+          id="field_date_de_livraison"
+          name="field_date_de_livraison"
+          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        ></textarea>
+      </div>
+      <div class="grid gap-2">
+            <label className="blofont-semibold text-text" htmlFor="grid-state">
+  {t("categorie")} <span className="text-sm text-red-500">*</span>
+   </label>
+            <div class="relative">
+              <select
+              id="field_categorie"
+              name="field_categorie"
+              className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+            >
+                <option>1</option>
+                <option>cat 1</option>
+                <option>{t("29876849-c910-4ee3-8453-51dbe9d55bf2")}</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
 
       <div>
         <input
@@ -95,7 +135,7 @@ export function FormGroupfin({ className, ...props }: FormArticleProps) {
           value={
             formStatus?.status === "fetching"
               ? t("please-wait")
-              : t("create-article")
+              : t("create-new-sep")
           }
         />
       </div>

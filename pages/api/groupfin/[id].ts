@@ -39,6 +39,9 @@ export default async function handler(
         data: {
           attributes: {
             label: "Title of Article",
+            field_description: "description",
+            field_estimation_du_prix: "field_estimation_du_prixtion du prix",
+            field_date_de_livraison: "date de livraison",
           },
         },
       },

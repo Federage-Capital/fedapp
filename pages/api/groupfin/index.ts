@@ -48,7 +48,11 @@ export default async function handler(
 
         resolve({
           label: fields.label,
-          descritpion: fields.descritption,
+          field_description: fields.field_description[0],
+          field_estimation_du_prix: fields.field_estimation_du_prix,
+          field_date_de_livraison: fields.field_date_de_livraison,
+          field_categorie: fields["field_categorie"][0],
+
         })
       })
     })
@@ -61,26 +65,53 @@ export default async function handler(
 
     // 2. Create the media--image resource from the file--file.
 
-
-    // Create the node--article resource with the media--image relationship.
-    const projetfederage = await drupal.createResource<DrupalNode>(
-      "group--projets_federage",
+    const taxonomy_term2 = await drupal.createResource<DrupalMedia>(
+      "taxonomy_term--categorie",
       {
         data: {
           attributes: {
-            label: fields.label[0],
-            field_description: {
-                value: fields.field_description,
-                format: "basic_html",
-              },
+            name: fields.field_categorie,
           },
 
         },
       },
       {
         withAuth: session.accessToken,
+      }
+    )
+    // Create the node--article resource with the media--image relationship.
+    const projetfederage = await drupal.createResource<DrupalNode>(
+      "group--projets_federage",
+      {
+        data: {
+          attributes: {
+            label: fields.label,
+            field_description: {
+                value: fields.field_description,
+                format: "basic_html",
+              },
+              field_estimation_du_prix: fields.field_estimation_du_prix,
+              field_date_de_livraison: fields.field_date_de_livraison,
+          },
+          relationships:{
+            field_categorie: {
+              data: {
+              type: "taxonomy_term--categorie",
+              id: fields.field_categorie,
+                    },
+                            },
+                          },
+
+        },
+      },
+      {
+        withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("group--projets_federage", ["label"], ["field_description"])
+        .addInclude([
+          "field_categorie",
+        ])
+          .addFields("group--projets_federage", ["label"])
+          .addFields("taxonomy_term--categorie", ["name"])
           .getQueryObject(),
       }
     )
