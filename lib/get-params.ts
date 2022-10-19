@@ -101,7 +101,7 @@ export function getParams(
         "entity_id",
       ])
       .addFields("group_relationship--projets_federage-b5856fc584d18c4", [
-        "title",
+        "label",
         "status",
         "path",
         "body",
@@ -112,6 +112,7 @@ export function getParams(
         "drupal_internal__id",
         "id",
         "meta",
+        "type",
       ])
       .addFields("user--user", ["display_name", "user_picture"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta2"])

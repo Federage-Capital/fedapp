@@ -1,18 +1,33 @@
 import Image from "next/image"
 import { DrupalNode } from "next-drupal"
 import Link from "next/link";
+import useSWR from 'swr'
 
 import { absoluteUrl, formatDate } from "lib/utils"
 
 interface NodeGroupFinancement {
   node: DrupalNode,
   groupe_types: DrupalNode,
-  listefinancements: DrupalNode,
+
 }
 
-export function NodeGroupFinancement({ node, groupe_types, listefinancements, ...props }: NodeArticleProps) {
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+
+export function NodeGroupFinancement({ node, groupe_types, data, ...props }: NodeGroupFinancementProps) {
+  const { data: nodefinancement, error } = useSWR('https://fed.septembre.io/jsonapi/group_relationship/projets_federage-b5856fc584d18c4', fetcher)
+
+    if (error) return <div>Failed to load</div>
+    if (!nodefinancement) return <div>Loading...</div>
+
+
   return (
-    <article {...props}>
+    <sep {...props}>
+
+
+
+    
+
 <p>{node.id}</p>
 <p>{node.created}</p>
 <p>Proprio : {node.uid.display_name}</p>
@@ -50,7 +65,9 @@ description
 </div>
 
 
+page user
 
-    </article>
+ee
+    </sep>
   )
 }
