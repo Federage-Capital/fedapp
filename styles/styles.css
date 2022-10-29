@@ -11,10 +11,20 @@ background-color:#F9FAFB;
   }
 
 
+.cadre{
+  border: 2px dashed #9CA3AF;
+  border-radius: 8px;
+  }
 
 .fedblue{
 background-color: rgba(1, 43, 221, 1);
   }
+
+  .fedbutton{
+  background-color: rgba(224,231,255, 1);
+  color: rgba(1, 43, 221, 1);
+    }
+
 
 .redbutton{
 background-color: rgba(221, 1, 43, 1);

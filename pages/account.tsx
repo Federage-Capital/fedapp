@@ -246,14 +246,14 @@ financementsdansgr,
       menus={menus}
       blocks={blocks}
       meta={{
-        title: t("mon-portefeuille"),
+        title: t("portefeuille"),
       }}
     >
       <PageHeader
-        heading={t("mon-portefeuille")}
+        heading={t("Portefeuille")}
         breadcrumbs={[
           {
-            title: t("mon-portefeuille"),
+            title: t("Portefeuille"),
           },
         ]}
       ></PageHeader>
@@ -262,7 +262,7 @@ financementsdansgr,
 
 
         <div className="title">
-          <div className="mb-4">
+          <div className="mb-4 px-5 py-3">
 
           <Listbox>
                {({ open }) => (
@@ -349,10 +349,10 @@ financementsdansgr,
                )}
              </Listbox>
 
-             <p className="text-2xl text-center text-text">
+             <p className="text-lg mt-10">
              <Link href="/groupfederage/new" passHref>
-             <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                Créez une SEP
+             <a className="px-3 py-1 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                + Nouveau financement
                </a>
              </Link>
              </p>
@@ -476,16 +476,19 @@ financementsdansgr,
 
         <div className="flex flex-wrap">
                 <div className="w-full">
+                <span
+                  className="px-5 py-3"
+                >  Opérations</span>
                   <ul
                     className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
                     role="tablist"
                   >
-                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
                         className={
-                          "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                           (openTab === 1
-                            ? "bg-" + "-600"
+                            ? "bg-" + "-900"
                             : "text-" + "-600 bg-white")
                         }
                         onClick={e => {
@@ -496,15 +499,15 @@ financementsdansgr,
                         href="#link1"
                         role="tablist"
                       >
-                        Total
+                        En cours
                       </a>
                     </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
                         className={
-                          "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                           (openTab === 2
-                            ? "bg-" + "-600"
+                            ? "bg-" + "-900"
                             : "text-" + "-600 bg-white")
                         }
                         onClick={e => {
@@ -515,15 +518,15 @@ financementsdansgr,
                         href="#link2"
                         role="tablist"
                       >
-En cours
+Demandes
                       </a>
                     </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
                         className={
-                          "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                           (openTab === 3
-                            ? "bg-" + "-600"
+                            ? "bg-" + "-900"
                             : "text-" + "-600 bg-white")
                         }
                         onClick={e => {
@@ -534,7 +537,7 @@ En cours
                         href="#link3"
                         role="tablist"
                       >
-                         Demandes
+                         Historique
                       </a>
                     </li>
                   </ul>
@@ -543,7 +546,6 @@ En cours
                       <div className="tab-content tab-space">
                         <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                           <p>
-<ChartDemo />
 
 {financementsdansgr?.length ? (
   <div className="">
@@ -589,16 +591,24 @@ En cours
                              ))}
                              </div>
                            ) : (
-                             <p className="text-2xl text-center text-text">
+                             <p className="text-2xl cadre text-center p-20 mb-10">
+                               <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></p>
+
+                             <p>  Aucun projet</p>
+                                   <p>   Commencez par créer un projet</p>
                              <Link href="/groupfederage/new" passHref>
-                             <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                                Créez votre première SEP
+                             <a className="px-3 py-1 cadre text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                            + démarrez un projet
                                </a>
                              </Link>
                              </p>
                            )}
 
                           </p>
+
+                          <ChartDemo />
                         </div>
                         <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                           <p>
@@ -624,13 +634,7 @@ En cours
 
 
       </div>
-      <style jsx global>{`
 
-
-
-
-
-      `}</style>
     </Layout>
   );
 }
@@ -654,15 +658,14 @@ export async function getServerSideProps(
       .addSort("created", "ASC")
 
       const financementsdansgr = await drupal.getResourceCollection<DrupalNode[]>(
-        "group--projets_federage",
+        "group--federage",
         {
           params: new DrupalJsonApiParams()
             .addInclude(["uid", "group_type", "revision_user"])
-            .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+            .addFields("group_content--federage-group_node-financement", ["id", "type","meta"])
             .addFields("group_type--group_type", ["id", "type","meta"])
 
             .addFields("user--user", ["display_name", "user_picture"])
-            .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
             .addSort("created", "DESC")
             .getQueryObject(),

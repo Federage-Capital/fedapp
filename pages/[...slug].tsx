@@ -17,7 +17,7 @@ const RESOURCE_TYPES = [
   "node--page",
   "node--article",
   "node--financement",
-  "group--projets_federage",
+  "group--federage",
 ]
 
 interface ResourcePageProps extends LayoutProps, PageProps {
@@ -51,7 +51,7 @@ export default function ResourcePage({
           }
         />
       )}
-      {resource.type === "group--projets_federage" && (
+      {resource.type === "group--federage" && (
         <NodeGroupFinancement
           node={resource as DrupalNode}
           additionalContent={

@@ -49,7 +49,6 @@ export default async function handler(
         resolve({
           label: fields.label,
           field_description: fields.field_description[0],
-          field_estimation_du_prix: fields.field_estimation_du_prix,
           field_date_de_livraison: fields.field_date_de_livraison,
           field_categorie: fields["field_categorie"][0],
 
@@ -81,7 +80,7 @@ export default async function handler(
     )
     // Create the node--article resource with the media--image relationship.
     const projetfederage = await drupal.createResource<DrupalNode>(
-      "group--projets_federage",
+      "group--federage",
       {
         data: {
           attributes: {
@@ -90,7 +89,6 @@ export default async function handler(
                 value: fields.field_description,
                 format: "basic_html",
               },
-              field_estimation_du_prix: fields.field_estimation_du_prix,
               field_date_de_livraison: fields.field_date_de_livraison,
           },
           relationships:{

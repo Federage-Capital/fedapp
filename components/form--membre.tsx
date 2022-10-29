@@ -24,7 +24,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
 
     setFormStatus({ status: "fetching" })
 
-    const response = await fetch("/api/financements", {
+    const response = await fetch("/api/membre", {
       method: "POST",
       body: data,
     })
@@ -108,7 +108,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
         <textarea
           id="gid"
           name="gid"
-          value={query.gid}
+          defaultInputValue={query.gid}
           className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
         ></textarea>
       </div>

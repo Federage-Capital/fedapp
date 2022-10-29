@@ -15,7 +15,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 
 export function NodeGroupFinancement({ node, groupe_types, data, ...props }: NodeGroupFinancementProps) {
-  const { data: nodefinancement, error } = useSWR('https://fed.septembre.io/jsonapi/group_relationship/projets_federage-b5856fc584d18c4', fetcher)
+  const { data: nodefinancement, error } = useSWR('https://fed.septembre.io/jsonapi/group/federage', fetcher)
 
     if (error) return <div>Failed to load</div>
     if (!nodefinancement) return <div>Loading...</div>
@@ -26,7 +26,7 @@ export function NodeGroupFinancement({ node, groupe_types, data, ...props }: Nod
 
 
 
-    
+
 
 <p>{node.id}</p>
 <p>{node.created}</p>
@@ -57,11 +57,18 @@ description
 
 
 
-  <Link href={`group/${encodeURIComponent(node.drupal_internal__id)}/content/create/group_node%3Afinancement`}>
+  <Link href={`/financement/new?gid=${encodeURIComponent(node.id)}`}>
   <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
       Nouveau financement dans ce groupe
     </a>
   </Link>
+
+
+    <Link href={`/membre/new?gid=${encodeURIComponent(node.id)}`}>
+    <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+        Nouveaux membres de ce groupe
+      </a>
+    </Link>
 </div>
 
 

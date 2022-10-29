@@ -64,14 +64,14 @@ export function getParams(
   }
 
 
-  if (name === "group--projets_federage") {
+  if (name === "group--federage") {
     return params
       .addInclude([
         "uid",
         "group_type",
         "field_categorie",
       ])
-      .addFields("group--projets_federage", [
+      .addFields("group--federage", [
         "status",
         "path",
         "body",
@@ -93,14 +93,14 @@ export function getParams(
 
   }
 
-  if (name === "group_relationship--projets_federage-b5856fc584d18c4") {
+  if (name === "group_content--federage-group_node-financement") {
     return params
       .addInclude([
         "uid",
         "group_relationship_type",
         "entity_id",
       ])
-      .addFields("group_relationship--projets_federage-b5856fc584d18c4", [
+      .addFields("group_content--federage-group_node-financement", [
         "label",
         "status",
         "path",

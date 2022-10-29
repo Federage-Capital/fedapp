@@ -4,36 +4,33 @@ import { useTranslation } from "next-i18next"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormGroupfin } from "components/form--groupfin"
-import { useState, useEffect } from "react";
+import { FormFinancement } from "components/form--membre"
 
 interface NewArticlesPageProps extends LayoutProps {}
 
 export default function NewArticlesPage({
   menus,
   blocks,
-}: NewArticlesPageProps) {
+}: NewFinancementPageProps) {
   const { t } = useTranslation()
 
   return (
-    <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("add-members") }} menus={menus} blocks={blocks}>
       <PageHeader
-        heading={t("Nouveau-projet")}
+        heading={t("add-members")}
         breadcrumbs={[
           {
             title: t("my-account"),
             url: "/account",
           },
           {
-            title: t("Nouveau-projet"),
+            title: t("add-members"),
           },
         ]}
       />
       <div className="container pb-10">
-        <FormGroupfin className="max-w-2xl mx-auto" />
+        <FormFinancement className="max-w-2xl mx-auto" />
       </div>
-
-
     </Layout>
   )
 }

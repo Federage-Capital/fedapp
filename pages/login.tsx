@@ -22,7 +22,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
   const [openTab, setOpenTab] = React.useState(1);
 
   if (status === "authenticated") {
-    router.push("/")
+    router.push("/account")
     return null
   }
 
@@ -39,20 +39,20 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
       />
       {status === "unauthenticated" && (
         <div className="container pb-10">
-        <h3 className="mb-10 text-1xl font-grey text-center">Saisir les identifiants du compte  pour se connecter</h3>
+        <h3 className="mb-10 text-1xl font-grey text-center">Saisir les identifiants du compte pour se connecter</h3>
 
 <div className="flex flex-wrap">
-        <div className="w-full">
+        <div className="grid gap-4 max-w-xl mx-auto">
           <ul
             className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
             role="tablist"
           >
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                   (openTab === 1
-                    ? "bg-" + "-600"
+                    ? "bg-" + "-900"
                     : "text-" + "-600 bg-white")
                 }
                 onClick={e => {
@@ -66,12 +66,12 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 Connexion
               </a>
             </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                   (openTab === 2
-                    ? "bg-" + "-600"
+                    ? "bg-" + "-900"
                     : "text-" + "-600 bg-white")
                 }
                 onClick={e => {
@@ -85,12 +85,12 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                  Mot de passe oublié
               </a>
             </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                   (openTab === 3
-                    ? "bg-" + "-600"
+                    ? "bg-" + "-900"
                     : "text-" + "-600 bg-white")
                 }
                 onClick={e => {
