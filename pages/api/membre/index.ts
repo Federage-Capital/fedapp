@@ -108,8 +108,8 @@ export default async function handler(
     )
 
     // Create the node--article resource with the media--image relationship.
-    const article = await drupal.createResource<DrupalNode>(
-      "node--financement",
+    const user = await drupal.createResource<DrupalNode>(
+      "user--user",
       {
         data: {
           attributes: {
@@ -132,17 +132,17 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("node--financement", ["title"])
+          .addFields("user--user", ["display_name"])
           .getQueryObject(),
       }
     )
 
 
     const group = await await drupal.createResource<DrupalNode>(
-      "group_content--federage-group_node-financement",
+      "group_content--federage-group_membership",
       {
         data: {
-          type: "group_content--federage-group_node-financement",
+          type: "group_content--federage-group_membership",
           attributes: {
             label: article.title,
             created: article.created,
@@ -174,7 +174,7 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("node--financement", ["title"])
+          .addFields("user--user", ["display_name"])
           .getQueryObject(),
       }
     )

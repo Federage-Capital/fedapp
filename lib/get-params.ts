@@ -118,14 +118,14 @@ export function getParams(
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta2"])
   }
 
-  if (name === "group_relationship_type--group_relationship_type") {
+  if (name === "group_content--federage-group_membership") {
     return params
       .addInclude([
         "uid",
         "group_relationship_type",
         "entity_id",
       ])
-      .addFields("group_relationship_type--group_relationship_type", [
+      .addFields("group_content--federage-group_membership", [
         "title",
         "status",
         "path",

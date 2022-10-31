@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormFinancement } from "components/form--membre"
+import { FormMembre } from "components/form--membre"
 
 interface NewArticlesPageProps extends LayoutProps {}
 
 export default function NewArticlesPage({
   menus,
   blocks,
-}: NewFinancementPageProps) {
+}: NewMembrePageProps) {
   const { t } = useTranslation()
 
   return (
@@ -29,7 +29,7 @@ export default function NewArticlesPage({
         ]}
       />
       <div className="container pb-10">
-        <FormFinancement className="max-w-2xl mx-auto" />
+        <FormMembre className="max-w-2xl mx-auto" />
       </div>
     </Layout>
   )

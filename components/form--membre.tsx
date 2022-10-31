@@ -2,20 +2,32 @@ import * as React from "react"
 import classNames from "classnames"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
+import { useState } from "react";
+import useSWR from 'swr'
 
-interface FormFinancementProps extends React.HTMLProps<HTMLFormElement> {}
+
+interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {}
 
 interface FormStatus {
   status: "success" | "error" | "fetching"
   message?: string | string[]
+  node: DrupalNode
 }
 
-export function FormFinancement({ className, ...props }: FormArticleProps) {
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+export function FormMembre({ className, node, groupe_types, data, ...props }: FormArticleProps) {
+
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
 
    const query = router.query;
+   const { data: nodefinancement, error } = useSWR('https://fed.septembre.io/jsonapi/group/federage', fetcher)
+
+     if (error) return <div>Failed to load</div>
+     if (!nodefinancement) return <div>Loading...</div>
+
 
 
   const onSubmit = async (event) => {
@@ -42,6 +54,7 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
   }
 
   return (
+
     <form
       className={classNames("grid gap-4", className)}
       onSubmit={onSubmit}
@@ -66,13 +79,38 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           )}
         </div>
       )}
+      <p>{node}</p>
+
+      <div className="form-group">
+               <label
+               htmlFor="select2"
+               className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
+               >
+               User select
+               </label>
+               <select
+               id="field_categorie"
+               name="field_categorie"
+               className="rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+             >
+
+
+
+              <option>1</option>
+                 <option>cat 1</option>
+                 <option>29876849-c910-4ee3-8453-51dbe9d55bf2</option>
+               </select>
+
+
+
+           </div>
       <div className="grid gap-2">
         <label htmlFor="title" className="font-semibold text-text">
-          {t("title")} <span className="text-sm text-red-500">*</span>
+          {t("nom du membre")} <span className="text-sm text-red-500">*</span>
         </label>
         <input
-          id="title"
-          name="title"
+          id="nom_du_membre"
+          name="nom_du_membre"
           maxLength={255}
           required
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
@@ -90,19 +128,10 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
-      <div className="grid gap-2">
-        <label htmlFor="body" className="font-semibold text-text">
-          {t("description")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <textarea
-          id="body"
-          name="body"
-          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-        ></textarea>
-      </div>
+
       <div className="grid gap-2">
         <label htmlFor="gid" className="font-semibold text-text">
-          {t("gid")} <span className="text-sm text-red-500">*</span>
+          {t("gid_du groupe")} <span className="text-sm text-red-500">*</span>
         </label>
 
         <textarea
@@ -113,82 +142,19 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
         ></textarea>
       </div>
       <div className="grid gap-2">
-        <label htmlFor="field_date_de_livraison" className="font-semibold text-text">
-          {t("field_date_de_livraison")} <span className="text-sm text-red-500">*</span>
+        <label htmlFor="group_roles" className="font-semibold text-text">
+          {t("group_roles")} <span className="text-sm text-red-500">*</span>
         </label>
         <input
-          id="field_date_de_livraison"
-          name="field_date_de_livraison"
+          id="group_roles"
+          name="group_roles"
           maxLength={255}
 
           className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
 
-      <div className="grid gap-2">
-        <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
-          {t("field_estimation_du_prix")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          id="field_estimation_du_prix"
-          name="field_estimation_du_prix"
-          maxLength={255}
 
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="field_objet_du_financement" className="font-semibold text-text">
-          {t("field_objet_du_financement")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          id="field_objet_du_financement"
-          name="field_objet_du_financement"
-          maxLength={255}
-
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="field_tags" className="font-semibold text-text">
-          {t("field_tags")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          id="field_tags"
-          name="field_tags"
-          maxLength={255}
-
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="field_type_de_financement" className="font-semibold text-text">
-          {t("field_type_de_financement")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          id="field_type_de_financement"
-          name="field_type_de_financement"
-          maxLength={255}
-
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="mail" className="font-semibold text-text">
-          {t("image")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          required
-          className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
-        />
-      </div>
 
       <div>
         <input
@@ -204,4 +170,18 @@ export function FormFinancement({ className, ...props }: FormArticleProps) {
       </div>
     </form>
   )
+}
+
+export async function getStaticProps(): Promise<GetStaticPropsResult<FormMembreProps>> {
+
+const users = await drupal.getResourceCollection("user--user")
+
+
+return {
+  props: {
+    users,
+
+  },
+  revalidate: 60,
+}
 }
