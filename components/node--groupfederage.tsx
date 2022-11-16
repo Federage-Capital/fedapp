@@ -28,11 +28,7 @@ export function NodeGroupFinancement({ node, groupe_types, data, ...props }: Nod
 
 
 
-<p>{node.id}</p>
-<p>{node.created}</p>
-<p>Proprio : {node.uid.display_name}</p>
-<p>{node.group_type.id}</p>
-<p>{node.group_type.type}</p>
+
 
 <div className="articles">
   <h1>label : {node.label}</h1>

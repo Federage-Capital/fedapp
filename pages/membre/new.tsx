@@ -6,9 +6,9 @@ import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormMembre } from "components/form--membre"
 
-interface NewArticlesPageProps extends LayoutProps {}
+interface NewMembrePageProps extends LayoutProps {}
 
-export default function NewArticlesPage({
+export default function NewMembrePage({
   menus,
   blocks,
 }: NewMembrePageProps) {
@@ -37,7 +37,7 @@ export default function NewArticlesPage({
 
 export async function getStaticProps(
   context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<NewArticlesPageProps>> {
+): Promise<GetStaticPropsResult<NewMembrePageProps>> {
   return {
     props: {
       ...(await getGlobalElements(context)),

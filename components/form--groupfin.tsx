@@ -204,7 +204,7 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
         ></textarea>
       </div>
 
-  
+
       <div className="grid gap-2">
 
 
@@ -217,15 +217,13 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
               <select
               id="field_categorie"
               name="field_categorie"
-              className="h-48 px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+              className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
             >
-                <option>1</option>
-                <option>cat 1</option>
-                <option>29876849-c910-4ee3-8453-51dbe9d55bf2</option>
+  <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">1</option>
+    <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">2</option>
+      <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">3</option>
               </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-              </div>
+          
             </div>
           </div>
 

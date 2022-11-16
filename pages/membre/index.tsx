@@ -27,12 +27,12 @@ export default function AlluserlistPage({ menus, blocks, users, groups, members,
 
 
   return (
-    <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Membres de Federage") }} menus={menus} blocks={blocks}>
       <PageHeader
-        heading={t("Connexion")}
+        heading={t("Membres de Federage")}
         breadcrumbs={[
           {
-            title: t("Connexion"),
+            title: t("Membres de Federage"),
           },
         ]}
       />

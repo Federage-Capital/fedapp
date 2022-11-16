@@ -7,9 +7,8 @@ import { DrupalFile, DrupalMedia, DrupalNode, JsonApiErrors } from "next-drupal"
 import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
-  title: string
-  body: string
-  image: PersistentFile
+  select_users: string
+  group_roles: string
   gid: string
 
 }
@@ -50,9 +49,8 @@ export default async function handler(
         }
 
         resolve({
-          title: fields.title[0],
-          body: fields.body[0],
-          image: files["image"][0],
+          select_users: fields.select_users[0],
+          group_roles: fields.group_roles[0],
           gid: fields.gid[0],
         })
       })
@@ -67,75 +65,7 @@ export default async function handler(
 
 
 
-    const file = await drupal.createFileResource<DrupalFile>(
-      "file--file",
-      {
-        data: {
-          attributes: {
-            type: "media--image",
-            field: "field_media_image",
-            filename: fields.image.newFilename,
-            file: await fs.readFile(fields.image.filepath),
-          },
-        },
-      },
-      {
-        withAuth: session.accessToken,
-      }
-    )
-
-    // 2. Create the media--image resource from the file--file.
-    const media = await drupal.createResource<DrupalMedia>(
-      "media--image",
-      {
-        data: {
-          attributes: {
-            name: fields.image.newFilename,
-          },
-          relationships: {
-            field_media_image: {
-              data: {
-                type: "file--file",
-                id: file.id,
-              },
-            },
-          },
-        },
-      },
-      {
-        withAuth: session.accessToken,
-      }
-    )
-
     // Create the node--article resource with the media--image relationship.
-    const user = await drupal.createResource<DrupalNode>(
-      "user--user",
-      {
-        data: {
-          attributes: {
-            title: fields.title,
-            body: {
-              value: fields.body,
-              format: "full_html",
-            },
-          },
-          relationships: {
-            field_media_image: {
-              data: {
-                type: "media--image",
-                id: media.id,
-              },
-            },
-          },
-        },
-      },
-      {
-        withAuth: session.accessToken,
-        params: new DrupalJsonApiParams()
-          .addFields("user--user", ["display_name"])
-          .getQueryObject(),
-      }
-    )
 
 
     const group = await await drupal.createResource<DrupalNode>(
@@ -143,38 +73,37 @@ export default async function handler(
       {
         data: {
           type: "group_content--federage-group_membership",
-          attributes: {
-            label: article.title,
-            created: article.created,
-            changed: article.changed,
 
-            default_langcode: true
-          },
           relationships: {
             gid: {
-              data: {
-                  type: "group--federage",
-                  id: fields.gid,
+                data:
+                         {
+                           type: "group--federage",
+                           id: fields.gid,
+                         }
+                      },
+                    entity_id: {
+                                          data: {
+                                              type: "user--user",
+                                              id: fields.select_users,
 
-                    },
+                                              }
+                                          },
+                  group_roles: {
+                    data: [
+                        {
+                            type: "group_role--group_role",
+                            id: fields.group_roles,
 
-  },
-            entity_id: {
-              data: {
-                type: "node--financement",
-                id: article.id,
-                meta: {
-                    drupal_internal__target_id: article.drupal_internal__nid
-                },
-              },
-            },
+                        }
+                    ]
+                    }
           },
         },
       },
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("user--user", ["display_name"])
           .getQueryObject(),
       }
     )
