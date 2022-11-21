@@ -2,6 +2,8 @@ import Image from "next/image"
 import { DrupalNode } from "next-drupal"
 import Link from "next/link";
 import useSWR from 'swr'
+import { useRouter } from "next/router"
+import { getSession, useSession, signOut } from "next-auth/react";
 
 import { absoluteUrl, formatDate } from "lib/utils"
 
@@ -14,11 +16,20 @@ interface NodeGroupFinancement {
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 
-export function NodeGroupFinancement({ node, groupe_types, data, ...props }: NodeGroupFinancementProps) {
-  const { data: nodefinancement, error } = useSWR('https://fed.septembre.io/jsonapi/group/federage', fetcher)
+export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
 
-    if (error) return <div>Failed to load</div>
-    if (!nodefinancement) return <div>Loading...</div>
+  const router = useRouter()
+  const session = getSession()
+
+  const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id,  fetcher)
+
+
+         const { data: financementsdugroupe, error2 } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_node-financement?filter[gid.id]='+ node.id,  fetcher)
+
+         if (error) return <div>Failed to load</div>
+         if (!users) return <div>Loading ...</div>
+                if (error2) return <div>Failed to load</div>
+                if (!financementsdugroupe) return <div>Loading financement ...</div>
 
 
   return (
@@ -27,12 +38,23 @@ export function NodeGroupFinancement({ node, groupe_types, data, ...props }: Nod
 
 
 
-
-
-
 <div className="articles">
+{session.accessToken}
+{users.data.map((user) => (
+
+<div>{user.attributes.label} <p> {user.id}</p></div>
+
+                      ))}
+
+                      {financementsdugroupe.data.map((financementdugroupe) => (
+
+                      <div>{financementdugroupe.attributes.label} <p> {financementdugroupe.id}</p></div>
+
+                                            ))}
+
+
   <h1>label : {node.label}</h1>
-description
+
   {node.field_description?.value && (
     <div
       dangerouslySetInnerHTML={{ __html: node.field_description?.value }}
@@ -51,6 +73,10 @@ description
     />
   )}
 
+Membres de ce groupe<br/>
+
+
+Offres de ce groupe<br/>
 
 
   <Link href={`/financement/new?gid=${encodeURIComponent(node.id)}`}>
@@ -65,12 +91,12 @@ description
         Nouveaux membres de ce groupe
       </a>
     </Link>
+
+
+
 </div>
 
-
-page user
-
-ee
     </sep>
   )
+
 }
