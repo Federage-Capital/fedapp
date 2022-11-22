@@ -566,17 +566,18 @@ Demandes
                                      </p>
                                    </div>
 <Link href={grfinancement.path.alias} passHref>
-<a className="flex-1 text-xl">
+<a className="flex-1 w-64 text-xl">
 <h2>{grfinancement.label}</h2>
 
 </a>
 </Link>
 
-
+<div className="flex-5 items justify-between text-text">
                                    Créé le  : {formatDate(grfinancement.created)} -{" "}
                                    Modifié le :  {formatDate(grfinancement.changed)} -{" "}
 
                         les membres
+                        </div>
                                    <button
                                      onClick={() => handleDelete()}
                                      className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"

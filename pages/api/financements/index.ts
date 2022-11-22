@@ -116,7 +116,7 @@ export default async function handler(
             title: fields.title,
             body: {
               value: fields.body,
-              format: "full_html",
+              format: "basic_html",
             },
           },
           relationships: {
@@ -174,7 +174,7 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("node--financement", ["title"])
+          .addFields("node--financement", ["title"], ["body"])
           .getQueryObject(),
       }
     )
