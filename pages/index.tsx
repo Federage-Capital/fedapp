@@ -32,7 +32,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
         <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-#012BDD">l'économie réelle.</span></h1>
-        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital  pour entreprise</h2>
+        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital pour entreprise</h2>
 
 </div>
 
