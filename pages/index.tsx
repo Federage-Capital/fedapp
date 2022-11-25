@@ -33,8 +33,8 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
         <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span class="fedbluetext">l'économie réelle.</span> </h1>
         <h2 className="mb-10 text-2xl text-gray-500 text-center">Solution de financement-capital pour entreprise</h2>
-
 </div>
+
 
 
 <h3 className="mb-2 text-lg font-black text-gray-500 text-left">SECTIONS</h3>
@@ -73,9 +73,6 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left fedbluetext"><a href="mailto:bonjour@federage.com">Vous avez une question ?</a></h3>
-
-
-
 
 
 

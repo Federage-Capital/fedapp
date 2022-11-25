@@ -27,12 +27,12 @@ export default function AlluserlistPage({ menus, blocks, users, groups, members,
 
 
   return (
-    <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("All user list") }} menus={menus} blocks={blocks}>
       <PageHeader
-        heading={t("Connexion")}
+        heading={t("All user list")}
         breadcrumbs={[
           {
-            title: t("Connexion"),
+            title: t("All user list"),
           },
         ]}
       />
@@ -64,7 +64,7 @@ export default function AlluserlistPage({ menus, blocks, users, groups, members,
 <p>révision le  {group.revision_created}</p>
 <p>créé le   {group.created}</p>
 <p>Proprio  du projet {group.uid.display_name}</p>
-<Link href={group.path.alias} passHref>
+<Link href="1" passHref>
   <a className="inline-flex items-center px-6 py-2 border border-gray-600 rounded-full hover:bg-gray-100">
 chemin : {group.path.alias}
     <svg
@@ -128,11 +128,11 @@ export async function getServerSideProps(
 
 
 const groups = await drupal.getResourceCollection<DrupalNode[]>(
-  "group--projets_federage",
+  "group_content--federage-group_membership",
   {
     params: new DrupalJsonApiParams()
-      .addInclude(["uid", "group_type", "revision_user"])
-      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+      .addInclude(["uid", "gid"])
+      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "group_content_type","meta"])
 
       .addSort("created", "DESC")
       .getQueryObject(),
@@ -144,7 +144,7 @@ const groups = await drupal.getResourceCollection<DrupalNode[]>(
 )
 
 const greltypes = await drupal.getResourceCollection<DrupalNode[]>(
-  "group_relationship_type--group_relationship_type",
+  "group_content_type--group_content_type",
   {
 
     withAuth: session.accessToken,
@@ -153,11 +153,11 @@ const greltypes = await drupal.getResourceCollection<DrupalNode[]>(
 
 )
 const members = await drupal.getResourceCollection<DrupalNode[]>(
-  "group_relationship--projets_federage-9376111be951852",
+  "group_content--federage-group_node-financement",
   {
     params: new DrupalJsonApiParams()
       .addInclude(["uid" ])
-      .addFields("group_relationship--projets_federage-b5856fc584d18c4", ["id", "type","meta"])
+      .addFields("group_content--federage-group_node-financement", ["id", "gid","meta"])
 
       .addSort("created", "DESC")
       .getQueryObject(),

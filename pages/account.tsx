@@ -548,46 +548,58 @@ Demandes
                           <p>
 
 {financementsdansgr?.length ? (
-  <div className="">
+
+
+
+
+
+
+
+
+  <div>
+
+
 
   <h3 className="mb-2 text-lg font-black text-gray-400 text-left">ACTIFS</h3>
                       {financementsdansgr.map((grfinancement) => (
 
 
-                               <li key={grfinancement.id}>
+   <li key={grfinancement.id} className="grid grid-cols-6 gap-4">
+   <hr className="col-span-6 my-10"/>
 
-                               <div
-                                 className="relative grid grid-cols-[120px_1fr] items-start gap-4 p-4 overflow-hidden bg-red border border-border group"
 
-                               >
-                                 <div className="flex items-start justify-between text-text">
-                                   <div>
-                                     <p className="text-sm text-gray">
-                                     </p>
-                                   </div>
-<Link href={grfinancement.path.alias} passHref>
-<a className="flex-1 w-64 text-xl">
+                            <div className="col-span-4">
+                            <Link href={grfinancement.path.alias} passHref>
+                            <a className="text-xl">
 <h2>{grfinancement.label}</h2>
 
 </a>
 </Link>
 
-<div className="flex-5 items justify-between text-text">
-                                   Créé le  : {formatDate(grfinancement.created)} -{" "}
-                                   Modifié le :  {formatDate(grfinancement.changed)} -{" "}
+                          </div>
+                            <div className="col-span-1">
+Créé le  : {formatDate(grfinancement.created)} -{" "}
+Modifié le :  {formatDate(grfinancement.changed)} -{" "}
 
-                        les membres
-                        </div>
-                                   <button
-                                     onClick={() => handleDelete()}
-                                     className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
-                                   >
-                                     {t("delete")}
-                                   </button>
-                                 </div>
-                               </div>
+les membres
+</div>
+  <div className="col-span-1">
+                                                             <button
+                                                               onClick={() => handleDelete()}
+                                                               className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
+                                                             >
+                                                               {t("delete")}
+                                                             </button>
+                                                             </div>
+</li>
 
-                               </li>
+
+
+
+
+
+
+
 
                              ))}
                              </div>
@@ -611,6 +623,7 @@ Demandes
 
                           <ChartDemo />
                         </div>
+
                         <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                           <p>
 

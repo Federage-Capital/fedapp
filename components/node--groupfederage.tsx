@@ -26,7 +26,7 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id,  fetcher)
 
 
-         const { data: financementsdugroupe, error2 } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_node-financement?include=entity_id&filter[gid.id]='+ node.id,  fetcher)
+         const { data: financementsdugroupe, error2 } = useSWR('https:/fed.septembre.io/group_node_financement_rest/'+ node.id,  fetcher)
 
          if (error) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
@@ -143,24 +143,29 @@ Membres
                 {financementsdugroupe?.length ? (
 
                 <p>
-                    {financementsdugroupe.data.map((financementdugroupe) => (
+                    {financementsdugroupe.map((financementdugroupe) => (
 
-                    <div>{financementdugroupe.attributes.label} <p> {financementdugroupe.id}</p>
+                    <div className="asset-card">
+                    <Link href={financementdugroupe.view_node}>
+{financementdugroupe.label_1}
 
+                    </Link>
+
+                    <p> {financementdugroupe.body}</p>
+<p>Ajouté par : {financementdugroupe.uid}</p>
+<Link href={financementdugroupe.view_node}>
+<div className="button-fin">
+
+Détail du financement
+</div>
+</Link>
 
                     </div>
 
                                           ))}
 
 
-                                          {financementsdugroupe.included.map((financementdugroupe) => (
 
-                                          <div>{financementdugroupe.attributes.body.value}
-
-
-                                          </div>
-
-                                                                ))}
                 </p>
                                                               ) : (
                                                                 <p className="text-2xl cadre text-center p-20 mb-10">
@@ -168,13 +173,8 @@ Membres
                                    <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                    </svg></p>
 
-                                                                <p>  Aucun projet</p>
-                                                                      <p>   Commencez par créer un projet</p>
-                                                                <Link href="/groupfederage/new" passHref>
-                                                                <a className="px-3 py-1 cadre text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                                                               + démarrez un projet
-                                                                  </a>
-                                                                </Link>
+                                                                      <p>   Ajouter un financement</p>
+                                                      
                                                                 </p>
                                                               )}
 
@@ -190,7 +190,10 @@ Membres
 
                   {users.data.map((user) => (
 
-                  <div>{user.attributes.label}</div>
+                  <div>{user.attributes.label}
+
+<p>{user.attributes.path.alias}</p>
+                  </div>
 
                                         ))}
 
