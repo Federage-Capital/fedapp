@@ -21,7 +21,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
   const { t } = useTranslation()
 
   return (
-    <Layout meta={{ title: t("Tous acteurs de l'économie réelle") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Federage") }} menus={menus} blocks={blocks}>
 
 
 
@@ -31,7 +31,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-#012BDD">l'économie réelle.</span></h1>
+        <h1 className="mb-3 text-3xl font-black text-center"><p>Tous acteurs de </p> <span class="fedbluetext">l'économie réelle.</span></h1>
         <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital pour entreprise</h2>
 
 </div>
@@ -68,6 +68,8 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
             <hr class="col-span-6 my-10"/>
             </div>
 
+
+<h3 className="mb-2 text-lg font-black text-gray-400 text-left fedbluetext"><a href="mailto:bonjour@federage.com">Vous avez une question ?</a>  </h3>
 
 
 
