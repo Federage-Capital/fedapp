@@ -174,11 +174,7 @@ Détail du financement
                                    </svg></p>
 
                                                                       <p>   Ajouter un financement</p>
-                                                                <Link href="/groupfederage/new" passHref>
-                                                                <a className="px-3 py-1 cadre text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                                                               + Ajouter un financement
-                                                                  </a>
-                                                                </Link>
+                                                      
                                                                 </p>
                                                               )}
 
