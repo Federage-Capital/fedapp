@@ -31,45 +31,48 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span class="fedbluetext">l'économie réelle.</span></h1>
-        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital pour entreprise</h2>
+        <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span class="fedbluetext">l'économie réelle.</span> </h1>
+        <h2 className="mb-10 text-2xl text-gray-500 text-center">Solution de financement-capital pour entreprise</h2>
 
 </div>
 
 
-<h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
+<h3 className="mb-2 text-lg font-black text-gray-500 text-left">SECTIONS</h3>
+
 <hr class="mb-10"/>
 <div class="grid grid-cols-6 gap-4">
-  <div>01</div>
+<div>01</div>
 <div class="col-span-5"><h2 class="text-xl">Démarrer</h2>
-<p>Piloter ses financements d’entreprise</p>
+<p> <span class="text-gray-500">Piloter ses financements d’entreprise</span> </p>
 </div>
-  <hr class="col-span-6 my-10"/>
+
+  <hr class="col-span-6 my-10"/>  
   <div>02</div>
   <div class="col-span-5">
   <h2 class="text-xl">Explorer</h2>
-  <p>Répondre aux besoins des professionnels</p>
+  <p> <span class="text-gray-500">Répondre aux besoins des professionnels</span> </p>
   </div>
+   
     <hr class="col-span-6 my-10"/>
-
     <div>03</div>
     <div class="col-span-5">
     <h2 class="text-xl">Blog</h2>
-    <p>En savoir plus sur le financement-capital</p>
+    <p> <span class="text-gray-500">En savoir plus sur le financement-capital</span> </p>
     </div>
+      
       <hr class="col-span-6 my-10"/>
-
-
-          <div>04</div>
-          <div class="col-span-5">
-          <h2 class="text-xl">Documentation</h2>
-          <p>Supports techniques de l’application</p>
-                    </div>
-            <hr class="col-span-6 my-10"/>
+      <div>04</div>
+      <div class="col-span-5">
+      <h2 class="text-xl">Documentation</h2>
+      <p> <span class="text-gray-500">Supports techniques de l’application</span> </p>
+      </div>
+        
+        <hr class="col-span-6 my-10"/>
+         
             </div>
 
 
-<h3 className="mb-2 text-lg font-black text-gray-400 text-left fedbluetext"><a href="mailto:bonjour@federage.com">Vous avez une question ?</a>  </h3>
+<h3 className="mb-2 text-lg font-black text-gray-400 text-left fedbluetext"><a href="mailto:bonjour@federage.com">Vous avez une question ?</a></h3>
 
 
 
