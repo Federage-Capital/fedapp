@@ -31,41 +31,41 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-800">l'économie réelle.</span></h1>
+        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="text-blue-800">l'économie réelle.</span></h1>
         <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital  pour entreprises</h2>
 
 </div>
 
 
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
-<hr class="mb-10"/>
-<div class="grid grid-cols-6 gap-4">
+<hr className="mb-10"/>
+<div className="grid grid-cols-6 gap-4">
   <div>01</div>
-<div class="col-span-5"><h2 class="text-xl">Démarrer</h2>
+<div className="col-span-5"><h2 className="text-xl">Démarrer</h2>
 <p>S'inscrire pour commencer un financement</p>
 </div>
-  <hr class="col-span-6 my-10"/>
+  <hr className="col-span-6 my-10"/>
   <div>02</div>
-  <div class="col-span-5">
-  <h2 class="text-xl">Explorer</h2>
+  <div className="col-span-5">
+  <h2 className="text-xl">Explorer</h2>
   <p>Découvrir les besoins des entreprises</p>
   </div>
-    <hr class="col-span-6 my-10"/>
+    <hr className="col-span-6 my-10"/>
 
     <div>03</div>
-    <div class="col-span-5">
-    <h2 class="text-xl">Blog</h2>
+    <div className="col-span-5">
+    <h2 className="text-xl">Blog</h2>
     <p>Apprendre sur le financement-capital</p>
     </div>
-      <hr class="col-span-6 my-10"/>
+      <hr className="col-span-6 my-10"/>
 
 
           <div>04</div>
-          <div class="col-span-5">
-          <h2 class="text-xl">Documentation</h2>
+          <div className="col-span-5">
+          <h2 className="text-xl">Documentation</h2>
           <p>Supports techniques de l’application</p>
                     </div>
-            <hr class="col-span-6 my-10"/>
+            <hr className="col-span-6 my-10"/>
             </div>
 
 

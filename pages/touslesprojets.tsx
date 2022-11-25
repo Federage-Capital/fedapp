@@ -110,7 +110,7 @@ export async function getServerSideProps(
 
 
 const allfederages = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-  "group--projets_federage",
+  "group--federage",
   context,
   {
     params: new DrupalJsonApiParams()
@@ -122,7 +122,7 @@ const allfederages = await drupal.getResourceCollectionFromContext<DrupalNode[]>
 );
 
 const allfinancements = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-  "group_relationship--projets_federage-b5856fc584d18c4",
+  "group_content--federage-group_node-financement",
   {
     params: new DrupalJsonApiParams()
       .addInclude(["uid", "group_relationship_type", "group--projets_federage", "entity_id", "meta","gid"])

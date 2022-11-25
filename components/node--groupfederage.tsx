@@ -26,7 +26,7 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id,  fetcher)
 
 
-         const { data: financementsdugroupe, error2 } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_node-financement?include=entity_id&filter[gid.id]='+ node.id,  fetcher)
+         const { data: financementsdugroupe, error2 } = useSWR('https:/fed.septembre.io/group_node_financement_rest/'+ node.id,  fetcher)
 
          if (error) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
@@ -143,24 +143,29 @@ Membres
                 {financementsdugroupe?.length ? (
 
                 <p>
-                    {financementsdugroupe.data.map((financementdugroupe) => (
+                    {financementsdugroupe.map((financementdugroupe) => (
 
-                    <div>{financementdugroupe.attributes.label} <p> {financementdugroupe.id}</p>
+                    <div className="asset-card">
+                    <Link href={financementdugroupe.view_node}>
+{financementdugroupe.label_1}
 
+                    </Link>
+
+                    <p> {financementdugroupe.body}</p>
+<p>Ajouté par : {financementdugroupe.uid}</p>
+<Link href={financementdugroupe.view_node}>
+<div className="button-fin">
+
+Détail du financement
+</div>
+</Link>
 
                     </div>
 
                                           ))}
 
 
-                                          {financementsdugroupe.included.map((financementdugroupe) => (
 
-                                          <div>{financementdugroupe.attributes.body.value}
-
-
-                                          </div>
-
-                                                                ))}
                 </p>
                                                               ) : (
                                                                 <p className="text-2xl cadre text-center p-20 mb-10">
@@ -190,7 +195,10 @@ Membres
 
                   {users.data.map((user) => (
 
-                  <div>{user.attributes.label}</div>
+                  <div>{user.attributes.label}
+
+<p>{user.attributes.path.alias}</p>
+                  </div>
 
                                         ))}
 
