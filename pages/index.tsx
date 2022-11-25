@@ -31,8 +31,8 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-800">l'économie réelle.</span></h1>
-        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital  pour entreprises</h2>
+        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span class="text-blue-#012BDD">l'économie réelle.</span></h1>
+        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital  pour entreprise</h2>
 
 </div>
 
@@ -42,20 +42,20 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div class="grid grid-cols-6 gap-4">
   <div>01</div>
 <div class="col-span-5"><h2 class="text-xl">Démarrer</h2>
-<p>S'inscrire pour commencer un financement</p>
+<p>Piloter ses financements d’entreprise</p>
 </div>
   <hr class="col-span-6 my-10"/>
   <div>02</div>
   <div class="col-span-5">
   <h2 class="text-xl">Explorer</h2>
-  <p>Découvrir les besoins des entreprises</p>
+  <p>Répondre aux besoins des professionnels</p>
   </div>
     <hr class="col-span-6 my-10"/>
 
     <div>03</div>
     <div class="col-span-5">
     <h2 class="text-xl">Blog</h2>
-    <p>Apprendre sur le financement-capital</p>
+    <p>En savoir plus sur le financement-capital</p>
     </div>
       <hr class="col-span-6 my-10"/>
 
