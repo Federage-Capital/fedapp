@@ -145,21 +145,28 @@ Membres
                 <p>
                     {financementsdugroupe.map((financementdugroupe) => (
 
-                    <div className="asset-card">
+                    <div className="asset-card mb-3">
                     <Link href={financementdugroupe.view_node}>
-{financementdugroupe.label_1}
+
+<div
+  dangerouslySetInnerHTML={{ __html: financementdugroupe.label_1 }}
+  className="mt-6 text-xl leading-loose"
+/>
 
                     </Link>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: financementdugroupe.body }}
+                      className="mt-6 text-xl leading-loose"
+                    />
 
-                    <p> {financementdugroupe.body}</p>
 <p>Ajouté par : {financementdugroupe.uid}</p>
+<div className="button-fin mx-auto">
 <Link href={financementdugroupe.view_node}>
-<div className="button-fin">
 
 Détail du financement
-</div>
-</Link>
 
+</Link>
+</div>
                     </div>
 
                                           ))}
@@ -174,7 +181,7 @@ Détail du financement
                                    </svg></p>
 
                                                                       <p>   Ajouter un financement</p>
-                                                      
+
                                                                 </p>
                                                               )}
 
