@@ -17,13 +17,11 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 
 const params = {
   fields: {
-    "user--user":
-      "name,type,filename,path,drupal_internal__uid,links",
       "file--file":
-        "filename, uri",
+        "uri",
   },
   filter: {},
-  include: "user_picture, user_picture.uid",
+  include: "user_picture",
 
 
 }
@@ -98,48 +96,8 @@ export default function AlluserlistPage
             name="fulltext"
             className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
-          <div className="grid gap-4 py-4 md:grid-cols-2">
-            {facets.map((facet) => (
-              <div key={facet.id} className="p-4 border rounded-md">
-                <h3 className="mt-0 mb-2 text-base">{facet.label}</h3>
-                <div className="grid grid-flow-row gap-2">
-                  <label
-                    htmlFor={`${facet.id}--any`}
-                    className="flex items-center text-base"
-                  >
-                    <input
-                      type="radio"
-                      id={`${facet.id}--any`}
-                      name={facet.path}
-                      className="mr-2"
-                      value=""
-                      defaultChecked
-                    />
-                    Any
-                  </label>
-                  {facet.terms.map((term) => (
-                    <label
-                      key={term.url}
-                      htmlFor={`${facet.id}--${term.values.value}`}
-                      className="flex items-center text-sm"
-                    >
-                      <input
-                        type="radio"
-                        id={`${facet.id}--${term.values.value}`}
-                        name={facet.path}
-                        value={term.values.value}
-                        className="mr-2"
-                        defaultChecked={term.values.active}
-                      />
-                      {term.values.label}{" "}
-                      <span className="flex items-center justify-center w-5 h-5 ml-2 text-xs bg-gray-200 rounded-full">
-                        {term.values.count}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="grid gap-4 py-4 md:grid-cols-1">
+
           </div>
           <div className="flex">
             <button
@@ -170,78 +128,52 @@ export default function AlluserlistPage
             No results found.
           </p>
         ) : (
+
+
           <div className="pt-4">
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-1">
               {results.map((node) => (
                 <div key={node.id}>
                   <article
-                    className="grid grid-cols-3 gap-4"
+                    className="grid grid-cols-6 gap-4"
                     data-cy="search-result"
                   >
 
 
+<div>
 
-{node.field_images?.[0]?.field_media_image.uri && (
-  <div className="col-span-1 overflow-hidden rounded-md">
-    <Image
-      src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.field_images?.[0]?.field_media_image.uri.url}`}
-      width={200}
-      height={200}
-      layout="responsive"
-      objectFit="cover"
-    />
+{node.user_picture?.uri && (
+  <div className="overflow-hidden rounded-xl">
+<Link href={node.path.alias} passHref>
+  <Image
+    src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
+    width={100}
+    height={100}
+    layout="responsive"
+    objectFit="cover"
+  />
+  </Link>
   </div>
 )}
 
-                    <div className="col-span-2">
-                      <h4 className="mt-0 text-base">{node.name}</h4>
-                      <p className="m-0 text-base">For
+</div>
 
-                      {node.field_description?.value && (
-                        <div
-                          dangerouslySetInnerHTML={{ __html: node.field_description?.value }}
-                          className="mt-6 text-xl leading-loose prose"
-                        />
-                      )}
+<div className="col-span-5">
 
 
 
-                      </p>
-
-                      <p className="m-0 text-base">
-                      {node.field_site_internet?.uri && (
-                        <div
-                          dangerouslySetInnerHTML={{ __html: node.field_site_internet?.uri }}
-                          className="mt-6 text-xl leading-loose prose"
-                        />
-                      )}
-
-
-{node && (
+<Link href={node.path.alias} passHref>{node.display_name}</Link><br/>
+{node.field_description?.value && (
   <div
-    dangerouslySetInnerHTML={{ __html: node }}
+    dangerouslySetInnerHTML={{ __html: node.field_description?.value }}
     className="mt-6 text-xl leading-loose prose"
   />
 )}
 
+</div>
+<hr className="col-span-6 my-10"/>
 
 
-{node.user_picture?.id && (
-  <div
-    dangerouslySetInnerHTML={{ __html: node.user_picture?.id }}
-    className="mt-6 text-xl leading-loose prose"
-  />
-)}
-
-                      {node.user_picture?.id && (
-                        <div
-                          dangerouslySetInnerHTML={{ __html: node.user_picture?.id }}
-                          className="mt-6 text-xl leading-loose prose"
-                        />
-                      )}
-
-                      </p>
-                    </div>
                   </article>
                 </div>
               ))}
@@ -250,7 +182,7 @@ export default function AlluserlistPage
         )}
 
 
--------------------------------------------------------------------------------------------
+
 
 
 

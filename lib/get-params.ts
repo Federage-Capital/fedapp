@@ -141,7 +141,26 @@ export function getParams(
       .addFields("user--user", ["display_name", "user_picture"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
   }
+  if (name === "user--user") {
+    return params
+      .addInclude([
+        "user_picture",
 
+      ])
+      .addFields("group_content--federage-group_membership", [
+        "display_name",
+        "field_description",
+        "default_langcode",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "group_type",
+        "drupal_internal__id",
+        "id",
+        "meta",
+      ])
+  }
   if (name === "menu_link_content--menu_link_content") {
     return params.addFields("menu_link_content--menu_link_content", [
       "title,url",

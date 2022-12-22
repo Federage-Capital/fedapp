@@ -10,6 +10,8 @@ import { NodeArticle, NodeArticleProps } from "components/node--article"
 import { NodePage } from "components/node--page"
 import { NodeFinancement, NodeFinancementProps } from "components/node--financement"
 import { NodeGroupFinancement, NodeGroupFinancementProps } from "components/node--groupfederage"
+import { UserProfile } from "components/user-profile"
+
 
 
 
@@ -18,6 +20,7 @@ const RESOURCE_TYPES = [
   "node--article",
   "node--financement",
   "group--federage",
+  "user--user",
 ]
 
 interface ResourcePageProps extends LayoutProps, PageProps {
@@ -56,6 +59,15 @@ export default function ResourcePage({
           node={resource as DrupalNode}
           additionalContent={
             additionalContent as NodeGroupFinancementProps["additionalContent"]
+          }
+        />
+      )}
+
+      {resource.type === "user--user" && (
+        <UserProfile
+          node={resource as DrupalUser}
+          additionalContent={
+            additionalContent as UserProfileProps["additionalContent"]
           }
         />
       )}

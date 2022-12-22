@@ -569,6 +569,14 @@ Demandes
 
 
                             <div className="col-span-4">
+
+
+                            {grfinancement.path?.alias && (
+                              <div
+                                dangerouslySetInnerHTML={{ __html: grfinancement.path?.alias }}
+                                className="mt-6 text-xl leading-loose prose"
+                              />
+                            )}
                             <Link href={grfinancement.path.alias} passHref>
                             <a className="text-xl">
 <h2>{grfinancement.label}</h2>
