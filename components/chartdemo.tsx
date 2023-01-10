@@ -62,7 +62,7 @@ export function ChartDemo() {
     };
 
     return function cleanup() {
-      myLineChart.destroy();
+
     };
   });
 
