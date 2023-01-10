@@ -22,7 +22,7 @@ interface FormStatus {
   message?: string | string[]
 }
 
-export function FormGroupfin({ className, ...props }: FormArticleProps) {
+export function FormGroupfin({ className, Datepicker, ...props }: FormArticleProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
@@ -223,7 +223,7 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
     <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">2</option>
       <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">3</option>
               </select>
-          
+
             </div>
           </div>
 
