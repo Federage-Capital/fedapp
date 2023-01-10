@@ -10,7 +10,7 @@ interface FormStatus {
   message?: string | string[]
 }
 
-export function FormFinancement({ className, ...props }: FormArticleProps) {
+export function FormFinancement({ className, ...props }: FormFinancementProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
