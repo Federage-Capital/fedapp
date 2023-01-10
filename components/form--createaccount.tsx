@@ -69,12 +69,7 @@ return setStatus("error")
 
 
         <div className="grid">
-        <label
-                         htmlFor="typestructure"
-                         className="block text-sm font-medium text-gray-700"
-                       >
-                         Type de structure
-                       </label>
+<div>
       <input
         id="typestructure"
         name="typestructure"
@@ -83,6 +78,7 @@ return setStatus("error")
         className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         {...register("typesdestructure")}
       />
+</div>
 
       <input
         id="siren"
