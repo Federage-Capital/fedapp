@@ -86,7 +86,7 @@ export function FormMembre({ className, ...props }: FormArticleProps) {
         </div>
       )}
 
-
+      PARTENAIRES DE L’OPÉRATION
 
 
              <div className="grid gap-2">
