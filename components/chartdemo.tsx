@@ -56,11 +56,11 @@ export function ChartDemo() {
         }
       ]
     };
-    const config = {
+    const config23 = {
       type: "line",
       data: data
     };
-    const myLineChart = new Chart(ctx, config);
+    const myLineChart = new Chart(ctx, config23);
 
     return function cleanup() {
       myLineChart.destroy();
