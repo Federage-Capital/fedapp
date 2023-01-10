@@ -81,14 +81,7 @@ export default function ResourcePage({
         />
       )}
 
-      {resource.type === "taxonomy_term--tags" && (
-        <TaxonomyTermTags
-          term={resource as DrupalTaxonomyTerm}
-          additionalContent={
-            additionalContent as TaxonomyTermTagsProps["additionalContent"]
-          }
-        />
-      )}
+    
     </Layout>
   )
 }
