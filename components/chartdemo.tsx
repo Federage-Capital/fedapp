@@ -45,10 +45,10 @@ export function ChartDemo() {
       datasets: [
         {
           backgroundColor: gradient,
-          label: "",
+          label: "My First Dataset",
           data: weight,
           fill: true,
-          borderWidth: 0,
+          borderWidth: 2,
           borderColor: colors.purple.default,
           lineTension: 0.2,
           pointBackgroundColor: colors.purple.default,
@@ -56,11 +56,11 @@ export function ChartDemo() {
         }
       ]
     };
-    const config23 = {
+    const config = {
       type: "line",
       data: data
     };
-    const myLineChart = new Chart(ctx, config23);
+    const myLineChart = new Chart(ctx);
 
     return function cleanup() {
       myLineChart.destroy();
@@ -69,11 +69,7 @@ export function ChartDemo() {
 
   return (
     <div className="App">
-    <span
-      className="px-5 py-3 mt-4 text-xl font-semibold"
-    >  Performance
-<br/><br/>
-    </span>
+      <span>Chart Demo</span>
       <canvas id="myChart" ref={canvasEl} height="100" />
     </div>
   );
