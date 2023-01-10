@@ -60,7 +60,6 @@ export function ChartDemo() {
       type: "line",
       data: data
     };
-    const myLineChart = new Chart(ctx);
 
     return function cleanup() {
       myLineChart.destroy();
