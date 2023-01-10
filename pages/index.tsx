@@ -31,7 +31,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="text-blue-800">l'&eacute;conomie r&eacute;elle.</span></h1>
+        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="text-blue-800">l&apos;&eacute;conomie r&eacute;elle.</span></h1>
         <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital  pour entreprises</h2>
 
 </div>
@@ -42,7 +42,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <div className="grid grid-cols-6 gap-4">
   <div>01</div>
 <div className="col-span-5"><h2 className="text-xl">Démarrer</h2>
-<p>S'inscrire pour commencer un financement</p>
+<p>S&apos;inscrire pour commencer un financement</p>
 </div>
   <hr className="col-span-6 my-10"/>
   <div>02</div>
@@ -63,7 +63,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
           <div>04</div>
           <div className="col-span-5">
           <h2 className="text-xl">Documentation</h2>
-          <p>Supports techniques de l’application</p>
+          <p>Supports techniques de l&apos;application</p>
                     </div>
             <hr className="col-span-6 my-10"/>
             </div>
