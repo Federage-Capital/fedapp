@@ -111,7 +111,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
 
     </div>
     <div class="text-base font-bold col-span-11 align-middle">
-      <span className="text-xl fedblueblue font-semibold">   Montant de l'apport </span><br/>
+      <span className="text-xl fedblueblue font-semibold">   Montant de lapos;apport </span><br/>
     <span className="text-3xl font-bold">  {node.field_estimation_du_prix}€</span>
     </div>
       </div>
@@ -119,7 +119,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
 </div>
 
 
-// {formatDate(node.created)}
+
         <span>
         {node.promote}
         {node.sticky}
