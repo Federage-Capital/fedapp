@@ -25,6 +25,8 @@ export function getParams(
         "field_media_image",
         "body",
         "created",
+                "promote",
+                    "sticky",
         "uid",
         "field_tags",
         "field_type_de_financement",
@@ -68,6 +70,8 @@ export function getParams(
     return params
       .addInclude([
         "uid",
+        "uid.user_picture",
+
         "group_type",
         "field_categorie",
       ])
@@ -87,6 +91,7 @@ export function getParams(
         "drupal_internal__id",
       ])
       .addFields("user--user", ["display_name", "user_picture"])
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","drupal_internal__id"])
       .addFields("taxonomy_term--categorie", ["name", "drupal_internal__tid"])
 

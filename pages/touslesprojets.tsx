@@ -17,16 +17,23 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 
 const params = {
   fields: {
-      "gid":
+      "field_categorie":
         "id, meta",
   },
-  filter: {},
-  include: "gid",
+  filter: {
+"entity_type":'group',
+
+  },
+
+  include: "field_categorie",
 
 
 }
 
-
+interface AlluserlistPageProps {
+  nodes: DrupalNode[]
+  facets: DrupalSearchApiFacet[]
+}
 
 export default function AlluserlistPage
 ({ menus, blocks, users, nodes,
@@ -43,7 +50,7 @@ export default function AlluserlistPage
   async function handleSubmit(event) {
     event.preventDefault()
 
-    for (const filter of ["fulltext", "name", "field_status"]) {
+    for (const filter of ["fulltext", "type", "field_status"]) {
       if (event.target[filter]?.value != "") {
         params["filter"][filter] = event.target[filter]?.value
       }
@@ -99,6 +106,8 @@ export default function AlluserlistPage
           <div className="grid gap-4 py-4 md:grid-cols-1">
 
           </div>
+
+
           <div className="flex">
             <button
               type="button"
@@ -144,7 +153,7 @@ export default function AlluserlistPage
 
 {node.user_picture?.uri && (
   <div className="overflow-hidden rounded-xl">
-<Link href="https://lemonde.fr" passHref>
+<Link href={node.path.alias} passHref>
   <Image
     src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
     width={100}
@@ -158,21 +167,49 @@ export default function AlluserlistPage
 
 </div>
 
-<div className="col-span-5">
+<div className="col-span-4">
+
+<Link href={node.path.alias} passHref>
+<div     className="text-xl leading-loose prose">
+{node.label}
+</div>
+</Link>
+
+<br/>
 
 
-
-<Link href={node.path.alias} passHref>1</Link><br/>
- {node.type}<br/>
- {node.label}<br/>
-  {node.gid.label}
-  {node.gid.path.alias}
 {node.field_description?.value && (
   <div
     dangerouslySetInnerHTML={{ __html: node.field_description?.value }}
-    className="mt-6 text-xl leading-loose prose"
+    className="text-xl  prose"
   />
 )}
+
+
+{node.field_categorie.name}
+
+
+
+
+</div>
+
+<div>
+
+<Link href={node.path.alias} passHref>
+
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="w-4 h-4 ml-2"
+  >
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+
+</Link>
 
 </div>
 <hr className="col-span-6 my-10"/>
@@ -205,10 +242,9 @@ const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
   context,
   {
     deserialize: false,
-params,
+    params,
   }
 )
-
 
 
 

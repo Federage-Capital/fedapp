@@ -10,6 +10,16 @@ body{
 background-color:#F9FAFB;
   }
 
+.gray-700{
+color:#4b5563;
+  }
+
+
+.fedblueblue{
+color:#012BDD;
+  }
+
+
 
 .cadre{
   border: 2px dashed #9CA3AF;
@@ -123,3 +133,8 @@ padding-top:15%;
         flex-grow: 0;
 
   }
+
+
+  .asset-card-inherit{
+  align-items: inherit;
+    }

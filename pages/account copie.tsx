@@ -250,6 +250,7 @@ financementsdansgr,
       }}
     >
       <PageHeader
+        heading={t("Portefeuille")}
         breadcrumbs={[
           {
             title: t("Portefeuille"),
@@ -261,20 +262,21 @@ financementsdansgr,
 
 
         <div className="title">
-          <div className="mb-4 py-3">
-<div class="grid grid-cols-4 gap-4">
+          <div className="mb-4 px-5 py-3">
+
           <Listbox>
                {({ open }) => (
                  <>
                    <Listbox.Label className="sr-only"> Change published status </Listbox.Label>
                    <div className="relative">
-                     <div className="inline-flex rounded-md shadow-sm">
-                       <div className="inline-flex rounded-md shadow-sm">
-                         <div className="inline-flex items-center rounded-l-md border border-transparent   pr-4  shadow-sm">
+                     <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
+                       <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
+                         <div className="inline-flex items-center rounded-l-md border border-transparent  py-2 pl-3 pr-4  shadow-sm">
 
 
 
                           {user[0].user_picture && (
+                            <h2>
 
 
                               <Image
@@ -283,13 +285,13 @@ financementsdansgr,
                                 alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
                                 title={user[0].user_picture.resourceIdObjMeta.title}
                                 priority={priority}
-                                width={130}
-                                height={130}
-                                class='rounded-lg'
+                                width={70}
+                                height={70}
+                                class='rounded-full'
                               />
-
+                            </h2>
                           )}
-                          <p className="ml-5 text-xl">{user[0].display_name}</p>
+                          <p>{user[0].display_name}</p>
 
                          </div>
                          <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
@@ -306,29 +308,38 @@ financementsdansgr,
                        leaveFrom="opacity-100"
                        leaveTo="opacity-0"
                      >
-                       <Listbox.Options className="absolute left-0 z-10 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                       <Listbox.Options className="absolute left-0 z-10 mt-2 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                            <Listbox.Option
 
                            >
+                           <ul class="absolute right-0 z-10 mt-2 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
+
+                           <li class="text-gray-900 cursor-default select-none p-4 text-sm" id="listbox-option-0" role="option">
+                                  <div class="flex flex-col">
+                                    <div class="flex justify-between">
 
 
-                           <li class="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
-                                    <button className="modal-toggle" onClick={toggleUserDataForm}>
+                                    </div>
+                                    <p class="text-gray-500 mt-2"><button className="modal-toggle" onClick={toggleUserDataForm}>
                                       <u>Edit profile</u>
-                                    </button>
-
-
+                                    </button></p>
+                                  </div>
                                 </li>
-                                <li class="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
+                                <li class="text-gray-900 cursor-default select-none p-4 text-sm" id="listbox-option-0" role="option">
+                                       <div class="flex flex-col">
+                                         <div class="flex justify-between">
+
+                                         </div>
+                                         <p class="text-gray-500 mt-2">
                                                      <button
                                                        className="modal-toggle text-underline mr-4"
                                                        onClick={togglePasswordForm}
                                                      >
                                                        <u>Edit password</u>
-                                                     </button>
-
+                                                     </button></p>
+                                       </div>
                                      </li>
-
+                                 </ul>
                            </Listbox.Option>
 
                        </Listbox.Options>
@@ -338,15 +349,17 @@ financementsdansgr,
                )}
              </Listbox>
 
-             <div className="text-base font-medium">
-             Portefeuille<br/>
-
-             <span className="font-semibold text-2xl">0000 €</span>
-             </div>
+             <p className="text-lg mt-10">
+             <Link href="/groupfederage/new" passHref>
+             <a className="px-3 py-1 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                + Nouveau financement
+               </a>
+             </Link>
+             </p>
 
           </div>
 
-</div>
+
 
 
         </div>
@@ -459,28 +472,13 @@ financementsdansgr,
               </div>
             </form>
           </Modal>
-
-
-
-
-          <p className="text-lg mt-10">
-          <Link href="/groupfederage/new" passHref>
-          <a className="px-3 py-1 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-             + Nouveau financement
-            </a>
-          </Link>
-          </p>
-
         </div>
 
         <div className="flex flex-wrap">
                 <div className="w-full">
-                <br/>
                 <span
-                  className="px-5 py-3 mt-4 text-xl font-semibold"
-                >  Opérations
-<br/><br/>
-                </span>
+                  className="px-5 py-3"
+                >  Opérations</span>
                   <ul
                     className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
                     role="tablist"
@@ -577,36 +575,32 @@ Demandes
    </svg>
    </div>
 
-                            <div className="col-span-4">
+                            <div className="col-span-3">
 
 
 
                             <Link href={grfinancement.path.alias} passHref>
-                            <a>
-<h2 className="text-sm gray-700">{grfinancement.label}</h2><br/>
+                            <a className="text-sm gray-700">
+<h2>{grfinancement.label}</h2><br/>
 <span className="text-2xl font-semibold">000€
 </span>
 </a>
 </Link>
 
                           </div>
+                            <div className="col-span-1">
+Créé le  : {formatDate(grfinancement.created)} {" "}<br/>
+Modifié le :  {formatDate(grfinancement.changed)} {" "}<br/>
 
+
+</div>
   <div className="col-span-1">
-  <Link href={grfinancement.path.alias} passHref>
-<a>
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-4 h-4 ml-2"
-    >
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-</a>
-  </Link>
+                                                             <button
+                                                               onClick={() => handleDelete()}
+                                                               className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
+                                                             >
+                                                               {t("delete")}
+                                                             </button>
                                                              </div>
 </li>
 
@@ -637,10 +631,8 @@ Demandes
                            )}
 
                           </p>
-<p>
-<br/><br/><br/>
+
                           <ChartDemo />
-                          </p>
                         </div>
 
                         <div className={openTab === 2 ? "block" : "hidden"} id="link2">
@@ -699,6 +691,7 @@ export async function getServerSideProps(
             .addFields("group_type--group_type", ["id", "type","meta"])
 
             .addFields("user--user", ["display_name", "user_picture"])
+
           .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
             .addSort("created", "DESC")

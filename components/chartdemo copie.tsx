@@ -45,10 +45,10 @@ export function ChartDemo() {
       datasets: [
         {
           backgroundColor: gradient,
-          label: "",
+          label: "My First Dataset",
           data: weight,
           fill: true,
-          borderWidth: 0,
+          borderWidth: 2,
           borderColor: colors.purple.default,
           lineTension: 0.2,
           pointBackgroundColor: colors.purple.default,
