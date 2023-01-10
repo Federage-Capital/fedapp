@@ -167,7 +167,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
 
           {comments.data.map((comment) => (
 
-          <div className="asset-card mb-3">
+          <div key={comment.thread} className="asset-card mb-3">
 
 
           <div class="flow-root">

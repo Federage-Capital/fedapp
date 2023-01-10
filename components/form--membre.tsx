@@ -104,7 +104,7 @@ Select users                      </label>
                     >
      {users.data.map((user) => (
 
-<option value={user.id}>{user.attributes.display_name}</option>
+<option key={user.id} value={user.id}>{user.attributes.display_name}</option>
 
                           ))}
                       </select>

@@ -212,7 +212,7 @@ Membres
                 <p>
                     {financementsdugroupe.map((financementdugroupe) => (
 
-                    <div className="asset-card mb-3">
+                    <div key={financementdugroupe.label} className="asset-card mb-3">
                     <Link href={financementdugroupe.view_node}>
 
 <div
@@ -278,7 +278,7 @@ Détail du financement
 
                   {users.data.map((user) => (
 
-                  <div>{user.attributes.label}
+                  <div key={user.uid} >{user.attributes.label}
 
 <p>{user.attributes.path.alias}</p>
                   </div>
