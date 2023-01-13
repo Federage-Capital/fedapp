@@ -1,3 +1,8 @@
+import { GetStaticPropsContext, GetStaticPropsResult } from "next"
+import { drupal } from "lib/drupal"
+import { DrupalUser } from "next-drupal"
+import { getGlobalElements } from "lib/get-global-elements"
+
 import * as React from "react"
 import classNames from "classnames"
 import { useTranslation } from "next-i18next"
@@ -5,21 +10,20 @@ import { useRouter } from "next/router"
 import useSWR from 'swr'
 
 
-interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {}
+interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {
 
-interface FormMembre {
-  users: DrupalUsers,
-
+  users: DrupalUser,
 }
+
+
 interface FormStatus {
   status: "success" | "error" | "fetching"
   message?: string | string[]
 }
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-
-export function FormMembre({ className, ...props }: FormArticleProps) {
+export function FormMembre({ className, ...props }: FormMembreProps) {
   const router = useRouter()
   const query = router.query;
 
@@ -173,18 +177,4 @@ Select users                      </label>
       </div>
     </form>
   )
-}
-
-export async function getStaticProps(): Promise<GetStaticPropsResult<FormMembreProps>> {
-
-const users = await drupal.getResourceCollection("user--user")
-
-
-return {
-  props: {
-    users,
-
-  },
-  revalidate: 60,
-}
 }

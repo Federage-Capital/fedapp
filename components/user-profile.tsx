@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { DrupalNode } from "next-drupal"
 
-import { absoluteUrl, formatDate } from "lib/utils"
+import { absoluteURL, formatDate } from "lib/utils"
 
 interface UserProfileProps {
   node: DrupalNode
@@ -13,7 +13,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
 
       <h1 className="mb-4 text-6xl font-black leading-tight">  {node.display_name}</h1>
       <div className="mb-4 text-gray-600">
-    
+
        {node.field_description?.processed && (
          <div
            dangerouslySetInnerHTML={{ __html: node.field_description?.processed }}
@@ -24,7 +24,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
       {node.field_image && (
         <figure>
           <Image
-            src={absoluteUrl(node.field_image.uri.url)}
+            src={absoluteURL(node.field_image.uri.url)}
             width={768}
             height={400}
             layout="responsive"

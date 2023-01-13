@@ -56,8 +56,7 @@ export async function getStaticProps(
     context,
     {
       params: getParams("group--federage", "card")
-        .addSort("created", "DESC")
-        .getQueryObject(),
+
     }
   )
 

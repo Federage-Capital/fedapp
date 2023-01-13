@@ -1,8 +1,3 @@
-import * as React from "react"
-import classNames from "classnames"
-import { useTranslation } from "next-i18next"
-import { useRouter } from "next/router"
-import { Folder } from "./foldersvg"
 import { useState, useEffect } from "react";
 import {
   format,
@@ -15,24 +10,16 @@ import {
   getDay
 } from "date-fns";
 
-interface FormArticleProps extends React.HTMLProps<HTMLFormElement> {}
+type DatepickerType = "date" | "month" | "year";
 
-interface FormStatus {
-  status: "success" | "error" | "fetching"
-  message?: string | string[]
-}
-
-export function FormGroupfin({ className, ...props }: FormArticleProps) {
-  const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
-  const { t } = useTranslation()
-  const router = useRouter()
+export default function App() {
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const [dayCount, setDayCount] = useState<Array<number>>([]);
   const [blankDays, setBlankDays] = useState<Array<number>>([]);
   const [showDatepicker, setShowDatepicker] = useState(false);
   const [datepickerHeaderDate, setDatepickerHeaderDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [type, setType] = useState("date");
+  const [type, setType] = useState<DatepickerType>("date");
 
   const decrement = () => {
     switch (type) {
@@ -125,109 +112,8 @@ export function FormGroupfin({ className, ...props }: FormArticleProps) {
     getDayCount(datepickerHeaderDate);
   }, [datepickerHeaderDate]);
 
-
-
-
-
-  const onSubmit = async (event) => {
-    event.preventDefault()
-    const data = new FormData(event.target)
-
-    setFormStatus({ status: "fetching" })
-
-    const response = await fetch("/api/groupfin", {
-      method: "POST",
-      body: data,
-    })
-
-    if (!response.ok) {
-      const errors = await response.json()
-
-      return setFormStatus({
-        status: "error",
-        message: errors?.map((error) => error.detail),
-      })
-    }
-
-    router.push("/account")
-  }
-
   return (
-    <form
-      className={classNames("grid gap-4", className)}
-      onSubmit={onSubmit}
-      {...props}
-    >
-    <Folder />
-Décrire le projets
-Vous devez fournir des informations. En tant qu’initiateur du projet, vous fixez les objectifs de l’opération.
-      {(formStatus?.status === "success" || formStatus?.status === "error") && (
-        <div
-          className={classNames("py-3 px-4 border", {
-            "border-link bg-link/10 text-link": formStatus.status === "success",
-            "border-error bg-error/10 text-error":
-              formStatus.status === "error",
-          })}
-        >
-          {Array.isArray(formStatus.message) ? (
-            <ul className="list-disc list-inside list">
-              {formStatus.message.map((message, index) => (
-                <li key={index}>{message}</li>
-              ))}
-            </ul>
-          ) : (
-            formStatus.message
-          )}
-        </div>
-      )}
-      <div className="grid gap-2">
-        <label htmlFor="title" className="font-semibold text-text">
-          {t("Objet du financement")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          id="label"
-          name="label"
-          maxLength={255}
-          required
-          className="px-2 py-3 rounded-md border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="descritption" className="font-semibold text-text">
-          {t("Description")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <textarea
-          id="field_description"
-          name="field_description"
-          className="h-48 px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-        ></textarea>
-      </div>
-
-
-      <div className="grid gap-2">
-
-
-      </div>
-      <div className="grid gap-2">
-            <label className="blofont-semibold text-text" htmlFor="grid-state">
-  {t("categorie")} <span className="text-sm text-red-500">*</span>
-   </label>
-            <div className="relative">
-              <select
-              id="field_categorie"
-              name="field_categorie"
-              className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-            >
-  <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">1</option>
-    <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">2</option>
-      <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">3</option>
-              </select>
-
-            </div>
-          </div>
-
-      <div>
+    <div className="h-screen w-screen flex items-center justify-center bg-gray-200 ">
       <div className="antialiased sans-serif">
         <div>
           <div className="container mx-auto px-4 py-2 md:py-10">
@@ -242,7 +128,6 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
                 <input type="hidden" name="date" />
                 <input
                   type="text"
-                  id="field_date_de_livraison"
                   readOnly
                   className="cursor-pointer w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                   placeholder="Select date"
@@ -408,7 +293,7 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
                           ))}
                       </div>
                     )}{" "}
-
+                    
                   </div>
                 )}
               </div>
@@ -416,17 +301,6 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
           </div>
         </div>
       </div>
-        <input
-          type="submit"
-          className="px-6 py-3 rounded-md fedblue font-serif text-xl text-white transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
-          disabled={formStatus?.status === "fetching"}
-          value={
-            formStatus?.status === "fetching"
-              ? t("please-wait")
-              : t("create-new-sep")
-          }
-        />
-      </div>
-    </form>
-  )
+    </div>
+  );
 }

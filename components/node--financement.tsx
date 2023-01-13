@@ -12,14 +12,17 @@ import { useTranslation } from "next-i18next"
 
 interface NodeFinancementProps extends React.HTMLProps<HTMLFormElement> {}
 
-
-interface NodeFinancementProps {
-  node: DrupalNode
+interface FormStatus {
   status: "success" | "error" | "fetching"
   message?: string | string[]
 }
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+interface NodeFinancementProps {
+  node: DrupalNode
+}
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 
 
@@ -71,13 +74,13 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
         src={absoluteURL(node.uid?.user_picture.uri.url)}
         width={100}
         height={100}
-        class="rounded-full"
-        objectFit="cover rounded-full"
+        className="rounded-full"
+        objectFit="cover"
         alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
         priority
       />
       </div>
-      <div class="text-base font-bold col-span-11 align-middle">
+      <div className="text-base font-bold col-span-11 align-middle">
 {node.uid?.display_name}
 </div>
       </div>
@@ -85,7 +88,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
       <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
 
       <div className="mb-4 text-gray-600">
-  <div class="asset-card mb-3">
+  <div className="asset-card mb-3">
 
       <div className="grid grid-cols-12 gap-4">
         <div>
@@ -110,14 +113,13 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
         </svg>
 
     </div>
-    <div class="text-base font-bold col-span-11 align-middle">
-      <span className="text-xl fedblueblue font-semibold">   Montant de lapos;apport </span><br/>
+    <div className="text-base font-bold col-span-11 align-middle">
+      <span className="text-xl fedblueblue font-semibold">   Montant de l&#39;apport </span><br/>
     <span className="text-3xl font-bold">  {node.field_estimation_du_prix}€</span>
     </div>
       </div>
 
 </div>
-
 
 
         <span>
@@ -167,34 +169,34 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
 
           {comments.data.map((comment) => (
 
-          <div key={comment.thread} className="asset-card mb-3">
+          <div key={comment.id} className="asset-card mb-3">
 
 
-          <div class="flow-root">
-            <ul role="list" class="-mb-8">
+          <div className="flow-root">
+            <ul role="list" className="-mb-8">
               <li>
-                <div class="relative pb-8">
-                  <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-                  <div class="relative flex items-start space-x-3">
-                    <div class="relative">
+                <div className="relative pb-8">
+                  <span className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                  <div className="relative flex items-start space-x-3">
+                    <div className="relative">
 
-                      <span class="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
+                      <span className="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
 
-                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                           <path fill-rule="evenodd" d="M10 2c-2.236 0-4.43.18-6.57.524C1.993 2.755 1 4.014 1 5.426v5.148c0 1.413.993 2.67 2.43 2.902.848.137 1.705.248 2.57.331v3.443a.75.75 0 001.28.53l3.58-3.579a.78.78 0 01.527-.224 41.202 41.202 0 005.183-.5c1.437-.232 2.43-1.49 2.43-2.903V5.426c0-1.413-.993-2.67-2.43-2.902A41.289 41.289 0 0010 2zm0 7a1 1 0 100-2 1 1 0 000 2zM8 8a1 1 0 11-2 0 1 1 0 012 0zm5 1a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
                         </svg>
                       </span>
                     </div>
-                    <div class="min-w-0 flex-1">
+                    <div className="min-w-0 flex-1">
                       <div>
-                        <div class="text-sm">
-                          <a href="#" class="font-medium text-gray-900">  {comment.attributes.thread}</a>
+                        <div className="text-sm">
+                          <a href="#" className="font-medium text-gray-900">  {comment.attributes.thread}</a>
 
 
                         </div>
-                        <p class="mt-0.5 text-sm text-gray-500">{comment.attributes.created}</p>
+                        <p className="mt-0.5 text-sm text-gray-500">{comment.attributes.created}</p>
                       </div>
-                      <div class="mt-2 text-sm text-gray-700">
+                      <div className="mt-2 text-sm text-gray-700">
                       <p>{comment.attributes.subject}</p>
 
                         <p><div
@@ -237,7 +239,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
 
 
 
-                                                    <div class="asset-card asset-card-inherit mb-3">
+                                                    <div className="asset-card asset-card-inherit mb-3">
 
 
 
@@ -317,7 +319,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
                                                     </form>
 </div>
 
-                                                    <div class="asset-card mb-3">
+                                                    <div className="asset-card mb-3">
 
 
 
@@ -342,7 +344,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
                                                     </svg>
 
                                                     </div>
-                                                    <div class="text-base font-bold col-span-11 align-middle">
+                                                    <div className="text-base font-bold col-span-11 align-middle">
                                                     <span className="text-xl fedblueblue font-semibold">Date de livraison</span><br/>
                                                     <span className="text-3xl font-bold"> {formatDate(node.field_date_de_livraison)}</span>
                                                     </div>

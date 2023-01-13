@@ -144,7 +144,7 @@ export default function AlluserlistPage
 
 {node.user_picture?.uri && (
   <div className="overflow-hidden rounded-xl">
-<Link href={node.path.alias} passHref>
+<Link href={`user/${node.drupal_internal__uid}`} passHref>
   <Image
     src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
     width={100}
@@ -161,8 +161,7 @@ export default function AlluserlistPage
 <div className="col-span-5">
 
 
-
-<Link href={node.path.alias} passHref>{node.display_name}</Link><br/>
+<Link href={`user/${node.drupal_internal__uid}`} passHref>{node.display_name}</Link><br/>
 {node.field_description?.value && (
   <div
     dangerouslySetInnerHTML={{ __html: node.field_description?.value }}

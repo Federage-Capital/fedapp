@@ -1,13 +1,13 @@
 import Image from "next/image"
 import { DrupalNode } from "next-drupal"
 
-import { absoluteUrl, formatDate } from "lib/utils"
+import { absoluteURL, formatDate } from "lib/utils"
 
 interface NodeFinancementProps {
   node: DrupalNode
 }
 
-export function NodeFinancement({ node, ...props }: NodeArticleProps) {
+export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
   return (
     <article {...props}>
       <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
@@ -23,7 +23,7 @@ export function NodeFinancement({ node, ...props }: NodeArticleProps) {
       {node.field_image && (
         <figure>
           <Image
-            src={absoluteUrl(node.field_image.uri.url)}
+            src={absoluteURL(node.field_image.uri.url)}
             width={768}
             height={400}
             layout="responsive"

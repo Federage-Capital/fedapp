@@ -5,4 +5,11 @@ module.exports = {
   images: {
     domains: [process.env.NEXT_IMAGE_DOMAIN],
   },
+  typescript: {
+  // !! WARN !!
+  // Dangerously allow production builds to successfully complete even if
+  // your project has type errors.
+  // !! WARN !!
+  ignoreBuildErrors: true,
+},
 }

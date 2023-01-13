@@ -1,13 +1,13 @@
 import * as React from "react"
 import Router from "next/router"
 import { SessionProvider } from "next-auth/react"
-import { QueryClient, QueryClientProvider } from "react-query"
-import { Hydrate } from "react-query/hydration"
+import { QueryClient, QueryClientProvider, Hydrate } from "@tanstack/react-query"
 import { appWithTranslation } from "next-i18next"
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import "styles/globals.css"
 import "styles/styles.css"
+
 
 
 NProgress.configure({ showSpinner: true })

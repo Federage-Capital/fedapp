@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function Profile() {
   const { data, error } = useSWR('https://fed.septembre.io/jsonapi/group_relationship/projets_federage-b5856fc584d18c4', fetcher)

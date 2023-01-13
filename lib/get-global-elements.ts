@@ -41,9 +41,7 @@ export async function getGlobalElements(
     ...(await serverSideTranslations(context.locale, ["common"])),
     menus: {
       main: mainMenu.items,
-      footer: footerMenu.items,
     },
-    blocks: {
-    },
+
   }
 }

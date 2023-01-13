@@ -6,12 +6,13 @@ import { useRouter } from "next/router"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 
-
-
-
 import { useForm } from "react-hook-form"
+import { groupfederageFormSchema } from "../validations/groupe_federage"
 
-interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
+type FormData = yup.TypeOf<typeof groupfederageFormSchema>
+
+
+interface FormArticleProps extends React.HTMLProps<HTMLFormElement> {}
 
 
 interface FormStatus {
@@ -24,6 +25,7 @@ export function FormArticle({ className, ...props }: FormArticleProps) {
   const router = useRouter()
   const [status, setStatus] = React.useState<"error" | "success">()
   const { register, handleSubmit, formState, reset } = useForm<FormData>({
+    resolver: yupResolver(groupfederageFormSchema),
 
   })
 
@@ -50,10 +52,6 @@ export function FormArticle({ className, ...props }: FormArticleProps) {
     const response = await fetch("https://fed.septembre.io/entity/group?_format=json", {
         method: "POST",
         body: JSON.stringify(myRegData),
-        headers: {
-        'Content-Type': 'application/json',
-      },
-
               headers: {
                 "Content-Type": "application/json",
                 "access-control-allow-origin": "http://localhost:3000/",

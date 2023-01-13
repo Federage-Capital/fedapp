@@ -1,17 +1,16 @@
-import Link from "next/link"
 import { Meta, MetaProps } from "components/meta"
 import { PreviewAlert } from "components/preview-alert"
 import { Header, HeaderProps } from "components/header"
-import { Footer, FooterProps } from "components/footer"
+import { Footer } from "components/footer"
 import { TailwindIndicator } from "components/tailwind-indicator"
 
-export interface LayoutProps extends HeaderProps, FooterProps {
+export interface LayoutProps extends HeaderProps {
   meta?: MetaProps
-  menus: HeaderProps["menus"] & FooterProps["menus"]
+  menus: HeaderProps["menus"]
   children?: React.ReactNode
 }
 
-export function Layout({ meta, menus, blocks, children }: LayoutProps) {
+export function Layout({ meta, menus, children }: LayoutProps) {
   return (
     <>
       <Meta {...meta} />
@@ -20,7 +19,7 @@ export function Layout({ meta, menus, blocks, children }: LayoutProps) {
 
         <Header menus={{ main: menus.main }} />
         <main className="flex-1 pb-10 bg-body">{children}</main>
-        <Footer menus={{ footer: menus.footer }} blocks={blocks} />
+        <Footer />
       </div>
       <TailwindIndicator />
     </>

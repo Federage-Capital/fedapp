@@ -56,8 +56,7 @@ export async function getStaticProps(
     context,
     {
       params: getParams("node--article", "card")
-        .addSort("created", "DESC")
-        .getQueryObject(),
+    
     }
   )
 

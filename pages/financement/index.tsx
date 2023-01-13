@@ -6,18 +6,18 @@ import { drupal } from "lib/drupal"
 import { getGlobalElements } from "lib/get-global-elements"
 import { getParams } from "lib/get-params"
 import { Layout, LayoutProps } from "components/layout"
-import { NodeArticleCard } from "components/node--article--card"
+import { NodeFinancementCard } from "components/node--financement--card"
 import { PageHeader } from "components/page-header"
 
-interface ArticlePageProps extends LayoutProps {
+interface FinancementPageProps extends LayoutProps {
   articles: DrupalNode[]
 }
 
-export default function ArticlesPage({
+export default function FinancementPage({
   financements,
   menus,
   blocks,
-}: ArticlePageProps) {
+}: FincanementPageProps) {
   const { t } = useTranslation()
 
   return (
@@ -39,7 +39,7 @@ export default function ArticlesPage({
       <div className="container">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {financements.map((financement) => (
-            <NodeArticleCard key={article.id} node={article} />
+            <NodeFinancementCard key={financement.id} node={financement} />
           ))}
         </div>
       </div>
@@ -55,9 +55,7 @@ export async function getStaticProps(
     "node--financement",
     context,
     {
-      params: getParams("node--article", "card")
-        .addSort("created", "DESC")
-        .getQueryObject(),
+      params: getParams("node--financement", "card")
     }
   )
 

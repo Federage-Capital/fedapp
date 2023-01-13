@@ -2,7 +2,6 @@ import { DrupalNode } from "next-drupal"
 
 import { Breadcrumbs } from "components/breadcrumbs"
 import { useTranslation } from "next-i18next"
-import { FormattedText } from "./formatted-text"
 
 interface NodePageProps {
   node: DrupalNode
@@ -25,7 +24,12 @@ export function NodePage({ node }: NodePageProps) {
           {node.title}
         </h1>
         <div className="mt-4 prose prose-a:text-link max-w-none text-text">
-          {node.body?.processed && <FormattedText text={node.body.processed} />}
+        {node.body?.processed && (
+          <div
+            dangerouslySetInnerHTML={{ __html: node.body?.processed }}
+            className="mt-6 text-xl leading-loose prose"
+          />
+        )}
         </div>
       </article>
     </div>

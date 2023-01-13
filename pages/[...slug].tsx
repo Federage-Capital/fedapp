@@ -1,15 +1,15 @@
 import { GetStaticPathsResult, GetStaticPropsResult } from "next"
-import { DrupalNode, DrupalTaxonomyTerm } from "next-drupal"
+import { DrupalNode, DrupalUser, DrupalTaxonomyTerm } from "next-drupal"
 
 import { PageProps } from "types"
 import { drupal } from "lib/drupal"
 import { getGlobalElements } from "lib/get-global-elements"
 import { getParams } from "lib/get-params"
 import { Layout, LayoutProps } from "components/layout"
-import { NodeArticle, NodeArticleProps } from "components/node--article"
+import { NodeArticle } from "components/node--article"
 import { NodePage } from "components/node--page"
-import { NodeFinancement, NodeFinancementProps } from "components/node--financement"
-import { NodeGroupFinancement, NodeGroupFinancementProps } from "components/node--groupfederage"
+import { NodeFinancement } from "components/node--financement"
+import { NodeGroupFinancement } from "components/node--groupfederage"
 import { UserProfile } from "components/user-profile"
 
 
@@ -31,14 +31,12 @@ export default function ResourcePage({
   resource,
   additionalContent,
   menus,
-  blocks,
 }: ResourcePageProps) {
   if (!resource) return null
 
   return (
     <Layout
       menus={menus}
-      blocks={blocks}
       meta={{
         title: resource.title || resource.name,
       }}
@@ -49,39 +47,31 @@ export default function ResourcePage({
       {resource.type === "node--article" && (
         <NodeArticle
           node={resource as DrupalNode}
-          additionalContent={
-            additionalContent as NodeArticleProps["additionalContent"]
-          }
+
         />
       )}
       {resource.type === "group--federage" && (
         <NodeGroupFinancement
           node={resource as DrupalNode}
-          additionalContent={
-            additionalContent as NodeGroupFinancementProps["additionalContent"]
-          }
+
         />
       )}
 
       {resource.type === "user--user" && (
         <UserProfile
-          node={resource as DrupalUser}
-          additionalContent={
-            additionalContent as UserProfileProps["additionalContent"]
-          }
+          node={resource as DrupalNode}
+
         />
       )}
 
       {resource.type === "node--financement" && (
         <NodeFinancement
           node={resource as DrupalNode}
-          additionalContent={
-            additionalContent as NodeFinancementProps["additionalContent"]
-          }
+
         />
       )}
 
-    
+
     </Layout>
   )
 }
@@ -149,8 +139,32 @@ export async function getStaticProps(
 
 
 
-
-
+  if (resource.type === "taxonomy_term--tags") {
+    // Fetch the term content.
+    // Tags can show both recipes and articles.
+    additionalContent["termContent"] = [
+      ...(await drupal.getResourceCollectionFromContext(
+        "node--recipe",
+        context,
+        {
+          params: getParams("node--recipe", "card")
+            .addSort("created", "DESC")
+            .addFilter("field_tags.id", resource.id, "IN")
+            .getQueryObject(),
+        }
+      )),
+      ...(await drupal.getResourceCollectionFromContext(
+        "node--article",
+        context,
+        {
+          params: getParams("node--article", "card")
+            .addSort("created", "DESC")
+            .addFilter("field_tags.id", resource.id, "IN")
+            .getQueryObject(),
+        }
+      )),
+    ]
+  }
 
   return {
     props: {

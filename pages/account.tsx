@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
-import { DrupalNode } from "next-drupal";
+import { DrupalNode, DrupalUser } from "next-drupal";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
@@ -10,7 +10,6 @@ import { drupal } from "lib/drupal";
 import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
-import { NodeArticleRow } from "components/node--article--row";
 import { NodeGroupfederageRow } from "components/node--groupfederage--row";
 
 import useModal from "../hooks/useModal";
@@ -18,7 +17,6 @@ import Modal from "../components/modal";
 import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
 import { MediaImage } from "components/media--image"
-import { ChartDemo } from "components/chartdemo";
 
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
@@ -27,23 +25,23 @@ import { formatDate } from "lib/utils"
 
 
 interface AccountPageProps extends LayoutProps {
-  articles: DrupalNode[];
-  user: DrupalNode[];
-  node: DrupalNode;
+  user: DrupalUser[];
+  node: DrupalNode[];
+  objectFit,
+  priority,
+  financementsdansgr;
 }
 
 
 
 export default function AccountsPage({
-financementsdansgr,
-
   user,
   node,
   menus,
-  blocks,
-  media,
   objectFit,
   priority,
+  financementsdansgr,
+
 }: AccountPageProps) {
 
 
@@ -244,12 +242,12 @@ financementsdansgr,
   return (
     <Layout
       menus={menus}
-      blocks={blocks}
       meta={{
         title: t("portefeuille"),
       }}
     >
       <PageHeader
+      heading={t("Mon-portefeuille")}
         breadcrumbs={[
           {
             title: t("Portefeuille"),
@@ -262,7 +260,7 @@ financementsdansgr,
 
         <div className="title">
           <div className="mb-4 py-3">
-<div class="grid grid-cols-4 gap-4">
+<div className="grid grid-cols-4 gap-4">
           <Listbox>
                {({ open }) => (
                  <>
@@ -285,7 +283,7 @@ financementsdansgr,
                                 priority={priority}
                                 width={130}
                                 height={130}
-                                class='rounded-lg'
+                                className='rounded-lg'
                               />
 
                           )}
@@ -307,19 +305,17 @@ financementsdansgr,
                        leaveTo="opacity-0"
                      >
                        <Listbox.Options className="absolute left-0 z-10 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                           <Listbox.Option
-
-                           >
 
 
-                           <li class="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
+
+                           <li className="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
                                     <button className="modal-toggle" onClick={toggleUserDataForm}>
                                       <u>Edit profile</u>
                                     </button>
 
 
                                 </li>
-                                <li class="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
+                                <li className="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
                                                      <button
                                                        className="modal-toggle text-underline mr-4"
                                                        onClick={togglePasswordForm}
@@ -329,7 +325,6 @@ financementsdansgr,
 
                                      </li>
 
-                           </Listbox.Option>
 
                        </Listbox.Options>
                      </Transition>
@@ -639,7 +634,6 @@ Demandes
                           </p>
 <p>
 <br/><br/><br/>
-                          <ChartDemo />
                           </p>
                         </div>
 
@@ -690,7 +684,7 @@ export async function getServerSideProps(
       .addInclude(["uid.user_picture"])
       .addSort("created", "ASC")
 
-      const financementsdansgr = await drupal.getResourceCollection<DrupalNode[]>(
+      const financementsdansgr = await drupal.getResourceCollection(
         "group--federage",
         {
           params: new DrupalJsonApiParams()
@@ -711,7 +705,7 @@ export async function getServerSideProps(
       )
 
   // Fetch user info
-  const user = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+  const user = await drupal.getResourceCollectionFromContext<DrupalUser[]>(
     "user--user",
     context,
     {
@@ -738,7 +732,6 @@ export async function getServerSideProps(
     props: {
       ...(await getGlobalElements(context)),
       financementsdansgr,
-
       user,
     },
   };

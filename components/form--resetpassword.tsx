@@ -7,7 +7,10 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import { useForm } from "react-hook-form"
-import { contactFormSchema2 } from "../validations/resetaccount.ts"
+import { contactFormSchema2 } from "../validations/resetaccount"
+
+type FormData = yup.TypeOf<typeof contactFormSchema2>
+
 
 interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
 

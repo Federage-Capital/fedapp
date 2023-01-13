@@ -4,11 +4,11 @@ import { useTranslation } from "next-i18next"
 
 import { MediaImage } from "components/media--image"
 
-interface NodeGroupfinCardProps {
+interface NodeFinancementCardProps {
   node: DrupalNode
 }
 
-export function NodeGroupfinCard({ node, ...props }: NodeArticleCardProps) {
+export function NodeFinancementCard({ node, ...props }: NodeFinancementCardProps) {
   const { t } = useTranslation()
 
   return (

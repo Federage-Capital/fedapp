@@ -5,11 +5,11 @@ import { useRouter } from "next/router"
 import { formatDate } from "lib/utils"
 import { MediaImage } from "components/media--image"
 
-interface NodeGroupfederageRow {
+interface NodeGroupfederageRowProps {
   node: DrupalNode
 }
 
-export function NodeGroupfederageRow({ node, nodefed, ...props }: NodeArticleRowProps) {
+export function NodeGroupfederageRow({ node, ...props }: NodeGroupfederageRowProps) {
   const { t } = useTranslation()
   const router = useRouter()
 
