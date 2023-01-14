@@ -14,8 +14,7 @@ interface NodeGroupFinancement {
 
 }
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
   const [openTab, setOpenTab] = React.useState(1);
@@ -23,24 +22,23 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const router = useRouter()
   const session = getSession()
 
-  const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id,  fetcher)
+  const { data: users, error: userError } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id, fetcher)
+
+         const { data: financementsdugroupe, error: financementError } = useSWR(() =>'https:/fed.septembre.io/group_node_financement_rest/'+ node.id, fetcher)
 
 
-         const { data: financementsdugroupe, error2 } = useSWR('https:/fed.septembre.io/group_node_financement_rest/'+ node.id,  fetcher)
-
-         if (error) return <div>Failed to load</div>
+         if (userError) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
-                if (error2) return <div>Failed to load</div>
+                if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
 
 
   return (
-    <sep {...props}>
+    <article {...props}>
     {node.uid?.display_name ? (
 
       <div className="grid grid-cols-12 gap-4">
-
-      <div>
+     <div>
       <Image
         src={absoluteURL(node.uid?.user_picture.uri.url)}
         width={100}
@@ -323,7 +321,7 @@ Détail du financement
                   </a>
                 </Link>
                 </div>
-    </sep>
+    </article>
   )
 
 }
