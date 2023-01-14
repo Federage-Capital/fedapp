@@ -21,10 +21,10 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const router = useRouter()
   const session = getSession()
 
-  const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id,  fetcher)
+  const { data: users, error } = useSWR("https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]="+ node.id,  fetcher)
 
 
-         const { data: financementsdugroupe } = useSWR('https:/fed.septembre.io/group_node_financement_rest/'+ node.id,  fetcher)
+         const { data: financementsdugroupe } = useSWR("https:/fed.septembre.io/group_node_financement_rest/"+ node.id,  fetcher)
 
          if (error) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
