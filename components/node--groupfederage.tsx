@@ -8,12 +8,13 @@ import * as React from "react";
 
 import { absoluteURL, formatDate } from "lib/utils"
 
-interface NodeGroupFinancementProps {
-  node: DrupalNode
+interface NodeGroupFinancement {
+  node: DrupalNode,
+  groupe_types: DrupalNode,
+
 }
 
-const fetcher = (...args) => fetch(...args).then(res => res.json());
-const fetcher2 = (url) => fetch(url).then((res) => res.json());
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 
 export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
@@ -22,18 +23,19 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const router = useRouter()
   const session = getSession()
 
-  const { data: users, error } = useSWR("https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]="+ node.id,  fetcher)
+  const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]='+ node.id,  fetcher)
 
-  const { data: financementsdugroupe, error2 } = useSWR('https:/fed.septembre.io/group_node_financement_rest/'+ node.id,  fetcher)
 
+         const { data: financementsdugroupe, error2 } = useSWR('https:/fed.septembre.io/group_node_financement_rest/'+ node.id,  fetcher)
 
          if (error) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
-         if (!financementsdugroupe) return <div>Loading financement ...</div>
-         if (error2) return <div>Failed to load</div>
+                if (error2) return <div>Failed to load</div>
+                if (!financementsdugroupe) return <div>Loading financement ...</div>
+
 
   return (
-    <article {...props}>
+    <sep {...props}>
     {node.uid?.display_name ? (
 
       <div className="grid grid-cols-12 gap-4">
@@ -43,13 +45,13 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
         src={absoluteURL(node.uid?.user_picture.uri.url)}
         width={100}
         height={100}
-        className="rounded-full"
-        objectFit="cover"
+        class="rounded-full"
+        objectFit="cover rounded-full"
         alt={node.uid.display_name}
         priority
       />
       </div>
-      <div className="text-base font-bold col-span-11 align-middle">
+      <div class="text-base font-bold col-span-11 align-middle">
     {node.uid?.display_name}
     </div>
       </div>
@@ -66,9 +68,9 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
 </div>
 </div>
 
-<div className="box-content p-4 border-2 rounded-lg mb-8">
+<div class="box-content p-4 border-2 rounded-lg mb-8">
 
-  <h1 className="text-xl font-bold">{node.label}</h1>
+  <h1 class="text-xl font-bold">{node.label}</h1>
 
 
   {node.field_categorie?.name && (
@@ -104,6 +106,7 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
 <span className="text-sm">Projet créé le  {formatDate(node.created)}</span>
 </div>
   </div>
+{session.accessToken}
 
 
 
@@ -177,7 +180,7 @@ Membres
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
 
-                <div className="box-content p-4 border-2 rounded-lg mb-8">
+                <div class="box-content p-4 border-2 rounded-lg mb-8">
 
 
                 <Link href={`/financement/new?gid=${encodeURIComponent(node.id)}`}>
@@ -199,65 +202,69 @@ Membres
                 </div>
 
 
-                                {financementsdugroupe?.length ? (
-
-                                <p>
-                                    {financementsdugroupe.map((financementdugroupe) => (
-
-                                    <div className="asset-card mb-3">
-                                    <Link href={financementdugroupe.view_node}>
-
-                <div
-                  dangerouslySetInnerHTML={{ __html: financementdugroupe.label_1 }}
-                  className="font-medium text-lg leading-loose"
-                />
-
-                                    </Link>
-                                    <div
-                                      dangerouslySetInnerHTML={{ __html: financementdugroupe.body }}
-                                      className="text-sm gray-700 leading-loose"
-                                    />
-
-                                    <div className="grid grid-cols-12 gap-4">
-
-                                    <div>
-                <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.0336 4.64123C14.8404 3.83443 16.1485 3.83443 16.9553 4.64123C17.7621 5.44803 17.7621 6.75611 16.9553 7.5629L16.1363 8.38194L13.2146 5.46026L14.0336 4.64123Z" fill="#9CA3AF"/>
-                <path d="M11.7538 6.9211L3.09888 15.576V18.4977H6.02055L14.6754 9.84277L11.7538 6.9211Z" fill="#9CA3AF"/>
-                </svg>
-                </div>
-                <div className="col-span-11">
-                Ajouté par : <Link href={financementdugroupe.view_user}>
-                {financementdugroupe.uid}
-
-
-                                    </Link></div>
-                </div>
-                <div className="button-fin mx-auto">
-                <Link href={financementdugroupe.view_node}>
-
-                Détail du financement
-
-                </Link>
-                </div>
-                                    </div>
-
-                                                          ))}
 
 
 
-                                </p>
-                                                                              ) : (
-                                                                                <p className="text-2xl cadre text-center p-20 mb-10">
-                                                                                  <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                   </svg></p>
 
-                                                                                      <p>   Ajouter un financement</p>
 
-                                                                                </p>
-                                                                              )}
+                {financementsdugroupe?.length ? (
 
+                <p>
+                    {financementsdugroupe.map((financementdugroupe) => (
+
+                    <div className="asset-card mb-3">
+                    <Link href={financementdugroupe.view_node}>
+
+<div
+  dangerouslySetInnerHTML={{ __html: financementdugroupe.label_1 }}
+  className="font-medium text-lg leading-loose"
+/>
+
+                    </Link>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: financementdugroupe.body }}
+                      className="text-sm gray-700 leading-loose"
+                    />
+
+                    <div className="grid grid-cols-12 gap-4">
+
+                    <div>
+<svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.0336 4.64123C14.8404 3.83443 16.1485 3.83443 16.9553 4.64123C17.7621 5.44803 17.7621 6.75611 16.9553 7.5629L16.1363 8.38194L13.2146 5.46026L14.0336 4.64123Z" fill="#9CA3AF"/>
+<path d="M11.7538 6.9211L3.09888 15.576V18.4977H6.02055L14.6754 9.84277L11.7538 6.9211Z" fill="#9CA3AF"/>
+</svg>
+</div>
+<div className="col-span-11">
+Ajouté par : <Link href={financementdugroupe.view_user}>
+{financementdugroupe.uid}
+
+
+                    </Link></div>
+</div>
+<div className="button-fin mx-auto">
+<Link href={financementdugroupe.view_node}>
+
+Détail du financement
+
+</Link>
+</div>
+                    </div>
+
+                                          ))}
+
+
+
+                </p>
+                                                              ) : (
+                                                                <p className="text-2xl cadre text-center p-20 mb-10">
+                                                                  <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                   </svg></p>
+
+                                                                      <p>   Ajouter un financement</p>
+
+                                                                </p>
+                                                              )}
 
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
@@ -271,7 +278,7 @@ Membres
 
                   {users.data.map((user) => (
 
-                  <div key={user.id}>{user.attributes.label}
+                  <div>{user.attributes.label}
 
 <p>{user.attributes.path.alias}</p>
                   </div>
@@ -285,7 +292,7 @@ Membres
               </div></div></div>
 
 
-              <div className="box-content p-4 border-2 rounded-lg mb-8">
+              <div class="box-content p-4 border-2 rounded-lg mb-8">
                 <Link href={`/membre/new?gid=${encodeURIComponent(node.id)}`}>
                 <a className="grid grid-cols-4 gap-4">
 
@@ -316,7 +323,7 @@ Membres
                   </a>
                 </Link>
                 </div>
-    </article>
+    </sep>
   )
 
 }
