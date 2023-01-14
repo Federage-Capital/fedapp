@@ -13,6 +13,7 @@ interface NodeGroupFinancementProps {
 }
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher2 = (url) => fetch(url).then((res) => res.json());
 
 
 export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
@@ -24,10 +25,13 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const { data: users, error } = useSWR("https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]="+ node.id,  fetcher)
 
 
-         const { data: financementsdugroupe } = useSWR("https:/fed.septembre.io/group_node_financement_rest/",  fetcher)
+         const { data: financementsdugroupe, error2 } = useSWR("https:/fed.septembre.io/group_node_financement_rest/"+ node.id,  fetcher2)
 
          if (error) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
+         if (error2) return <div>Failed to load</div>
+
+         if (!financementsdugroupe) return <div>Loading ...</div>
 
 
   return (
