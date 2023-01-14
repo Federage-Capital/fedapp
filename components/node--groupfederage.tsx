@@ -24,11 +24,10 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
   const { data: users, error } = useSWR("https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]="+ node.id,  fetcher)
 
 
-         const { data: financementsdugroupe } = useSWR("https:/fed.septembre.io/group_node_financement_rest/"+ node.id,  fetcher)
+         const { data: financementsdugroupe } = useSWR("https:/fed.septembre.io/group_node_financement_rest/",  fetcher)
 
          if (error) return <div>Failed to load</div>
          if (!users) return <div>Loading ...</div>
-                if (!financementsdugroupe) return <div>Loading financement ...</div>
 
 
   return (
