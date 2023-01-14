@@ -12,7 +12,7 @@ interface NodeGroupFinancementProps {
   node: DrupalNode
 }
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (...args) => fetch(...args).then(res => res.json());
 const fetcher2 = (url) => fetch(url).then((res) => res.json());
 
 
