@@ -19,12 +19,9 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
   const [openTab, setOpenTab] = React.useState(1);
 
-  const router = useRouter()
-  const session = getSession()
 
   const { data: users, error: userError } = useSWR(`https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]=`+ node.id, fetcher)
-
-         const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https:/fed.septembre.io/group_node_financement_rest/`+ node.id, fetcher)
+const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https:/fed.septembre.io/group_node_financement_rest/`+ node.id, fetcher)
 
 
          if (userError) return <div>Failed to load</div>
@@ -32,6 +29,9 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
                 if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
 
+                const router = useRouter()
+
+                const session = getSession()
 
 
   return (
@@ -44,13 +44,13 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
         src={absoluteURL(node.uid?.user_picture.uri.url)}
         width={100}
         height={100}
-        class="rounded-full"
+        className="rounded-full"
         objectFit="cover rounded-full"
         alt={node.uid.display_name}
         priority
       />
       </div>
-      <div class="text-base font-bold col-span-11 align-middle">
+      <div className="text-base font-bold col-span-11 align-middle">
     {node.uid?.display_name}
     </div>
       </div>
@@ -67,9 +67,9 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
 </div>
 </div>
 
-<div class="box-content p-4 border-2 rounded-lg mb-8">
+<div className="box-content p-4 border-2 rounded-lg mb-8">
 
-  <h1 class="text-xl font-bold">{node.label}</h1>
+  <h1 className="text-xl font-bold">{node.label}</h1>
 
 
   {node.field_categorie?.name && (
@@ -179,7 +179,7 @@ Membres
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
 
-                <div class="box-content p-4 border-2 rounded-lg mb-8">
+                <div className="box-content p-4 border-2 rounded-lg mb-8">
 
 
                 <Link href={`/financement/new?gid=${encodeURIComponent(node.id)}`}>
@@ -295,7 +295,7 @@ Détail du financement
               </div></div></div>
 
 
-              <div class="box-content p-4 border-2 rounded-lg mb-8">
+              <div className="box-content p-4 border-2 rounded-lg mb-8">
                 <Link href={`/membre/new?gid=${encodeURIComponent(node.id)}`}>
                 <a className="grid grid-cols-4 gap-4">
 
