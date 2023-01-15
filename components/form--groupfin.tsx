@@ -219,9 +219,9 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
               name="field_categorie"
               className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
             >
-  <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">1</option>
-    <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">2</option>
-      <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">3</option>
+  <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">cat 1</option>
+    <option value="e49e869f-22d7-4edd-9017-f134106ff86d">cat 2</option>
+      <option value="e963aabd-a8e3-4ecd-a573-796915b4a336">cat 3</option>
               </select>
 
             </div>

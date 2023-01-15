@@ -11,7 +11,7 @@ type FormBodyFields = {
   body: string
   image: PersistentFile
   gid: string
-
+  field_estimation_du_prix: string
 }
 
 export const config = {
@@ -54,6 +54,7 @@ export default async function handler(
           body: fields.body[0],
           image: files["image"][0],
           gid: fields.gid[0],
+          field_estimation_du_prix: fields.field_estimation_du_prix[0],
         })
       })
     })
@@ -118,6 +119,7 @@ export default async function handler(
               value: fields.body,
               format: "basic_html",
             },
+          field_estimation_du_prix: fields.field_estimation_du_prix,
           },
           relationships: {
             field_media_image: {

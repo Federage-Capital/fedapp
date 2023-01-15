@@ -14,7 +14,7 @@ export function absoluteURL(uri: string) {
 
 export function formatDate(input: string): string {
   const date = new Date(input)
-  return date.toLocaleDateString("en-US", {
+  return date.toLocaleDateString("fr-FR", {
     month: "long",
     day: "numeric",
     year: "numeric",

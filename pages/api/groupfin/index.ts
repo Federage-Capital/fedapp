@@ -8,7 +8,7 @@ import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
   label: string
-descritpion: string
+description: string
 }
 
 export const config = {

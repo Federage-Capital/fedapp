@@ -100,7 +100,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
           className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
         ></textarea>
       </div>
-      <div className="grid gap-2">
+      <div className="grid gap-2 hidden">
         <label htmlFor="gid" className="font-semibold text-text">
           {t("gid")} <span className="text-sm text-red-500">*</span>
         </label>
@@ -109,7 +109,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
           id="gid"
           name="gid"
           value={query.gid}
-          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+          className="hidden"
         ></textarea>
       </div>
       <div className="grid gap-2">
