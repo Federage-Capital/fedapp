@@ -21,7 +21,7 @@ const [openTab, setOpenTab] = React.useState(1);
 const router = useRouter()
 
 const { data: users, error: userError } = useSWR(`https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]=`+ node.id, fetcher)
-const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https:/fed.septembre.io/group_node_financement_rest`+ node.id, fetcher)
+const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https:/fed.septembre.io/group_node_financement_rest`+ `/`+ node.id, fetcher)
 
 
          if (userError) return <div>Failed to load</div>
