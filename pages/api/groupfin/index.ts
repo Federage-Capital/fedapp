@@ -8,7 +8,9 @@ import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
   label: string
-description: string
+  description: string
+  field_categorie: string
+  field_date_de_livraison: date
 }
 
 export const config = {
@@ -85,11 +87,11 @@ export default async function handler(
         data: {
           attributes: {
             label: fields.label,
+            field_date_de_livraison: fields.field_date_de_livraison,
             field_description: {
                 value: fields.field_description,
                 format: "basic_html",
               },
-              field_date_de_livraison: fields.field_date_de_livraison,
           },
           relationships:{
             field_categorie: {
