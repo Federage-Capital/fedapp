@@ -18,6 +18,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
   const [openTab, setOpenTab] = React.useState(1);
+  const router = useRouter()
 
 
   const { data: users, error: userError } = useSWR(`https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]=`+ node.id, fetcher)
@@ -29,7 +30,6 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>`htt
                 if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
 
-                const router = useRouter()
 
                 const session = getSession()
 
