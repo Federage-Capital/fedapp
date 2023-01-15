@@ -12,6 +12,8 @@ type FormBodyFields = {
   image: PersistentFile
   gid: string
   field_estimation_du_prix: string
+  field_date_de_livraison: date
+  field_choisir_une_categorie: string
 }
 
 export const config = {
@@ -55,6 +57,9 @@ export default async function handler(
           image: files["image"][0],
           gid: fields.gid[0],
           field_estimation_du_prix: fields.field_estimation_du_prix[0],
+          field_date_de_livraison: fields.field_date_de_livraison,
+          field_choisir_une_categorie: fields["field_choisir_une_categorie"][0],
+
         })
       })
     })
@@ -65,7 +70,20 @@ export default async function handler(
     // createMediaFileResource is a helper to create file binaries for media.
     // See https://www.drupal.org/node/3024331.
 
+    const taxonomy_term2 = await drupal.createResource<DrupalMedia>(
+      "taxonomy_term--categorie",
+      {
+        data: {
+          attributes: {
+            name: fields.field_choisir_une_categorie,
+          },
 
+        },
+      },
+      {
+        withAuth: session.accessToken,
+      }
+    )
 
 
     const file = await drupal.createFileResource<DrupalFile>(
@@ -115,6 +133,8 @@ export default async function handler(
         data: {
           attributes: {
             title: fields.title,
+            field_date_de_livraison: fields.field_date_de_livraison,
+
             body: {
               value: fields.body,
               format: "basic_html",
@@ -134,7 +154,12 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
+        .addInclude([
+          "field_choisir_une_categorie",
+        ])
           .addFields("node--financement", ["title"])
+          .addFields("taxonomy_term--categorie", ["name"])
+
           .getQueryObject(),
       }
     )
