@@ -168,7 +168,6 @@ export default function AlluserlistPage
 </div>
 
 <div className="col-span-4">
-
 <Link href={node.path.alias} passHref>
 <div     className="text-xl leading-loose prose">
 {node.label}
