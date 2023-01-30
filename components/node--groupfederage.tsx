@@ -21,7 +21,7 @@ const [openTab, setOpenTab] = React.useState(1);
 const router = useRouter()
 
 const { data: users, error: userError } = useSWR(`https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]=`+ node.id, fetcher)
-const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest`+ `/`+ node.id, fetcher)
+const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested`+ `/`+ node.id, fetcher)
 
 
          if (userError) return <div>Failed to load</div>
@@ -29,13 +29,29 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>`htt
                 if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
 
+                const users34 = [{ name: 'Tom', age: 21}, { name: 'Mike', age: 23}, { name: 'Anna', age: 54}]
+
+
+
+
+                const getTotFin2 = (financementsdugroupe) => {
+      let sum = 0
+      for (let i = 0; i < financementsdugroupe.length; i++) {
+        sum += financementsdugroupe[i].field_estimation_du_prix
+      }
+      return sum
+
+    }
 
                 const session = getSession()
 
 
   return (
     <article {...props}>
+
     {node.uid?.display_name ? (
+
+
 
       <div className="grid grid-cols-12 gap-4">
      <div>
@@ -67,6 +83,7 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>`htt
 </div>
 
 <div className="box-content p-4 border-2 rounded-lg mb-8">
+{getTotFin2(financementsdugroupe)}
 
   <h1 className="text-xl font-bold">{node.label}</h1>
 
@@ -207,12 +224,17 @@ Membres
 
                 {financementsdugroupe?.length ? (
 
-                <p>                    You have  {financementsdugroupe.length} projects
 
+                <p>                    You have  {financementsdugroupe.length} projects
                     {financementsdugroupe.map((financementdugroupe) => (
 
 
                     <div key={financementdugroupe.id} className="asset-card mb-3">
+
+
+
+{financementdugroupe.field_estimation_du_prix}
+
 
 
                     <Link href={financementdugroupe.view_node}>

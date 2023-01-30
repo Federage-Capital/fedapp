@@ -11,6 +11,8 @@ import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
 import { NodeGroupfederageRow } from "components/node--groupfederage--row";
+import { NodePriceCard } from "components/node--price--card";
+import useSWR from 'swr'
 
 import useModal from "../hooks/useModal";
 import Modal from "../components/modal";
@@ -18,7 +20,7 @@ import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
 import { MediaImage } from "components/media--image"
 
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useMemo } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { formatDate } from "lib/utils"
@@ -29,9 +31,10 @@ interface AccountPageProps extends LayoutProps {
   node: DrupalNode[];
   objectFit,
   priority,
-  financementsdansgr;
+  financementsdansgr,
 }
 
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
 export default function AccountsPage({
@@ -41,7 +44,7 @@ export default function AccountsPage({
   objectFit,
   priority,
   financementsdansgr,
-
+financementsdugroupe,
 }: AccountPageProps) {
 
 
@@ -225,6 +228,24 @@ export default function AccountsPage({
   };
 
 
+
+
+  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`, fetcher)
+  if (financementError) return <div>Failed to load 23</div>
+  if (!financements2dugroupe) return <div>Loading financement ...</div>
+
+
+const getTotFin2 = (financements2dugroupe) => {
+        let sum = 0
+        for (let i = 0; i < financements2dugroupe.length; i++) {
+          sum += financements2dugroupe[i].field_estimation_du_prix
+        }
+        return sum
+
+      }
+
+
+
   async function handleDelete() {
     if (!window?.confirm(t("are-you-use-you-want-to-delete-this-article"))) {
       return
@@ -237,6 +258,9 @@ export default function AccountsPage({
     if (response?.ok) {
       router.reload()
     }
+
+
+
   }
 
   return (
@@ -254,9 +278,10 @@ export default function AccountsPage({
           },
         ]}
       ></PageHeader>
+
+
+
       <div className="container" id="account">
-
-
 
         <div className="title">
           <div className="mb-4 py-3">
@@ -336,7 +361,7 @@ export default function AccountsPage({
              <div className="text-base font-medium">
              Portefeuille<br/>
 
-             <span className="font-semibold text-2xl">0000 €</span>
+             <span className="font-semibold text-2xl">  {getTotFin2(financements2dugroupe)} €</span>
              </div>
 
           </div>
@@ -542,7 +567,17 @@ Demandes
                     <div className="px-4 py-5 flex-auto">
                       <div className="tab-content tab-space">
                         <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                          <p>
+
+
+
+
+
+
+
+
+<p>
+
+
 
 {financementsdansgr?.length ? (
 
@@ -564,6 +599,7 @@ Demandes
 
 
    <li key={grfinancement.id} className="grid grid-cols-6 gap-4">
+
    <hr className="col-span-6 my-10"/>
    <div>
    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -576,10 +612,82 @@ Demandes
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+<div className="container">
+     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+
+
+
+
+
+
+
+
+
+                         </div>
+                          </div>
+
+
+
+
+
+
                             <Link href={grfinancement.path.alias} passHref>
                             <a>
 <h2 className="text-sm gray-700">{grfinancement.label}</h2><br/>
-<span className="text-2xl font-semibold">000€
+
+<span className="text-2xl font-semibold">
+{financements2dugroupe?.length ? (
+           <div className="1">
+
+           {financements2dugroupe.filter(person5 => person5.uuid.includes(grfinancement.id)).map(filteredPerson5 => {
+
+
+
+
+            // Expected output: 10
+              return (
+
+                <div className="flex-container card" key={filteredPerson5.uuid}>
+
+                  <div className="content">
+                     {filteredPerson5.field_estimation_du_prix} €
+                    <div>
+
+       </div>
+                  </div>
+
+
+              </div>)
+            })}
+
+
+
+           </div>
+         ) : (
+           <p >
+
+00000 €
+
+</p>
+
+
+         )}
+
+
+
+
 </span>
 </a>
 </Link>
@@ -693,7 +801,7 @@ export async function getServerSideProps(
             .addFields("group_type--group_type", ["id", "type","meta"])
 
             .addFields("user--user", ["display_name", "user_picture"])
-          .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+            .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
             .addSort("created", "DESC")
             .getQueryObject(),
@@ -728,10 +836,33 @@ export async function getServerSideProps(
     }
   );
 
+  // Fetch user info
+  const financementsdugroupe = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "group_content--federage-group_node-financement",
+    context,
+    {
+      params: new DrupalJsonApiParams()
+      .addInclude(["gid, entity_id"])
+      .addFields("entity_id", [
+          "field_estimation_du_prix",
+          "field_date_de_livraison",
+
+        ])
+        .addFields("gid", ["id"])
+        .addFilter("gid.id", financementsdansgr.id)
+
+        .getQueryObject(),
+    }
+  )
+
+
+
+
   return {
     props: {
       ...(await getGlobalElements(context)),
       financementsdansgr,
+      financementsdugroupe,
       user,
     },
   };
