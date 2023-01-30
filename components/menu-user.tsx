@@ -5,13 +5,20 @@ import { Menu, Transition } from "@headlessui/react"
 import classNames from "classnames"
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Fragment } from 'react'
+import useSWR from 'swr'
+import { absoluteURL } from "lib/utils"
+import Image, { ImageProps } from "next/image"
 
 import { MenuLink } from "components/menu-link"
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export function MenuUser() {
   const { data, status } = useSession()
   const { t } = useTranslation()
 
+    const { data: actualuser, error: actualuserError } = useSWR(() =>`https://fed.septembre.io/actualuser`+ `/`+ data.user.userId, fetcher)
+    if (actualuserError) return <div>Failed to load User</div>
+    if (!actualuser) return <div>Loading user ...</div>
   if (status === "loading") {
     return null
   }
@@ -28,10 +35,55 @@ export function MenuUser() {
     return (
       <div className="flex space-x-4">
 
-        <Menu as="div" className="relative z-50 inline-flex rounded-md shadow-sm">
+        <Menu as="div" className="relative z-50 inline-flex ">
           <Menu.Button className="inline-flex rounded-md shadow-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-75">
 
-            <p className="ml-5 text-xl">    {t("my-account")}</p>
+            <p className="ml-5 text-xl">
+
+            {actualuser?.length ? (
+
+              <div>
+
+
+
+
+
+                                  {actualuser.map((you) => (
+
+
+               <li key={you.uid} className="">
+
+
+            {you.user_picture && (
+
+
+                <Image
+                  src={absoluteURL(you.user_picture)}
+                  alt={you.name}
+                  title={you.name}
+                  width={50}
+                  height={50}
+                  className='rounded-full'
+                />
+
+            )}
+
+
+            </li>
+
+                                         ))}
+                                         </div>
+                                       ) : (
+
+                                         <p>  Aucun utilisateur</p>
+
+                                       )}
+
+
+
+
+
+            </p>
 
             <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
 

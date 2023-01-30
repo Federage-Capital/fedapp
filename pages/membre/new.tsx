@@ -23,15 +23,6 @@ export default function NewMembrePage({
       <PageHeader
       heading={t("Inviter les partenaires")}
 
-      breadcrumbs={[
-        {
-          title: t("my-account"),
-          url: "/account",
-        },
-        {
-          title: t("Inviter les partenaires"),
-        },
-      ]}
 
 
 

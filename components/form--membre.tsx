@@ -51,14 +51,7 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
       body: data,
     })
 
-    if (!response.ok) {
-      const errors = await response.json()
 
-      return setFormStatus({
-        status: "error",
-        message: errors?.map((error) => error.detail),
-      })
-    }
 
     router.push("/account")
 
@@ -100,7 +93,12 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
                       htmlFor="select_users"
                       className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
                       >
-Select users                      </label>
+Sélectionnez un membre                   </label>
+
+
+
+
+
                       <select
                       id="select_users"
                       name="select_users"
@@ -120,9 +118,47 @@ Select users                      </label>
 
 
 
+                  <fieldset className="border-t border-b border-gray-200">
+                       <legend className="sr-only">Notifications</legend>
+                        {users.data.map((user) => (
+                       <div className="divide-y divide-gray-200">
+                         <div className="relative flex items-start py-4">
+                           <div className="min-w-0 flex-1 text-sm">
+                             <label htmlFor="comments" className="font-medium text-gray-700">
+                               Comments
+                             </label>
+                             <p id="comments-description" className="text-gray-500">
+                               Get notified when someones posts a comment on a posting.
+                             </p>
+                           </div>
+
+
+                      <option key={user.id} value={user.id}>{user.attributes.display_name}</option>
+
+
+
+
+
+                           <div className="ml-3 flex h-5 items-center">
+                             <input
+                             id="select_users"
+                             name="select_users"
+                               aria-describedby="comments-description"
+
+                               type="checkbox"
+                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                             />
+                           </div>
+                         </div>
+
+
+                       </div>
+                         ))}
+                     </fieldset>
+
 
       <div className="grid gap-2">
-        <label htmlFor="gid" className="font-semibold text-text">
+        <label htmlFor="gid" className="font-semibold hidden text-text">
           {t("gid_du_groupe")} <span className="text-sm text-red-500">*</span>
         </label>
 
@@ -130,6 +166,7 @@ Select users                      </label>
           id="gid"
           name="gid"
           value={query.gid}
+                className="hidden"
           maxLength={255}
         ></textarea>
       </div>
@@ -137,23 +174,7 @@ Select users                      </label>
 
 
 
-        <label
-        htmlFor="group_roles"
-        className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
-        >
-      Select role                      </label>
-        <select
-        id="group_roles"
-        name="group_roles"
-        className="rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-      >
 
-
-      <option value="cc53f225-d358-4450-b510-014ca01e24a4">Aucun</option>
-      <option value="d264867e-ce6e-4586-a7db-4152e84a98a3">Federage Admin</option>
-      <option value="c1a07b8f-d277-4f79-8c28-d577ea7ad979">Federage Membre</option>
-
-        </select>
 
 
 
@@ -171,7 +192,7 @@ Select users                      </label>
           value={
             formStatus?.status === "fetching"
               ? t("please-wait")
-              : t("create-article")
+              : t("add-user")
           }
         />
       </div>

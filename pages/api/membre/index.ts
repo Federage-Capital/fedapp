@@ -50,7 +50,6 @@ export default async function handler(
 
         resolve({
           select_users: fields.select_users[0],
-          group_roles: fields.group_roles[0],
           gid: fields.gid[0],
         })
       })
@@ -93,7 +92,7 @@ export default async function handler(
                     data: [
                         {
                             type: "group_role--group_role",
-                            id: fields.group_roles,
+                            id: "c1a07b8f-d277-4f79-8c28-d577ea7ad979",
 
                         }
                     ]

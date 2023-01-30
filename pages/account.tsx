@@ -267,10 +267,6 @@ const getTotFin2 = (financements2dugroupe) => {
         title: t("portefeuille"),
       }}
     >
-      <PageHeader
-      heading={t("Mon-portefeuille")}
-      
-      ></PageHeader>
 
 
 
@@ -351,7 +347,7 @@ const getTotFin2 = (financements2dugroupe) => {
                )}
              </Listbox>
 
-             <div className="text-base font-medium">
+             <div className="px-5 py-3 mt-4 text-xl font-semibold">
              Portefeuille<br/>
 
              <span className="font-semibold text-2xl">  {getTotFin2(financements2dugroupe)} €</span>
