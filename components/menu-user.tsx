@@ -18,7 +18,6 @@ export function MenuUser() {
 
     const { data: actualuser, error: actualuserError } = useSWR(() =>`https://fed.septembre.io/actualuser`+ `/`+ data.user.userId, fetcher)
     if (actualuserError) return <div>Failed to load User</div>
-    if (!actualuser) return <div>Loading user ...</div>
   if (status === "loading") {
     return null
   }
