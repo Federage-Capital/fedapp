@@ -6,7 +6,6 @@ import classNames from "classnames"
 import siteConfig from "site.config"
 import { LocaleSwitcher } from "components/locale-switcher"
 import { MenuMain } from "components/menu-main"
-import { MenuUser } from "components/menu-user"
 import { FormSearch } from "components/form--search"
 import Image from "next/image"
 
@@ -31,9 +30,9 @@ export function Header({ menus }: HeaderProps) {
             <span className="sr-only">{siteConfig.name}</span>
           </a>
         </Link>
-          <MenuUser />
+
         <button
-          className="absolute transition-all border beorder-transparent md:hidden right-4 top-12 hover:border-link"
+          className="absolute transition-all border border-transparent md:hidden right-4 top-12 hover:border-link"
           onClick={() => setShowMenu(!showMenu)}
         >
 
@@ -52,9 +51,9 @@ export function Header({ menus }: HeaderProps) {
 
           <div
             className={classNames(
-              "max-h-0 transition-all overflow-hidden md:max-h-screen",
+              "max-h-0 transition-all overflow-hidden md:overflow-visible md:max-h-screen",
               {
-                "max-h-screen": showMenu,
+                "max-h-screen h-96": showMenu,
               }
             )}
           >

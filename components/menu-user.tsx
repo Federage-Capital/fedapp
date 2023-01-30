@@ -3,6 +3,8 @@ import { useTranslation } from "next-i18next"
 import { useSession, signOut } from "next-auth/react"
 import { Menu, Transition } from "@headlessui/react"
 import classNames from "classnames"
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Fragment } from 'react'
 
 import { MenuLink } from "components/menu-link"
 
@@ -25,9 +27,14 @@ export function MenuUser() {
   if (status === "authenticated") {
     return (
       <div className="flex space-x-4">
-        <Menu as="div" className="relative z-50">
-          <Menu.Button className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-75">
-            {t("my-account")}
+
+        <Menu as="div" className="relative z-50 inline-flex rounded-md shadow-sm">
+          <Menu.Button className="inline-flex rounded-md shadow-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-75">
+
+            <p className="ml-5 text-xl">    {t("my-account")}</p>
+
+            <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
+
           </Menu.Button>
           <Transition
             enter="transition duration-100 ease-out"
@@ -37,8 +44,8 @@ export function MenuUser() {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Menu.Items className="absolute right-0 w-48 mt-2 origin-top-right bg-white border divide-y shadow-md border-border divide-border">
-              <Menu.Item as="div" className="flex flex-col px-3 py-2">
+            <Menu.Items className="absolute right-0 w-48 mt-10 origin-top-right bg-white border divide-y shadow-md border-border divide-border">
+              <Menu.Item as="div" >
                 <p className="font-semibold">{data.user.name}</p>
                 <p className="text-sm truncate text-gray">{data.user.email}</p>
               </Menu.Item>

@@ -31,11 +31,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
     <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
       <PageHeader
         heading={t("Connexion")}
-        breadcrumbs={[
-          {
-            title: t("Connexion"),
-          },
-        ]}
+  
       />
       {status === "unauthenticated" && (
         <div className="container pb-10">

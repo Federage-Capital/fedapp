@@ -24,6 +24,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
             (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false)
 
           return (
+
             <li key={item.id}>
               <Link href={item.url} passHref>
                 <a
@@ -37,9 +38,13 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                   {item.title}
                 </a>
               </Link>
+
             </li>
+
           )
         })}
+
+                        <MenuUser />
       </ul>
 
     </nav>

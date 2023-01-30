@@ -269,11 +269,7 @@ const getTotFin2 = (financements2dugroupe) => {
     >
       <PageHeader
       heading={t("Mon-portefeuille")}
-        breadcrumbs={[
-          {
-            title: t("Portefeuille"),
-          },
-        ]}
+      
       ></PageHeader>
 
 

@@ -19,7 +19,10 @@ export function Layout({ meta, menus, children }: LayoutProps) {
 
         <Header menus={{ main: menus.main }} />
         <main className="flex-1 pb-10 bg-body">{children}</main>
-        <Footer />
+
+      </div>
+      <div className="w-full md:w-auto">
+      <Footer />
       </div>
       <TailwindIndicator />
     </>
