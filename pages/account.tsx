@@ -227,7 +227,7 @@ export default function AccountsPage({
 
 
 
-  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`, fetcher)
+  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
   if (financementError) return <div>Failed to load 23</div>
   if (!financements2dugroupe) return <div>Loading financement ...</div>
 
