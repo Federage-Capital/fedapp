@@ -10,17 +10,15 @@ import { drupal } from "lib/drupal";
 import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
-import { NodeGroupfederageRow } from "components/node--groupfederage--row";
-import { NodePriceCard } from "components/node--price--card";
+
 import useSWR from 'swr'
 
 import useModal from "../hooks/useModal";
 import Modal from "../components/modal";
 import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
-import { MediaImage } from "components/media--image"
 
-import { Fragment, useState, useMemo } from 'react'
+import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { formatDate } from "lib/utils"
@@ -580,13 +578,6 @@ Demandes
 
 {financementsdansgr?.length ? (
 
-
-
-
-
-
-
-
   <div>
 
 
@@ -609,53 +600,16 @@ Demandes
 
                             <div className="col-span-4">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div className="container">
-     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-
-
-
-
-
-
-
-
-
-
-                         </div>
-                          </div>
-
-
-
-
-
-
                             <Link href={grfinancement.path.alias} passHref>
                             <a>
 <h2 className="text-sm gray-700">{grfinancement.label}</h2><br/>
 
 <span className="text-2xl font-semibold">
 {financements2dugroupe?.length ? (
-           <div className="1">
+           <div>
 
            {financements2dugroupe.filter(person5 => person5.uuid.includes(grfinancement.id)).map(filteredPerson5 => {
 
-
-
-
-            // Expected output: 10
               return (
 
                 <div className="flex-container card" key={filteredPerson5.uuid}>
@@ -711,14 +665,6 @@ Demandes
   </Link>
                                                              </div>
 </li>
-
-
-
-
-
-
-
-
 
                              ))}
                              </div>
