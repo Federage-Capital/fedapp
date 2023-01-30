@@ -44,7 +44,6 @@ export default function AccountsPage({
   objectFit,
   priority,
   financementsdansgr,
-financementsdugroupe,
 }: AccountPageProps) {
 
 
@@ -837,23 +836,6 @@ export async function getServerSideProps(
   );
 
   // Fetch user info
-  const financementsdugroupe = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-    "group_content--federage-group_node-financement",
-    context,
-    {
-      params: new DrupalJsonApiParams()
-      .addInclude(["gid, entity_id"])
-      .addFields("entity_id", [
-          "field_estimation_du_prix",
-          "field_date_de_livraison",
-
-        ])
-        .addFields("gid", ["id"])
-        .addFilter("gid.id", financementsdansgr.id)
-
-        .getQueryObject(),
-    }
-  )
 
 
 
@@ -862,7 +844,6 @@ export async function getServerSideProps(
     props: {
       ...(await getGlobalElements(context)),
       financementsdansgr,
-      financementsdugroupe,
       user,
     },
   };
