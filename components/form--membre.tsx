@@ -121,19 +121,18 @@ Sélectionnez un membre                   </label>
                   <fieldset className="border-t border-b border-gray-200">
                        <legend className="sr-only">Notifications</legend>
                         {users.data.map((user) => (
-                       <div className="divide-y divide-gray-200">
+                       <div key={user.id} className="divide-y divide-gray-200">
                          <div className="relative flex items-start py-4">
                            <div className="min-w-0 flex-1 text-sm">
                              <label htmlFor="comments" className="font-medium text-gray-700">
-                               Comments
+                            {user.attributes.display_name}
                              </label>
                              <p id="comments-description" className="text-gray-500">
-                               Get notified when someones posts a comment on a posting.
+                               lispum lorem.
                              </p>
                            </div>
 
 
-                      <option key={user.id} value={user.id}>{user.attributes.display_name}</option>
 
 
 
