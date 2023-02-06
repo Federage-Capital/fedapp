@@ -51,7 +51,14 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
       body: data,
     })
 
+    if (!response.ok) {
+      const errors = await response.json()
 
+      return setFormStatus({
+        status: "error",
+        message: errors?.map((error) => error.detail),
+      })
+    }
 
     router.push("/account")
 
@@ -94,11 +101,6 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
                       className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
                       >
 Sélectionnez un membre                   </label>
-
-
-
-
-
                       <select
                       id="select_users"
                       name="select_users"
@@ -118,43 +120,6 @@ Sélectionnez un membre                   </label>
 
 
 
-                  <fieldset className="border-t border-b border-gray-200">
-                       <legend className="sr-only">Notifications</legend>
-                        {users.data.map((user) => (
-                       <div key={user.id} className="divide-y divide-gray-200">
-                         <div className="relative flex items-start py-4">
-                           <div className="min-w-0 flex-1 text-sm">
-                             <label htmlFor="comments" className="font-medium text-gray-700">
-                            {user.attributes.display_name}
-                             </label>
-                             <p id="comments-description" className="text-gray-500">
-                               lispum lorem.
-                             </p>
-                           </div>
-
-
-
-
-
-
-
-                           <div className="ml-3 flex h-5 items-center">
-                             <input
-                             id="select_users"
-                             name="select_users"
-                               aria-describedby="comments-description"
-
-                               type="checkbox"
-                               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                             />
-                           </div>
-                         </div>
-
-
-                       </div>
-                         ))}
-                     </fieldset>
-
 
       <div className="grid gap-2">
         <label htmlFor="gid" className="font-semibold hidden text-text">
@@ -165,8 +130,8 @@ Sélectionnez un membre                   </label>
           id="gid"
           name="gid"
           value={query.gid}
-                className="hidden"
           maxLength={255}
+          className="hidden"
         ></textarea>
       </div>
       <div className="grid gap-2">

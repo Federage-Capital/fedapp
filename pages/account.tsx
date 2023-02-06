@@ -13,13 +13,11 @@ import { PageHeader } from "components/page-header";
 
 import useSWR from 'swr'
 
-import useModal from "../hooks/useModal";
 import Modal from "../components/modal";
 import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
 
 import { Fragment } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { formatDate } from "lib/utils"
 
@@ -50,65 +48,6 @@ export default function AccountsPage({
   const { t } = useTranslation();
   const { data } = useSession();
   const router = useRouter();
-  const { isShowing, toggle } = useModal();
-  const { isShowing: isPasswordFormShowed, toggle: togglePasswordForm } =
-    useModal();
-  const { isShowing: isUserDataFormShowed, toggle: toggleUserDataForm } =
-    useModal();
-  const [name, setName] = React.useState(user[0]?.display_name);
-  const [email, setEmail] = React.useState(user[0]?.mail);
-  const [description, setDescription] = React.useState(
-    user[0]?.field_description?.value
-  );
-  const [slogan, setSlogan] = React.useState(user[0]?.field_user_slogan);
-  const [website, setWebsite] = React.useState(
-    user[0]?.field_site_internet?.uri
-  );
-  const [logo, setLogo] = React.useState(
-    user[0]?.user_picture?.uri
-  );
-  const [password, setPassword] = React.useState("");
-  const [newpassword, setNewPassword] = React.useState("");
-
-  // Handling the name changee
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-
-  // Handling the email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  // Handling the description change
-  const handleDescription = (e) => {
-    setDescription(e.target.value);
-  };
-
-  // Handling the email change
-  const handleWebsite = (e) => {
-    setWebsite(e.target.value);
-  };
-
-  // Handling the logo change
-  const handleLogo = (e) => {
-    setLogo(e.target.value);
-  };
-
-  // Handling the email change
-  const handleSlogan = (e) => {
-    setSlogan(e.target.value);
-  };
-
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  // Handling the password change
-  const handleNewPassword = (e) => {
-    setNewPassword(e.target.value);
-  };
 
 
   function classNames(...classes) {
@@ -119,118 +58,13 @@ export default function AccountsPage({
   const [openTab, setOpenTab] = React.useState(1);
 
 
-  async function editUser() {
-    const basicAuthCredential = user[0].display_name + ":" + password;
-    const bace64 = Buffer.from(basicAuthCredential).toString("base64");
-    const response = await fetch(
-      `https://fed.septembre.io/user/${user[0].drupal_internal__uid}?_format=json`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          name: [
-            {
-              value: name,
-            },
-          ],
-          mail: [
-            {
-              value: email,
-            },
-          ],
-          field_description: [
-            {
-              value: description,
-            },
-          ],
-          field_site_internet: [{ uri: website }],
-          user_picture: [{ url: logo }],
-          field_user_slogan: [
-            {
-              value: slogan,
-            },
-          ],
-          pass: [
-            {
-              existing: password,
-            },
-          ],
-        }),
-
-        headers: {
-          "Content-Type": "application/json",
-          "access-control-allow-origin": "http://localhost:3000/",
-          "X-CSRF-Token": "TVHi0LZf6AXgAyai_vqE_z-eyJfrpm9G2io3v186vLo",
-          Authorization: `Basic ${bace64}`,
-        },
-      }
-    );
-
-    if (response?.ok) {
-      // alert("Acount changed. Please login again with your new credentials.");
-      // signOut();
-      if (user[0].mail !== email) {
-        alert(
-          "Email changed. Please login again with your new credentials."
-        );
-        signOut();
-        router.push("/login");
-      } else {
-        confirm("Account updated!")
-        router.push("/account");
-      }
-    }
-  }
-
-  // Handling the form submission + fetch data + update state
-  const handleSubmitData = (e) => {
-    e.preventDefault();
-    editUser();
-  };
-
-  async function editPassword() {
-    const basicAuthCredential = user[0].display_name + ":" + password;
-    const bace64 = Buffer.from(basicAuthCredential).toString("base64");
-    const response = await fetch(
-      `https://fed.septembre.io/user/${user[0].drupal_internal__uid}?_format=json`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          pass: [
-            {
-              existing: password,
-              value: newpassword,
-            },
-          ],
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          "access-control-allow-origin": "http://localhost:3000/",
-          "X-CSRF-Token": "TVHi0LZf6AXgAyai_vqE_z-eyJfrpm9G2io3v186vLo",
-          Authorization: `Basic ${bace64}`,
-        },
-      }
-    );
-
-    if (response?.ok) {
-      alert("Password changed. Please login again with your new credentials.");
-      signOut();
-      router.push("/login");
-    }
-  }
-
-  // Handling the form submission + fetch data + update state
-  const handleSubmitPassword = (e) => {
-    e.preventDefault();
-    editPassword();
-  };
-
-
-
-
   const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
+  const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
+  if (financement1Error) return <div>Failed to load 23</div>
+  if (!financementsd1groupe) return <div>Loading financement ...</div>
+
   if (financementError) return <div>Failed to load 23</div>
   if (!financements2dugroupe) return <div>Loading financement ...</div>
-
 
 const getTotFin2 = (financements2dugroupe) => {
         let sum = 0
@@ -275,14 +109,8 @@ const getTotFin2 = (financements2dugroupe) => {
         <div className="title">
           <div className="mb-4 py-3">
 <div className="grid grid-cols-4 gap-4">
-          <Listbox>
-               {({ open }) => (
-                 <>
-                   <Listbox.Label className="sr-only"> Change published status </Listbox.Label>
-                   <div className="relative">
-                     <div className="inline-flex rounded-md shadow-sm">
-                       <div className="inline-flex rounded-md shadow-sm">
-                         <div className="inline-flex items-center rounded-l-md border border-transparent   pr-4  shadow-sm">
+
+
 
 
 
@@ -297,57 +125,16 @@ const getTotFin2 = (financements2dugroupe) => {
                                 priority={priority}
                                 width={130}
                                 height={130}
-                                className='rounded-lg'
+                                className='rounded-lg shadow-sm ml-3  object-cover h-48 w-96'
                               />
 
                           )}
-                          <p className="ml-5 text-xl">{user[0].display_name}</p>
-
-                         </div>
-                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
-                           <span className="sr-only">Change published status</span>
-                           <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
-                         </Listbox.Button>
-                       </div>
-                     </div>
-
-                     <Transition
-                       show={open}
-                       as={Fragment}
-                       leave="transition ease-in duration-100"
-                       leaveFrom="opacity-100"
-                       leaveTo="opacity-0"
-                     >
-                       <Listbox.Options className="absolute left-0 z-10 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
 
 
 
-                           <li className="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
-                                    <button className="modal-toggle" onClick={toggleUserDataForm}>
-                                      <u>Edit profile</u>
-                                    </button>
 
 
-                                </li>
-                                <li className="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
-                                                     <button
-                                                       className="modal-toggle text-underline mr-4"
-                                                       onClick={togglePasswordForm}
-                                                     >
-                                                       <u>Edit password</u>
-                                                     </button>
-
-                                     </li>
-
-
-                       </Listbox.Options>
-                     </Transition>
-                   </div>
-                 </>
-               )}
-             </Listbox>
-
-             <div className="px-5 py-3 mt-4 text-xl font-semibold">
+             <div className="px-5 py-3 text-base font-semibold">
              Portefeuille<br/>
 
              <span className="font-semibold text-2xl">  {getTotFin2(financements2dugroupe)} €</span>
@@ -360,121 +147,12 @@ const getTotFin2 = (financements2dugroupe) => {
 
         </div>
         <div className="actions">
-          <Modal
-            isShowing={isPasswordFormShowed}
-            hide={togglePasswordForm}
-            title="Modify password"
-          >
-            <form onSubmit={handleSubmitPassword}>
-              <div className="form-group">
-                <input
-                  type="password"
-                  value={password}
-                  onChange={handlePassword}
-                  placeholder="Current password"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  value={newpassword}
-                  onChange={handleNewPassword}
-                  placeholder="New password"
-                />
-              </div>
-              <div className="form-group">
-                <input type="submit" value="Register" />
-              </div>
-            </form>
-          </Modal>
-          <Modal
-            isShowing={isUserDataFormShowed}
-            hide={toggleUserDataForm}
-            title="Edit your profile"
-          >
-            <form onSubmit={handleSubmitData}>
-              <div className="form-group">
-                <p>Name</p>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={handleName}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                Email
-                <input
-                  type="text"
-                  value={email}
-                  onChange={handleEmail}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                Add your logo
-
-                <input
-                  placeholder="Add your logo"
-                  type="file"
-                  id="image"
-                  name="image"
-                />
-
-
-              </div>
-              <div className="form-group">
-                Website
-                <input
-                  placeholder="Add your website"
-                  type="text"
-                  value={website}
-                  onChange={handleWebsite}
-                />
-              </div>
-              <div className="form-group">
-                Description
-                <textarea
-                  placeholder="Add your description"
-                  value={description?.replace(/<[^>]+>/g, "")}
-                  onChange={handleDescription}
-                />
-              </div>
-              <div className="form-group">
-                Slogan
-                <input
-                  placeholder="Add your slogan"
-                  type="text"
-                  value={slogan}
-                  onChange={handleSlogan}
-                />
-              </div>
-              <div className="mt-4">
-                <p>
-                  <i>Type your password to register your modifications</i>
-                </p>
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  placeholder="Current password"
-                  value={password}
-                  onChange={handlePassword}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input type="submit" value="Register" />
-              </div>
-            </form>
-          </Modal>
 
 
 
-
-          <p className="text-lg mt-10">
+          <p className="text-lg mb-12">
           <Link href="/groupfederage/new" passHref>
-          <a className="px-3 py-1 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+          <a className="px-4 py-2 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
              + Nouveau financement
             </a>
           </Link>
@@ -486,9 +164,9 @@ const getTotFin2 = (financements2dugroupe) => {
                 <div className="w-full">
                 <br/>
                 <span
-                  className="px-5 py-3 mt-4 text-xl font-semibold"
+                  className="px-5 py-3  text-xl font-semibold"
                 >  Opérations
-<br/><br/>
+
                 </span>
                   <ul
                     className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
@@ -499,9 +177,11 @@ const getTotFin2 = (financements2dugroupe) => {
                         className={
                           "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                           (openTab === 1
-                            ? "bg-" + "-900"
-                            : "text-" + "-600 bg-white")
+                            ? "bg-gray" + "-100"
+                            : "text-" + "gray-700")
                         }
+
+
                         onClick={e => {
                           e.preventDefault();
                           setOpenTab(1);
@@ -518,8 +198,8 @@ const getTotFin2 = (financements2dugroupe) => {
                         className={
                           "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                           (openTab === 2
-                            ? "bg-" + "-900"
-                            : "text-" + "-600 bg-white")
+                            ? "bg-gray" + "-100"
+                            : "text-" + "gray-700")
                         }
                         onClick={e => {
                           e.preventDefault();
@@ -537,8 +217,8 @@ Demandes
                         className={
                           "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                           (openTab === 3
-                            ? "bg-" + "-900"
-                            : "text-" + "-600 bg-white")
+                            ? "bg-gray" + "-100"
+                            : "text-" + "gray-700")
                         }
                         onClick={e => {
                           e.preventDefault();
@@ -548,7 +228,7 @@ Demandes
                         href="#link3"
                         role="tablist"
                       >
-                         Historique
+                         Transactions
                       </a>
                     </li>
                   </ul>
@@ -580,83 +260,86 @@ Demandes
                       {financementsdansgr.map((grfinancement) => (
 
 
-   <li key={grfinancement.id} className="grid grid-cols-6 gap-4">
 
-   <hr className="col-span-6 my-10"/>
-   <div>
-   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-   <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-   <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" stroke-width="2.5" stroke-dasharray="5 5"/>
-   </svg>
-   </div>
+                                  <div
+                                    key={grfinancement.id}
+                                    className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+                                  >
+                                    <div className="flex-shrink-0">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" stroke-width="2.5" stroke-dasharray="5 5"/>
+                                    </svg>
+                                                                      </div>
+                                    <div className="min-w-0 flex-1">
+                        <Link href={grfinancement.path.alias} passHref>
+                                    <a>
+                        <h2 className="text-sm gray-700">{grfinancement.label}</h2>
 
-                            <div className="col-span-4">
+                        <span className="text-2xl font-semibold">
+                        {financements2dugroupe?.length ? (
+                        <div>
 
-                            <Link href={grfinancement.path.alias} passHref>
-                            <a>
-<h2 className="text-sm gray-700">{grfinancement.label}</h2><br/>
+                        {financements2dugroupe.filter(person5 => person5.uuid.includes(grfinancement.id)).map(filteredPerson5 => {
 
-<span className="text-2xl font-semibold">
-{financements2dugroupe?.length ? (
-           <div>
+                        return (
 
-           {financements2dugroupe.filter(person5 => person5.uuid.includes(grfinancement.id)).map(filteredPerson5 => {
+                        <div className="flex-container card" key={filteredPerson5.uuid}>
 
-              return (
+                          <div className="content">
+                             {filteredPerson5.field_estimation_du_prix} €
+                            <div>
 
-                <div className="flex-container card" key={filteredPerson5.uuid}>
-
-                  <div className="content">
-                     {filteredPerson5.field_estimation_du_prix} €
-                    <div>
-
-       </div>
-                  </div>
-
-
-              </div>)
-            })}
-
-
-
-           </div>
-         ) : (
-           <p >
-
-00000 €
-
-</p>
-
-
-         )}
-
-
-
-
-</span>
-</a>
-</Link>
-
+                        </div>
                           </div>
 
-  <div className="col-span-1">
-  <Link href={grfinancement.path.alias} passHref>
-<a>
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-4 h-4 ml-2"
-    >
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-</a>
-  </Link>
-                                                             </div>
-</li>
+
+                        </div>)
+                        })}
+
+
+
+                        </div>
+                        ) : (
+                        <p >
+
+                        00000 €
+
+                        </p>
+
+
+                        )}
+
+
+
+
+                        </span>
+
+                        </a>
+                        </Link>
+
+
+
+                                    </div>
+                                    <div className="flex-shrink-2">
+
+                                    <Link href={grfinancement.path.alias} passHref>
+                                  <a>
+                                      <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-4 h-4 ml-2"
+                                      >
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                      </svg>
+                                  </a>
+                                    </Link>
+</div>
+                                  </div>
 
                              ))}
                              </div>
@@ -677,15 +360,73 @@ Demandes
                            )}
 
                           </p>
-<p>
-<br/><br/><br/>
-                          </p>
+
                         </div>
 
                         <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                           <p>
 
+                          {financementsd1groupe?.length ? (
 
+                            <div>
+
+
+
+                            <h3 className="mb-2 text-lg font-black text-gray-400 text-left">ACTIFS</h3>
+
+
+                                                {financementsd1groupe.map((demandes) => (
+
+
+
+                                                            <div
+                                                              key={demandes.id}
+                                                              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+                                                            >
+                                                              <div className="flex-shrink-0">
+                                                              <Image
+                                                                src={absoluteURL(demandes.user_picture)}
+                                                                width={30}
+                                                                height={30}
+                                                                className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                                                                objectFit="cover"
+                                                                alt={demandes.title}
+                                                                priority
+                                                              />
+                                                                                                </div>
+                                                              <div className="min-w-0 flex-1">
+                                                  <Link href={demandes.view_node} passHref>
+                                                              <a>
+                                                  <h2 className="text-sm gray-700">{demandes.title}</h2>
+dans le groupe :                                                 <h2 className="text-sm gray-700">{demandes.label}</h2>
+                                                  <span className="text-2xl font-semibold">
+
+                                                  {demandes.field_estimation_du_prix} €
+
+
+
+
+                                                  </span>
+
+                                                  </a>
+                                                  </Link>
+
+
+
+                                                              </div>
+                                                              <div className="flex-shrink-2">
+
+
+                          </div>
+                                                            </div>
+
+                                                       ))}
+                                                       </div>
+                                                     ) : (
+                                                       <p className="text-2xl cadre text-center p-20 mb-10">
+
+                                                       </p>
+                                                     )}
                           </p>
                         </div>
                         <div className={openTab === 3 ? "block" : "hidden"} id="link3">

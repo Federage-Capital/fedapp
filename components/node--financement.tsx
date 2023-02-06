@@ -4,11 +4,22 @@ import useSWR from 'swr'
 import { useRouter } from "next/router"
 import { getSession, useSession, signOut } from "next-auth/react";
 import { absoluteURL, formatDate } from "lib/utils"
-import classNames from "classnames"
 import * as React from "react"
 import { useTranslation } from "next-i18next"
 
+import { Fragment, useState } from 'react'
+import {
+  FaceFrownIcon,
+  FaceSmileIcon,
+  FireIcon,
+  HandThumbUpIcon,
+  HeartIcon,
+  PaperClipIcon,
+  XMarkIcon,
+} from '@heroicons/react/20/solid'
+import { Listbox, Transition } from '@headlessui/react'
 
+import { CalendarIcon, TagIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 
 interface NodeFinancementProps extends React.HTMLProps<HTMLFormElement> {}
 
@@ -22,6 +33,31 @@ interface NodeFinancementProps {
   node: DrupalNode
 }
 
+
+const assignees = [
+  { name: 'Unassigned', value: null },
+  {
+    name: 'Wade Cooper',
+    value: 'wade-cooper',
+    avatar:
+      'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  // More items...
+]
+const labels = [
+  { name: 'Unlabelled', value: null },
+  { name: 'Engineering', value: 'engineering' },
+  // More items...
+]
+const dueDates = [
+  { name: 'No due date', value: null },
+  { name: 'Today', value: 'today' },
+  // More items...
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 
@@ -29,6 +65,10 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export function NodeFinancement({ node, className, ...props }: NodeFinancementProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
+
+  const [assigned, setAssigned] = useState(assignees[0])
+   const [labelled, setLabelled] = useState(labels[0])
+   const [dated, setDated] = useState(dueDates[0])
 
 
     const router = useRouter()
@@ -65,27 +105,8 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
               }
   return (
     <article {...props}>
-    {node.uid?.display_name ? (
 
-      <div className="grid grid-cols-12 gap-4">
-
-      <div>
-      <Image
-        src={absoluteURL(node.uid?.user_picture.uri.url)}
-        width={100}
-        height={100}
-        className="rounded-full"
-        objectFit="cover"
-        alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
-        priority
-      />
-      </div>
-      <div className="text-base font-bold col-span-11 align-middle">
-{node.uid?.display_name}
-</div>
-      </div>
-    ) : null}
-      <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
+      <h1 className="mb-4 text-6xl font-black leading-tight">Il faudrait un titre ici...</h1>
 
       <div className="mb-4 text-gray-600">
   <div className="asset-card mb-3">
@@ -118,7 +139,6 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
     <span className="text-3xl font-bold">  {node.field_estimation_du_prix}€</span>
     </div>
       </div>
-
 </div>
 
 
@@ -177,8 +197,18 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
               <li>
                 <div className="relative pb-8">
                   <span className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-                  <div className="relative flex items-start space-x-3">
+                  <div className="relative  flex items-start space-x-3">
                     <div className="relative">
+                    <Image
+                      src={absoluteURL(node.uid?.user_picture.uri.url)}
+                      width={30}
+                      height={30}
+                      className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                      objectFit="cover"
+                      alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
+                      priority
+                    />
+
 
                       <span className="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
 
@@ -201,7 +231,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
 
                         <p><div
                           dangerouslySetInnerHTML={{ __html: comment.attributes.comment_body.value }}
-                          className="mt-6 text-xl leading-loose"
+                          className="font-medium text-gray-900"
                         />
 </p>
                       </div>
@@ -268,55 +298,79 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
                                                         </div>
                                                       )}
 
-                                                      <div className="grid gap-2">
-                                                        <label htmlFor="Sujet" className="font-semibold text-text">
-                                                          {t("Sujet")} <span className="text-sm text-red-500">*</span>
-                                                        </label>
-                                                        <input
-                                                          id="subject"
-                                                          name="subject"
-                                                          maxLength={255}
-                                                          required
-                                                          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-                                                        />
-                                                      </div>
-
-                                                      <div className="grid gap-2">
-                                                        <label htmlFor="Commentaire" className="font-semibold text-text">
-                                                          {t("comment")} <span className="text-sm text-red-500">*</span>
-                                                        </label>
-                                                        <textarea
-                                                          id="comment"
-                                                          name="comment"
-                                                          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-                                                        ></textarea>
-                                                      </div>
 
 
+                                                                                                            <div action="#" className="relative">
+                                                                                                                  <div className="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+                                                                                                                    <label htmlFor="title" className="sr-only">
+                                                                                                                      {t("Sujet")} <span className="text-sm text-red-500">*</span>
+                                                                                                                    </label>
+                                                                                                                    <input
+                                                                                                                      type="text"
+                                                                                                                      placeholder="Sujet"
 
-<div className="grid gap-2">
+                                                                                                                      id="subject"
+                                                                                                                      name="subject"
+                                                                                                                      maxLength={255}
+                                                                                                                      required
+                                                                                                                      className="block w-full border-0 pt-2.5 text-lg font-medium placeholder-gray-500 focus:ring-0"
+                                                                                                                    />
+                                                                                                                    <label htmlFor="description" className="sr-only">
+                                                                                                                    {t("comment")} <span className="text-sm text-red-500">*</span>
+                                                                                                                    </label>
+                                                                                                                    <textarea
+                                                                                                                      rows={2}
+                                                                                                                      name="comment"
+                                                                                                                      id="comment"
+                                                                                                                      className="block w-full resize-none border-0 py-0 placeholder-gray-500 focus:ring-0 sm:text-sm"
+                                                                                                                      placeholder="Ecrivez un commentaire..."
+                                                                                                                      defaultValue={''}
+                                                                                                                    />
 
-  <textarea
-    id="nodeid"
-    name="nodeid"
-    value={node.id}
-    className="hidden"
-  ></textarea>
-</div>
+                                                                                                                    <textarea
+                                                                                                                      id="nodeid"
+                                                                                                                      name="nodeid"
+                                                                                                                      value={node.id}
+                                                                                                                      className="hidden"
+                                                                                                                    ></textarea>
 
-                                                      <div>
-                                                        <input
-                                                          type="submit"
-                                                          className="px-6 py-3 text-xl text-white transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
-                                                          disabled={formStatus?.status === "fetching"}
-                                                          value={
-                                                            formStatus?.status === "fetching"
-                                                              ? t("please-wait")
-                                                              : t("create-article")
-                                                          }
-                                                        />
-                                                      </div>
-                                                    </form>
+                                                                                                                    <div aria-hidden="true">
+                                                                                                                      <div className="py-2">
+                                                                                                                        <div className="h-9" />
+                                                                                                                      </div>
+                                                                                                                      <div className="h-px" />
+                                                                                                                      <div className="py-2">
+                                                                                                                        <div className="py-px">
+                                                                                                                          <div className="h-9" />
+                                                                                                                        </div>
+                                                                                                                      </div>
+                                                                                                                    </div>
+                                                                                                                  </div>
+
+                                                                                                                  <div className="absolute inset-x-px bottom-0">
+
+                                                                                                                    <div className="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
+
+
+                                                                                                                      <div className="flex-shrink-0">
+
+
+                                                                                                                        <input
+                                                                                                                          type="submit"
+                                                                                                                          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                                                                                                          disabled={formStatus?.status === "fetching"}
+                                                                                                                          value={
+                                                                                                                            formStatus?.status === "fetching"
+                                                                                                                              ? t("envoyer")
+                                                                                                                              : t("envoyer")
+                                                                                                                          }
+                                                                                                                        />
+                                                                                                                      </div>
+                                                                                                                    </div>
+                                                                                                                  </div>
+                                                                                                                  </div>
+                                                                                                                </form>
+
 </div>
 
                                                     <div className="asset-card mb-3">
