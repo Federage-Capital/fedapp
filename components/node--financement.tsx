@@ -1,12 +1,11 @@
+import * as React from "react";
 import Image from "next/image"
 import { DrupalNode } from "next-drupal"
 import useSWR from 'swr'
-import * as React from "react";
 
 import { useRouter } from "next/router"
 import { getSession, useSession, signOut } from "next-auth/react";
 import { absoluteURL, formatDate } from "lib/utils"
-import * as React from "react"
 import { useTranslation } from "next-i18next"
 
 import { Fragment, useState } from 'react'
