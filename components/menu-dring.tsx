@@ -3,7 +3,7 @@ import * as React from "react";
 import Link from "next/link"
 import { useTranslation } from "next-i18next"
 import { useSession, signOut } from "next-auth/react"
-import { Menu, Transition } from "@headlessui/react";
+import { Menu } from "@headlessui/react";
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 import classNames from "classnames"
 import { CalendarIcon, ChartBarIcon, BellIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon } from '@heroicons/react/24/outline'
@@ -69,15 +69,7 @@ export function MenuDring() {
           </Menu.Button>
         </div>
 
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-200"
-          enterFrom="transform opacity-0 scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
+
 
           <Menu.Items className="absolute right-0 z-10 mt-2 w-96 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Menu.Item>
@@ -180,7 +172,6 @@ export function MenuDring() {
               )}
             </Menu.Item>
           </Menu.Items>
-        </Transition>
       </Menu>
 
 
