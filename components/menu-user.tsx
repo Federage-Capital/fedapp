@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { useTranslation } from "next-i18next"
 import { useSession, signOut } from "next-auth/react"
-import { Menu, Transition } from "@headlessui/react"
+import { Menu, Transition } from '@headlessui/react';
+
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 import classNames from "classnames"
 import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon } from '@heroicons/react/24/outline'
@@ -17,20 +18,6 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 export function MenuUser() {
   const { data, status } = useSession()
   const { t } = useTranslation()
-  const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-    { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
-  ]
-  const secondaryNavigation = [
-    { name: 'Website redesign', href: '#' },
-    { name: 'GraphQL API', href: '#' },
-    { name: 'Customer migration guides', href: '#' },
-    { name: 'Profit sharing program', href: '#' },
-  ]
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
