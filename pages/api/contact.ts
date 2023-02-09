@@ -1,50 +1,42 @@
 import { NextApiRequest, NextApiResponse } from "next"
+import * as yup from "yup"
+import { contactFormSchema } from "../../validations/contact"
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
+  request: NextApiRequest,
+  response: NextApiResponse
 ) {
   try {
-    // Only accept POST requests.
-    if (req.method !== "POST") {
-      return res.status(405).end()
-    }
+    if (request.method === "POST") {
+      // Validate form submission.
+      const body = await contactFormSchema.validate(request.body)
 
-    // The body field will contain the form values.
-    // You can make a request to your site with these values.
-    const body = JSON.parse(req.body)
+      // Submit to Drupal.
+      const result = await fetch(
+        `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/webform_rest/submit`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            webform_id: "register_beta",
+            ...body,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
 
-    // Format the payload for /entity/contact_message
-    const payload = {
-      contact_form: [{ target_id: "feedback" }],
-      name: [{ value: body.name }],
-      mail: [{ value: body.mail }],
-      subject: [{ value: body.subject }],
-      message: [{ value: body.message }],
-    }
-
-    // Send the payload to Drupal.
-    // Ensure you have the /entity/contact_message resource enabled.
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/entity/contact_message`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+      if (!result.ok) {
+        throw new Error()
       }
-    )
 
-    // An error occured on Drupal.
-    // Here you can throw error, or send back the response json with the error.
-    if (!response.ok) {
-      throw new Error()
+      response.status(200).end()
+    }
+  } catch (error) {
+    if (error instanceof yup.ValidationError) {
+      return response.status(422).json(error.message)
     }
 
-    // The form has been submitted. Return success 200.
-    res.end()
-  } catch (error) {
-    res.status(500).end(error)
+    return response.status(400).json(error.message)
   }
 }

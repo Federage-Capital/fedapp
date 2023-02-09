@@ -10,7 +10,9 @@ interface NodeArticleProps {
 export function NodeArticle({ node, ...props }: NodeArticleProps) {
   return (
     <article {...props}>
-      <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
+    <div className="max-w-screen-md px-6 mx-auto">
+
+    <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
       <div className="mb-4 text-gray-600">
         {node.uid?.display_name ? (
           <span>
@@ -44,6 +46,7 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
           className="mt-6 text-xl leading-loose prose"
         />
       )}
+      </div>
     </article>
   )
 }
