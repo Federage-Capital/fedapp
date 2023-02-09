@@ -23,37 +23,10 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
   const router = useRouter()
   const query = router.query;
 
-  const [userinfo, setUserInfo] = useState({
-    languages: [],
-    response: [],
-  });
-
-  const handleChange = (e) => {
-    // Destructuring
-    const { value, checked } = e.target;
-    const { languages } = userinfo;
-
-    console.log(`${value} is ${checked}`);
-
-    // Case 1 : The user checks the box
-    if (checked) {
-      setUserInfo({
-        languages: [...languages, value],
-        response: [...languages, value],
-      });
-    }
-
-    // Case 2  : The user unchecks the box
-    else {
-      setUserInfo({
-        languages: languages.filter((e) => e !== value),
-        response: languages.filter((e) => e !== value),
-      });
-    }
-  }
 
 
-     const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/user/user', fetcher)
+
+     const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/user/user?include=user_picture', fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
@@ -118,156 +91,42 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
 
              <div className="grid gap-2">
 
-                        <div className="row">
-                          <div className="col-md-6">
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="Javascript"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  Javascript
-                              </label>
-                            </div>
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="Python"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  Python
-                              </label>
-                            </div>
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="Java"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  Java
-                              </label>
-                            </div>
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="PHP"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  PHP
-                              </label>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="C#"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  C#
-                              </label>
-                            </div>
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="C++"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  C++
-                              </label>
-                            </div>
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="C"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  C
-                              </label>
-                            </div>
-                            <div className="form-check m-3">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                name="languages"
-                                value="Typescript"
-                                id="flexCheckDefault"
-                                onChange={handleChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="flexCheckDefault"
-                              >
-                                  Typescript
-                              </label>
-                            </div>
-                          </div>
-                        </div>
+             <fieldset className="border-t border-b border-gray-200">
+                                   <legend className="sr-only">Notifications</legend>
+                                    {users.data.map((user) => (
+                                   <div key={user.id} className="divide-y divide-gray-200">
+                                     <div className="relative flex items-start py-4">
+                                       <div className="min-w-0 flex-1 text-sm">
+                                         <label htmlFor="comments" className="font-medium text-gray-700">
+                                           {user.attributes.display_name}
+                                         </label>
+                                         <p id="comments-description" className="text-gray-500">
+                                           Get notified when someones posts a comment on a posting.
+                                         </p>
+                                       </div>
 
-                        <div className="form-floating mt-3 mb-3 text-center">
-                          <label htmlFor="exampleFormControlTextarea1">
-                            You're proficient in the following languages :{" "}
-                          </label>
-                          <textarea
-                            className="form-control text"
-                            name="response"
-                            value={userinfo.response}
-                            placeholder="The checkbox values will be displayed here "
-                            id="floatingTextarea2"
-                            style={{ height: "150px" }}
-                            onChange={handleChange}
-                          ></textarea>
-                        </div>
 
+
+
+
+
+
+                                       <div className="ml-3 flex h-5 items-center">
+                                         <input
+                                         id="select_users"
+                                         name="select_users"
+                                           aria-describedby="comments-description"
+                                           value={user.id}
+                                           type="checkbox"
+                                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                         />
+                                       </div>
+                                     </div>
+
+
+                                   </div>
+                                     ))}
+                                 </fieldset>
                       <label
                       htmlFor="select_users"
                       className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
