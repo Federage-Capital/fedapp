@@ -17,10 +17,7 @@ import {
 
 interface FormGroupfinProps extends React.HTMLProps<HTMLFormElement> {}
 
-interface FormStatus {
-  status: "success" | "error" | "fetching"
-  message?: string | string[]
-}
+
 
 export function FormGroupfin({ className, ...props }: FormGroupfinProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
@@ -157,9 +154,8 @@ export function FormGroupfin({ className, ...props }: FormGroupfinProps) {
       onSubmit={onSubmit}
       {...props}
     >
-    <Folder />
-Décrire le projets
-Vous devez fournir des informations. En tant qu’initiateur du projet, vous fixez les objectifs de l’opération.
+    <div className="inline-block text-center text-sm text-slate-500">   En tant qu’initiateur vous fixez les objectifs de l’opération.</div>
+
       {(formStatus?.status === "success" || formStatus?.status === "error") && (
         <div
           className={classNames("py-3 px-4 border", {
@@ -180,8 +176,8 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
         </div>
       )}
       <div className="grid gap-2">
-        <label htmlFor="title" className="font-semibold text-text">
-          {t("Objet du financement")} <span className="text-sm text-red-500">*</span>
+        <label htmlFor="title" className="font-medium text-sm">
+          {t("objet_du_financement")} <span className="text-sm text-red-500">*</span>
         </label>
         <input
           id="label"
@@ -193,8 +189,8 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="descritption" className="font-semibold text-text">
-          {t("Description")} <span className="text-sm text-red-500">*</span>
+        <label htmlFor="descritption" className="font-medium text-sm">
+          {t("description_du_projet")} <span className="text-sm text-red-500">*</span>
         </label>
         <textarea
           id="field_description"
@@ -427,15 +423,12 @@ Vous devez fournir des informations. En tant qu’initiateur du projet, vous fix
 
 
 
-
         <input
           type="submit"
-          className="px-6 py-3 rounded-md fedblue font-serif text-xl text-white transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
+          className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
           disabled={formStatus?.status === "fetching"}
           value={
-            formStatus?.status === "fetching"
-              ? t("please-wait")
-              : t("create-new-sep")
+            formStatus?.status === "fetching" ? t("please-wait") : t("Création d'un nouveau groupe de financement")
           }
         />
       </div>

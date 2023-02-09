@@ -5,6 +5,7 @@ import { DrupalNode } from "next-drupal"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Meta, MetaProps } from "components/meta"
 import { useTranslation } from "next-i18next"
+import Image from "next/image"
 
 import { drupal } from "lib/drupal"
 import { Layout, LayoutProps } from "components/layout"
@@ -40,7 +41,8 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
 <div className="grid grid-cols-6 gap-4">
-  <div>01</div>
+  <div>        <Image src="/federage-logo.svg" height={100} width={200}  />
+</div>
 <div className="col-span-5"><h2 className="text-xl">Démarrer</h2>
 <p>S&#39;inscrire pour commencer un financement</p>
 </div>

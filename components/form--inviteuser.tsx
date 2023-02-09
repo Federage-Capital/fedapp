@@ -40,9 +40,7 @@ export function FormInvite({ className, ...props}: FormInviteProps) {
       mail: {
         value: formData.mail,
       },
-      status:{
-        value: '1',
-      },
+  
 
 
     };

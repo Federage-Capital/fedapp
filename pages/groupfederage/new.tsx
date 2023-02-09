@@ -6,6 +6,7 @@ import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormGroupfin } from "components/form--groupfin"
 import { useState, useEffect } from "react";
+import { Folder } from "public/foldersvg"
 
 interface NewArticlesPageProps extends LayoutProps {}
 
@@ -17,19 +18,15 @@ export default function NewArticlesPage({
 
   return (
     <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
+    <div className="container text-center">
+    <div className="inline-block">  <Folder /> </div>
+    </div>
       <PageHeader
-        heading={t("Nouveau-projet")}
-        breadcrumbs={[
-          {
-            title: t("my-account"),
-            url: "/account",
-          },
-          {
-            title: t("Nouveau-projet"),
-          },
-        ]}
+        heading={t("decrire-le-projet")}
+
       />
       <div className="container pb-10">
+
         <FormGroupfin className="max-w-2xl mx-auto" />
       </div>
 
