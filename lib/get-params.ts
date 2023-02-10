@@ -90,7 +90,7 @@ export function getParams(
 
         "drupal_internal__id",
       ])
-      .addFields("user--user", ["display_name", "user_picture"])
+      .addFields("user--user", ["display_name", "user_picture", "satus"])
         .addFields("file--file", ["uri", "resourceIdObjMeta"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","drupal_internal__id"])
       .addFields("taxonomy_term--categorie", ["name", "drupal_internal__tid"])
@@ -143,7 +143,7 @@ export function getParams(
         "id",
         "meta",
       ])
-      .addFields("user--user", ["display_name", "user_picture"])
+      .addFields("user--user", ["display_name", "user_picture", "status"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
   }
   if (name === "user--user") {

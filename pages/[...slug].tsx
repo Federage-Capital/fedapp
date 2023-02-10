@@ -139,33 +139,6 @@ export async function getStaticProps(
 
 
 
-  if (resource.type === "taxonomy_term--tags") {
-    // Fetch the term content.
-    // Tags can show both recipes and articles.
-    additionalContent["termContent"] = [
-      ...(await drupal.getResourceCollectionFromContext(
-        "node--recipe",
-        context,
-        {
-          params: getParams("node--recipe", "card")
-            .addSort("created", "DESC")
-            .addFilter("field_tags.id", resource.id, "IN")
-            .getQueryObject(),
-        }
-      )),
-      ...(await drupal.getResourceCollectionFromContext(
-        "node--article",
-        context,
-        {
-          params: getParams("node--article", "card")
-            .addSort("created", "DESC")
-            .addFilter("field_tags.id", resource.id, "IN")
-            .getQueryObject(),
-        }
-      )),
-    ]
-  }
-
   return {
     props: {
       ...(await getGlobalElements(context)),

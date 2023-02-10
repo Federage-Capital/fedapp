@@ -13,30 +13,28 @@ import useSWR from 'swr'
 interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {
 
   users: DrupalUser,
-    nodes: DrupalNode,
-    group: DrupalGroup,
 }
 
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export function FormMembre({ nodes, group, listedef, className, ...props }: FormMembreProps) {
+export function FormMembre({ className, ...props }: FormMembreProps) {
   const router = useRouter()
   const query = router.query;
-  const { t } = useTranslation()
 
 
 
-     const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ query.gid, fetcher)
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in', fetcher)
+
+     const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/user/user?include=user_picture', fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
+  const { t } = useTranslation()
 
 
-       if (error2, error3) return <div>Failed to load</div>
-       if (!users, !usersnotin) return <div>Loading...</div>
+       if (error) return <div>Failed to load</div>
+       if (!users) return <div>Loading...</div>
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -94,54 +92,18 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
              <div className="grid gap-2">
 
              <fieldset className="border-t border-b border-gray-200">
-
-
-             {usersnotin.map((usernotin) => (
-            <div key={usernotin.id} className="divide-y divide-gray-200">
-              <div className="relative flex items-start py-4">
-                <div className="min-w-0 flex-1 text-sm">
-
-
-                  <label htmlFor="comments" className="font-medium text-gray-700">
-                    {usernotin.name}
-                  </label>
-                  <p id="comments-description" className="text-gray-500">
-                  {users?.length ? (
-                  <div>
-
-                  {users.filter(person5 => person5.name.includes(usernotin.name)).map(filteredPerson5 => {
-
-                  return (
-
-                  <div className="flex-container card" key={filteredPerson5.name}>
-
-                    <div className="content">
-                    Déjà dans le groupe
-                      <div>
-
-                  </div>
-                    </div>
-
-
-                  </div>)
-                  })}
-
-
-
-                  </div>
-                  ) : (
-                  <p >
-
-                  00000 €
-
-                  </p>
-
-
-                  )}
-                  </p>
-
-
-                </div>
+                                   <legend className="sr-only">Notifications</legend>
+                                    {users.data.map((user) => (
+                                   <div key={user.id} className="divide-y divide-gray-200">
+                                     <div className="relative flex items-start py-4">
+                                       <div className="min-w-0 flex-1 text-sm">
+                                         <label htmlFor="comments" className="font-medium text-gray-700">
+                                           {user.attributes.display_name}
+                                         </label>
+                                         <p id="comments-description" className="text-gray-500">
+                                           Get notified when someones posts a comment on a posting.
+                                         </p>
+                                       </div>
 
 
 
@@ -149,25 +111,38 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
-                <div className="ml-3 flex h-5 items-center">
-                  <input
-                  id="select_users"
-                  name="select_users"
-                    aria-describedby="comments-description"
-                    value={usernotin.id}
-                    type="radio"
-                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                  />
-                </div>
-              </div>
+                                       <div className="ml-3 flex h-5 items-center">
+                                         <input
+                                         id="select_users"
+                                         name="select_users"
+                                           aria-describedby="comments-description"
+                                           value={user.id}
+                                           type="checkbox"
+                                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                         />
+                                       </div>
+                                     </div>
 
 
-            </div>
-              ))}
-
-
+                                   </div>
+                                     ))}
                                  </fieldset>
+                      <label
+                      htmlFor="select_users"
+                      className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
+                      >
+Sélectionnez un membre                   </label>
+                      <select
+                      id="select_users"
+                      name="select_users"
+                      className="rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+                    >
+     {users.data.map((user) => (
 
+<option key={user.id} value={user.id}>{user.attributes.display_name}</option>
+
+                          ))}
+                      </select>
 
 
 
@@ -187,7 +162,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
           name="gid"
           value={query.gid}
           maxLength={255}
-          className=""
+          className="hidden"
         ></textarea>
       </div>
       <div className="grid gap-2">

@@ -24,7 +24,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export function FormMembre({ nodes, group, listedef, className, ...props }: FormMembreProps) {
   const router = useRouter()
   const query = router.query;
-  const { t } = useTranslation()
 
 
 
@@ -33,6 +32,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
+  const { t } = useTranslation()
 
 
        if (error2, error3) return <div>Failed to load</div>
@@ -100,12 +100,14 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
             <div key={usernotin.id} className="divide-y divide-gray-200">
               <div className="relative flex items-start py-4">
                 <div className="min-w-0 flex-1 text-sm">
-
-
                   <label htmlFor="comments" className="font-medium text-gray-700">
                     {usernotin.name}
                   </label>
                   <p id="comments-description" className="text-gray-500">
+                    Get notified when someones posts a comment on a posting.
+                         {usernotin.name}
+                  </p>
+
                   {users?.length ? (
                   <div>
 
@@ -116,7 +118,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                   <div className="flex-container card" key={filteredPerson5.name}>
 
                     <div className="content">
-                    Déjà dans le groupe
+                       {filteredPerson5.name} €
                       <div>
 
                   </div>
@@ -138,9 +140,6 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
                   )}
-                  </p>
-
-
                 </div>
 
 
@@ -166,6 +165,45 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
               ))}
 
 
+                                   <legend className="sr-only">Notifications</legend>
+                                    {users.map((user) => (
+                                   <div key={user.id} className="divide-y divide-gray-200">
+                                     <div className="relative flex items-start py-4">
+                                       <div className="min-w-0 flex-1 text-sm">
+                                         <label htmlFor="comments" className="font-medium text-gray-700">
+                                           {user.name}
+                                         </label>
+                                         <p id="comments-description" className="text-gray-500">
+                                           Get notified when someones posts a comment on a posting.
+                                                {user.name}
+                                         </p>
+
+
+                                       </div>
+
+
+
+
+
+
+
+
+
+                                       <div className="ml-3 flex h-5 items-center">
+                                         <input
+                                         id="select_users"
+                                         name="select_users"
+                                           aria-describedby="comments-description"
+                                           value={user.id}
+                                           type="radio"
+                                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                         />
+                                       </div>
+                                     </div>
+
+
+                                   </div>
+                                     ))}
                                  </fieldset>
 
 

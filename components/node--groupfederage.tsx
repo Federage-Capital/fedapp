@@ -29,7 +29,6 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>`htt
                 if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
 
-                const users34 = [{ name: 'Tom', age: 21}, { name: 'Mike', age: 23}, { name: 'Anna', age: 54}]
 
 
 
@@ -292,22 +291,59 @@ Détail du financement
 
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <Link href={`/membre/new?gid=${encodeURIComponent(node.id)}`}>
-                <a className="px-3 py-1 fedblue text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                    Nouveaux membres dans ce groupe
-                  </a>
-                </Link>
+
 
                 <p>
 
-                  {users.data.map((user) => (
 
-                  <div key={user.id}>{user.attributes.label}
+                                          </p>
 
-<p>{user.attributes.path.alias}</p>
-                  </div>
+                                          <p>
 
-                                        ))}
+
+
+                  <fieldset className="border-t border-b border-gray-200">
+
+
+
+                                        <legend className="sr-only">Notifications</legend>
+  {users.data.map((user) => (
+                                        <div key={user.id} className="divide-y divide-gray-200">
+                                          <div className="relative flex items-start py-4">
+                                            <div className="min-w-0 flex-1 text-sm">
+                                            <Link href={user.attributes.path.alias}>
+                                            <a className="grid grid-cols-4 gap-4">
+
+                                              <label htmlFor="comments" className="font-medium text-gray-700">
+                                              {user.attributes.label}
+                                              </label>
+                                              <p id="comments-description" className="text-gray-500">
+                                              role
+
+
+{user.attributes.path.alias}
+                                              </p>
+</a>
+</Link>
+
+                                            </div>
+
+
+
+
+
+
+
+
+                                          </div>
+
+
+                                        </div>
+      ))}
+                                      </fieldset>
+
+
+
 
                   </p>
                 </div>
