@@ -151,6 +151,7 @@ export default function AlluserlistPage
     height={100}
     layout="responsive"
     objectFit="cover"
+    alt={node.drupal_internal__uid}
   />
   </Link>
   </div>
