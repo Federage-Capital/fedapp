@@ -130,7 +130,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
 <div className="grid grid-cols-6 gap-4">
-  <div>        <Image src="/federage-logo.svg" height={100} width={200}  />
+  <div>        <Image src="/federage-logo.svg" height={100} width={200}  alt="Logo federage" />
 </div>
 <div className="col-span-5">
 <Link href="./login" passHref>

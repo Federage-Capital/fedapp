@@ -116,7 +116,7 @@ export function Header({ menus }: HeaderProps) {
       <Link href="/" passHref>
         <a className="flex justify-start">
 
-        <Image src="/federage-logo.svg" height={100} width={200}  />
+        <Image src="/federage-logo.svg" height={100} width={200}  alt="Logo federage" />
 
           <span className="sr-only">{siteConfig.name}</span>
         </a>

@@ -1,6 +1,5 @@
 import { DrupalNode } from "next-drupal"
 
-import { Breadcrumbs } from "components/breadcrumbs"
 import { useTranslation } from "next-i18next"
 
 interface NodePageProps {
@@ -12,13 +11,7 @@ export function NodePage({ node }: NodePageProps) {
 
   return (
     <div className="container">
-      <Breadcrumbs
-        items={[
-          {
-            title: node.title,
-          },
-        ]}
-      />
+
       <article className="bg-white border text-text p-9 border-border">
         <h1 className="font-serif text-2xl leading-tight lg:text-4xl">
           {node.title}

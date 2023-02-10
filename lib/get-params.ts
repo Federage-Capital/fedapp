@@ -8,6 +8,11 @@ export function getParams(
   const params = new DrupalJsonApiParams()
 
   name = mode ? `${name}--${mode}` : name
+  if (name === "node--page") {
+    return params
+      .addFilter("status", "1")
+      .addFields("node--page", ["title", "body", "status"])
+  }
 
   if (name === "node--financement") {
     return params
