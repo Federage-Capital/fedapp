@@ -84,7 +84,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           </div>
         ) : null}
 
-        <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-6 text-center inputWithButton" onSubmit={handleSubmit(onSubmit)}>
           <div>
 
           </div>
@@ -130,7 +130,12 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
 <div className="grid grid-cols-6 gap-4">
-  <div>        <Image src="/federage-logo.svg" height={100} width={200}  alt="Logo federage" />
+  <div>
+  <Link href="./login" passHref><a>        <Image src="/demarrer.svg" height={100} width={200}  alt="demarrer" />
+  </a>
+</Link>
+
+
 </div>
 <div className="col-span-5">
 <Link href="./login" passHref>
@@ -141,14 +146,18 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 </div>
   <hr className="col-span-6 my-10"/>
-  <div>02</div>
+  <div>    <Image src="/explorer.svg" height={100} width={200}  alt="explorer" />
+  </div>
   <div className="col-span-5">
   <h2 className="text-xl">Explorer</h2>
   <p>Découvrir les besoins des entreprises</p>
   </div>
     <hr className="col-span-6 my-10"/>
 
-    <div>03</div>
+    <div>    <Link href="./articles" passHref><a>    <Image src="/blog.svg" height={100} width={200}  alt="blog" />
+    </a>
+ </Link>
+    </div>
     <div className="col-span-5">
 
 
@@ -161,7 +170,8 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       <hr className="col-span-6 my-10"/>
 
 
-          <div>04</div>
+      <div>    <Image src="/documentation.svg" height={100} width={200}  alt="documentation" />
+      </div>
           <div className="col-span-5">
           <h2 className="text-xl">Documentation</h2>
           <p>Supports techniques de l’application</p>
