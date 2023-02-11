@@ -10,8 +10,12 @@ export function Footer({ }: FooterProps) {
     <footer className="bg-white container text-gray-400 text-center content-center px-2 mx-auto">
 
 
+<<<<<<< Updated upstream
 FEDERAGE SAS, SIREN n°828743369, 
 Marque déposée à l’INPI, 2022.
+=======
+    FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
+>>>>>>> Stashed changes
     </footer>
     </>
   )

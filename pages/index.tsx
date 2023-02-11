@@ -32,9 +32,42 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span class="fedbluetext">l'économie réelle.</span> </h1>
         <h2 className="mb-10 text-2xl text-gray-500 text-center">Solution de financement-capital pour entreprise</h2>
 </div>
+=======
+        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle.</span></h1>
+        <h2 className="mb-10 text-2xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+
+        {status === "error" ? (
+          <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+            Il y a une erreur. Veuillez recommencer.
+          </div>
+        ) : null}
+        {status === "success" ? (
+          <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
+            Votre inscription a été prise en compte. Merci.
+          </div>
+        ) : null}
+        {Object.values(formState.errors)?.length ? (
+          <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+            {Object.values(formState.errors).map((error, index) => (
+              <p key={index}>{error.message}</p>
+            ))}
+          </div>
+        ) : null}
+
+        <form className="space-y-6 text-center inputWithButton" onSubmit={handleSubmit(onSubmit)}>
+          <div>
+
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+>>>>>>> Stashed changes
 
 
 
@@ -60,6 +93,15 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <p>Piloter ses financements d’entreprise</p>
 >>>>>>> Stashed changes
 </div>
+<<<<<<< Updated upstream
+=======
+<div className="col-span-5">
+<Link href="./login" passHref>
+  <a className="no-underline hover:text-blue-800">
+  <h2 className="text-xl">Démarrer</h2>
+  <p>Piloter des financements pour son entreprise.</p>  </a>
+</Link>
+>>>>>>> Stashed changes
 
   <hr class="col-span-6 my-10"/>  
   <div>02</div>
@@ -70,7 +112,11 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 =======
   <div className="col-span-5">
   <h2 className="text-xl">Explorer</h2>
+<<<<<<< Updated upstream
   <p>Répondre aux besoins des professionnels</p>
+>>>>>>> Stashed changes
+=======
+  <p>Parcourir des opportunités de partenariats.</p>
 >>>>>>> Stashed changes
   </div>
    
@@ -100,6 +146,7 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left fedbluetext"><a href="mailto:bonjour@federage.com">Vous avez une question ?</a></h3>
 
 
@@ -109,6 +156,8 @@ export default function IndexPage({ nodes, menus, blocks, }: IndexPageProps) {
 <span className="fedtextblue"> </span>
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> Stashed changes
       </div>
 
     </Layout>
