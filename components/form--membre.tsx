@@ -203,7 +203,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 {user.name}
      </label>
 
-  -> delete this user
+delete this user
 
 
    </div>

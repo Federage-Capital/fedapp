@@ -53,7 +53,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       return setStatus("error")
     }
   return (
-    <Layout meta={{ title: t("Federage") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Tous acteurs de l'économie réelle") }} menus={menus} blocks={blocks}>
 
 
 
@@ -63,7 +63,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle.</span></h1>
+        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="text-blue-800">l&#39;économie réelle.</span></h1>
         <h2 className="mb-10 text-2xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
         {status === "error" ? (
@@ -73,7 +73,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
         ) : null}
         {status === "success" ? (
           <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
-            Votre inscription a été prise en compte. Merci.
+            Votre message a été envoyé. Merci.
           </div>
         ) : null}
         {Object.values(formState.errors)?.length ? (
@@ -95,17 +95,34 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
             >
 
 
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="mon@entreprise.com"
+              className="d-inline-block w-4/6 px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+              {...register("email")}
+            />
+            <button
+              type="submit"
+              data-cy="btn-submit"
+              className="justify-center px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+            >
+              Participer à la version bêta
+            </button>
+          </div>
+          <div>
 
-<h3 className="mb-2 text-lg font-black text-gray-500 text-left">SECTIONS</h3>
+          </div>
+          <div>
 
-<hr class="mb-10"/>
-<div class="grid grid-cols-6 gap-4">
-<div>01</div>
-<div class="col-span-5"><h2 class="text-xl">Démarrer</h2>
-<p> <span class="text-gray-500">Piloter ses financements d’entreprise</span> </p>
+          </div>
+          <div>
 
-        <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span className="fedtextblue">l'économie réelle.</span></h1>
-        <h2 className="mb-10 text-2xl text-gray-400 text-center">Solution de financement-capital pour entreprise</h2>
+          </div>
+
+        </form>
 
 </div>
 
@@ -113,45 +130,61 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
 <div className="grid grid-cols-6 gap-4">
-  <div>01</div>
-<div className="col-span-5"><h2 className="text-xl">Démarrer</h2>
-<p>Piloter ses financements d’entreprise</p>
+  <div>
+  <Link href="./login" passHref><a>        <Image src="/demarrer.svg" height={100} width={200}  alt="demarrer" />
+  </a>
+</Link>
+
+
 </div>
 <div className="col-span-5">
 <Link href="./login" passHref>
-  <a className="no-underline hover:text-blue-800">
+  <a className="no-underline hover:text-blue-600">
   <h2 className="text-xl">Démarrer</h2>
-  <p>Piloter des financements pour son entreprise.</p>  </a>
+  <p>S&#39;inscrire pour commencer un financement</p>  </a>
 </Link>
 
-  <hr class="col-span-6 my-10"/>
-  <div>02</div>
+</div>
+  <hr className="col-span-6 my-10"/>
+  <div>    <Image src="/explorer.svg" height={100} width={200}  alt="explorer" />
+  </div>
   <div className="col-span-5">
   <h2 className="text-xl">Explorer</h2>
-  <p>Parcourir des opportunités de partenariats.</p>
+  <p>Découvrir les besoins des entreprises</p>
   </div>
+    <hr className="col-span-6 my-10"/>
 
-    <hr class="col-span-6 my-10"/>
-    <div>03</div>
-    <div className="col-span-5">
-    <h2 className="text-xl">Blog</h2>
-    <p>En savoir plus sur le financement-capital</p>
+    <div>    <Link href="./articles" passHref><a>    <Image src="/blog.svg" height={100} width={200}  alt="blog" />
+    </a>
+ </Link>
     </div>
+    <div className="col-span-5">
 
-      <hr class="col-span-6 my-10"/>
-      <div>04</div>
-      <div class="col-span-5">
-      <h2 class="text-xl">Documentation</h2>
-      <p> <span class="text-gray-500">Supports techniques de l’application</span> </p>
+
+    <Link href="./articles" passHref>
+      <a className="no-underline hover:text-blue-600">
+      <h2 className="text-xl">Blog</h2>
+      <p>Apprendre sur le financement-capital</p> </a>
+    </Link>
+    </div>
+      <hr className="col-span-6 my-10"/>
+
+
+      <div>    <Image src="/documentation.svg" height={100} width={200}  alt="documentation" />
       </div>
-
-        <hr class="col-span-6 my-10"/>
-
+          <div className="col-span-5">
+          <h2 className="text-xl">Documentation</h2>
+          <p>Supports techniques de l’application</p>
+                    </div>
+            <hr className="col-span-6 my-10"/>
             </div>
 
 
-<h3 className="mb-2 text-lg font-black text-gray-400 text-left"> <span className="fedtextblue"><a href="mailto:bonjour@federage.com">Vous avez une question ?</a></span> </h3>
-<span className="fedtextblue"> </span>
+
+
+
+
+
 
       </div>
 
