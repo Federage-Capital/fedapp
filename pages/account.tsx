@@ -276,9 +276,18 @@ Demandes
                                     <a>
                         <h2 className="text-sm gray-700">{grfinancement.label}</h2>
 
-                        <span className="text-2xl font-semibold">
-                        {financements2dugroupe?.length ? (
-                        <div>
+                            <div className="col-span-4">
+
+
+                            {grfinancement.path?.alias && (
+                              <div
+                                dangerouslySetInnerHTML={{ __html: grfinancement.path?.alias }}
+                                className="mt-6 text-xl leading-loose prose"
+                              />
+                            )}
+                            <Link href={grfinancement.label} passHref>
+                            <a className="text-xl">
+<h2>{grfinancement.label}</h2>
 
                         {financements2dugroupe.filter(person5 => person5.uuid.includes(grfinancement.id)).map(filteredPerson5 => {
 
