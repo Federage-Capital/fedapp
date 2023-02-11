@@ -2,6 +2,8 @@ import { GetStaticPropsContext, GetStaticPropsResult } from "next"
 import { drupal } from "lib/drupal"
 import { DrupalUser } from "next-drupal"
 import { getGlobalElements } from "lib/get-global-elements"
+import { absoluteURL } from "lib/utils"
+import Image, { ImageProps } from "next/image"
 
 import * as React from "react"
 import classNames from "classnames"
@@ -101,29 +103,62 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
               <div className="relative flex items-start py-4">
                 <div className="min-w-0 flex-1 text-sm">
 
+                {usernotin.user_picture && (
 
+
+                    <Image
+                      src={absoluteURL(usernotin.user_picture)}
+                      alt={usernotin.name}
+                      title={usernotin.name}
+                      width={50}
+                      height={50}
+                      className='h-8 w-8 rounded-full'
+                    />
+
+                )}
                   <label htmlFor="comments" className="font-medium text-gray-700">
-                    {usernotin.name}
+            {usernotin.name}
                   </label>
                   <p id="comments-description" className="text-gray-500">
                   {users?.length ? (
                   <div>
 
-                  {users.filter(person5 => person5.name.includes(usernotin.name)).map(filteredPerson5 => {
-
-                  return (
-
-                  <div className="flex-container card" key={filteredPerson5.name}>
-
-                    <div className="content">
-                    Déjà dans le groupe
-                      <div>
-
-                  </div>
-                    </div>
 
 
-                  </div>)
+                  {users.filter(person5 => person5.name !== usernotin.name).map(filteredPerson5 => {
+
+
+                      return (
+                        <header className="max-w-screen-lg mx-auto">
+
+                    1 et delete truc
+
+
+                    </header>
+                      )
+
+
+
+
+                  })}
+
+
+
+                    {users.filter(person5 => person5.name.includes(usernotin.name)).map(filteredPerson5 => {
+
+                    if (filteredPerson5.name === usernotin.name) {
+                      return (
+                        <header className="max-w-screen-lg mx-auto">
+
+                delete btn
+
+
+                    </header>
+                      )
+                    }
+
+
+
                   })}
 
 

@@ -20,7 +20,7 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
 const [openTab, setOpenTab] = React.useState(1);
 const router = useRouter()
 
-const { data: users, error: userError } = useSWR(`https://fed.septembre.io/jsonapi/group_content/federage-group_membership?filter[gid.id]=`+ node.id, fetcher)
+const { data: users, error: userError } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ node.id, fetcher)
 const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested`+ `/`+ node.id, fetcher)
 
 
@@ -307,21 +307,34 @@ Détail du financement
 
 
                                         <legend className="sr-only">Notifications</legend>
-  {users.data.map((user) => (
-                                        <div key={user.id} className="divide-y divide-gray-200">
+  {users.map((user) => (
+                                        <div key={user.uid} className="divide-y divide-gray-200">
                                           <div className="relative flex items-start py-4">
                                             <div className="min-w-0 flex-1 text-sm">
-                                            <Link href={user.attributes.path.alias}>
+                                            <Link href={`user/${user.uid}`}>
                                             <a className="grid grid-cols-4 gap-4">
 
                                               <label htmlFor="comments" className="font-medium text-gray-700">
-                                              {user.attributes.label}
+                                              {user.user_picture && (
+
+
+                                                  <Image
+                                                    src={absoluteURL(user.user_picture)}
+                                                    alt={user.name}
+                                                    title={user.name}
+                                                    width={50}
+                                                    height={50}
+                                                    className='h-8 w-8 rounded-full'
+                                                  />
+
+                                              )}
+                                              {user.name}
                                               </label>
                                               <p id="comments-description" className="text-gray-500">
-                                              role
+                                                {user.group_roles}
 
 
-{user.attributes.path.alias}
+
                                               </p>
 </a>
 </Link>
