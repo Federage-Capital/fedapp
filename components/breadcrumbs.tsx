@@ -15,7 +15,7 @@ export function Breadcrumbs({ items, ...props }: BreadcrumbsProps) {
   }
 
   items.unshift({
-    title: t("home"),
+    title: t("Accueil"),
     url: "/",
   })
 

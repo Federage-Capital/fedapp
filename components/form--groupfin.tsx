@@ -154,7 +154,7 @@ export function FormGroupfin({ className, ...props }: FormGroupfinProps) {
       onSubmit={onSubmit}
       {...props}
     >
-    <div className="inline-block text-center text-sm text-slate-500">   En tant qu’initiateur vous fixez les objectifs de l’opération.</div>
+    <div className="inline-block text-center text-sm text-slate-500"> En tant qu’initiateur, vous fixez les objectifs de l’opération.</div>
 
       {(formStatus?.status === "success" || formStatus?.status === "error") && (
         <div
@@ -177,7 +177,7 @@ export function FormGroupfin({ className, ...props }: FormGroupfinProps) {
       )}
       <div className="grid gap-2">
         <label htmlFor="title" className="font-medium text-sm">
-          {t("objet_du_financement")} <span className="text-sm text-red-500">*</span>
+          {t("Objet du financement")} <span className="text-sm text-red-500">*</span>
         </label>
         <input
           id="label"
@@ -190,7 +190,7 @@ export function FormGroupfin({ className, ...props }: FormGroupfinProps) {
 
       <div className="grid gap-2">
         <label htmlFor="descritption" className="font-medium text-sm">
-          {t("description_du_projet")} <span className="text-sm text-red-500">*</span>
+          {t("Description du financement")} <span className="text-sm text-red-500">*</span>
         </label>
         <textarea
           id="field_description"

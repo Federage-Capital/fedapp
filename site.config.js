@@ -1,5 +1,5 @@
 module.exports = {
-  name: "Réseau économique pour entreprises et organisations",
+  name: "Federage",
   slogan: "Réseau économique pour entreprises et organisations",
   baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
   drupalBaseUrl: process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,

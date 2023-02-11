@@ -20,13 +20,13 @@ export default function Flyout() {
         <>
           <Listbox.Label className="sr-only"> Change published status </Listbox.Label>
           <div className="relative">
-            <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
-              <div className="inline-flex divide-x divide-indigo-600 rounded-md shadow-sm">
-                <div className="inline-flex items-center rounded-l-md border border-transparent bg-indigo-500 py-2 pl-3 pr-4 text-white shadow-sm">
+            <div className="inline-flex divide-x divide-fedblue rounded-md shadow-sm">
+              <div className="inline-flex divide-x divide-fedblue rounded-md shadow-sm">
+                <div className="inline-flex items-center rounded-l-md border border-transparent bg-fedblue py-2 pl-3 pr-4 text-white shadow-sm">
                   <CheckIcon className="h-5 w-5" aria-hidden="true" />
                   <p className="ml-2.5 text-sm font-medium">{selected.title}</p>
                 </div>
-                <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md bg-indigo-500 p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+                <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md bg-fedblue p-2 text-sm font-medium text-white hover:bg-fedblue focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2 focus:ring-offset-gray-50">
                   <span className="sr-only">Change published status</span>
                   <ChevronDownIcon className="h-5 w-5 text-white" aria-hidden="true" />
                 </Listbox.Button>
@@ -46,7 +46,7 @@ export default function Flyout() {
                     key={option.title}
                     className={({ active }) =>
                       classNames(
-                        active ? 'text-white bg-indigo-500' : 'text-gray-900',
+                        active ? 'text-white bg-fedblue' : 'text-gray-900',
                         'cursor-default select-none p-4 text-sm'
                       )
                     }
@@ -57,12 +57,12 @@ export default function Flyout() {
                         <div className="flex justify-between">
                           <p className={selected ? 'font-semibold' : 'font-normal'}>{option.title}</p>
                           {selected ? (
-                            <span className={active ? 'text-white' : 'text-indigo-500'}>
+                            <span className={active ? 'text-white' : 'text-fedblueblue'}>
                               <CheckIcon className="h-5 w-5" aria-hidden="true" />
                             </span>
                           ) : null}
                         </div>
-                        <p className={classNames(active ? 'text-indigo-200' : 'text-gray-500', 'mt-2')}>
+                        <p className={classNames(active ? 'text-fedblue' : 'text-gray-500', 'mt-2')}>
                           {option.description}
                         </p>
                       </div>

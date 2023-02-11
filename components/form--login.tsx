@@ -68,7 +68,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
           id="username"
           name="username"
           maxLength={255}
-          placeholder="login"
+          placeholder="Identifiant"
           required
           className="relative block w-full px-3 py-2 mt-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         />

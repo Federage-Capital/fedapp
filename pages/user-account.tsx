@@ -304,7 +304,7 @@ const getTotFin2 = (financements2dugroupe) => {
                           <p className="ml-5 text-xl">{user[0].display_name}</p>
 
                          </div>
-                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-fedblue focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2 focus:ring-offset-gray-50">
                            <span className="sr-only">Change published status</span>
                            <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
                          </Listbox.Button>
@@ -347,7 +347,7 @@ const getTotFin2 = (financements2dugroupe) => {
           <Modal
             isShowing={isPasswordFormShowed}
             hide={togglePasswordForm}
-            title="Modify password"
+            title="Modifier mot de passe"
           >
             <form onSubmit={handleSubmitPassword}>
               <div className="form-group">
@@ -355,7 +355,7 @@ const getTotFin2 = (financements2dugroupe) => {
                   type="password"
                   value={password}
                   onChange={handlePassword}
-                  placeholder="Current password"
+                  placeholder="Mot de passe actuel"
                 />
               </div>
               <div className="form-group">
@@ -363,7 +363,7 @@ const getTotFin2 = (financements2dugroupe) => {
                   type="password"
                   value={newpassword}
                   onChange={handleNewPassword}
-                  placeholder="New password"
+                  placeholder="Nouveau mot de passe"
                 />
               </div>
               <div className="form-group">

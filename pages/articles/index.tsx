@@ -87,13 +87,13 @@ export default function AlluserlistPage
 
 
 
-      <p className="mb-3">Tutoriels, méthodes, bonnes pratiques : découvrez les multiples applications du réseau économique. Utilisez la barre de recherche pour filtrer par titre.
+      <p className="mb-3">Vous trouverez ici des tutoriels, des exemples et des explications sur le fonctionnement du réseau.
         </p>
 
         <form onSubmit={handleSubmit} className="mb-4">
           <input
             type="search"
-            placeholder="Search properties (min 4 characters)..."
+            placeholder="Tapez au moins 4 caractères"
             name="fulltext"
             className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
@@ -115,18 +115,18 @@ export default function AlluserlistPage
               data-cy="btn-submit"
               className="flex justify-center w-48 px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "loading" ? "Please wait..." : "Search"}
+              {status === "Chargement" ? "Attendez..." : "Recherche"}
             </button>
           </div>
         </form>
         {status === "error" ? (
           <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-            An error occured. Please try again.
+            Une erreur s'est produite. Veuillez réessayer.
           </div>
         ) : null}
         {!results.length ? (
           <p className="text-sm" data-cy="search-no-results">
-            No results found.
+            Aucun résultat.
           </p>
         ) : (
 

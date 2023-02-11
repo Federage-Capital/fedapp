@@ -43,7 +43,7 @@ export function MenuUser() {
 
       <Menu as="div" className="relative ml-3">
         <div>
-          <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-fedblueblue focus:ring-offset-2">
             <span className="sr-only">Open user menu</span>
 
 
