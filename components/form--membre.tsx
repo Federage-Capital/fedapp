@@ -129,7 +129,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
                       return (
-                        <header className="max-w-screen-lg mx-auto">
+                        <header key={usernotin.id} className="max-w-screen-lg mx-auto">
 
                     1 et delete truc
 
@@ -148,7 +148,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
                     if (filteredPerson5.name === usernotin.name) {
                       return (
-                        <header className="max-w-screen-lg mx-auto">
+                        <header key={usernotin.id} className="max-w-screen-lg mx-auto">
 
                 delete btn
 
