@@ -53,7 +53,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       return setStatus("error")
     }
   return (
-    <Layout meta={{ title: t("Tous acteurs de l'économie réelle") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Federage") }} menus={menus} blocks={blocks}>
 
 
 
@@ -63,8 +63,11 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-5xl font-black text-center"><p>Tous acteurs de </p> <span className="text-blue-800">l&#39;économie réelle.</span></h1>
-        <h2 className="mb-10 text-2xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+        <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle</span></h1>
+        <h2 className="mb-10 text-xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+
+        <p>Inscrivez-vous pour rejoindre la liste d'attente.
+        </p>
 
         {status === "error" ? (
           <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
@@ -73,7 +76,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
         ) : null}
         {status === "success" ? (
           <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
-            Votre message a été envoyé. Merci.
+            Votre inscription a été prise en compte. À bientôt.
           </div>
         ) : null}
         {Object.values(formState.errors)?.length ? (
@@ -141,7 +144,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <Link href="./login" passHref>
   <a className="no-underline hover:text-blue-600">
   <h2 className="text-xl">Démarrer</h2>
-  <p>S&#39;inscrire pour commencer un financement</p>  </a>
+  <p>Piloter des financements pour son entreprise.</p>  </a>
 </Link>
 
 </div>
@@ -150,7 +153,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   </div>
   <div className="col-span-5">
   <h2 className="text-xl">Explorer</h2>
-  <p>Découvrir les besoins des entreprises</p>
+  <p>Parcourir des opportunités de partenariats.</p>
   </div>
     <hr className="col-span-6 my-10"/>
 
@@ -164,7 +167,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
     <Link href="./articles" passHref>
       <a className="no-underline hover:text-blue-600">
       <h2 className="text-xl">Blog</h2>
-      <p>Apprendre sur le financement-capital</p> </a>
+      <p>En savoir plus sur les avantages du service.</p> </a>
     </Link>
     </div>
       <hr className="col-span-6 my-10"/>
@@ -174,14 +177,14 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       </div>
           <div className="col-span-5">
           <h2 className="text-xl">Documentation</h2>
-          <p>Supports techniques de l’application</p>
+          <p>Support technique et code source de l’application.</p>
                     </div>
             <hr className="col-span-6 my-10"/>
             </div>
 
 
 
-
+            <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
 
 
 

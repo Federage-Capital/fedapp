@@ -35,7 +35,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
       />
       {status === "unauthenticated" && (
         <div className="container pb-10">
-        <h3 className="mb-10 text-1xl font-grey text-center">Saisir les identifiants du compte pour se connecter</h3>
+        <h3 className="mb-10 text-1xl font-grey text-center">Accédez à votre compte </h3>
 
 <div className="flex flex-wrap">
         <div className="grid gap-4 max-w-xl mx-auto">
