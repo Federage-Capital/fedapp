@@ -29,7 +29,6 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
   const { t } = useTranslation()
 
 
-  const { data: users2, error1 } = useSWR('https://fed.septembre.io/nest_user_in'+ `/`+ query.gid, fetcher)
 
      const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ query.gid, fetcher)
      const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ '5,4,1', fetcher)
@@ -38,7 +37,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
 
 
-       if (error1, error2, error3) return <div>Failed to load</div>
+       if (error2, error3) return <div>Failed to load</div>
        if (!users, !usersnotin) return <div>Loading...</div>
 
 
@@ -161,7 +160,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                            name="gid"
                                            value={query.gid}
                                            maxLength={255}
-                                           className="hidden"
+                                           className=""
                                          ></textarea>
                                        </div>
                                        <div>
@@ -176,6 +175,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                            }
                                          />
                                        </div>
+----------------------------------------
 
 
 <fieldset className="border-t border-b border-gray-200">
