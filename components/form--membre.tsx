@@ -29,16 +29,18 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
   const { t } = useTranslation()
 
 
+  const { data: users2, error1 } = useSWR('https://fed.septembre.io/nest_user_in'+ `/`+ query.gid, fetcher)
 
      const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ query.gid, fetcher)
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in', fetcher)
+     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ '5,4,1', fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
 
 
-       if (error2, error3) return <div>Failed to load</div>
+       if (error1, error2, error3) return <div>Failed to load</div>
        if (!users, !usersnotin) return <div>Loading...</div>
+
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -119,61 +121,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                   <label htmlFor="comments" className="font-medium text-gray-700">
             {usernotin.name}
                   </label>
-                  <p id="comments-description" className="text-gray-500">
-                  {users?.length ? (
-                  <div>
 
-
-
-                  {users.filter(person5 => person5.name !== usernotin.name).map(filteredPerson5 => {
-
-
-                      return (
-                        <header key={usernotin.id} className="max-w-screen-lg mx-auto">
-
-                    1 et delete truc
-
-
-                    </header>
-                      )
-
-
-
-
-                  })}
-
-
-
-                    {users.filter(person5 => person5.name.includes(usernotin.name)).map(filteredPerson5 => {
-
-                    if (filteredPerson5.name === usernotin.name) {
-                      return (
-                        <header key={usernotin.id} className="max-w-screen-lg mx-auto">
-
-                delete btn
-
-
-                    </header>
-                      )
-                    }
-
-
-
-                  })}
-
-
-
-                  </div>
-                  ) : (
-                  <p >
-
-                  00000 €
-
-                  </p>
-
-
-                  )}
-                  </p>
 
 
                 </div>
@@ -203,8 +151,78 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
                                  </fieldset>
 
+                                       <div className="grid gap-2">
+                                         <label htmlFor="gid" className="font-semibold hidden text-text">
+                                           {t("gid_du_groupe")} <span className="text-sm text-red-500">*</span>
+                                         </label>
+
+                                         <textarea
+                                           id="gid"
+                                           name="gid"
+                                           value={query.gid}
+                                           maxLength={255}
+                                           className="hidden"
+                                         ></textarea>
+                                       </div>
+                                       <div>
+                                         <input
+                                           type="submit"
+                                           className="px-6 py-3 text-xl text-white transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
+                                           disabled={formStatus?.status === "fetching"}
+                                           value={
+                                             formStatus?.status === "fetching"
+                                               ? t("please-wait")
+                                               : t("add-user")
+                                           }
+                                         />
+                                       </div>
 
 
+<fieldset className="border-t border-b border-gray-200">
+
+
+{users.map((user) => (
+<div key={user.id} className="divide-y divide-gray-200">
+ <div className="relative flex items-start py-4">
+   <div className="min-w-0 flex-1 text-sm">
+
+   {user.user_picture && (
+
+
+       <Image
+         src={absoluteURL(user.user_picture)}
+         alt={user.name}
+         title={user.name}
+         width={50}
+         height={50}
+         className='h-8 w-8 rounded-full'
+       />
+
+   )}
+     <label htmlFor="comments" className="font-medium text-gray-700">
+{user.name}
+     </label>
+
+  -> delete this user
+
+
+   </div>
+
+
+
+
+
+
+
+
+ </div>
+
+
+</div>
+ ))}
+
+
+                    </fieldset>
 
 
                   </div>
@@ -212,45 +230,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
-      <div className="grid gap-2">
-        <label htmlFor="gid" className="font-semibold hidden text-text">
-          {t("gid_du_groupe")} <span className="text-sm text-red-500">*</span>
-        </label>
 
-        <textarea
-          id="gid"
-          name="gid"
-          value={query.gid}
-          maxLength={255}
-          className=""
-        ></textarea>
-      </div>
-      <div className="grid gap-2">
-
-
-
-
-
-
-
-
-
-      </div>
-
-
-
-      <div>
-        <input
-          type="submit"
-          className="px-6 py-3 text-xl text-white transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
-          disabled={formStatus?.status === "fetching"}
-          value={
-            formStatus?.status === "fetching"
-              ? t("please-wait")
-              : t("add-user")
-          }
-        />
-      </div>
     </form>
   )
 }
