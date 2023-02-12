@@ -66,7 +66,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
         <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle</span></h1>
         <h2 className="mb-10 text-xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
-        <p>Inscrivez-vous pour rejoindre la liste d&#39;attente.
+        <p className="flex mt-4 fedblueblue text-xl text-blue font-bold hover:text-blue-500">Inscrivez-vous pour rejoindre la liste d&#39;attente.
         </p>
 
         {status === "error" ? (
@@ -91,20 +91,20 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           <div>
 
           </div>
-          <div className="flex items-start">
+          <div className="flex items-start w-100">
 
             <input
               id="email"
               name="email"
               type="email"
               placeholder="mon@entreprise.com"
-              className="d-inline-block content-start w-3/4 px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+              className="d-inline-flex content-start flex-auto px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               {...register("email")}
             />
             <button
               type="submit"
               data-cy="btn-submit"
-              className="justify-center content-end px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+              className="justify-center content-end w-fit px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
               Participer à la version bêta
             </button>
@@ -126,36 +126,45 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 <h3 className="mb-2 text-lg font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
-<div className="grid grid-cols-6 gap-4">
-  <div>
-  <Link href="./login" passHref><a>        <Image src="/demarrer.svg" height={100} width={200}  alt="demarrer" />
+
+
+<div className="flex items-start w-100">
+  <div className="content-start w-24 min-w-fit">
+  <Link href="./login" passHref><a>
+    <Image src="/demarrer.svg" height={70} width={70} alt="demarrer" />
   </a>
 </Link>
 
 
 </div>
-<div className="col-span-5">
+<div className="content-end">
 <Link href="./login" passHref>
   <a className="no-underline hover:text-blue-600">
   <h2 className="text-xl">Démarrer</h2>
   <p>Piloter des financements pour son entreprise.</p>  </a>
 </Link>
-
 </div>
-  <hr className="col-span-6 my-10"/>
-  <div>    <Image src="/explorer.svg" height={100} width={200}  alt="explorer" />
+</div>
+  <hr className="flex w-100 my-10"/>
+  <div className="flex items-start w-100">
+  <div className="content-start w-24 min-w-fit">
+  <Image src="/explorer.svg" height={70} width={70}  alt="explorer" />
   </div>
-  <div className="col-span-5">
+  <div className="content-end">
   <h2 className="text-xl">Explorer</h2>
   <p>Parcourir des opportunités de partenariats.</p>
   </div>
-    <hr className="col-span-6 my-10"/>
+  </div>
+    <hr className="flex w-100 my-10"/>
+    <div className="flex items-start w-100">
 
-    <div>    <Link href="./articles" passHref><a>    <Image src="/blog.svg" height={100} width={200}  alt="blog" />
+    <div className="content-start w-24 min-w-fit">
+
+      <Link href="./articles" passHref><a>    <Image src="/blog.svg" height={70} width={70}  alt="blog" />
     </a>
  </Link>
     </div>
-    <div className="col-span-5">
+    <div className="content-end">
 
 
     <Link href="./articles" passHref>
@@ -164,21 +173,34 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       <p>En savoir plus sur les avantages du service.</p> </a>
     </Link>
     </div>
-      <hr className="col-span-6 my-10"/>
+    </div>
+      <hr className="flex w-100 my-10 my-10"/>
 
+      <div className="flex items-start w-100">
 
-      <div>    <Image src="/documentation.svg" height={100} width={200}  alt="documentation" />
+      <div className="content-start w-24 min-w-fit">
+ <Image src="/documentation.svg" height={70} width={70}  alt="documentation" />
       </div>
-          <div className="col-span-5">
+          <div className="col-span-11">
           <h2 className="text-xl">Documentation</h2>
           <p>Support technique et code source de l’application.</p>
                     </div>
-            <hr className="col-span-6 my-10"/>
-            </div>
+                    </div>
+            <hr className="flex w-100 my-10 my-10"/>
 
 
 
-            <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
+            <a href="mailto:bonjour@federage.com" className="flex items-center mt-4 fedblueblue text-xl text-blue font-bold hover:text-blue-500">Vous avez une question ? <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="blue"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-4 h-4 ml-2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></a>
 
 
 
