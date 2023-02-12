@@ -76,7 +76,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
         ) : null}
         {status === "success" ? (
           <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
-            Votre inscription a été prise en compte. À bientôt.
+            Votre inscription est prise en compte !
           </div>
         ) : null}
         {Object.values(formState.errors)?.length ? (
@@ -181,29 +181,23 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       <div className="content-start w-24 min-w-fit">
  <Image src="/documentation.svg" height={70} width={70}  alt="documentation" />
       </div>
-          <div className="col-span-11">
+        <div className="col-span-5">
+          <Link href="https://github.com/Federage-Capital" passHref> 
+          <a className="no-underline hover:text-blue-600">
           <h2 className="text-xl">Documentation</h2>
-          <p>Support technique et code source de l’application.</p>
-                    </div>
-                    </div>
-            <hr className="flex w-100 my-10 my-10"/>
+          <p>Support technique et code source de l’application.</p> </a>
+          </Link>
+          
+          </div>
+            <hr className="col-span-6 my-10"/>
+            </div>
 
 
-
-            <a href="mailto:bonjour@federage.com" className="flex items-center mt-4 fedblueblue text-xl text-blue font-bold hover:text-blue-500">Vous avez une question ? <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="blue"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4 ml-2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg></a>
-
-
-
+            </div>
+        <div className="col-span-5 fedblueblue font-bold" >
+        <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
+          <a className="no-underline hover:text-blue-600"> </a>
+        
 
       </div>
 
