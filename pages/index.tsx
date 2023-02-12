@@ -63,10 +63,10 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="container pt-25 pb-25">
 
 
-        <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle</span></h1>
-        <h2 className="mb-10 text-xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+        <h1 className="mb-3 text-4xl font-black"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle</span></h1>
+        <h2 className="mb-10 text-xl text-gray-400">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
-        <p className="flex mt-4 fedblueblue text-xl text-blue font-bold hover:text-blue-500">Inscrivez-vous pour rejoindre la liste d&#39;attente.
+        <p className="flex mt-4 text-xl text-blue font-bold hover:text-blue-500">Inscrivez-vous pour rejoindre la liste d&#39;attente.
         </p>
 
         {status === "error" ? (
@@ -175,7 +175,6 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
     </div>
     </div>
       <hr className="flex w-100 my-10 my-10"/>
-
       <div className="flex items-start w-100">
 
       <div className="content-start w-24 min-w-fit">
@@ -189,8 +188,9 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           </Link>
           
           </div>
-            <hr className="col-span-6 my-10"/>
+
             </div>
+            <hr className="col-span-6 my-10"/>
 
 
             </div>
