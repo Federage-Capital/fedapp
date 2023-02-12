@@ -76,7 +76,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
         ) : null}
         {status === "success" ? (
           <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
-            Votre inscription a été prise en compte. À bientôt.
+            Votre inscription est prise en compte !
           </div>
         ) : null}
         {Object.values(formState.errors)?.length ? (
@@ -169,19 +169,23 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
       <div>    <Image src="/documentation.svg" height={100} width={200}  alt="documentation" />
       </div>
-          <div className="col-span-5">
+        <div className="col-span-5">
+          <Link href="https://github.com/Federage-Capital" passHref> 
+          <a className="no-underline hover:text-blue-600">
           <h2 className="text-xl">Documentation</h2>
-          <p>Support technique et code source de l’application.</p>
-                    </div>
+          <p>Support technique et code source de l’application.</p> </a>
+          </Link>
+          
+          </div>
             <hr className="col-span-6 my-10"/>
             </div>
 
 
-
-            <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
-
-
-
+            </div>
+        <div className="col-span-5 fedblueblue font-bold" >
+        <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
+          <a className="no-underline hover:text-blue-600"> </a>
+        
 
       </div>
 
