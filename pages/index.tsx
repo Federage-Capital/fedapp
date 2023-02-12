@@ -66,7 +66,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
         <h1 className="mb-3 text-4xl font-black text-center"><p>Tous acteurs de </p> <span className="fedblueblue">l&#39;économie réelle</span></h1>
         <h2 className="mb-10 text-xl text-gray-400 text-center">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
-        <p>Inscrivez-vous pour rejoindre la liste d'attente.
+        <p>Inscrivez-vous pour rejoindre la liste d&#39;attente.
         </p>
 
         {status === "error" ? (
@@ -87,30 +87,24 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           </div>
         ) : null}
 
-        <form className="space-y-6 text-center inputWithButton" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
           <div>
 
           </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+          <div className="flex items-start">
 
-
-            </label>
             <input
               id="email"
               name="email"
               type="email"
               placeholder="mon@entreprise.com"
-              className="d-inline-block w-4/6 px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+              className="d-inline-block content-start w-3/4 px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               {...register("email")}
             />
             <button
               type="submit"
               data-cy="btn-submit"
-              className="justify-center px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+              className="justify-center content-end px-4 py-2 text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
               Participer à la version bêta
             </button>

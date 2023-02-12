@@ -120,7 +120,7 @@ export default function AlluserlistPage
         </form>
         {status === "error" ? (
           <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-            Une erreur s'est produite. Veuillez réessayer.
+            Une erreur s&#39;est produite. Veuillez réessayer.
           </div>
         ) : null}
         {!results.length ? (
