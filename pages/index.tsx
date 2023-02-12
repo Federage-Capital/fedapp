@@ -53,7 +53,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       return setStatus("error")
     }
   return (
-    <Layout meta={{ title: t("Federage") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Accueil") }} menus={menus} blocks={blocks}>
 
 
 
@@ -63,8 +63,8 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="container pt-15 pb-10">
 
 
-        <h1 className="mb-3 text-5xl font-black">Tous acteurs de <span className="fedblueblue">l&#39;économie réelle</span>.</h1>
-        <h2 className="mb-10 text-xl text-gray-400">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+        <h1 className="mb-4 text-5xl font-black">Tous acteurs de <span className="fedblueblue">l&#39;économie réelle</span>.</h1>
+        <h2 className="mb-10 text-3xl text-gray-400">Améliorez la santé financière de votre entreprise. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
         <p className="flex mt-4 text-xl font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
         </p>
