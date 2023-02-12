@@ -34,29 +34,21 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
-     const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ query.gid, fetcher)
+     const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in/'+ query.gid, fetcher)
+
+     const getTotFin2 = (users) => {
+             let sum = 0
+             for (let i = 0; i < users.length; i++) {
+               sum += users[i].uid
+             }
+             return sum
+
+           }
 
 
+     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2/'+ '1', fetcher)
 
-
-
-           const getTotFin2 = (users) => {
-                   let sum = 0
-                   for (let i = 0; i < users.length; i++) {
-                     sum += users[i].uid
-                   }
-                   return sum
-
-                 }
-
-
-
-
-
-
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ Array.from(getTotFin2(users)), fetcher)
-
-     const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/users_in_group'+ `/`+ query.gid, fetcher)
+     const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/user_in_group_not_in/'+ query.gid, fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
@@ -119,9 +111,9 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
+{getTotFin2(users)}
 
-
-      PARTENAIRES DISPONIBLES POUR PARTICIPER A L’OPÉRATION
+      PARTENAIRES DE L’OPÉRATION
 
 
              <div className="grid gap-2"><fieldset className="border-t border-b border-gray-200">
@@ -196,7 +188,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                            name="gid"
                                            value={query.gid}
                                            maxLength={255}
-                                           className="hidden"
+                                           className=""
                                          ></textarea>
                                        </div>
                                        <div>
@@ -211,52 +203,11 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                            }
                                          />
                                        </div>
-
-
+----------------------------------------
 
 
 <fieldset className="border-t border-b border-gray-200">
-  PARTENAIRES DEJA DANS L’OPÉRATION
 
-{usersingroup.map((userin) => (
-<div key={userin.id} className="divide-y divide-gray-200">
- <div className="relative flex items-start py-4">
-   <div className="min-w-0 flex-1 text-sm">
-
-   {userin.user_picture && (
-
-
-       <Image
-         src={absoluteURL(userin.user_picture)}
-         alt={userin.name}
-         title={userin.name}
-         width={50}
-         height={50}
-         className='h-8 w-8 rounded-full'
-       />
-
-   )}
-     <label htmlFor="comments" className="font-medium text-gray-700">
-{userin.name}
-     </label>
-
-delete this user
-
-
-   </div>
-
-
-
-
-
-
-
-
- </div>
-
-
-</div>
- ))}
 
 
                     </fieldset>
