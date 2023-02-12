@@ -4,7 +4,7 @@ import { DrupalUser } from "next-drupal"
 import { getGlobalElements } from "lib/get-global-elements"
 import { absoluteURL } from "lib/utils"
 import Image, { ImageProps } from "next/image"
-
+import { useState, useEffect } from 'react';
 import * as React from "react"
 import classNames from "classnames"
 import { useTranslation } from "next-i18next"
@@ -30,15 +30,40 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
+
+
+
+
      const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ query.gid, fetcher)
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ '5,4,1', fetcher)
+
+
+
+
+
+           const getTotFin2 = (users) => {
+                   let sum = 0
+                   for (let i = 0; i < users.length; i++) {
+                     sum += users[i].uid
+                   }
+                   return sum
+
+                 }
+
+
+
+
+
+
+     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ Array.from(getTotFin2(users)), fetcher)
+
+     const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/users_in_group'+ `/`+ query.gid, fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
 
 
-       if (error2, error3) return <div>Failed to load</div>
-       if (!users, !usersnotin) return <div>Loading...</div>
+       if (error2, error3, error4) return <div>Failed to load</div>
+       if (!users, !usersnotin, !usersingroup) return <div>Loading...</div>
 
 
   const onSubmit = async (event) => {
@@ -62,6 +87,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
     }
 
     router.push("/account")
+
 
   }
 
@@ -91,10 +117,20 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
         </div>
       )}
 
-      PARTENAIRES DE L’OPÉRATION
 
 
-             <div className="grid gap-2">
+
+
+      PARTENAIRES DISPONIBLES POUR PARTICIPER A L’OPÉRATION
+
+
+             <div className="grid gap-2"><fieldset className="border-t border-b border-gray-200">
+
+
+
+
+
+                                 </fieldset>
 
              <fieldset className="border-t border-b border-gray-200">
 
@@ -160,7 +196,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                            name="gid"
                                            value={query.gid}
                                            maxLength={255}
-                                           className=""
+                                           className="hidden"
                                          ></textarea>
                                        </div>
                                        <div>
@@ -175,24 +211,25 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                            }
                                          />
                                        </div>
-----------------------------------------
+
+
 
 
 <fieldset className="border-t border-b border-gray-200">
+  PARTENAIRES DEJA DANS L’OPÉRATION
 
-
-{users.map((user) => (
-<div key={user.id} className="divide-y divide-gray-200">
+{usersingroup.map((userin) => (
+<div key={userin.id} className="divide-y divide-gray-200">
  <div className="relative flex items-start py-4">
    <div className="min-w-0 flex-1 text-sm">
 
-   {user.user_picture && (
+   {userin.user_picture && (
 
 
        <Image
-         src={absoluteURL(user.user_picture)}
-         alt={user.name}
-         title={user.name}
+         src={absoluteURL(userin.user_picture)}
+         alt={userin.name}
+         title={userin.name}
          width={50}
          height={50}
          className='h-8 w-8 rounded-full'
@@ -200,7 +237,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
    )}
      <label htmlFor="comments" className="font-medium text-gray-700">
-{user.name}
+{userin.name}
      </label>
 
 delete this user

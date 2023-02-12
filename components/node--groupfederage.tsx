@@ -20,8 +20,8 @@ export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementP
 const [openTab, setOpenTab] = React.useState(1);
 const router = useRouter()
 
-const { data: users, error: userError } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ node.id, fetcher)
-const { data: financementsdugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested`+ `/`+ node.id, fetcher)
+const { data: users, error: userError } = useSWR('https://fed.septembre.io/users_in_group/'+ node.id, fetcher)
+const { data: financementsdugroupe, error: financementError } = useSWR(() =>'https://fed.septembre.io/group_node_financement_rest_nested/'+ node.id, fetcher)
 
 
          if (userError) return <div>Failed to load</div>

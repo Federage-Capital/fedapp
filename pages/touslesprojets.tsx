@@ -299,6 +299,7 @@ export async function getServerSideProps(
     src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
     width={100}
     height={100}
+    alt="truc"
     layout="responsive"
     objectFit="cover"
   />
