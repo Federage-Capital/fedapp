@@ -78,21 +78,16 @@ export default function AlluserlistPage
 
   return (
     <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
-      <PageHeader
-        heading={t("Explorer")}
-        breadcrumbs={[
-          {
-            title: t("explorer"),
-          },
-        ]}
-      />
+    
+<h1 class="px-6 max-w-4xl pt-5 mb-5 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
+    <p className="px-6 mb-3 ">Vous trouverez ici la liste des membres du réseau économique.
+        </p>
 
-
-        <form onSubmit={handleSubmit} className="mb-4">
+        <form onSubmit={handleSubmit} className="px-6 mb-4">
           <input
             type="search"
-            placeholder="Search properties (min 4 characters)..."
+            placeholder="Rechercher une entreprise"
             name="fulltext"
             className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
@@ -100,21 +95,13 @@ export default function AlluserlistPage
 
           </div>
           <div className="flex">
-            <button
-              type="button"
-              className="flex justify-center w-24 px-4 py-2 mr-4 text-sm font-medium text-gray-500 bg-white border border-gray-500 rounded-md shadow-sm hover:bg-gray-200"
-              onClick={() => {
-                router.reload()
-              }}
-            >
-              Reset
-            </button>
+      
             <button
               type="submit"
               data-cy="btn-submit"
               className="flex justify-center w-48 px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "loading" ? "Recherche en cours." : "Search"}
+              {status === "loading" ? "Recherche en cours." : "Recherche"}
             </button>
           </div>
         </form>

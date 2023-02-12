@@ -85,15 +85,16 @@ export default function AlluserlistPage
   return (
     <Layout meta={{ title: t("Blog") }} menus={menus} blocks={blocks}>
 
+<h1 class="px-6 max-w-4xl pt-5 mb-5 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
 
 
-      <p className="mb-3">Vous trouverez ici des tutoriels, des exemples et des explications sur le fonctionnement du réseau.
+      <p className="px-6 mb-3 ">Vous trouverez ici des tutoriels, des cas d'usage et des explications sur le fonctionnement du réseau.
         </p>
 
-        <form onSubmit={handleSubmit} className="mb-4">
+        <form onSubmit={handleSubmit} className="px-6 mb-4">
           <input
             type="search"
-            placeholder="Tapez au moins 4 caractères"
+            placeholder="Rechercher un contenu"
             name="fulltext"
             className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
@@ -101,21 +102,13 @@ export default function AlluserlistPage
 
           </div>
           <div className="flex">
-            <button
-              type="button"
-              className="flex justify-center w-24 px-4 py-2 mr-4 text-sm font-medium text-gray-500 bg-white border border-gray-500 rounded-md shadow-sm hover:bg-gray-200"
-              onClick={() => {
-                router.reload()
-              }}
-            >
-              Reset
-            </button>
+            
             <button
               type="submit"
               data-cy="btn-submit"
               className="flex justify-center w-48 px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "Chargement" ? "Attendez..." : "Recherche"}
+              {status === "Chargement" ? "Attendez..." : "Recherche en cours"}
             </button>
           </div>
         </form>
@@ -131,7 +124,7 @@ export default function AlluserlistPage
         ) : (
 
 
-          <div className="pt-4">
+          <div className="px-6 pt-4">
 
             <div className="grid gap-6 md:grid-cols-1">
               {results.map((node) => (

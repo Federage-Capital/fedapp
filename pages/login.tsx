@@ -30,12 +30,11 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
   return (
     <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
       <PageHeader
-        heading={t("Connexion")}
+        heading={t("Accedez à votre compte")}
   
       />
       {status === "unauthenticated" && (
         <div className="container pb-10">
-        <h3 className="mb-10 text-1xl font-grey text-center">Accédez à votre compte </h3>
 
 <div className="flex flex-wrap">
         <div className="grid gap-4 max-w-xl mx-auto">
