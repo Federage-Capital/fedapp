@@ -114,6 +114,7 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
 
+
                           {user[0].user_picture && (
 
 

@@ -1,4 +1,4 @@
-import NextAuth, { User, Session } from "next-auth"
+import NextAuth, { User } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import jwt_decode from "jwt-decode"
 
@@ -16,7 +16,6 @@ export default NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-
         const formData = new URLSearchParams()
         formData.append("grant_type", "password")
         formData.append("client_id", process.env.DRUPAL_CLIENT_ID)
@@ -39,6 +38,7 @@ export default NextAuth({
         if (!response.ok) {
           return null
         }
+
         return {
           accessToken: await response.json(),
         }
@@ -46,8 +46,8 @@ export default NextAuth({
     }),
   ],
   events: {
-    signOut: async function () {
-      return await clearJWT()
+    signOut: async function ({ token }) {
+      return await clearJWT(token)
     },
   },
   callbacks: {
@@ -59,22 +59,23 @@ export default NextAuth({
           accessTokenExpires: Date.now() + user.accessToken.expires_in * 1000,
         }
       }
+
       return await getJWT(token)
     },
     async session({ session, token }) {
-
       if (token?.accessToken) {
-        session.accessToken = token.accessToken
+        const accessToken = token.accessToken
+        session.accessToken = accessToken
+
         // Decode token and pass info to session.
         // This data will be available client-side.
-
-        const decoded = jwt_decode<User>(session.accessToken.access_token)
+        const decoded = jwt_decode<User>(accessToken.access_token)
         session.user.id = decoded.id
         session.user.email = decoded.email
         session.user.name = decoded.name
         session.user.userId = decoded.sub
-      }
 
+      }
       return session
     },
   },
