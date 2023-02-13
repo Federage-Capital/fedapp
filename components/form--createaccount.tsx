@@ -81,7 +81,7 @@ return setStatus("error")
         name="typestructure"
         type="text"
         placeholder="Type de structure"
-        className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+        className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         {...register("typesdestructure")}
       />
 
@@ -90,7 +90,7 @@ return setStatus("error")
         name="siren"
         type="text"
         placeholder="Numéro SIREN"
-        className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+        className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         {...register("siren")}
       />
 
@@ -99,7 +99,7 @@ return setStatus("error")
         name="name"
         type="text"
         placeholder="Dénomination sociale"
-        className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+        className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
         {...register("name")}
       />
 
@@ -110,7 +110,7 @@ return setStatus("error")
           name="mail"
           type="mail"
           placeholder="Adresse mail"
-          className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          className="relative block w-full px-3 py-2 mb-4  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           {...register("mail")}
         />
 
@@ -133,14 +133,14 @@ return setStatus("error")
        />
      </Switch>
      <Switch.Label as="span" className="ml-3">
-       <span className="text-sm font-medium text-gray-500">En cochant cette case, vous acceptez notre Politique de confidentialité.</span>
+       <span className="text-sm font-medium mt-4 mb-4 text-gray-500">En cochant cette case, vous acceptez notre Politique de confidentialité.</span>
      </Switch.Label>
    </Switch.Group>
 
         <button
           type="submit"
           data-cy="btn-submit"
-          className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+          className="px-3 fedblue py-2 text-md mt-4 mb-4 text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
         >
           Enregistrement
         </button>

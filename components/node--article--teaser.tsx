@@ -19,7 +19,7 @@ export function NodeArticleTeaser({ node, ...props }: NodeArticleTeaserProps) {
       <div className="mb-4 text-gray-600">
         {node.uid?.display_name ? (
           <span>
-            Posted by{" "}
+            Publié par{" "}
             <span className="font-semibold">{node.uid?.display_name}</span>
           </span>
         ) : null}

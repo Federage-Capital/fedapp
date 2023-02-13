@@ -13,10 +13,10 @@ export function NodePage({ node }: NodePageProps) {
     <div className="container">
 
       <article className="bg-white border text-text p-9 border-border">
-        <h1 className="font-serif text-2xl leading-tight lg:text-4xl">
+        <h1 className="text-4xl leading-tight lg:text-4xl">
           {node.title}
         </h1>
-        <div className="mt-4 prose prose-a:text-link max-w-none text-text">
+        <div className="mt-4 mb-4 prose prose-a:text-link max-w-none text-text">
         {node.body?.processed && (
           <div
             dangerouslySetInnerHTML={{ __html: node.body?.processed }}

@@ -98,7 +98,7 @@ const getTotFin2 = (financements2dugroupe) => {
     <Layout
       menus={menus}
       meta={{
-        title: t("portefeuille"),
+        title: t("Portefeuille"),
       }}
     >
 
@@ -152,8 +152,8 @@ const getTotFin2 = (financements2dugroupe) => {
 
           <p className="text-lg mb-12">
           <Link href="/groupfederage/new" passHref>
-          <a className="px-4 py-2 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-             + Nouveau financement
+          <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+             Nouveau financement
             </a>
           </Link>
           </p>
@@ -164,12 +164,12 @@ const getTotFin2 = (financements2dugroupe) => {
                 <div className="w-full">
                 <br/>
                 <span
-                  className="px-5 py-3  text-xl font-semibold"
+                  className="px-5 py-3 p-4 text-xl font-semibold"
                 >  Opérations
 
                 </span>
                   <ul
-                    className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
+                    className="flex mb-0 mt-4 list-none flex-wrap pt-3 pb-4 flex-row"
                     role="tablist"
                   >
                     <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
@@ -209,7 +209,7 @@ const getTotFin2 = (financements2dugroupe) => {
                         href="#link2"
                         role="tablist"
                       >
-Demandes
+                        Demandes
                       </a>
                     </li>
                     <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
@@ -251,11 +251,6 @@ Demandes
 {financementsdansgr?.length ? (
 
   <div>
-
-
-
-  <h3 className="mb-2 text-lg font-black text-gray-400 text-left">ACTIFS</h3>
-
 
                       {financementsdansgr.map((grfinancement) => (
 

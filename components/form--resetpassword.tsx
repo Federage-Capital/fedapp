@@ -74,7 +74,7 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
           name="mail"
           type="mail"
           placeholder="Adresse mail"
-          className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          className="relative block w-full px-3 py-2 mb-4 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           {...register("mail")}
         />
         <button
@@ -82,7 +82,7 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
           data-cy="btn-submit"
           className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
         >
-          Enregistrement
+          Réinitialiser
         </button>
       </div>
       <div>

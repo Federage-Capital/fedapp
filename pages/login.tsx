@@ -43,40 +43,44 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
             role="tablist"
           >
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-              <a
-                className={
-                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                  (openTab === 1
-                    ? "bg-" + "-900"
-                    : "text-" + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(1);
-                }}
-                data-toggle="tab"
-                href="#link1"
-                role="tablist"
-              >
+                      <a
+                        className={
+                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                          (openTab === 1
+                            ? "bg-gray" + "-100"
+                            : "text-" + "bg-white")
+                        }
+
+
+                        onClick={e => {
+                          e.preventDefault();
+                          setOpenTab(1);
+                        }}
+                        data-toggle="tab"
+                        href="#link1"
+                        role="tablist"
+                      >
                 Connexion
               </a>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-              <a
-                className={
-                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                  (openTab === 2
-                    ? "bg-" + "-900"
-                    : "text-" + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(2);
-                }}
-                data-toggle="tab"
-                href="#link2"
-                role="tablist"
-              >
+                      <a
+                        className={
+                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                          (openTab === 2
+                            ? "bg-gray" + "-100"
+                            : "text-" + "bg-white")
+                        }
+
+
+                        onClick={e => {
+                          e.preventDefault();
+                          setOpenTab(2);
+                        }}
+                        data-toggle="tab"
+                        href="#link2"
+                        role="tablist"
+                      >
                  Mot de passe oublié
               </a>
             </li>
@@ -85,8 +89,8 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                 className={
                   "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
                   (openTab === 3
-                    ? "bg-" + "-900"
-                    : "text-" + "-600 bg-white")
+                    ? "bg-gray" + "-100"
+                    : "text-" + "bg-white")
                 }
                 onClick={e => {
                   e.preventDefault();

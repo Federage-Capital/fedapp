@@ -108,7 +108,7 @@ export default function AlluserlistPage
               data-cy="btn-submit"
               className="flex justify-center w-48 px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "Chargement" ? "Attendez..." : "Recherche en cours"}
+              {status === "Chargement" ? "Attendez..." : "Rechercher"}
             </button>
           </div>
         </form>
@@ -126,7 +126,7 @@ export default function AlluserlistPage
 
           <div className="px-6 pt-4">
 
-            <div className="grid gap-6 md:grid-cols-1">
+            <div className="grid gap-6 mt-8 md:grid-cols-1">
               {results.map((node) => (
                 <div key={node.id}>
 
