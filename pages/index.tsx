@@ -131,17 +131,17 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="flex items-start w-100">
   <div className="content-start w-24 min-w-fit">
   <Link href="./login" passHref><a>
-    <Image src="/demarrer.svg" height={70} width={70} alt="demarrer" />
+    <Image src="/demarrer.svg" height={60} width={60} alt="demarrer" />
   </a>
 </Link>
 
 
 </div>
-<div className="content-end">
+<div className="ml-2 content-end">
 <Link href="./login" passHref>
   <a className="no-underline hover:text-blue-600">
   <h2 className="text-xl">Démarrer</h2>
-  <p>Piloter des financements pour son entreprise.</p>  </a>
+  <p>Financer le développement de son entreprise.</p>  </a>
 </Link>
 </div>
 </div>
@@ -150,11 +150,11 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   <div className="flex items-start w-100">
   <div className="content-start w-24 min-w-fit">
     
-    <Image src="/explorer.svg" height={70} width={70}  alt="explorer" />
+    <Image src="/explorer.svg" height={60} width={60}  alt="explorer" />
   
 
   </div>
-  <div className="content-end">
+  <div className="ml-2 content-end">
   <Link href="./alluserlist" passHref>
     <a className="no-underline hover:text-blue-600">
     <h2 className="text-xl">Explorer</h2>
@@ -167,27 +167,28 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
     <div className="content-start w-24 min-w-fit">
 
-      <Link href="./articles" passHref><a>    <Image src="/blog.svg" height={70} width={70}  alt="blog" />
+      <Link href="./articles" passHref><a>    
+      <Image src="/blog.svg" height={60} width={60}  alt="blog" />
     </a>
  </Link>
-    </div>
-    <div className="content-end">
+    
+  </div>
+  <div className="ml-2 content-end">
+  <Link href="./articles" passHref>
+    <a className="no-underline hover:text-blue-600">
+    <h2 className="text-xl">Blog</h2>
+    <p>En savoir plus sur les avantages du service.</p> </a>
+  </Link>
+  </div>
+  </div>
+    <hr className="flex w-100 my-10 my-10"/>
+    <div className="flex items-start w-100">
 
+    <div className="content-start w-24 min-w-fit">
 
-    <Link href="./articles" passHref>
-      <a className="no-underline hover:text-blue-600">
-      <h2 className="text-xl">Blog</h2>
-      <p>En savoir plus sur les avantages du service.</p> </a>
-    </Link>
-    </div>
-    </div>
-      <hr className="flex w-100 my-10 my-10"/>
-      <div className="flex items-start w-100">
-
-      <div className="content-start w-24 min-w-fit">
- <Image src="/documentation.svg" height={70} width={70}  alt="documentation" />
+      <Image src="/documentation.svg" height={60} width={60}  alt="documentation" />
       </div>
-        <div className="col-span-5">
+        <div className="ml-2 content-end">
           <Link href="https://github.com/Federage-Capital" passHref> 
           <a className="no-underline hover:text-blue-600">
           <h2 className="text-xl">Documentation</h2>

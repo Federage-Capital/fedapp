@@ -108,7 +108,7 @@ export default function AlluserlistPage
               data-cy="btn-submit"
               className="flex justify-center w-48 px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "Chargement" ? "Attendez..." : "Rechercher"}
+              {status === "Chargement" ? "Attendez..." : "Recherche"}
             </button>
           </div>
         </form>
@@ -140,11 +140,11 @@ export default function AlluserlistPage
                     <div className="col-span-2">
                     <Link href={`node/${node.drupal_internal__nid}`} passHref>
                       <a className="no-underline hover:text-blue-600">
-                        <h2 className="mb-4 text-lg font-bold">{node.title}</h2>
+                        <h2 className="mb-4 text-xl font-bold">{node.title}</h2>
                       </a>
                     </Link>                      <p className="m-0 text-base">{node.body.summary}</p>
                       <Link href={`node/${node.drupal_internal__nid}`} passHref>
-                        <a className="flex items-center mt-4 text-sm hover:text-blue-500">
+                        <a className="flex items-center mt-4 text-l hover:text-blue-500">
                           Lire la suite
                           <svg
                             viewBox="0 0 24 24"

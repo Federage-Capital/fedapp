@@ -84,7 +84,7 @@ export function Header({ menus }: HeaderProps) {
       </Link>
 
         <button
-          className="absolute transition-all border border-transparent md:hidden right-4 top-12 hover:border-link"
+          className="absolute transition-all border border-transparent md:hidden right-4 mt-2 top-12 hover:border-link"
           onClick={() => setShowMenu(!showMenu)}
         >
 
