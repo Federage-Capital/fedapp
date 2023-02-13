@@ -37,7 +37,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
         <div className="container pb-10">
 
 <div className="flex flex-wrap">
-        <div className="grid gap-4 max-w-xl mx-auto">
+        <div className="grid gap-4 max-lg mx-auto">
           <ul
             className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
             role="tablist"

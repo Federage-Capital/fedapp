@@ -33,7 +33,7 @@ export function MenuUser() {
   if (status === "unauthenticated") {
     return (
       <Link href="/login" passHref>
-        <a className="text-xl">{t("Connexion")}</a>
+        <a className="text-lg">{t("Connexion")}</a>
       </Link>
     )
   }
