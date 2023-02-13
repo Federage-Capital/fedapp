@@ -88,7 +88,7 @@ export default function AlluserlistPage
 <h1 class="px-6 max-w-4xl pt-5 mb-5 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
 
 
-      <p className="px-6 mb-3 ">Vous trouverez ici des tutoriels, des cas d'usage et des explications sur le fonctionnement du réseau.
+      <p className="px-6 mb-3 ">Vous trouverez ici des tutoriels, des cas d&apos;usage et des explications sur le fonctionnement du réseau.
         </p>
 
         <form onSubmit={handleSubmit} className="px-6 mb-4">
@@ -102,7 +102,7 @@ export default function AlluserlistPage
 
           </div>
           <div className="flex">
-            
+
             <button
               type="submit"
               data-cy="btn-submit"

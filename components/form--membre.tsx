@@ -10,6 +10,7 @@ import classNames from "classnames"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import useSWR from 'swr'
+import Link from "next/link";
 
 
 interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {
@@ -32,23 +33,16 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
+     const { data: users, error2 } = useSWR('https://fed.septembre.io/nest_user_in/'+ query.gid, fetcher)
 
 
-     const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in/'+ query.gid, fetcher)
-
-     const getTotFin2 = (users) => {
-             let sum = 0
-             for (let i = 0; i < users.length; i++) {
-               sum += users[i].uid
-             }
-             return sum
-
-           }
+                           const newNumbers = users && users.map( number => number.uid);
+                           // newNumbers will be equal to ['4', '6', '8', '10']
 
 
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2/'+ '1', fetcher)
+     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ newNumbers, fetcher)
 
-     const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/user_in_group_not_in/'+ query.gid, fetcher)
+     const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/users_in_group/'+ query.gid, fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
@@ -109,10 +103,9 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
         </div>
       )}
 
+{newNumbers}
 
-
-{getTotFin2(users)}
-
+renderList
       PARTENAIRES DE L’OPÉRATION
 
 
@@ -121,11 +114,14 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
-
                                  </fieldset>
 
              <fieldset className="border-t border-b border-gray-200">
 
+
+             {usersnotin?.length ? (
+
+  <p>
 
              {usersnotin.map((usernotin) => (
             <div key={usernotin.id} className="divide-y divide-gray-200">
@@ -175,6 +171,18 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
             </div>
               ))}
 
+</p>
+) : (
+  <p className="text-2xl cadre text-center p-20 mb-10">
+    <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></p>
+
+        <p>   Ajouter un financement</p>
+
+  </p>
+)}
+
 
                                  </fieldset>
 
@@ -207,8 +215,53 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 <fieldset className="border-t border-b border-gray-200">
+PARTICIPANTS AU GROUPE
+{usersingroup.map((userin) => (
+                                      <div key={userin.uid} className="divide-y divide-gray-200">
+                                        <div className="relative flex items-start py-4">
+                                          <div className="min-w-0 flex-1 text-sm">
+                                          <Link href={`user/${userin.uid}`}>
+                                          <a className="grid grid-cols-4 gap-4">
+
+                                            <label htmlFor="comments" className="font-medium text-gray-700">
+                                            {userin.user_picture && (
 
 
+                                                <Image
+                                                  src={absoluteURL(userin.user_picture)}
+                                                  alt={userin.name}
+                                                  title={userin.name}
+                                                  width={50}
+                                                  height={50}
+                                                  className='h-8 w-8 rounded-full'
+                                                />
+
+                                            )}
+                                            {userin.name}
+                                            </label>
+                                            <p id="comments-description" className="text-gray-500">
+                                              {userin.group_roles}
+
+
+
+                                            </p>
+</a>
+</Link>
+
+                                          </div>
+
+
+
+
+
+
+
+
+                                        </div>
+
+
+                                      </div>
+    ))}
 
                     </fieldset>
 
