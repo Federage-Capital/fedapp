@@ -137,7 +137,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 
 </div>
-<div className="ml-2 content-end">
+<div className="ml-3 content-end">
 <Link href="./login" passHref>
   <a className="no-underline hover:text-blue-600">
   <h2 className="text-xl">Démarrer</h2>
@@ -154,7 +154,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   
 
   </div>
-  <div className="ml-2 content-end">
+  <div className="ml-3 content-end">
   <Link href="./alluserlist" passHref>
     <a className="no-underline hover:text-blue-600">
     <h2 className="text-xl">Explorer</h2>
@@ -173,7 +173,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
  </Link>
     
   </div>
-  <div className="ml-2 content-end">
+  <div className="ml-3 content-end">
   <Link href="./articles" passHref>
     <a className="no-underline hover:text-blue-600">
     <h2 className="text-xl">Blog</h2>
@@ -188,7 +188,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
       <Image src="/documentation.svg" height={60} width={60}  alt="documentation" />
       </div>
-        <div className="ml-2 content-end">
+        <div className="ml-3 content-end">
           <Link href="https://github.com/Federage-Capital" passHref> 
           <a className="no-underline hover:text-blue-600">
           <h2 className="text-xl">Documentation</h2>
