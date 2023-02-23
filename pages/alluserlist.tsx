@@ -79,9 +79,9 @@ export default function AlluserlistPage
   return (
     <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
     
-<h1 class="px-6 max-w-4xl pt-5 mb-5 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
+<h1 class="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
-    <p className="px-6 mb-3 ">Vous trouverez ici la liste des membres du réseau économique.
+    <p className="px-6 mb-3 ">Parcourez la liste des membres du réseau économique.
         </p>
 
         <form onSubmit={handleSubmit} className="px-6 mb-4">
