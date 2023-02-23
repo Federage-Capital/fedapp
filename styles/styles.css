@@ -149,3 +149,14 @@ box-sizing: border-box;
     background-color: rgba(224,231,255, 1);
     color: rgba(1, 43, 221, 1);
       }
+
+      @media screen and (min-width: 641px) {
+.hiddedesk{
+display:none;  }
+
+      }
+      @media screen and (max-width: 640px) {
+.hiddebox{
+display:none;  }
+
+      }

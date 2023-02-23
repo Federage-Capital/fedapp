@@ -91,24 +91,33 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           <div>
 
           </div>
-          <div className="flex items-start w-100">
+          <div className="flex xs:hidden items-start w-100">
 
             <input
               id="email"
               name="email"
               type="email"
               placeholder="mon@entreprise.com"
-              className="d-inline-flex content-start flex-auto px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+              className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               {...register("email")}
             />
             <button
               type="submit"
               data-cy="btn-submit"
-              className="justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+              className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
               Inscription
             </button>
+
+
           </div>
+          <button
+            type="submit"
+            data-cy="btn-submit"
+            className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+          >
+            Inscription
+          </button>
           <div>
 
           </div>
@@ -149,9 +158,10 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   <hr className="flex w-100 my-10"/>
   <div className="flex items-start w-100">
   <div className="content-start w-20 min-w-fit">
-    
+
     <Image src="/explorer.svg" height={60} width={60}  alt="explorer" />
-  
+
+
 
   </div>
   <div className="ml-3 content-end">
@@ -167,11 +177,11 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
     <div className="content-start w-20 min-w-fit">
 
-      <Link href="./articles" passHref><a>    
+      <Link href="./articles" passHref><a>
       <Image src="/blog.svg" height={60} width={60}  alt="blog" />
     </a>
  </Link>
-    
+
   </div>
   <div className="ml-3 content-end">
   <Link href="./articles" passHref>
@@ -189,12 +199,13 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       <Image src="/documentation.svg" height={60} width={60}  alt="documentation" />
       </div>
         <div className="ml-3 content-end">
-          <Link href="https://github.com/Federage-Capital" passHref> 
+          <Link href="https://github.com/Federage-Capital" passHref>
+
           <a className="no-underline hover:text-blue-600">
           <h2 className="text-xl">Documentation</h2>
           <p>Support technique et code source de l’application.</p> </a>
           </Link>
-          
+
           </div>
 
             </div>
@@ -205,7 +216,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
            <div className="px-6 pt-5 mb-5 text-lg fedblueblue font-bold" >
            <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
            <a className="no-underline hover:text-blue-600"> </a>
-        
+
 
       </div>
 
