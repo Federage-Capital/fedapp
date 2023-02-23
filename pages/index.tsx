@@ -63,7 +63,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="container pt-15 pb-10">
 
 
-        <h1 className="mb-4 text-4xl font-black">Tous acteurs de <span className="fedblueblue">l&#39;économie réelle</span>.</h1>
+        <h1 className="mb-4 text-4xl font-black">Le meilleur moyen de mesurer sa valeur.</h1>
         <h2 className="mb-10 text-lg text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
         <p className="flex mt-4 text-lm font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
