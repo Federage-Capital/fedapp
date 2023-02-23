@@ -92,7 +92,7 @@ export default function AlluserlistPage
         </p>
 
 
-        <form onSubmit={handleSubmit} className="px-6 mb-4">
+        <form onSubmit={handleSubmit} className="px-6 space-y-2 mb-4">
         <div className="flex xs:hidden items-start w-100">
 
           <input

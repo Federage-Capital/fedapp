@@ -82,15 +82,15 @@ export default function AlluserlistPage
 
 <h1 class="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
-    <p className="px-6 mb-3 ">Parcourez la liste des membres du réseau économique.
+    <p className="px-6 mb-3 ">Parcourez la liste des membres du réseau, faites une proposition et intégrez des projets collaboratifs.
         </p>
 
-        <form onSubmit={handleSubmit} className="px-6 mb-4">
+        <form onSubmit={handleSubmit} className="px-6 space-y-2 mb-4">
         <div className="flex xs:hidden items-start w-100">
 
           <input
             type="search"
-            placeholder="Rechercher un contenu"
+            placeholder="Rechercher un membre"
             name="fulltext"
             className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
@@ -129,8 +129,8 @@ export default function AlluserlistPage
         ) : (
 
 
-          <div className="pt-4">
-            <div className="grid gap-6 md:grid-cols-1">
+          <div className="px-6 pt-4">
+            <div className="grid gap-6 mt-8 md:grid-cols-1">
               {results.map((node) => (
                 <div key={node.id}>
                   <article

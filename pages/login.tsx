@@ -34,7 +34,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
   
       />
       {status === "unauthenticated" && (
-        <div className="container pb-10">
+        <div className="container pb-1">
 
 <div className="flex flex-wrap">
         <div className="grid gap-4 max-lg mx-auto">
@@ -45,7 +45,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
                         className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                          "text-xs font-bold px-5 py-3 rounded-md leading-normal " +
                           (openTab === 1
                             ? "bg-gray" + "-100"
                             : "text-" + "bg-white")
@@ -66,7 +66,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
                         className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                          "text-xs font-bold px-5 py-3 rounded-md leading-normal " +
                           (openTab === 2
                             ? "bg-gray" + "-100"
                             : "text-" + "bg-white")
@@ -87,7 +87,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
                 className={
-                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                  "text-xs font-bold px-5 py-3 rounded-md leading-normal " +
                   (openTab === 3
                     ? "bg-gray" + "-100"
                     : "text-" + "bg-white")

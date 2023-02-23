@@ -17,7 +17,7 @@ export default function NewMembrePage({
   const { t } = useTranslation()
 
   return (
-    <Layout meta={{ title: t("add-members") }} menus={menus} blocks={blocks}>
+    <Layout meta={{ title: t("Ajouter un membre") }} menus={menus} blocks={blocks}>
 
 
       <PageHeader

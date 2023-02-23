@@ -63,7 +63,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <div className="container pt-15 pb-10">
 
 
-        <h1 className="mb-4 text-4xl font-black">Le meilleur moyen de mesurer sa valeur.</h1>
+        <h1 className="mb-4 text-3xl font-bold text-black">Le meilleur moyen de mesurer sa valeur.</h1>
         <h2 className="mb-10 text-lg text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
         <p className="flex mt-4 text-lm font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
@@ -87,7 +87,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           </div>
         ) : null}
 
-        <form className="space-y-4 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-2 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
           <div>
 
           </div>
@@ -98,7 +98,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
               name="email"
               type="email"
               placeholder="mon@entreprise.com"
-              className="d-inline-flex content-start flex-auto  px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+              className="d-inline-flex content-start flex-auto mr-1 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               {...register("email")}
             />
             <button
