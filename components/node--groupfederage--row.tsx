@@ -45,6 +45,7 @@ export function NodeGroupfederageRow({ node, ...props }: NodeGroupfederageRowPro
           onClick={() => handleDelete()}
           className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
         >
+        truc
           {t("delete")}
         </button>
       </div>

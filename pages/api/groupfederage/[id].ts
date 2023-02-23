@@ -24,7 +24,7 @@ export default async function handler(
 
     // Delete the article.
     if (req.method == "DELETE") {
-      const deleted = await drupal.deleteResource("group--projets_federage", id, {
+      const deleted = await drupal.deleteResource("group--federage", id, {
         withAuth: session.accessToken,
       })
 
@@ -35,7 +35,7 @@ export default async function handler(
 
     // Edit the article.
     if (req.method == "PUT") {
-      const edit = await drupal.updateResource("group--projets_federage", id, {
+      const edit = await drupal.updateResource("group--federage", id, {
         data: {
           attributes: {
             label: "Title of Article",

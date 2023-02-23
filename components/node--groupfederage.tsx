@@ -5,6 +5,7 @@ import useSWR from 'swr'
 import { useRouter } from "next/router"
 import { getSession, useSession, signOut } from "next-auth/react";
 import * as React from "react";
+import { useTranslation } from "next-i18next"
 
 import { absoluteURL, formatDate } from "lib/utils"
 
@@ -18,7 +19,23 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export function NodeGroupFinancement({ node,   ...props }: NodeGroupFinancementProps) {
 const [openTab, setOpenTab] = React.useState(1);
+const { t } = useTranslation()
 const router = useRouter()
+
+async function handleDelete() {
+  if (!window?.confirm(t("are-you-use-you-want-to-delete-this-article"))) {
+    return
+  }
+
+  const response = await fetch(`/api/groupfederage/${node.id}`, {
+    method: "DELETE",
+  })
+
+  if (response?.ok) {
+    router.reload()
+  }
+}
+
 
 const { data: users, error: userError } = useSWR('https://fed.septembre.io/users_in_group/'+ node.id, fetcher)
 const { data: financementsdugroupe, error: financementError } = useSWR(() =>'https://fed.septembre.io/group_node_financement_rest_nested/'+ node.id, fetcher)
@@ -75,6 +92,14 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
 <div className="articles pl-4">
 
 <div className="grid grid-cols-12 gap-4">
+<button
+  onClick={() => handleDelete()}
+  className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
+>
+
+  {t("delete")}
+</button>
+{node.id}
 
 <div>
 
