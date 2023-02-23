@@ -78,32 +78,43 @@ export default function AlluserlistPage
 
   return (
     <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
-    
+
 <h1 class="px-6 max-w-4xl pt-5 mb-5 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
     <p className="px-6 mb-3 ">Vous trouverez ici la liste des membres du réseau économique.
         </p>
 
         <form onSubmit={handleSubmit} className="px-6 mb-4">
+        <div className="flex xs:hidden items-start w-100">
+
           <input
             type="search"
-            placeholder="Rechercher une entreprise"
+            placeholder="Rechercher un contenu"
             name="fulltext"
-            className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+            className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
           <div className="grid gap-4 py-4 md:grid-cols-1">
 
           </div>
           <div className="flex">
-      
+
             <button
               type="submit"
               data-cy="btn-submit"
-              className="flex justify-center w-48 px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+              className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "loading" ? "Recherche en cours." : "Recherche"}
+              {status === "Chargement" ? "Attendez..." : "Recherche"}
             </button>
           </div>
+
+          </div>
+          <button
+            type="submit"
+            data-cy="btn-submit"
+            className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+          >
+            {status === "Chargement" ? "Attendez..." : "Recherche"}
+          </button>
         </form>
         {status === "error" ? (
           <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
