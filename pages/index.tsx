@@ -87,7 +87,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           </div>
         ) : null}
 
-        <form className="space-y-6 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-4 inputWithButton" onSubmit={handleSubmit(onSubmit)}>
           <div>
 
           </div>
@@ -98,7 +98,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
               name="email"
               type="email"
               placeholder="mon@entreprise.com"
-              className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+              className="d-inline-flex content-start flex-auto  px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               {...register("email")}
             />
             <button

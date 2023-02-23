@@ -85,10 +85,10 @@ export default function AlluserlistPage
   return (
     <Layout meta={{ title: t("Blog") }} menus={menus} blocks={blocks}>
 
-<h1 class="px-6 max-w-4xl pt-5 mb-5 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
+<h1 class="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
 
 
-      <p className="px-6 mb-3 ">Vous trouverez ici des tutoriels, des cas d&apos;usage et des explications sur le fonctionnement du réseau.
+      <p className="px-6 mb-3 ">Accédez à des tutoriels, des cas d&apos;usage et des explications sur le fonctionnement du réseau.
         </p>
 
 
