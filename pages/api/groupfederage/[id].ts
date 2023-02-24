@@ -1,9 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { getSession } from "next-auth/react"
 import { JsonApiErrors } from "next-drupal"
+import { Formidable, PersistentFile } from "formidable"
 
 import { drupal } from "lib/drupal"
 
+
+type FormBodyFields = {
+  title: string
+  body: string
+  image: PersistentFile
+}
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -35,11 +48,34 @@ export default async function handler(
 
     // Edit the article.
     if (req.method == "PUT") {
+
+      const session = await getSession({ req })
+      if (!session) {
+        return res.status(403).end()
+      }
+      const form = new Formidable({
+        keepExtensions: true,
+      })
+
+
+      const fields = await new Promise<FormBodyFields>((resolve, reject) => {
+        form.parse(req, async (error, fields, files) => {
+          if (error) {
+            reject(error)
+            return
+          }
+
+          resolve({
+            label: fields.label,
+
+          })
+        })
+      })
       const edit = await drupal.updateResource("group--federage", id, {
         data: {
           attributes: {
-            label: "Title of Article",
-          },
+            label: fields.label,
+               },
         },
       },
     )
@@ -55,6 +91,6 @@ export default async function handler(
       return res.status(error.statusCode).json(error.errors)
     }
 
-    res.status(500).json({ message: "Something went wrong. Please try again." })
+    res.status(500).json({ message: "Something went wrong. truc Please try again." })
   }
 }

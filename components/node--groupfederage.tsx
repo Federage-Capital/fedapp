@@ -32,8 +32,9 @@ async function handleDelete() {
   })
 
   if (response?.ok) {
-    router.reload()
+    router.push("/account")
   }
+
 }
 
 
@@ -101,6 +102,22 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
 </button>
 {node.id}
 
+<Link href={`/groupfederage/edit?gid=${encodeURIComponent(node.id)}`}>
+<a className="grid grid-cols-4 gap-4">
+
+<div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20 11.25C20.6904 11.25 21.25 11.8096 21.25 12.5V18.75H27.5C28.1904 18.75 28.75 19.3096 28.75 20C28.75 20.6904 28.1904 21.25 27.5 21.25H21.25V27.5C21.25 28.1904 20.6904 28.75 20 28.75C19.3096 28.75 18.75 28.1904 18.75 27.5V21.25H12.5C11.8096 21.25 11.25 20.6904 11.25 20C11.25 19.3096 11.8096 18.75 12.5 18.75L18.75 18.75V12.5C18.75 11.8096 19.3096 11.25 20 11.25Z" fill="#012BDD"/>
+<rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" stroke-width="2.5" stroke-dasharray="5 5"/>
+</svg>
+</div>
+<div className="col-span-2">
+</div>
+<div className="col-span-1 px-3 py-1 fedblue text-white transition-colors rounded-xl text-sm text-center font-semibold lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+    Modifier
+    </div>
+  </a>
+</Link>
 <div>
 
 </div>
