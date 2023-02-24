@@ -82,7 +82,7 @@ export default function AlluserlistPage
 
 <h1 class="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
-    <p className="px-6 mb-3 ">Parcourez la liste des membres du réseau, faites une proposition et intégrez des projets collaboratifs.
+    <p className="px-6 mb-3 ">Parcourez la liste des membres, faites une proposition et intégrez des projets.
         </p>
 
         <form onSubmit={handleSubmit} className="px-6 space-y-2 mb-4">

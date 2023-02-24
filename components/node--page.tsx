@@ -12,7 +12,7 @@ export function NodePage({ node }: NodePageProps) {
   return (
     <div className="container">
 
-      <article className="bg-white border text-text p-9 border-border">
+      <article className="px-6 max-w-4xl text-4xl text-left md:text-5xl lg:text-4xl">
         <h1 className="text-4xl leading-tight lg:text-4xl">
           {node.title}
         </h1>
@@ -20,7 +20,7 @@ export function NodePage({ node }: NodePageProps) {
         {node.body?.processed && (
           <div
             dangerouslySetInnerHTML={{ __html: node.body?.processed }}
-            className="mt-6 text-xl leading-loose prose"
+            className="mt-6 text-lg leading-loose prose"
           />
         )}
         </div>
