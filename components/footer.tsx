@@ -9,8 +9,8 @@ export function Footer({ }) {
     <>
     <footer className="bg-black text-white text-center content-center py-20 mx-auto">
 
-
-    FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
+    <article className="max-w-screen-lg px-6 mx-auto">FEDERAGE SAS • SIREN n°828743369 • Paris • 2023</article>
+   
     </footer>
     </>
   )
