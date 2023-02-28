@@ -26,7 +26,7 @@ interface IndexPageProps {
 interface WebformPageProps {
   teams: DrupalTaxonomyTerm[]
 }
- 
+
 
 
 export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPageProps, WebformPageProps) {
