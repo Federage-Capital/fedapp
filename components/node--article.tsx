@@ -12,12 +12,12 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
     <article {...props}>
     <div className="max-w-screen-md px-6 pb-6 mx-auto">
 
-    <h1 className="mb-4 text-3xl font-black leading-tight">{node.title}</h1>
-      <div className="mb-4 text-gray-600">
+    <h1 className="mb-4 text-2xl font-black leading-tight">{node.title}</h1>
+      <div className="text-m text-gray-600">
         {node.uid?.display_name ? (
           <span>
             Publié par{" "}
-            <span className="mb-2 mt-2 text-lg font-semibold">{node.uid?.display_name}</span>
+            <span className="mb-2 text-lg font-semibold">{node.uid?.display_name}</span>
           </span>
         ) : null}
         <span> - {formatDate(node.created)}</span>
@@ -43,7 +43,7 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
       {node.body?.processed && (
         <div
           dangerouslySetInnerHTML={{ __html: node.body?.processed }}
-          className="mt-6 text-lg leading-loose prose"
+          className="text-lg leading-loose prose"
         />
       )}
       </div>

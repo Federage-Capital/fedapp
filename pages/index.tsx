@@ -213,7 +213,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 
             </div>
-           <div className="px-6 pt-5 mb-5 text-lg fedblueblue font-bold" >
+           <div className="px-6 pt-5 mb-20 text-lg fedblueblue font-bold" >
            <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
            <a className="no-underline hover:text-blue-600"> </a>
 
