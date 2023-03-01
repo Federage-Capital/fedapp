@@ -10,8 +10,11 @@ export function getParams(
   name = mode ? `${name}--${mode}` : name
   if (name === "node--page") {
     return params
+    .addInclude([
+      "field_paragraphs",
+    ])
       .addFilter("status", "1")
-      .addFields("node--page", ["title", "body", "status"])
+      .addFields("node--page", ["title", "body", "status","field_paragraphs"])
   }
 
   if (name === "node--financement") {
