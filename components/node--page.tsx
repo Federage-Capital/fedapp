@@ -64,7 +64,7 @@ export function NodePage({ node }: NodePageProps) {
                                                                    />
                                                                    </p>
                                                                </details>
-
+ 
 
 
                                                </p>
