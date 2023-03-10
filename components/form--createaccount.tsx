@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 
 import { useForm } from "react-hook-form"
 import { createFormSchema } from "../validations/create_account"
-import useSWR from 'swr'
+
 import { useState } from 'react'
 import { Switch } from '@headlessui/react'
 
@@ -23,7 +23,6 @@ function classNamess(...classes) {
 }
 interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export function FormCreate({ className, ...props}: FormCreateProps) {
 
@@ -34,10 +33,6 @@ export function FormCreate({ className, ...props}: FormCreateProps) {
   })
   const [enabled, setEnabled] = useState(false)
 
-  const { data: termscat, error2 } = useSWR('https://fed.septembre.io/jsonapi/taxonomy_term/categorie_d_entreprise', fetcher)
-  if (error2) return <div>Failed to load</div>
-         if (!termscat) return <div>Loading...</div>
-
 
   async function onSubmit(formData: any) {
     const myRegData = {
@@ -46,9 +41,6 @@ export function FormCreate({ className, ...props}: FormCreateProps) {
       },
       mail: {
         value: formData.mail,
-      },
-      field_type_de_structure: {
-        value: formData.field_categorie,
       },
     };
 
@@ -84,33 +76,14 @@ return setStatus("error")
 
         <div className="grid">
 
-
-
-      <div className="grid gap-2">
-
-
-
-
-
-
-            <div className="relative">
-              <select
-              id="field_categorie"
-              name="field_categorie"
-              placeholder="Type de structure"
-
-              className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-            >
-            {termscat.data.map((item) => (
-
-
-                <option key={item.id} value={item.id}>    {item.attributes.name}</option>
-
-              ))}
-              </select>
-
-            </div>
-          </div>
+      <input
+        id="typestructure"
+        name="typestructure"
+        type="text"
+        placeholder="Type de structure"
+        className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+        {...register("typesdestructure")}
+      />
 
       <input
         id="siren"
