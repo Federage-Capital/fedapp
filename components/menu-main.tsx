@@ -17,8 +17,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
 
   return (
     <nav {...props}>
-
-      <ul className="text-left w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14">
+      <ul className="flex flex-col items-center justify-center w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14">
         {items.map((item) => {
           const isActive =
             router.asPath === item.url ||
@@ -32,11 +31,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
               <Link href={item.url} passHref>
                 <a
                   className={classNames(
-<<<<<<< Updated upstream
                     "text-lg border-b-[3px] flex border-b-transparent transition-colors hover:text-primary",
-=======
-                    "text-base font-medium text-gray-500 hover:text-gray-900",
->>>>>>> Stashed changes
                     {
                       "border-b-primary": isActive,
                     }
