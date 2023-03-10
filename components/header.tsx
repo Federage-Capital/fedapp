@@ -7,17 +7,27 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import siteConfig from "site.config"
 import { LocaleSwitcher } from "components/locale-switcher"
 import { MenuMain } from "components/menu-main"
+<<<<<<< Updated upstream
 import { MenuUser } from "components/menu-user"
 import { MenuDring } from "components/menu-dring"
+=======
+import { MenuMainmob } from "components/menu-main-mob"
+
+import { MenuStd } from "components/menu-std"
+>>>>>>> Stashed changes
 
 import { FormSearch } from "components/form--search"
 import Image from "next/image"
 
 
+<<<<<<< Updated upstream
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+=======
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+>>>>>>> Stashed changes
 
 
 export interface HeaderProps {
@@ -25,6 +35,10 @@ export interface HeaderProps {
     main: DrupalMenuLinkContent[]
   }
 }
+
+
+
+
 
 export function Header({ menus }: HeaderProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
@@ -71,8 +85,8 @@ export function Header({ menus }: HeaderProps) {
     )
   }
   return (
-    <header className="max-w-screen-lg px-6 mx-auto">
 
+<<<<<<< Updated upstream
       <div className="container relative flex-wrap items-center justify-between py-6 md:flex lg:py-10">
       <Link href="/" passHref>
         <a className="flex justify-start">
@@ -87,20 +101,46 @@ export function Header({ menus }: HeaderProps) {
           className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
           onClick={() => setShowMenu(!showMenu)}
         >
+=======
+    <header className="max-w-screen-2xl mx-auto container">
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-8 h-8"
-            >
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            </svg>
-          </button>
+    <div class="hidden md:flex">
+    <div className="flex-start">
+      <a href="#" className="flex">
+        <span className="sr-only">CHPV</span>
+        <Link href="/" passHref>
+          <a className="flex justify-start">
 
+          <Image src="/logo.svg" height={200} width={300}  />
+
+            <span className="sr-only">{siteConfig.name}</span>
+          </a>
+        </Link>
+      </a>
+    </div>
+    <div className="grow">
+
+
+
+</div>
+
+
+    <div className="flex-end ">
+<div className="h-full">
+     <MenuMain items={menus.main} />
+</div>
+</div>
+
+
+</div>
+
+
+<MenuMainmob items={menus.main} />
+
+>>>>>>> Stashed changes
+
+
+<<<<<<< Updated upstream
           <div
             className={classNames(
               "max-h-0 transition-all overflow-hidden md:max-h-screen",
@@ -112,9 +152,9 @@ export function Header({ menus }: HeaderProps) {
 
 
           <MenuMain items={menus.main} />
+=======
+>>>>>>> Stashed changes
 
-        </div>
-      </div>
     </header>
 
   )

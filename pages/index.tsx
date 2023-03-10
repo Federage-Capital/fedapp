@@ -2,6 +2,7 @@ import * as React from "react"
 import Head from "next/head"
 import { GetStaticPropsResult } from "next"
 import { DrupalNode } from "next-drupal"
+<<<<<<< Updated upstream
 import Link from "next/link"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -9,15 +10,31 @@ import { getGlobalElements } from "lib/get-global-elements"
 import { Meta, MetaProps } from "components/meta"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
-
+=======
+import Image from "next/image"
+import Link from "next/link"
+import classNames from "classnames"
+import { DrupalFile, DrupalMedia, DrupalNode, JsonApiErrors } from "next-drupal"
 import { drupal } from "lib/drupal"
+
+import { getGlobalElements } from "lib/get-global-elements"
+import { Meta, MetaProps } from "components/meta"
+import { useTranslation } from "next-i18next"
+import { absoluteURL, formatDate } from "lib/utils"
+import cn from 'classnames'
+>>>>>>> Stashed changes
+
 import { Layout, LayoutProps } from "components/layout"
 import { NodeArticleTeaser } from "components/node--article--teaser"
 import siteConfig from "site.config"
+<<<<<<< Updated upstream
 import { useForm } from "react-hook-form"
 import { contactFormSchema } from "../validations/contact"
 
 type FormData = yup.TypeOf<typeof contactFormSchema>
+=======
+import CoverImage from 'components/cover-image'
+>>>>>>> Stashed changes
 
 interface IndexPageProps {
   nodes: DrupalNode[]
@@ -28,8 +45,12 @@ interface WebformPageProps {
 }
 
 
+<<<<<<< Updated upstream
 
 export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPageProps, WebformPageProps) {
+=======
+export default function IndexPage({ nodes, menus, coverImage, slug, blocks, }: IndexPageProps) {
+>>>>>>> Stashed changes
   const { t } = useTranslation()
 
     const [status, setStatus] = React.useState<"error" | "success">()
@@ -53,13 +74,18 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       return setStatus("error")
     }
   return (
+<<<<<<< Updated upstream
     <Layout meta={{ title: t("Accueil") }} menus={menus} blocks={blocks}>
+=======
+    <Layout meta={{ title: t("Comité d'histoire de la politique de la ville") }} menus={menus} blocks={blocks}>
+>>>>>>> Stashed changes
 
 
 
-      <div className="max-w-screen-lg px-6 mx-auto">
+      <div className="max-w-screen-2xl mx-auto container orange-500 p-10 ">
 
 
+<<<<<<< Updated upstream
 <div className="container pt-15 pb-10">
 
 
@@ -193,9 +219,60 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   </div>
     <hr className="flex w-100 my-10 my-10"/>
     <div className="flex items-start w-100">
+=======
+
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+{nodes?.length ? (
+  nodes.map((node) => (
+    <div key={node.id}
+    className=" space-x-3  border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+>
+    <div className="">
+
+
+
+
+<Link href={node.path.alias} passHref>
+  <a
+    className={classNames(
+      "text-2xl font-medium hover:text-gray-900 w-100",
+
+    )}
+  >
+{node.title}
+  </a>
+</Link>
+
+{node.field_media_image && (
+  <figure className="mb-10">
+    <Image
+      src={absoluteURL(
+        node.field_media_image.field_media_image.uri.url
+      )}
+      alt={
+        node.field_media_image.field_media_image.resourceIdObjMeta.alt
+      }
+      width={785}
+      height={525}
+      layout="responsive"
+      objectFit="cover"
+    />
+  </figure>
+)}
+
+{node.body.summary}
+
+    </div>
+        </div>
+  ))
+) : (
+  <p className="py-4"></p>
+)}
+>>>>>>> Stashed changes
 
     <div className="content-start w-20 min-w-fit">
 
+<<<<<<< Updated upstream
       <Image src="/documentation.svg" height={60} width={60}  alt="documentation" />
       </div>
         <div className="ml-3 content-end">
@@ -210,6 +287,9 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
             </div>
             <hr className="col-span-6 my-10"/>
+=======
+</div>
+>>>>>>> Stashed changes
 
 
             </div>
@@ -232,9 +312,9 @@ export async function getStaticProps(
     context,
     {
       params: {
+        "filter[promote]": 1,
         "filter[status]": 1,
-        "fields[node--article]": "title,path,field_image,uid,created",
-        include: "field_media_image,uid",
+        include: "field_media_image.field_media_image,uid",
         sort: "-created",
       },
     }

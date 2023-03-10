@@ -22,6 +22,7 @@ export async function getGlobalElements(
 
   // Fetch menu items.
   const mainMenu = await drupal.getMenu("main", menuOpts)
+  const standardMenu = await drupal.getMenu("standard", menuOpts)
   const footerMenu = await drupal.getMenu("footer", menuOpts)
 
   // Fetch recipes collections view.
@@ -41,6 +42,7 @@ export async function getGlobalElements(
     ...(await serverSideTranslations(context.locale, ["common"])),
     menus: {
       main: mainMenu.items,
+      standard: standardMenu.items,
     },
 
   }

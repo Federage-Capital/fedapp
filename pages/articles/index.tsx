@@ -83,6 +83,7 @@ export default function AlluserlistPage
 
 
   return (
+<<<<<<< Updated upstream
     <Layout meta={{ title: t("Blog") }} menus={menus} blocks={blocks}>
 
 <h1 className="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
@@ -194,11 +195,36 @@ export default function AlluserlistPage
 
 
 
+=======
+    <Layout
+      menus={menus}
+      blocks={blocks}
+      meta={{
+        title: t("articles"),
+      }}
+    >
+      <PageHeader
+        heading={t("articles")}
+        breadcrumbs={[
+          {
+            title: t("articles"),
+          },
+        ]}
+      />
+      <div className="container">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {articles.map((article) => (
+            <NodeArticleCard key={article.id} node={article} />
+          ))}
+        </div>
+      </div>
+>>>>>>> Stashed changes
     </Layout>
   )
 }
 
 export async function getStaticProps(
+<<<<<<< Updated upstream
   context
 ): Promise<GetStaticPropsResult<AccountPageProps>> {
 
@@ -218,6 +244,19 @@ const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
 
 
 
+=======
+  context: GetStaticPropsContext
+): Promise<GetStaticPropsResult<ArticlePageProps>> {
+  // Fetch all published articles sorted by date.
+  const articles = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "node--article",
+    context,
+    {
+      params: getParams("node--article", "card")
+
+    }
+  )
+>>>>>>> Stashed changes
 
   return {
      props: {

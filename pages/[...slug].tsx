@@ -18,8 +18,6 @@ import { UserProfile } from "components/user-profile"
 const RESOURCE_TYPES = [
   "node--page",
   "node--article",
-  "node--financement",
-  "group--federage",
   "user--user",
 ]
 
@@ -50,8 +48,9 @@ export default function ResourcePage({
 
         />
       )}
-      {resource.type === "group--federage" && (
-        <NodeGroupFinancement
+
+      {resource.type === "node--ap5" && (
+        <NodeArticle
           node={resource as DrupalNode}
 
         />
@@ -64,12 +63,7 @@ export default function ResourcePage({
         />
       )}
 
-      {resource.type === "node--financement" && (
-        <NodeFinancement
-          node={resource as DrupalNode}
 
-        />
-      )}
 
 
     </Layout>
@@ -139,6 +133,34 @@ export async function getStaticProps(
 
 
 
+<<<<<<< Updated upstream
+=======
+  if (resource.type === "taxonomy_term--tags") {
+    // Fetch the term content.
+    // Tags can show both recipes and articles.
+    additionalContent["termContent"] = [
+
+      ...(await drupal.getResourceCollectionFromContext(
+        "node--article",
+        context,
+        {
+          params: getParams("node--article", "card")
+          .addInclude(
+            "field_image",
+            "uid.user_picture",
+            "field_tags",
+          )
+          .addFields("field_image", ["field_media_image"])
+          .addFields("file--file", ["uri", "resourceIdObjMeta"])
+            .addSort("created", "DESC")
+            .addFilter("field_tags.id", resource.id, "IN")
+            .getQueryObject(),
+        }
+      )),
+    ]
+  }
+
+>>>>>>> Stashed changes
   return {
     props: {
       ...(await getGlobalElements(context)),

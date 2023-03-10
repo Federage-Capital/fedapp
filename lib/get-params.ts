@@ -17,72 +17,61 @@ export function getParams(
       .addFields("node--page", ["title", "body", "status","field_paragraphs"])
   }
 
-  if (name === "node--financement") {
-    return params
-      .addInclude([
-        "field_media_image.field_media_image",
-        "uid.user_picture",
-        "field_tags",
-        "field_objet_du_financement",
-        "field_choisir_une_categorie",
-      ])
-      .addFields("node--financement", [
-        "title",
-        "status",
-        "path",
-        "field_media_image",
-        "body",
-        "created",
-                "promote",
-                    "sticky",
-        "uid",
-        "field_tags",
-        "field_type_de_financement",
-        "field_objet_du_financement",
-        "field_estimation_du_prix",
-        "field_date_de_livraison",
-        "field_choisir_une_categorie",
+  if (name === "node--article--card") {
+     return params
+       .addFilter("status", "1")
+       .addInclude(["field_media_image.field_media_image", "uid.user_picture"])
+       .addFields("node--article", ["title", "path", "field_media_image"])
+       .addFields("media--image", ["field_media_image"])
+       .addFields("file--file", ["uri", "resourceIdObjMeta"])
+   }
 
-      ])
-      .addFields("user--user", ["display_name", "user_picture"])
-      .addFields("media--image", ["field_media_image"])
-      .addFields("file--file", ["uri", "resourceIdObjMeta"])
-      .addFields("taxonomy_term--tags", ["name", "path"])
-  }
 
   if (name === "node--article") {
     return params
       .addInclude([
-        "field_media_image.field_media_image",
+    "field_media_image.field_media_image",
+        "field_image",
         "uid.user_picture",
         "field_tags",
+        "field_categorie",
+        "field_paragraphs",
       ])
       .addFields("node--article", [
         "title",
         "status",
         "path",
+        "field_image",
         "field_media_image",
+        "field_categorie",
         "body",
         "created",
         "uid",
+        "field_paragraphs",
         "field_tags",
+
       ])
       .addFields("user--user", ["display_name", "user_picture"])
       .addFields("media--image", ["field_media_image"])
+
+      .addFields("field_image", ["field_media_image"])
       .addFields("file--file", ["uri", "resourceIdObjMeta"])
       .addFields("taxonomy_term--tags", ["name", "path"])
+      .addFields("taxonomy_term--categorie", ["name", "path"])
   }
 
-
-  if (name === "group--federage") {
+  if (name === "block_content--basic") {
     return params
-      .addInclude([
-        "uid",
-        "uid.user_picture",
-
-        "group_type",
-        "field_categorie",
+      .addInclude(["field_media_image.field_media_image"])
+      .addFields("block_content--basic", [
+        "field_title",
+        "field_summary",
+          "body",
+          "info",
+        "field_content_link",
+        "field_media_image",
       ])
+<<<<<<< Updated upstream
       .addFields("group--federage", [
         "status",
         "path",
@@ -153,6 +142,10 @@ export function getParams(
       ])
       .addFields("user--user", ["display_name", "user_picture", "status"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
+=======
+      .addFields("media--image", ["field_media_image"])
+      .addFields("file--file", ["uri", "resourceIdObjMeta"])
+>>>>>>> Stashed changes
   }
   if (name === "user--user") {
     return params
@@ -160,19 +153,7 @@ export function getParams(
         "user_picture",
 
       ])
-      .addFields("group_content--federage-group_membership", [
-        "display_name",
-        "field_description",
-        "default_langcode",
-        "body",
-        "created",
-        "uid",
-        "label",
-        "group_type",
-        "drupal_internal__id",
-        "id",
-        "meta",
-      ])
+
   }
   if (name === "menu_link_content--menu_link_content") {
     return params.addFields("menu_link_content--menu_link_content", [
@@ -184,12 +165,22 @@ export function getParams(
     return params.addFields("taxonomy_term--tags", ["name", "path"])
   }
 
-  if (name === "taxonomy_term--type_de_financement") {
-    return params.addFields("taxonomy_term--type_de_financement", ["name", "path"])
+  if (name === "taxonomy_term--domaines_d_intervention") {
+    return params.addFields("taxonomy_term--tags", ["name", "path"])
+  }
+
+  if (name === "taxonomy_term--vie_du_comite") {
+    return params
+        .addInclude(["field_media_image.field_media_image"])
+        .addFields("taxonomy_term--tags", ["name", "path","field_media_image"])
+        .addFields("media--image", ["field_media_image"])
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
   }
 
   if (name === "taxonomy_term--categorie") {
     return params.addFields("taxonomy_term--categorie", ["name", "path"])
   }
+
+
 
 }

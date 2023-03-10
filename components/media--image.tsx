@@ -14,7 +14,7 @@ export function MediaImage({
   priority,
   ...props
 }: MediaImageProps) {
-  const image = media?.field_media_image
+  const image = media?.field_image
 
   if (!image?.uri) {
     return null

@@ -14,15 +14,20 @@ export function Layout({ meta, menus, children }: LayoutProps) {
   return (
     <>
       <Meta {...meta} />
-      <div className="max-w-screen-lg px-6 mx-auto">
+      <div className="w-full mx-auto">
         <PreviewAlert />
 
         <Header menus={{ main: menus.main }} />
+<<<<<<< Updated upstream
         <main className="flex-1 pb-10 bg-body">{children}</main>
 
       </div>
       <div className="w-full md:w-auto">
       <Footer />
+=======
+        <main className="max-w-screen-2xl mx-auto flex-1">{children}</main>
+        <Footer />
+>>>>>>> Stashed changes
       </div>
       <TailwindIndicator />
     </>
