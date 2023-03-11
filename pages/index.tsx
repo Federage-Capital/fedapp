@@ -107,7 +107,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
             <button
               type="submit"
               data-cy="btn-submit"
-              className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+              className="hidden sm:block justify-center content-end w-fit px-5 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
               Inscription
             </button>
@@ -135,7 +135,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 </div>
 <div className="hidden md:block">
 
-<Image src="https://fed.septembre.io/photo-1521737852567-6949f3f9f2b5.jpg" height={550} width={800}   class="mx-auto"
+<Image src="https://fed.septembre.io/photo-1521737852567-6949f3f9f2b5.jpg" height={550} width={800}   class="mx-auto rounded-md"
   objectFit="cover" alt="demarrer" />
 
 </div>
