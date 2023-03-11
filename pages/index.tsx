@@ -62,12 +62,15 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 <div className="container pt-15 pb-10">
 
-
+<div className="grid xs:grid-cols-1 sm:grid-cols-1 md:py-10 md:mb-5 md:grid-cols-2 gap-12">
+<div>
         <h1 className="mb-4 text-3xl font-bold text-black">Le meilleur moyen de mesurer sa valeur.</h1>
         <h2 className="mb-10 text-lg text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
         <p className="flex mt-4 text-lm font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
         </p>
+
+
 
         {status === "error" ? (
           <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
@@ -129,10 +132,16 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           </div>
 
         </form>
+</div>
+<div className="hidden md:block">
+
+<Image src="https://fed.septembre.io/photo-1521737852567-6949f3f9f2b5.jpg" height={550} width={800}   class="mx-auto"
+  objectFit="cover" alt="demarrer" />
 
 </div>
+</div>
 
-
+</div>
 <h3 className="mb-2 text-lm font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
 
