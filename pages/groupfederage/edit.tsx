@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormGroupfin } from "components/form--groupfin"
+import { FormGroupfinedit } from "components/form--groupfinedit"
 import { useState, useEffect } from "react";
 import { Folder } from "public/foldersvg"
 
@@ -13,8 +13,13 @@ interface EditArticlesPageProps extends LayoutProps {}
 export default function EditArticlesPage({
   menus,
   blocks,
+  articles,
+
 }: EditArticlesPageProps) {
   const { t } = useTranslation()
+
+
+
 
   return (
     <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
@@ -27,7 +32,7 @@ export default function EditArticlesPage({
       />
       <div className="container pb-10">
 
-        <FormGroupfin className="max-w-2xl mx-auto" />
+        <FormGroupfinedit className="max-w-2xl mx-auto" />
       </div>
 
 
