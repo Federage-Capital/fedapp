@@ -44,6 +44,7 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
         <div
           dangerouslySetInnerHTML={{ __html: node.body?.processed }}
           className="text-lg leading-loose prose"
+          
         />
       )}
       </div>
