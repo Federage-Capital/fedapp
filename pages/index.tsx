@@ -64,8 +64,12 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:py-10 md:mb-5 md:grid-cols-2 gap-12">
 <div>
-        <h1 className="mb-4 text-3xl font-bold text-black">Le meilleur moyen de mesurer sa valeur.</h1>
-        <h2 className="mb-10 text-lg text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+      <p className="mb-2 font-light text-gray-400">BIENTÔT DISPONIBLE
+        </p>
+
+        <h1 className="text-3xl font-bold">Le meilleur moyen</h1>
+        <h1 className="mb-4 text-3xl font-bold">de <span className="fedblueblue">mesurer sa valeur</span></h1>
+        <h2 className="mb-10 text-lg font-medium text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
         <p className="flex mt-4 text-lm font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
         </p>
@@ -117,7 +121,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
           <button
             type="submit"
             data-cy="btn-submit"
-            className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+            className="hiddedesk xs:block w-full justify-center px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
           >
             Inscription
           </button>
@@ -133,7 +137,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
         </form>
 </div>
-<div className="hidden md:block">
+<div className="hidden md:block mt-5">
 
 <Image src="https://fed.septembre.io/photo-1521737852567-6949f3f9f2b5.jpg" height={550} width={800}   class="mx-auto rounded-md"
   objectFit="cover" alt="demarrer" />
@@ -142,9 +146,10 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 </div>
 
 </div>
+
+
 <h3 className="mb-2 text-lm font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
-
 
 <div className="flex items-start w-100">
   <div className="content-start w-20 min-w-fit">
