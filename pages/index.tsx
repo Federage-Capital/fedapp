@@ -92,7 +92,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
           </div>
           <div className="flex xs:hidden items-start w-100">
-dzze
+ erd
             <input
               id="email"
               name="email"
