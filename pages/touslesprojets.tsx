@@ -26,8 +26,6 @@ const params = {
   },
 
   include: "field_categorie",
-
-
 }
 
 interface AlluserlistPageProps {
