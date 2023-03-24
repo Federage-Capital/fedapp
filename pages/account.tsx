@@ -40,6 +40,7 @@ export default function AccountsPage({
   objectFit,
   priority,
   financementsdansgr,
+  membersdugroupe,
 }: AccountPageProps) {
 
 
@@ -60,6 +61,10 @@ export default function AccountsPage({
 
   const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
   const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
+  const { data: tableau, error: tableauError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_5`+ `/`+ user[0].id, fetcher)
+if (tableauError) return <div>Failed to load 23</div>
+if (!tableau) return <div>Loading financement ...</div>
+
   if (financement1Error) return <div>Failed to load 23</div>
   if (!financementsd1groupe) return <div>Loading financement ...</div>
 
@@ -244,62 +249,116 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
 
-
-<p>
-
+                        <p>
 
 
-{financementsdansgr?.length ? (
+                        {membersdugroupe?.length ? (
 
-  <div>
+                          <div>
 
-                      {financementsdansgr.map((grfinancement) => (
+                                              {membersdugroupe.map((membre) => (
 
 
 
-                                  <div
-                                    key={grfinancement.id}
-                                    className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
-                                  >
-                                    <div className="flex-shrink-0">
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" stroke-width="2.5" stroke-dasharray="5 5"/>
-                                    </svg>
-                                                                      </div>
-                                    <div className="min-w-0 flex-1">
-                        <Link href={grfinancement.path.alias} passHref>
-                                    <a>
-                        <h2 className="text-sm gray-700">{grfinancement.label}</h2>
+                                                          <div
+                                                            key={membre.id}
+                                                          >
 
-                        <span className="text-2xl font-semibold">
-                        {financements2dugroupe?.length ? (
-                        <div>
 
-                        {financements2dugroupe.filter(person5 => person5.uuid.includes(grfinancement.id)).map(filteredPerson5 => {
+
+
+                        {financementsdansgr?.length ? (
+                        <p>
+
+                        {financementsdansgr.filter(person1 => person1.id.includes(membre.gid.id)).map(filteredPerson1 => {
 
                         return (
 
-                        <div className="flex-container card" key={filteredPerson5.uuid}>
+                        <div key={filteredPerson1.id} className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
+                        <div className="flex-shrink-0">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" stroke-width="2.5" stroke-dasharray="5 5"/>
+                        </svg>
+                        </div>
 
-                          <div className="content">
-                             {filteredPerson5.field_estimation_du_prix} €
+                          <div className="min-w-0 flex-1">
+                             {filteredPerson1.label}
+                             <span className="text-2xl font-semibold">
+
+                             {financements2dugroupe?.length ? (
+                             <div>
+
+                             {financements2dugroupe.filter(person5 => person5.uuid.includes(membre.gid.id)).map(filteredPerson5 => {
+
+                             return (
+
+                             <div className="flex-container card" key={filteredPerson5.uuid}>
+
+                               <div className="content">
+                                  {filteredPerson5.field_estimation_du_prix} €
+                                 <div>
+
+                             </div>
+                               </div>
+
+
+                             </div>)
+                             })}
+
+
+
+                             </div>
+                             ) : (
+                             <p >
+
+
+
+                             </p>
+
+
+                             )}
+                             </span>
                             <div>
+
+
+
+
+
+
 
                         </div>
                           </div>
+                          <div className="flex-shrink-2">
 
+                          <Link href={filteredPerson1.path.alias} passHref>
+                        <a>
+                            <svg
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="w-4 h-4 ml-2"
+                            >
+                              <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                          </Link>
+                        </div>
 
                         </div>)
                         })}
 
 
 
-                        </div>
+                        </p>
+
                         ) : (
                         <p >
 
-                        00000 €
+
 
                         </p>
 
@@ -309,55 +368,33 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
 
-                        </span>
 
-                        </a>
-                        </Link>
+                                                          </div>
 
+                                                     ))}
+                                                     </div>
+                                                   ) : (
+                                                     <p className="text-2xl cadre text-center p-20 mb-10">
+                                                       <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                               </svg></p>
 
-
-                                    </div>
-                                    <div className="flex-shrink-2">
-
-                                    <Link href={grfinancement.path.alias} passHref>
-                                  <a>
-                                      <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="w-4 h-4 ml-2"
-                                      >
-                                        <path d="M5 12h14M12 5l7 7-7 7" />
-                                      </svg>
-                                  </a>
-                                    </Link>
-</div>
-                                  </div>
-
-                             ))}
-                             </div>
-                           ) : (
-                             <p className="text-2xl cadre text-center p-20 mb-10">
-                               <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></p>
-
-                             <p>  Aucun projet</p>
-                                   <p>   Commencez par créer un projet</p>
-                             <Link href="/groupfederage/new" passHref>
-                             <a className="px-3 py-1 cadre text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                            + démarrez un projet
-                               </a>
-                             </Link>
-                             </p>
-                           )}
-
-                          </p>
+                                                     <p>  Aucun projet</p>
+                                                           <p>   Commencez par créer un projet</p>
+                                                     <Link href="/groupfederage/new" passHref>
+                                                     <a className="px-3 py-1 cadre text-white transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                                                    + démarrez un projet
+                                                       </a>
+                                                     </Link>
+                                                     </p>
+                                                   )}
+                        </p>
 
                         </div>
+
+
+
+
 
                         <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                           <p>
@@ -429,6 +466,82 @@ dans le groupe :                                                 <h2 className="
                           <p>
 
 
+{financementsdansgr?.length ? (
+
+  <div>
+
+
+
+
+
+                      {financementsdansgr.map((findetails) => (
+
+
+
+                                  <div
+                                    key={findetails.id}
+                                    className="grid grid-cols-6 gap-4"
+                                  >
+
+
+                                    {findetails.label}
+
+
+                                    <div>Intitulé de l'apport</div>
+                                    <div>Type d'apport</div>
+                                    <div>    {financements2dugroupe?.length ? (
+
+<span>
+                                        {financements2dugroupe.filter(person5 => person5.uuid.includes(findetails.id)).map(filteredPerson5 => {
+
+                                        return (
+
+                                        <div className="flex-container card" key={filteredPerson5.uuid}>
+
+                                          <div className="content">
+                                             {filteredPerson5.field_estimation_du_prix} €
+                                            <div>
+
+                                        </div>
+                                          </div>
+
+
+
+
+
+                                        </div>
+
+
+
+
+
+                                      )
+                                        })}
+
+
+</span>
+                                        ) : (
+                                        <p >
+
+                                        00000 €
+
+                                        </p>
+
+
+                                        )}</div>
+      <div>Comptabilisé</div>
+                                    <div>Accepté</div>
+                                  </div>
+
+                             ))}
+                             </div>
+                           ) : (
+                             <p>
+
+                             </p>
+                           )}
+
+
 
 
                           </p>
@@ -475,7 +588,25 @@ export async function getServerSideProps(
             .addFields("group_type--group_type", ["id", "type","meta"])
 
             .addFields("user--user", ["display_name", "user_picture"])
-            .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+
+            .addSort("created", "DESC")
+            .getQueryObject(),
+
+          withAuth: session.accessToken,
+
+        }
+
+      )
+
+      const membersdugroupe = await drupal.getResourceCollection(
+        "group_content--federage-group_membership",
+        {
+          params: new DrupalJsonApiParams()
+            .addInclude(["uid", "group_content_type", "gid", "entity_id", "group_roles"])
+
+
+            .addFields("user--user", ["display_name", "user_picture"])
+            .addFilter("entity_id.meta.drupal_internal__target_id", session.user.userId)
 
             .addSort("created", "DESC")
             .getQueryObject(),
@@ -519,6 +650,7 @@ export async function getServerSideProps(
     props: {
       ...(await getGlobalElements(context)),
       financementsdansgr,
+      membersdugroupe,
       user,
     },
   };
