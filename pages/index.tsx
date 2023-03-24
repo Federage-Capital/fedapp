@@ -147,7 +147,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 </div>
 
-
+<div className="md:hidden mt-5">
 <h3 className="mb-2 text-lm font-black text-gray-400 text-left">SECTIONS</h3>
 <hr className="mb-10"/>
 
@@ -226,7 +226,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
             <hr className="col-span-6 my-10"/>
 
 
-            </div>
+
            <div className="px-6 pt-5 mb-20 text-lg fedblueblue font-bold" >
            <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
            <a className="no-underline hover:text-blue-600"> </a>
@@ -234,6 +234,8 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
       </div>
 
+
+</div></div>
     </Layout>
   )
 }
