@@ -440,7 +440,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
 
       <div className="grid gap-2">
         <label htmlFor="field_objet_du_financement" className="font-semibold text-text">
-          {t("field_objet_du_financement")} <span className="text-sm text-red-500">*</span>
+          {t("field_objet_du_financement")} <span className="text-sm text-red-500"></span>
         </label>
         <input
           id="field_objet_du_financement"
@@ -453,7 +453,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
 
       <div className="grid gap-2">
         <label htmlFor="field_tags" className="font-semibold text-text">
-          {t("field_tags")} <span className="text-sm text-red-500">*</span>
+          {t("field_tags")} <span className="text-sm text-red-500"></span>
         </label>
         <input
           id="field_tags"
@@ -466,7 +466,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
 
       <div className="grid gap-2">
         <label htmlFor="field_type_de_financement" className="font-semibold text-text">
-          {t("field_type_de_financement")} <span className="text-sm text-red-500">*</span>
+          {t("field_type_de_financement")} <span className="text-sm text-red-500"></span>
         </label>
         <input
           id="field_type_de_financement"
@@ -479,13 +479,13 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
 
       <div className="grid gap-2">
         <label htmlFor="mail" className="font-semibold text-text">
-          {t("image")} <span className="text-sm text-red-500">*</span>
+          {t("image")} <span className="text-sm text-red-500"></span>
         </label>
         <input
           type="file"
           id="image"
           name="image"
-          required
+
           className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
         />
       </div>
