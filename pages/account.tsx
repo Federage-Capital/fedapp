@@ -487,8 +487,8 @@ dans le groupe :                                                 <h2 className="
                                     {findetails.label}
 
 
-                                    <div>Intitulé de l'apport</div>
-                                    <div>Type d'apport</div>
+                                    <div>Intitulé de l&apos;apport</div>
+                                    <div>Type d&apos;apport</div>
                                     <div>    {financements2dugroupe?.length ? (
 
 <span>
