@@ -62,6 +62,9 @@ export default function AccountsPage({
   const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
   const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
   const { data: tableau, error: tableauError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_5`+ `/`+ user[0].id, fetcher)
+  const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/financements_without_group_creator`+ `/`+ user[0].id, fetcher)
+  if (propositionsError) return <div>Failed to propositionsError 23</div>
+
 if (tableauError) return <div>Failed to load 23</div>
 if (!tableau) return <div>Loading financement ...</div>
 
@@ -215,7 +218,7 @@ const getTotFin2 = (financements2dugroupe) => {
                         href="#link2"
                         role="tablist"
                       >
-                        Demandes
+                        Mes propositions
                       </a>
                     </li>
                     <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
@@ -231,7 +234,26 @@ const getTotFin2 = (financements2dugroupe) => {
                           setOpenTab(3);
                         }}
                         data-toggle="tab"
-                        href="#link3"
+                        href="#link32"
+                        role="tablist"
+                      >
+                        Demandes
+                      </a>
+                    </li>
+                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                      <a
+                        className={
+                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                          (openTab === 4
+                            ? "bg-gray" + "-100"
+                            : "text-" + "gray-700")
+                        }
+                        onClick={e => {
+                          e.preventDefault();
+                          setOpenTab(4);
+                        }}
+                        data-toggle="tab"
+                        href="#link4"
                         role="tablist"
                       >
                          Transactions
@@ -250,7 +272,6 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
                         <p>
-
 
                         {membersdugroupe?.length ? (
 
@@ -463,6 +484,73 @@ dans le groupe :                                                 <h2 className="
                           </p>
                         </div>
                         <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                        <p>
+
+                        {financementsd1groupe?.length ? (
+
+                          <div>
+
+
+
+                          <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes</h3>
+
+
+                                              {financementsd1groupe.map((demandes) => (
+
+
+
+                                                          <div
+                                                            key={demandes.id}
+                                                            className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
+                                                          >
+                                                            <div className="flex-shrink-0">
+                                                            <Image
+                                                              src={absoluteURL(demandes.user_picture)}
+                                                              width={30}
+                                                              height={30}
+                                                              className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                                                              objectFit="cover"
+                                                              alt={demandes.title}
+                                                              priority
+                                                            />
+                                                                                              </div>
+                                                            <div className="min-w-0 flex-1">
+                                                <Link href={demandes.view_node} passHref>
+                                                            <a>
+                                                <h2 className="text-sm gray-700">{demandes.title}</h2>
+dans le groupe :                                                 <h2 className="text-sm gray-700">{demandes.label}</h2>
+                                                <span className="text-2xl font-semibold">
+
+                                                {demandes.field_estimation_du_prix} €
+
+
+
+
+                                                </span>
+
+                                                </a>
+                                                </Link>
+
+
+
+                                                            </div>
+                                                            <div className="flex-shrink-2">
+
+
+                        </div>
+                                                          </div>
+
+                                                     ))}
+                                                     </div>
+                                                   ) : (
+                                                     <p className="text-2xl cadre text-center p-20 mb-10">
+
+                                                     </p>
+                                                   )}
+                        </p>
+                        </div>
+
+                        <div className={openTab === 4 ? "block" : "hidden"} id="link3">
                           <p>
 
 
