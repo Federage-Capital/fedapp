@@ -405,7 +405,7 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
 
-                            <h3 className="mb-2 text-lg font-black text-gray-400 text-left">ACTIFS</h3>
+                            <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes</h3>
 
 
                                                 {financementsd1groupe.map((demandes) => (
