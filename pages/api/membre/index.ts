@@ -72,23 +72,29 @@ export default async function handler(
       {
         data: {
           type: "group_content--federage-group_membership",
-
           relationships: {
-            gid: {
+                      gid: {
                 data:
                          {
                            type: "group--federage",
                            id: fields.gid,
                          }
                       },
-                    entity_id: {
+                      uid: {
+                  data: {
+                      type: "user--user",
+                      id: fields.select_users,
+
+                      }
+                  },
+                      entity_id: {
                                           data: {
                                               type: "user--user",
                                               id: fields.select_users,
 
                                               }
                                           },
-                  group_roles: {
+                      group_roles: {
                     data: [
                         {
                             type: "group_role--group_role",

@@ -19,20 +19,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 export function MenuDring() {
   const { data, status } = useSession()
   const { t } = useTranslation()
-  const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-    { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
-  ]
-  const secondaryNavigation = [
-    { name: 'Website redesign', href: '#' },
-    { name: 'GraphQL API', href: '#' },
-    { name: 'Customer migration guides', href: '#' },
-    { name: 'Profit sharing program', href: '#' },
-  ]
+
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -57,8 +44,9 @@ export function MenuDring() {
 
       <Menu as="div" className="relative ml-3">
         <div>
+
           <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-fedblueblue focus:ring-offset-2">
-            <span className="sr-only">Open user menu</span>
+            <span className="sr-only">Open Dring menu</span>
 
             <BellIcon className="h-6 w-6" aria-hidden="true" />
 
@@ -80,94 +68,14 @@ export function MenuDring() {
 
 
           <Menu.Items className="absolute right-0 z-10 mt-2 w-96 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <Menu.Item>
-            {({ active }) => (
-              <MenuLink
-                href="/account"
-                className={classNames(
-                  "flex hover:bg-body w-full px-3 py-2 text-text",
-                  {
-                    "bg-body": active,
-                  }
-                )}
-              >
-                {t("my-wallet")}
-              </MenuLink>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <MenuLink
-                href="/account"
-                className={classNames(
-                  "flex hover:bg-body w-full px-3 py-2 text-text",
-                  {
-                    "bg-body": active,
-                  }
-                )}
-              >
-                {t("Financements")}
-              </MenuLink>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <MenuLink
-                href="/account"
-                className={classNames(
-                  "flex hover:bg-body w-full px-3 py-2 text-text",
-                  {
-                    "bg-body": active,
-                  }
-                )}
-              >
-                {t("Comptabilité")}
-              </MenuLink>
-            )}
-          </Menu.Item>
-
-            <Menu.Item>
-            {({ active }) => (
-              <MenuLink
-                href="/account"
-                className={classNames(
-                  "flex hover:bg-body w-full px-3 py-2 text-text",
-                  {
-                    "bg-body": active,
-                  }
-                )}
-              >
-                {t("Partenaires")}
-              </MenuLink>
-            )}
-          </Menu.Item>
+            1 msg
 
 
-              <Menu.Item>
-            {({ active }) => (
-              <MenuLink
-                href="/user-account"
-                className={classNames(
-                  "flex hover:bg-body w-full px-3 py-2 text-text",
-                  {
-                    "bg-body": active,
-                  }
-                )}
-              >
-                {t("my-account")}
-              </MenuLink>
-            )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="/user-account"
-                  className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                >
-                  Settings
-                </a>
-              )}
-            </Menu.Item>
+
+
+
+
+
             <Menu.Item>
               {({ active }) => (
                 <button

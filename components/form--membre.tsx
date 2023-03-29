@@ -66,10 +66,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
     if (!response.ok) {
       const errors = await response.json()
 
-      return setFormStatus({
-        status: "error",
-        message: errors?.map((error) => error.detail),
-      })
+
     }
 
     router.push("/account")
@@ -103,9 +100,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
         </div>
       )}
 
-{newNumbers}
 
-renderList
       PARTENAIRES DE L’OPÉRATION
 
 
@@ -143,6 +138,7 @@ renderList
                 )}
                   <label htmlFor="comments" className="font-medium text-gray-700">
             {usernotin.name}
+
                   </label>
 
 
@@ -154,13 +150,12 @@ renderList
 
 
 
-
                 <div className="ml-3 flex h-5 items-center">
                   <input
                   id="select_users"
                   name="select_users"
                     aria-describedby="comments-description"
-                    value={usernotin.id}
+                    value={usernotin.uuid}
                     type="radio"
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
@@ -196,7 +191,7 @@ renderList
                                            name="gid"
                                            value={query.gid}
                                            maxLength={255}
-                                           className=""
+                                           className="hidden"
                                          ></textarea>
                                        </div>
                                        <div>
@@ -211,7 +206,6 @@ renderList
                                            }
                                          />
                                        </div>
-----------------------------------------
 
 
 <fieldset className="border-t border-b border-gray-200">
