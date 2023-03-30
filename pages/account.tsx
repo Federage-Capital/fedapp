@@ -62,9 +62,9 @@ export default function AccountsPage({
   const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
   const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
   const { data: tableau, error: tableauError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_5`+ `/`+ user[0].id, fetcher)
-  const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/financements_without_group_creator`+ `/`+ user[0].id, fetcher)
+  const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
   if (propositionsError) return <div>Failed to propositionsError 23</div>
-
+if (!propositions) return <div>Loading Propositions ...</div>
 if (tableauError) return <div>Failed to load 23</div>
 if (!tableau) return <div>Loading financement ...</div>
 
@@ -351,7 +351,6 @@ const getTotFin2 = (financements2dugroupe) => {
                         </div>
                           </div>
                           <div className="flex-shrink-2">
-
                           <Link href={filteredPerson1.path.alias} passHref>
                         <a>
                             <svg
@@ -452,7 +451,7 @@ const getTotFin2 = (financements2dugroupe) => {
                                                   <Link href={demandes.view_node} passHref>
                                                               <a>
                                                   <h2 className="text-sm gray-700">{demandes.title}</h2>
-dans le groupe :                                                 <h2 className="text-sm gray-700">{demandes.label}</h2>
+                                              <h2 className="text-sm gray-700">{demandes.label}</h2>
                                                   <span className="text-2xl font-semibold">
 
                                                   {demandes.field_estimation_du_prix} €
@@ -485,65 +484,88 @@ dans le groupe :                                                 <h2 className="
                         </div>
                         <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                         <p>
-
-                        {financementsd1groupe?.length ? (
+                        {propositions?.length ? (
 
                           <div>
 
 
 
+
                           <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes</h3>
 
+                          {propositions.filter(offre1 => !offre1.uuid_2.includes(user[0].id)).map(filteredOffre1 => {
 
-                                              {financementsd1groupe.map((demandes) => (
+                          return (
 
+                          <div className="flex-container card" >
+                          <div
+                            key={filteredOffre1.uuid}
+                            className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
+                          >
+                            <div className="flex-shrink-0">
+                            <Image
+                              src={absoluteURL(filteredOffre1.user_picture)}
+                              width={30}
+                              height={30}
+                              className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                              objectFit="cover"
+                              alt={filteredOffre1.title}
+                              priority
+                            />
+                                                              </div>
+                            <div className="min-w-0 flex-1">
+                <Link href={filteredOffre1.view_group} passHref>
+                            <a>
+                <h2 className="text-sm gray-700">{filteredOffre1.title}</h2>
+            <h2 className="text-sm gray-700">{filteredOffre1.label}</h2>
+                <span className="text-2xl font-semibold">
+                   {filteredOffre1.field_estimation_du_prix} €
 
-
-                                                          <div
-                                                            key={demandes.id}
-                                                            className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
-                                                          >
-                                                            <div className="flex-shrink-0">
-                                                            <Image
-                                                              src={absoluteURL(demandes.user_picture)}
-                                                              width={30}
-                                                              height={30}
-                                                              className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
-                                                              objectFit="cover"
-                                                              alt={demandes.title}
-                                                              priority
-                                                            />
-                                                                                              </div>
-                                                            <div className="min-w-0 flex-1">
-                                                <Link href={demandes.view_node} passHref>
-                                                            <a>
-                                                <h2 className="text-sm gray-700">{demandes.title}</h2>
-dans le groupe :                                                 <h2 className="text-sm gray-700">{demandes.label}</h2>
-                                                <span className="text-2xl font-semibold">
-
-                                                {demandes.field_estimation_du_prix} €
-
-
-
-
-                                                </span>
-
-                                                </a>
-                                                </Link>
+                Nom du contributeur: {filteredOffre1.uid_1}<br/>
 
 
 
-                                                            </div>
-                                                            <div className="flex-shrink-2">
 
 
-                        </div>
-                                                          </div>
+                </span>
 
-                                                     ))}
+                </a>
+                </Link>
+
+
+
+                            </div>
+                            <div className="flex-shrink-2">
+
+
+          </div>
+                          </div>
+
+
+
+
+                              <div>
+
+
+                            </div>
+
+
+
+
+
+                          </div>
+
+
+
+
+
+                          )
+                          })}
+
+
                                                      </div>
                                                    ) : (
-                                                     <p className="text-2xl cadre text-center p-20 mb-10">
+                                                     <p>
 
                                                      </p>
                                                    )}
@@ -587,6 +609,7 @@ dans le groupe :                                                 <h2 className="
                                         <div className="flex-container card" key={filteredPerson5.uuid}>
 
                                           <div className="content">
+
                                              {filteredPerson5.field_estimation_du_prix} €
                                             <div>
 
