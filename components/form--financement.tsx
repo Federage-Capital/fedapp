@@ -192,7 +192,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
 
       <div className="grid gap-2">
             <label className="blofont-semibold text-text" htmlFor="grid-state">
-  {t("field_choisir_une_categorie")} <span className="text-sm text-red-500">*</span>
+  {t("Type de financement")} <span className="text-sm text-red-500">*</span>
    </label>
             <div className="relative">
               <select
@@ -200,9 +200,9 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
               name="field_choisir_une_categorie"
               className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
             >
-  <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">cat 1</option>
-    <option value="cat 2">cat 2</option>
-      <option value="e963aabd-a8e3-4ecd-a573-796915b4a336">cat 3</option>
+  <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">Numéraire</option>
+    <option value="cat 2">Apport en industrie</option>
+      <option value="e963aabd-a8e3-4ecd-a573-796915b4a336">Nature</option>
               </select>
 
             </div>
@@ -438,48 +438,14 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
         />
       </div>
 
-      <div className="grid gap-2">
-        <label htmlFor="field_objet_du_financement" className="font-semibold text-text">
-          {t("field_objet_du_financement")} <span className="text-sm text-red-500"></span>
-        </label>
-        <input
-          id="field_objet_du_financement"
-          name="field_objet_du_financement"
-          maxLength={255}
 
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
 
-      <div className="grid gap-2">
-        <label htmlFor="field_tags" className="font-semibold text-text">
-          {t("field_tags")} <span className="text-sm text-red-500"></span>
-        </label>
-        <input
-          id="field_tags"
-          name="field_tags"
-          maxLength={255}
 
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
 
-      <div className="grid gap-2">
-        <label htmlFor="field_type_de_financement" className="font-semibold text-text">
-          {t("field_type_de_financement")} <span className="text-sm text-red-500"></span>
-        </label>
-        <input
-          id="field_type_de_financement"
-          name="field_type_de_financement"
-          maxLength={255}
-
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
 
       <div className="grid gap-2">
         <label htmlFor="mail" className="font-semibold text-text">
-          {t("image")} <span className="text-sm text-red-500"></span>
+          {t("Documents joints")} <span className="text-sm text-red-500"></span>
         </label>
         <input
           type="file"
