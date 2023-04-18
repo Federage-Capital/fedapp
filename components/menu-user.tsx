@@ -144,7 +144,21 @@ export function MenuUser() {
               </MenuLink>
             )}
           </Menu.Item>
-
+          <Menu.Item>
+            {({ active }) => (
+              <MenuLink
+                href="/alluserlist"
+                className={classNames(
+                  "flex hover:bg-body w-full px-3 py-2 text-text",
+                  {
+                    "bg-body": active,
+                  }
+                )}
+              >
+                {t("Explorer")}
+              </MenuLink>
+            )}
+          </Menu.Item>
             <Menu.Item>
             {({ active }) => (
               <MenuLink
