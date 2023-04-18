@@ -640,5 +640,7 @@ export async function getServerSideProps(
       user,
       grfederagenodes,
     },
+    revalidate: 5,
+
   };
 }

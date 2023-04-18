@@ -215,5 +215,7 @@ params,
        nodes: deserialize(results) as DrupalNode[],
        facets: results.meta.facets,
      },
+     revalidate: 5,
+
    };
  }
