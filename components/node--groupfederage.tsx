@@ -135,6 +135,7 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
 <span className="text-sm">Projet créé le  {formatDate(node.created)}</span>
 </div>
   </div>
+
 {session.accessToken}
 
 
@@ -250,6 +251,7 @@ Membres
 {financementdugroupe.field_estimation_du_prix}
 
 
+statut{financementdugroupe.status}
 
                     <Link href={financementdugroupe.view_node}>
 

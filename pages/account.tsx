@@ -10,6 +10,7 @@ import { drupal } from "lib/drupal";
 import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
+import { NodeArticleRow } from "components/node--fin--row"
 
 import useSWR from 'swr'
 
@@ -30,6 +31,9 @@ interface AccountPageProps extends LayoutProps {
   financementsdansgr,
 }
 
+
+interface FormGroupfinProps extends React.HTMLProps<HTMLFormElement> {}
+
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
@@ -37,12 +41,17 @@ export default function AccountsPage({
   user,
   node,
   menus,
+  article,
   objectFit,
   priority,
   financementsdansgr,
   membersdugroupe,
+  filteredPerson1,
+  className,
+  ...props
 }: AccountPageProps) {
 
+  const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
 
 
 
@@ -63,6 +72,11 @@ export default function AccountsPage({
   const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
   const { data: tableau, error: tableauError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_5`+ `/`+ user[0].id, fetcher)
   const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
+  const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
+
+  if (totaldugroupeError) return <div>Failed to load total du groupe</div>
+if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
+
   if (propositionsError) return <div>Failed to propositionsError 23</div>
 if (!propositions) return <div>Loading Propositions ...</div>
 if (tableauError) return <div>Failed to load 23</div>
@@ -85,22 +99,10 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
 
-  async function handleDelete() {
-    if (!window?.confirm(t("are-you-use-you-want-to-delete-this-article"))) {
-      return
-    }
-
-    const response = await fetch(`/api/group/projets_federage/${financementsdansgr.id}`, {
-      method: "DELETE",
-    })
-
-    if (response?.ok) {
-      router.reload()
-    }
 
 
 
-  }
+
 
   return (
     <Layout
@@ -138,8 +140,6 @@ const getTotFin2 = (financements2dugroupe) => {
                               />
 
                           )}
-
-
 
 
 
@@ -304,9 +304,42 @@ const getTotFin2 = (financements2dugroupe) => {
                         </div>
 
                           <div className="min-w-0 flex-1">
-                             {filteredPerson1.label}
-                             <span className="text-2xl font-semibold">
+                             {filteredPerson1.label}<br/>
+admin : {filteredPerson1.uid.display_name}
+                             <span >
+                             {totaldugroupe?.length ? (
+                             <div>
 
+                             {totaldugroupe.filter(person6 => person6.uuid.includes(filteredPerson1.id)).map(filteredPerson6 => {
+
+                             return (
+
+                             <div className="flex-container card" key={filteredPerson6.uuid}>
+
+                               <div className="content">
+                                Montant total des apports :     <span className="text-2xl font-semibold">{filteredPerson6.field_estimation_du_prix} €</span>
+
+                                 <div>
+
+                             </div>
+                               </div>
+
+
+                             </div>)
+                             })}
+
+
+
+                             </div>
+                             ) : (
+                             <p >
+
+
+
+                             </p>
+
+
+                             )}
                              {financements2dugroupe?.length ? (
                              <div>
 
@@ -317,7 +350,7 @@ const getTotFin2 = (financements2dugroupe) => {
                              <div className="flex-container card" key={filteredPerson5.uuid}>
 
                                <div className="content">
-                                  {filteredPerson5.field_estimation_du_prix} €
+                                Montant de mon apport dans le projet :   <span className="text-2xl font-semibold">{filteredPerson5.field_estimation_du_prix} €</span>
                                  <div>
 
                              </div>
@@ -351,21 +384,16 @@ const getTotFin2 = (financements2dugroupe) => {
                         </div>
                           </div>
                           <div className="flex-shrink-2">
-                          <Link href={filteredPerson1.path.alias} passHref>
-                        <a>
-                            <svg
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="w-4 h-4 ml-2"
-                            >
-                              <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                          </Link>
+                          <NodeArticleRow key={filteredPerson1.id} node={filteredPerson1} />
+
+
+
+
+
+
+
+
+
                         </div>
 
                         </div>)
@@ -456,7 +484,7 @@ const getTotFin2 = (financements2dugroupe) => {
 
                                                   {demandes.field_estimation_du_prix} €
 
-
+statut : {demandes.status}
 
 
                                                   </span>
@@ -521,6 +549,7 @@ const getTotFin2 = (financements2dugroupe) => {
                    {filteredOffre1.field_estimation_du_prix} €
 
                 Nom du contributeur: {filteredOffre1.uid_1}<br/>
+                statut: {filteredOffre1.status}<br/>
 
 
 

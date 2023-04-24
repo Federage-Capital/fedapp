@@ -26,7 +26,7 @@ interface IndexPageProps {
 interface WebformPageProps {
   teams: DrupalTaxonomyTerm[]
 }
- 
+
 
 
 export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPageProps, WebformPageProps) {
@@ -262,5 +262,7 @@ export async function getStaticProps(
 
       nodes,
     },
+    revalidate: 5,
+
   }
 }

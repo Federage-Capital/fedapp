@@ -141,7 +141,6 @@ export function FormGroupfin({ className, ...props }: FormGroupfinProps) {
 
       return setFormStatus({
         status: "error",
-        message: errors?.map((error) => error.detail),
       })
     }
 

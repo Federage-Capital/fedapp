@@ -127,7 +127,7 @@ export function FormGroupfinedit({ className, ...props }: FormGroupfineditProps)
     getDayCount(datepickerHeaderDate);
   }, [datepickerHeaderDate]);
 
-  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/jsonapi/group/federage/`+ '1ef922bb-698a-46ba-bfac-0b7299e0f3ec', fetcher)
+  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/jsonapi/group/federage/`+ query.gid, fetcher)
 
   if (financementError) return <div>Failed to load 23</div>
   if (!financements2dugroupe) return <div>Loading financement ...</div>
