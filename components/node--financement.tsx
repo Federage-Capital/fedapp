@@ -107,7 +107,6 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
   return (
     <article {...props}>
 
-      <h1 className="mb-4 text-6xl font-black leading-tight">Il faudrait un titre ici...</h1>
 
       <div className="mb-4 text-gray-600">
   <div className="asset-card mb-3">
@@ -138,6 +137,10 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
     <div className="text-base font-bold col-span-11 align-middle">
       <span className="text-xl fedblueblue font-semibold">   Montant de l&#39;apport </span><br/>
     <span className="text-3xl font-bold">  {node.field_estimation_du_prix}€</span>
+
+    </div>
+    <div>
+    {node.field_statut.name}
     </div>
       </div>
 </div>
@@ -162,6 +165,7 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
             alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
             priority
           />
+
 
 
           {node.field_media_image.field_media_image.resourceIdObjMeta.title && (

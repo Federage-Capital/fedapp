@@ -8,7 +8,7 @@ import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 
 import { formatDate } from "lib/utils"
 
-interface NodeFinRowProps {
+interface NodeGroupRowProps {
   node: DrupalNode,
 
 }
@@ -18,7 +18,7 @@ function classNames(...classes) {
 }
 
 
-export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
+export function NodeGroupRow({ node, groupe, filteredPerson1, ...props }: NodeGroupRowProps) {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -27,7 +27,7 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
       return
     }
 
-    const response = await fetch(`/api/publish/financement/${node.uuid_2}`, {
+    const response = await fetch(`/api/publish/groupfin/${node.id}`, {
       method: "DELETE",
     })
 
@@ -41,23 +41,7 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
       return
     }
 
-    const response = await fetch(`/api/publish/financement/${node.uuid_2}`, {
-      method: "PUT",
-
-        })
-
-    if (response?.ok) {
-      router.reload()
-    }
-  }
-
-
-  async function handleAgreed() {
-    if (!window?.confirm(t("are-you-use-you-are-agree-with-the-terms"))) {
-      return
-    }
-
-    const response = await fetch(`/api/publish/financement/${node.uuid_2}`, {
+    const response = await fetch(`/api/publish/groupfin/${node.id}`, {
       method: "PUT",
 
         })
@@ -72,11 +56,12 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
 
   return (
     <article
-
+      className=""
       {...props}
     >
 
-    <Menu as="div" className="relative ml-4 inline-block text-left">
+
+    <Menu as="div" className="relative inline-block text-left">
          <div>
            <Menu.Button className="flex items-center rounded-full bg-gray-100 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
              <span className="sr-only">Open options</span>
@@ -95,46 +80,35 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
          >
            <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
              <div className="py-1">
-                {node.field_statut == 'Proposé' &&
+
+
+             {node.moderation_state == 'draft' &&
+
                <Menu.Item>
                  {({ active }) => (
                    <a
- onClick={() => handleAgreed()}
+ onClick={() => handlePublish()}
                       className={classNames(
                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                        'block px-4 py-2 text-sm'
                      )}
                    >
 
-{t("Agree")}
+           
 
-
-
-
-
+             {t("publish")}
 
 
                    </a>
                  )}
                </Menu.Item>
-                  }
-               <Menu.Item>
-                 {({ active }) => (
-                   <a
-                     href={`/financement/edit?gid=${encodeURIComponent(node.uuid_2)}`}
-                     className={classNames(
-                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                       'block px-4 py-2 text-sm'
-                     )}
-                   >
 
 
-           Modifier
 
 
-                   </a>
-                 )}
-               </Menu.Item>
+
+
+       }
                <Menu.Item>
                  {({ active }) => (
                    <a
@@ -157,93 +131,34 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
                  )}
                </Menu.Item>
 
+               <Menu.Item>
+                 {({ active }) => (
+                   <a
+                href={`/groupfederage/edit?gid=${encodeURIComponent(node.id)}`}
+                     className={classNames(
+                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                       'block px-4 py-2 text-sm'
+                     )}
+                   >
+
+
+
+
+
+                           {t("modifier")}
+
+
+
+                   </a>
+                 )}
+               </Menu.Item>
+
              </div>
            </Menu.Items>
          </Transition>
        </Menu>
-      <div className="flex items-start justify-between text-text">
 
 
-
-
-
-
-
-            {node.field_statut == 'Accepter' &&
-                    <h2>
-
-            Do something
-
-                    </h2>
-
-
-
-
-            }
-        {node.moderation_state == 'published' &&
-                <h2>
-                <Link href={node.path.alias} passHref>
-
-              <a>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 ml-2"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-
-              </a>
-                </Link>
-                </h2>
-
-
-
-
-        }
-
-
-
-
-        {node.moderation_state == 'Draft' &&
-                <h2>
-
-
-
-
-
-<button
-  onClick={() => handlePublish()}
-  className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
->
-  {t("publish")}
-</button>
-
-
-
-
-
-
-
-                </h2>
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-      </div>
     </article>
   )
 }

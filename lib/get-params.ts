@@ -23,6 +23,7 @@ export function getParams(
         "field_media_image.field_media_image",
         "uid.user_picture",
         "field_tags",
+          "field_statut",
         "field_objet_du_financement",
         "field_choisir_une_categorie",
       ])
@@ -37,6 +38,7 @@ export function getParams(
                     "sticky",
         "uid",
         "field_tags",
+              "field_statut",
         "field_type_de_financement",
         "field_objet_du_financement",
         "field_estimation_du_prix",
@@ -48,6 +50,8 @@ export function getParams(
       .addFields("media--image", ["field_media_image"])
       .addFields("file--file", ["uri", "resourceIdObjMeta"])
       .addFields("taxonomy_term--tags", ["name", "path"])
+      .addFields("taxonomy_term--statut", ["name", "path"])
+
   }
 
   if (name === "node--article") {

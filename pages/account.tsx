@@ -10,7 +10,7 @@ import { drupal } from "lib/drupal";
 import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
-import { NodeArticleRow } from "components/node--fin--row"
+import { NodeGroupRow } from "components/node--group--row"
 
 import useSWR from 'swr'
 
@@ -73,6 +73,10 @@ export default function AccountsPage({
   const { data: tableau, error: tableauError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_5`+ `/`+ user[0].id, fetcher)
   const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
   const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
+  const { data: totaldugroupeprop, error: totaldugroupepropError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_7`, fetcher)
+
+  if (totaldugroupepropError) return <div>Failed to load total du groupe</div>
+if (!totaldugroupeprop) return <div>Loading  total du groupe ...</div>
 
   if (totaldugroupeError) return <div>Failed to load total du groupe</div>
 if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
@@ -309,7 +313,6 @@ admin : {filteredPerson1.uid.display_name}
                              <span >
                              {totaldugroupe?.length ? (
                              <div>
-
                              {totaldugroupe.filter(person6 => person6.uuid.includes(filteredPerson1.id)).map(filteredPerson6 => {
 
                              return (
@@ -317,7 +320,8 @@ admin : {filteredPerson1.uid.display_name}
                              <div className="flex-container card" key={filteredPerson6.uuid}>
 
                                <div className="content">
-                                Montant total des apports :     <span className="text-2xl font-semibold">{filteredPerson6.field_estimation_du_prix} €</span>
+                               {filteredPerson6.uuid}
+                                Montant total des apports validés (tous):     <span className="text-2xl font-semibold">{filteredPerson6.field_estimation_du_prix} €</span>
 
                                  <div>
 
@@ -340,6 +344,41 @@ admin : {filteredPerson1.uid.display_name}
 
 
                              )}
+
+                             {totaldugroupeprop?.length ? (
+                             <div>
+                             {totaldugroupeprop.filter(person7 => person7.uuid.includes(filteredPerson1.id)).map(filteredPerson7 => {
+
+                             return (
+
+                             <div className="flex-container card" key={filteredPerson7.uuid}>
+
+                               <div className="content">
+                                Montant total des apports non-validés:     <span className="text-2xl font-semibold">{filteredPerson7.field_estimation_du_prix} €</span>
+
+                                 <div>
+
+                             </div>
+                               </div>
+
+
+                             </div>)
+                             })}
+
+
+
+                             </div>
+                             ) : (
+                             <p >
+
+
+
+                             </p>
+
+
+                             )}
+
+
                              {financements2dugroupe?.length ? (
                              <div>
 
@@ -384,10 +423,34 @@ admin : {filteredPerson1.uid.display_name}
                         </div>
                           </div>
                           <div className="flex-shrink-2">
-                          <NodeArticleRow key={filteredPerson1.id} node={filteredPerson1} />
+                          <NodeGroupRow key={filteredPerson1.id} node={filteredPerson1} />
+
+
+                          {filteredPerson1.moderation_state == 'published' &&
+                                  <h2>
+                                  <Link href={filteredPerson1.path.alias} passHref>
+
+                                <a>
+                                    <svg
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      className="w-4 h-4 ml-2"
+                                    >
+                                      <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+
+                                </a>
+                                  </Link>
+                                  </h2>
 
 
 
+
+                          }
 
 
 

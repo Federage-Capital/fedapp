@@ -6,6 +6,9 @@ import { useRouter } from "next/router"
 import { getSession, useSession, signOut } from "next-auth/react";
 import * as React from "react";
 import { useTranslation } from "next-i18next"
+import { NodeFinRow } from "components/node--fin--row"
+
+import { NodeGroupfinRow } from "components/node--groupfin--row"
 
 import { absoluteURL, formatDate } from "lib/utils"
 
@@ -22,20 +25,6 @@ const [openTab, setOpenTab] = React.useState(1);
 const { t } = useTranslation()
 const router = useRouter()
 
-async function handleDelete() {
-  if (!window?.confirm(t("are-you-use-you-want-to-delete-this-article"))) {
-    return
-  }
-
-  const response = await fetch(`/api/groupfederage/${node.id}`, {
-    method: "DELETE",
-  })
-
-  if (response?.ok) {
-    router.push("/account")
-  }
-
-}
 
 
 const { data: users, error: userError } = useSWR('https://fed.septembre.io/users_in_group/'+ node.id, fetcher)
@@ -70,36 +59,44 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
 
 
 
-<div className="articles pl-4">
-
-<div className="grid grid-cols-12 gap-4">
-<button
-  onClick={() => handleDelete()}
-  className="px-2 py-1 text-white redbutton rounded-md hover:bg-error bg-error/80"
->
-
-  {t("delete")}
-</button>
 
 
-<Link href={`/groupfederage/edit?gid=${encodeURIComponent(node.id)}`}>
-<a className="px-2 py-1 fedblue text-white rounded-md text-center hover:bg-error bg-error/80">
 
 
-    Modifier
 
-  </a>
-</Link>
+
 
 <div>
 
-</div>
-</div>
+
+
 
 <div className="box-content p-4 border-2 rounded-lg mb-8">
-{getTotFin2(financementsdugroupe)}
+<div className="mb-4 grid grid-cols-12 gap-4">
 
-  <h1 className="text-xl font-bold">{node.label}</h1>
+<div className="col-span-10"> <h1 className="text-3xl font-black leading-tight">{node.label}</h1><br/>
+<div className="grid grid-cols-12 gap-0">
+
+<div>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C5.44772 2 5 2.44772 5 3V4H4C2.89543 4 2 4.89543 2 6V16C2 17.1046 2.89543 18 4 18H16C17.1046 18 18 17.1046 18 16V6C18 4.89543 17.1046 4 16 4H15V3C15 2.44772 14.5523 2 14 2C13.4477 2 13 2.44772 13 3V4H7V3C7 2.44772 6.55228 2 6 2ZM6 7C5.44772 7 5 7.44772 5 8C5 8.55228 5.44772 9 6 9H14C14.5523 9 15 8.55228 15 8C15 7.44772 14.5523 7 14 7H6Z" fill="#9CA3AF"/>
+</svg>
+</div>
+<div className="col-span-11">
+
+<span className="text-sm">Projet créé le  {formatDate(node.created)}</span>
+
+</div>
+  </div></div>
+<div className="col-span-1 text-right">   {financementsdugroupe.length} projects </div>
+ <div className="col-span-1 text-right"><NodeGroupfinRow key={node.id} node={node} /></div>
+</div>
+
+<div className="mb-4 grid grid-cols-12 gap-4">
+
+<div className="col-span-10">
+
+
 
 
   {node.field_categorie?.name && (
@@ -119,24 +116,15 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
   )}
   </span>
 
-
-
-
-
-<div className="grid grid-cols-12 gap-4">
-
+</div>
 <div>
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C5.44772 2 5 2.44772 5 3V4H4C2.89543 4 2 4.89543 2 6V16C2 17.1046 2.89543 18 4 18H16C17.1046 18 18 17.1046 18 16V6C18 4.89543 17.1046 4 16 4H15V3C15 2.44772 14.5523 2 14 2C13.4477 2 13 2.44772 13 3V4H7V3C7 2.44772 6.55228 2 6 2ZM6 7C5.44772 7 5 7.44772 5 8C5 8.55228 5.44772 9 6 9H14C14.5523 9 15 8.55228 15 8C15 7.44772 14.5523 7 14 7H6Z" fill="#9CA3AF"/>
-</svg>
-</div>
-<div className="col-span-11">
+Estimation de la valeur :
+{getTotFin2(financementsdugroupe)}
 
-<span className="text-sm">Projet créé le  {formatDate(node.created)}</span>
 </div>
-  </div>
+</div>
 
-{session.accessToken}
+
 
 
 
@@ -240,48 +228,76 @@ Membres
                 {financementsdugroupe?.length ? (
 
 
-                <p>                    You have  {financementsdugroupe.length} projects
+                <p>
                     {financementsdugroupe.map((financementdugroupe) => (
 
 
-                    <div key={financementdugroupe.id} className="asset-card mb-3">
+                    <div key={financementdugroupe.id} className="asset-card-2 mb-3">
 
-
-
-{financementdugroupe.field_estimation_du_prix}
-
-
-statut{financementdugroupe.status}
-
-                    <Link href={financementdugroupe.view_node}>
-
-<div
-  dangerouslySetInnerHTML={{ __html: financementdugroupe.label_1 }}
-  className="font-medium text-lg leading-loose"
-/>
-
-                    </Link>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: financementdugroupe.body }}
-                      className="text-sm gray-700 leading-loose"
-                    />
 
                     <div className="grid grid-cols-12 gap-4">
 
-                    <div>
-<svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.0336 4.64123C14.8404 3.83443 16.1485 3.83443 16.9553 4.64123C17.7621 5.44803 17.7621 6.75611 16.9553 7.5629L16.1363 8.38194L13.2146 5.46026L14.0336 4.64123Z" fill="#9CA3AF"/>
-<path d="M11.7538 6.9211L3.09888 15.576V18.4977H6.02055L14.6754 9.84277L11.7538 6.9211Z" fill="#9CA3AF"/>
-</svg>
-</div>
-<div className="col-span-11">
-Ajouté par : <Link href={financementdugroupe.view_user}>
-{financementdugroupe.uid}
+                    <div className="col-span-1 text-right">
+              <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0336 4.64123C14.8404 3.83443 16.1485 3.83443 16.9553 4.64123C17.7621 5.44803 17.7621 6.75611 16.9553 7.5629L16.1363 8.38194L13.2146 5.46026L14.0336 4.64123Z" fill="#9CA3AF"/>
+              <path d="M11.7538 6.9211L3.09888 15.576V18.4977H6.02055L14.6754 9.84277L11.7538 6.9211Z" fill="#9CA3AF"/>
+              </svg>
+              </div>
+              <div className="col-span-9">
+              Ajouté par : <Link href={financementdugroupe.view_user}>
+              {financementdugroupe.uid}
 
 
                     </Link></div>
+
+            <div className="col-span-2">
+                    <button class="inline-block px-3 py-1 fedblue text-white transition-colors rounded-xl text-sm text-center font-semibold lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+{financementdugroupe.field_statut}
+</button>
+<div className="inline-block">  <NodeFinRow key={financementdugroupe.id} node={financementdugroupe} /></div>
+
 </div>
-<div className="button-fin mx-auto">
+              </div>
+
+                    <div class="grid grid-cols-12 gap-4">
+                      <div className="col-span-9">
+
+                      <h1>
+
+
+
+                      <Link href={financementdugroupe.view_node}>
+
+                    <div
+                    dangerouslySetInnerHTML={{ __html: financementdugroupe.label_1 }}
+                    className="mb-4 text-3xl font-black leading-tight"
+                    />
+
+                      </Link>
+                      </h1>
+
+
+                      </div>
+                      <div className="col-span-2">
+
+Estimation : {financementdugroupe.field_estimation_du_prix} €
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div
+                      dangerouslySetInnerHTML={{ __html: financementdugroupe.body }}
+                      className="text-prose gray-700 leading-loose"
+                    />
+
+
+<div className="button-fin w-100 text-center mx-auto">
 <Link href={financementdugroupe.view_node}>
 
 Détail du financement
