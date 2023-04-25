@@ -222,9 +222,10 @@ const getTotFin2 = (financements2dugroupe) => {
                         href="#link2"
                         role="tablist"
                       >
-                        Mes propositions
+                        Offres
                       </a>
                     </li>
+
                     <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
                         className={
@@ -236,25 +237,6 @@ const getTotFin2 = (financements2dugroupe) => {
                         onClick={e => {
                           e.preventDefault();
                           setOpenTab(3);
-                        }}
-                        data-toggle="tab"
-                        href="#link32"
-                        role="tablist"
-                      >
-                        Demandes
-                      </a>
-                    </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 4
-                            ? "bg-gray" + "-100"
-                            : "text-" + "gray-700")
-                        }
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(4);
                         }}
                         data-toggle="tab"
                         href="#link4"
@@ -320,7 +302,7 @@ admin : {filteredPerson1.uid.display_name}
                              <div className="flex-container card" key={filteredPerson6.uuid}>
 
                                <div className="content">
-                               {filteredPerson6.uuid}
+
                                 Montant total des apports validés (tous):     <span className="text-2xl font-semibold">{filteredPerson6.field_estimation_du_prix} €</span>
 
                                  <div>
@@ -508,72 +490,8 @@ admin : {filteredPerson1.uid.display_name}
 
 
                         <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                          <p>
-
-                          {financementsd1groupe?.length ? (
-
-                            <div>
 
 
-
-                            <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes</h3>
-
-
-                                                {financementsd1groupe.map((demandes) => (
-
-
-
-                                                            <div
-                                                              key={demandes.id}
-                                                              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
-                                                            >
-                                                              <div className="flex-shrink-0">
-                                                              <Image
-                                                                src={absoluteURL(demandes.user_picture)}
-                                                                width={30}
-                                                                height={30}
-                                                                className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
-                                                                objectFit="cover"
-                                                                alt={demandes.title}
-                                                                priority
-                                                              />
-                                                                                                </div>
-                                                              <div className="min-w-0 flex-1">
-                                                  <Link href={demandes.view_node} passHref>
-                                                              <a>
-                                                  <h2 className="text-sm gray-700">{demandes.title}</h2>
-                                              <h2 className="text-sm gray-700">{demandes.label}</h2>
-                                                  <span className="text-2xl font-semibold">
-
-                                                  {demandes.field_estimation_du_prix} €
-
-statut : {demandes.status}
-
-
-                                                  </span>
-
-                                                  </a>
-                                                  </Link>
-
-
-
-                                                              </div>
-                                                              <div className="flex-shrink-2">
-
-
-                          </div>
-                                                            </div>
-
-                                                       ))}
-                                                       </div>
-                                                     ) : (
-                                                       <p className="text-2xl cadre text-center p-20 mb-10">
-
-                                                       </p>
-                                                     )}
-                          </p>
-                        </div>
-                        <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                         <p>
                         {propositions?.length ? (
 
@@ -602,26 +520,30 @@ statut : {demandes.status}
                               alt={filteredOffre1.title}
                               priority
                             />
+
                                                               </div>
                             <div className="min-w-0 flex-1">
-                <Link href={filteredOffre1.view_group} passHref>
+
+                    <Link href={filteredOffre1.view_group} passHref>
                             <a>
-                <h2 className="text-sm gray-700">{filteredOffre1.title}</h2>
-            <h2 className="text-sm gray-700">{filteredOffre1.label}</h2>
-                <span className="text-2xl font-semibold">
-                   {filteredOffre1.field_estimation_du_prix} €
+                            <div className="w-100">
+                    <h2 className="text-sm inline-block gray-700">{filteredOffre1.label}</h2>
+                    <h2 className="text-sm inline-block float-right">  <NodeGroupRow key={filteredOffre1.id} node={filteredOffre1} /></h2>
+</div>
+                    <span className="text-2xl font-semibold">
+                    {filteredOffre1.field_estimation_du_prix} €
 
-                Nom du contributeur: {filteredOffre1.uid_1}<br/>
-                statut: {filteredOffre1.status}<br/>
+                    Nom du contributeur: {filteredOffre1.uid_1}<br/>
+                    statut: {filteredOffre1.field_statut}<br/>
 
 
 
 
 
-                </span>
+                    </span>
 
-                </a>
-                </Link>
+                    </a>
+                    </Link>
 
 
 
@@ -629,7 +551,7 @@ statut : {demandes.status}
                             <div className="flex-shrink-2">
 
 
-          </div>
+                    </div>
                           </div>
 
 
@@ -660,10 +582,84 @@ statut : {demandes.status}
 
                                                      </p>
                                                    )}
+
                         </p>
+
+
+
+
+
+                          <p>
+
+                          {financementsd1groupe?.length ? (
+
+                            <div>
+
+
+
+                            <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes auxquels je participe</h3>
+
+
+                                                {financementsd1groupe.map((demandes) => (
+
+
+
+                                                            <div
+                                                              key={demandes.id}
+                                                              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
+                                                            >
+                                                              <div className="flex-shrink-0">
+                                                              <Image
+                                                                src={absoluteURL(demandes.user_picture)}
+                                                                width={30}
+                                                                height={30}
+                                                                className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                                                                objectFit="cover"
+                                                                alt={demandes.title}
+                                                                priority
+                                                              />
+                                                                                                </div>
+                                                              <div className="min-w-0 flex-1">
+                                                  <Link href={demandes.view_node} passHref>
+                                                              <a>
+                                                              <div className="w-100">
+                                                      <h2 className="text-sm inline-block gray-700">{demandes.label}</h2>
+                                                      <h2 className="text-sm inline-block float-right">  <NodeGroupRow key={demandes.id} node={demandes} /></h2>
+                                  </div>
+
+                                                  <span className="text-2xl font-semibold">
+
+                                                  {demandes.field_estimation_du_prix} €
+
+statut : {demandes.field_statut}
+
+
+                                                  </span>
+
+                                                  </a>
+                                                  </Link>
+
+
+
+                                                              </div>
+                                                              <div className="flex-shrink-2">
+
+
+                          </div>
+                                                            </div>
+
+                                                       ))}
+                                                       </div>
+                                                     ) : (
+                                                       <p className="text-2xl cadre text-center p-20 mb-10">
+
+                                                       </p>
+                                                     )}
+                          </p>
                         </div>
 
-                        <div className={openTab === 4 ? "block" : "hidden"} id="link3">
+
+                        <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                           <p>
 
 
@@ -687,7 +683,6 @@ statut : {demandes.status}
 
                                     {findetails.label}
 
-
                                     <div>Intitulé de l&apos;apport</div>
                                     <div>Type d&apos;apport</div>
                                     <div>    {financements2dugroupe?.length ? (
@@ -697,12 +692,15 @@ statut : {demandes.status}
 
                                         return (
 
-                                        <div className="flex-container card" key={filteredPerson5.uuid}>
+                                        <div key={filteredPerson5.uuid}>
 
                                           <div className="content">
-
                                              {filteredPerson5.field_estimation_du_prix} €
+ {filteredPerson5.field_statut}
+
                                             <div>
+
+
 
                                         </div>
                                           </div>
