@@ -204,15 +204,22 @@ export function NodeFinancement({ node, className, ...props }: NodeFinancementPr
                   <span className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
                   <div className="relative  flex items-start space-x-3">
                     <div className="relative">
-                    <Image
-                      src={absoluteURL(node.uid?.user_picture.uri.url)}
-                      width={30}
-                      height={30}
-                      className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
-                      objectFit="cover"
-                      alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
-                      priority
-                    />
+
+
+                    {node.uid.user_picture?.uri.url && (
+                      <Image
+                        src={absoluteURL(node.uid.user_picture?.uri.url)}
+                        width={30}
+                        height={30}
+                        className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                        objectFit="cover"
+                        alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
+                        priority
+                      />
+                    )}
+
+
+
 
 
                       <span className="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
