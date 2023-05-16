@@ -14,14 +14,11 @@ export function Layout({ meta, menus, children }: LayoutProps) {
   return (
     <>
       <Meta {...meta} />
-      <div className="max-w-screen-lg px-6 mx-auto">
+      <div className="max-w-screen-lg mx-auto">
         <PreviewAlert />
-
         <Header menus={{ main: menus.main }} />
-        <main className="flex-1 pb-10 bg-body">{children}</main>
+        <main className="flex-1 pb-10 px-6 bg-body">{children}</main>
 
-      </div>
-      <div className="w-full md:w-auto">
       <Footer />
       </div>
       <TailwindIndicator />

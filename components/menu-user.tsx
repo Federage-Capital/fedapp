@@ -132,7 +132,7 @@ export function MenuUser() {
           <Menu.Item>
             {({ active }) => (
               <MenuLink
-                href="/account"
+                href="/comptabilite"
                 className={classNames(
                   "flex hover:bg-body w-full px-3 py-2 text-text",
                   {

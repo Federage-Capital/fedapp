@@ -7,6 +7,7 @@ import { PageHeader } from "components/page-header"
 import { FormGroupfinedit } from "components/form--groupfinedit"
 import { useState, useEffect } from "react";
 import { Folder } from "public/foldersvg"
+import { NodeFinComment } from "components/node--financement--comment"
 
 interface EditArticlesPageProps extends LayoutProps {}
 
@@ -14,7 +15,7 @@ export default function EditArticlesPage({
   menus,
   blocks,
   articles,
-
+node,
 }: EditArticlesPageProps) {
   const { t } = useTranslation()
 
@@ -27,13 +28,12 @@ export default function EditArticlesPage({
     <div className="inline-block">  <Folder /> </div>
     </div>
       <PageHeader
-        heading={t("modifier-le-projet")}
+        heading={t("decrire-le-projet")}
 
       />
       <div className="container pb-10">
 
-        <FormGroupfinedit className="max-w-2xl mx-auto" />
-      </div>
+<NodeFinComment  />      </div>
 
 
     </Layout>

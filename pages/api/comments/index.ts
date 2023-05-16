@@ -3,7 +3,7 @@ import { Formidable, PersistentFile } from "formidable"
 import { getSession } from "next-auth/react"
 import { promises as fs } from "fs"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params"
-import { DrupalFile, DrupalMedia, DrupalNode, JsonApiErrors } from "next-drupal"
+import { DrupalFile, DrupalMedia, DrupalNode, DrupalComment, JsonApiErrors } from "next-drupal"
 import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
@@ -42,7 +42,7 @@ export default async function handler(
     })
 
     const fields = await new Promise<FormBodyFields>((resolve, reject) => {
-      form.parse(req, async (error, fields, files) => {
+      form.parse(req, async (error, fields) => {
         if (error) {
           reject(error)
           return
@@ -51,8 +51,7 @@ export default async function handler(
         resolve({
           subject: fields.subject[0],
           comment: fields.comment[0],
-          nodeid: fields.nodeid[0],
-
+          nodeid: fields.nodeid[0]
         })
       })
     })
@@ -81,6 +80,12 @@ export default async function handler(
             field_name: "comment",
           },
           relationships: {
+
+        
+                 pid: {
+                     data: null,
+
+                 },
             entity_id: {
               data: {
                 type: "node--financement",
@@ -93,7 +98,7 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("node--financement", ["title"])
+          .addFields("comment-comment", ["subject"])
           .getQueryObject(),
       }
     )

@@ -23,7 +23,7 @@ export default async function handler(
     const id = req.query.id as string
 
     // Delete the article.
-    const deleted = await drupal.deleteResource("node--financement", id, {
+    const deleted = await drupal.deleteResource("comment--comment", id, {
       withAuth: session.accessToken,
     })
 

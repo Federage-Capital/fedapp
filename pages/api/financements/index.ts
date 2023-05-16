@@ -9,7 +9,7 @@ import { drupal } from "lib/drupal"
 type FormBodyFields = {
   title: string
   body: string
-  image: PersistentFile
+  document: PersistentFile
   gid: string
   field_estimation_du_prix: string
   field_date_de_livraison: date
@@ -54,7 +54,7 @@ export default async function handler(
         resolve({
           title: fields.title[0],
           body: fields.body[0],
-          image: files["image"][0],
+          document: files["document"][0],
           gid: fields.gid[0],
           field_estimation_du_prix: fields.field_estimation_du_prix[0],
           field_date_de_livraison: fields.field_date_de_livraison,
@@ -75,7 +75,9 @@ export default async function handler(
       {
         data: {
           attributes: {
+
             name: fields.field_choisir_une_categorie,
+            id: fields.field_choisir_une_categorie,
           },
 
         },
@@ -91,10 +93,10 @@ export default async function handler(
       {
         data: {
           attributes: {
-            type: "media--image",
-            field: "field_media_image",
-            filename: fields.image.newFilename,
-            file: await fs.readFile(fields.image.filepath),
+            type: "media--document",
+            field: "field_media_document",
+            filename: fields.document.newFilename,
+            file: await fs.readFile(fields.document.filepath),
           },
         },
       },
@@ -103,16 +105,16 @@ export default async function handler(
       }
     )
 
-    // 2. Create the media--image resource from the file--file.
+    // 2. Create the media-document image resource from the file--file.
     const media = await drupal.createResource<DrupalMedia>(
-      "media--image",
+      "media--document",
       {
         data: {
           attributes: {
-            name: fields.image.newFilename,
+            name: fields.document.newFilename,
           },
           relationships: {
-            field_media_image: {
+            field_media_document: {
               data: {
                 type: "file--file",
                 id: file.id,
@@ -126,7 +128,7 @@ export default async function handler(
       }
     )
 
-    // Create the node--article resource with the media--image relationship.
+    // Create the node--article resource with the media--document relationship.
     const article = await drupal.createResource<DrupalNode>(
       "node--financement",
       {
@@ -142,12 +144,25 @@ export default async function handler(
           field_estimation_du_prix: fields.field_estimation_du_prix,
           },
           relationships: {
-            field_media_image: {
+            field_document_s_annexe_s_: {
               data: {
-                type: "media--image",
+                type: "media--document",
                 id: media.id,
               },
             },
+
+            field_choisir_une_categorie: {
+                data: {
+                    type: "taxonomy_term--categorie",
+                    id: fields.field_choisir_une_categorie,
+
+            },
+            },
+
+
+
+
+
           },
         },
       },

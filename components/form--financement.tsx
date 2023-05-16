@@ -3,6 +3,7 @@ import classNames from "classnames"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
+
 import {
   format,
   subMonths,
@@ -177,7 +178,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
       )}
       <div className="grid gap-2">
         <label htmlFor="title" className="font-semibold text-text">
-          {t("title")} <span className="text-sm text-red-500">*</span>
+          {t("Nom de l’apport")} <span className="text-sm text-red-500">*</span>
         </label>
         <input
           id="title"
@@ -188,11 +189,20 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
         />
       </div>
 
-
+      <div className="grid gap-2">
+        <label htmlFor="body" className="font-semibold text-text">
+          {t("Objet de l’apport")} <span className="text-sm text-red-500">*</span>
+        </label>
+        <textarea
+          id="body"
+          name="body"
+          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        ></textarea>
+      </div>
 
       <div className="grid gap-2">
             <label className="blofont-semibold text-text" htmlFor="grid-state">
-  {t("Type de financement")} <span className="text-sm text-red-500">*</span>
+  {t("Type d’apport")} <span className="text-sm text-red-500">*</span>
    </label>
             <div className="relative">
               <select
@@ -201,25 +211,40 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
               className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
             >
   <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">Numéraire</option>
-    <option value="cat 2">Apport en industrie</option>
-      <option value="e963aabd-a8e3-4ecd-a573-796915b4a336">Nature</option>
+    <option value="e49e869f-22d7-4edd-9017-f134106ff86d">Apport en industrie</option>
+      <option value="9c801cd0-a804-43e4-ba22-092ccc2ae711">Nature</option>
               </select>
 
             </div>
           </div>
 
 
+          <div className="grid gap-2">
+            <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
+              {t("Montant de l’apport")} <span className="text-sm text-red-500">*</span>
+            </label>
+            <input
+              id="field_estimation_du_prix"
+              name="field_estimation_du_prix"
+              maxLength={255}
 
-      <div className="grid gap-2">
-        <label htmlFor="body" className="font-semibold text-text">
-          {t("description")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <textarea
-          id="body"
-          name="body"
-          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-        ></textarea>
-      </div>
+              className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <label htmlFor="document" className="font-semibold text-text">
+              {t("Devis ou facture proforma")} <span className="text-sm text-red-500"></span>
+            </label>
+            <input
+              type="file"
+              id="document"
+              name="document"
+
+              className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
+            />
+          </div>
+
       <div className="grid gap-2 hidden">
         <label htmlFor="gid" className="font-semibold text-text">
           {t("gid")} <span className="text-sm text-red-500">*</span>
@@ -241,7 +266,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
                 htmlFor="datepicker"
                 className="font-bold mb-1 text-gray-700 block"
               >
-                Select Date
+                Date de livraison
               </label>
               <div className="relative">
                 <input type="hidden" name="noname" />
@@ -425,46 +450,31 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
 
       </div>
 
-      <div className="grid gap-2">
-        <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
-          {t("field_estimation_du_prix")} <span className="text-sm text-red-500">*</span>
-        </label>
-        <input
-          id="field_estimation_du_prix"
-          name="field_estimation_du_prix"
-          maxLength={255}
+<p>
+Toute saisie réévalue l'apport. Les données financières doivent être validées par les partenaires pour être comptabilisées.
 
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-        />
-      </div>
+
+
+</p>
 
 
 
 
 
-
-      <div className="grid gap-2">
-        <label htmlFor="mail" className="font-semibold text-text">
-          {t("Documents joints")} <span className="text-sm text-red-500"></span>
-        </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-
-          className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
-        />
-      </div>
 
       <div>
+
+      <button type="button" onClick={() => router.back()}>
+    Click here to go back
+  </button>
         <input
           type="submit"
-          className="px-6 py-3 text-xl text-white transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
+          className="px-6 py-3 text-xl  transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
           disabled={formStatus?.status === "fetching"}
           value={
             formStatus?.status === "fetching"
               ? t("please-wait")
-              : t("create-article")
+              : t("suivant")
           }
         />
       </div>

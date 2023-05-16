@@ -128,10 +128,12 @@ export  function DatePicker() {
                 <input type="hidden" name="date" />
                 <input
                   type="text"
+                  id="field_date_de_livraison"
+                  name="field_date_de_livraison"
                   readOnly
                   className="cursor-pointer w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                   placeholder="Select date"
-                  value={format(selectedDate, "yyyy-MM-dd")}
+                  value={format(selectedDate, "yyyy-MM-dd'T'15:44:33+00:00")}
                   onClick={toggleDatepicker}
                 />
                 <div

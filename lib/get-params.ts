@@ -26,6 +26,7 @@ export function getParams(
           "field_statut",
         "field_objet_du_financement",
         "field_choisir_une_categorie",
+        "field_document_s_annexe_s_.field_media_document"
       ])
       .addFields("node--financement", [
         "title",
@@ -36,6 +37,7 @@ export function getParams(
         "created",
                 "promote",
                     "sticky",
+                    "field_document_s_annexe_s_",
         "uid",
         "field_tags",
               "field_statut",
@@ -44,12 +46,18 @@ export function getParams(
         "field_estimation_du_prix",
         "field_date_de_livraison",
         "field_choisir_une_categorie",
+        "field_objet_du_financement",
 
       ])
       .addFields("user--user", ["display_name", "user_picture"])
+      .addFields("media--document", ["field_media_document"])
+
       .addFields("media--image", ["field_media_image"])
       .addFields("file--file", ["uri", "resourceIdObjMeta"])
       .addFields("taxonomy_term--tags", ["name", "path"])
+        .addFields("taxonomy_term--categorie", ["name", "path"])
+        .addFields("taxonomy_term--objet_du_financement", ["name", "path"])
+
       .addFields("taxonomy_term--statut", ["name", "path"])
 
   }

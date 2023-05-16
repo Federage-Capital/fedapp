@@ -70,7 +70,6 @@ export default function AccountsPage({
 
   const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
   const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
-  const { data: tableau, error: tableauError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_5`+ `/`+ user[0].id, fetcher)
   const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
   const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
   const { data: totaldugroupeprop, error: totaldugroupepropError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_7`, fetcher)
@@ -83,8 +82,6 @@ if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
 
   if (propositionsError) return <div>Failed to propositionsError 23</div>
 if (!propositions) return <div>Loading Propositions ...</div>
-if (tableauError) return <div>Failed to load 23</div>
-if (!tableau) return <div>Loading financement ...</div>
 
   if (financement1Error) return <div>Failed to load 23</div>
   if (!financementsd1groupe) return <div>Loading financement ...</div>
@@ -128,7 +125,6 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
 
-
                           {user[0].user_picture && (
 
 
@@ -167,6 +163,10 @@ const getTotFin2 = (financements2dugroupe) => {
           <Link href="/groupfederage/new" passHref>
           <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
              Nouveau financement
+
+             {user.id
+             }
+
             </a>
           </Link>
           </p>
@@ -284,8 +284,8 @@ const getTotFin2 = (financements2dugroupe) => {
                         <div key={filteredPerson1.id} className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
                         <div className="flex-shrink-0">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" stroke-width="2.5" stroke-dasharray="5 5"/>
+                        <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" stroke-dasharray="5 5"/>
                         </svg>
                         </div>
 
@@ -469,7 +469,7 @@ admin : {filteredPerson1.uid.display_name}
                                                    ) : (
                                                      <p className="text-2xl cadre text-center p-20 mb-10">
                                                        <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                               <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                               <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"/>
                                </svg></p>
 
                                                      <p>  Aucun projet</p>
