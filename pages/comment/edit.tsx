@@ -33,7 +33,7 @@ node,
       />
       <div className="container pb-10">
 
-<NodeFinComment  />      </div>
+    </div>
 
 
     </Layout>

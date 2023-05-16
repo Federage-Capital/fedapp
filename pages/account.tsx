@@ -162,7 +162,7 @@ const getTotFin2 = (financements2dugroupe) => {
           <p className="text-lg mb-12">
           <Link href="/groupfederage/new" passHref>
           <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-             Nouveau financement
+             Nouveau projet
 
              {user.id
              }
@@ -184,6 +184,7 @@ const getTotFin2 = (financements2dugroupe) => {
                   <ul
                     className="flex mb-0 mt-4 list-none flex-wrap pt-3 pb-4 flex-row"
                     role="tablist"
+                    aria-label="liste des taches"
                   >
                     <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                       <a
@@ -202,6 +203,8 @@ const getTotFin2 = (financements2dugroupe) => {
                         data-toggle="tab"
                         href="#link1"
                         role="tablist"
+                        aria-label="tab 1"
+
                       >
                         En cours
                       </a>
@@ -221,6 +224,8 @@ const getTotFin2 = (financements2dugroupe) => {
                         data-toggle="tab"
                         href="#link2"
                         role="tablist"
+                        aria-label="offres"
+
                       >
                         Offres
                       </a>
@@ -241,6 +246,8 @@ const getTotFin2 = (financements2dugroupe) => {
                         data-toggle="tab"
                         href="#link4"
                         role="tablist"
+                        aria-label="transactions"
+
                       >
                          Transactions
                       </a>

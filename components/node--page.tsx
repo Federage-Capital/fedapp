@@ -57,14 +57,14 @@ export function NodePage({ node }: NodePageProps) {
                                                                    <summary className="text-lg">
                                                                   {paragraphe.field_title}
                                                                    </summary>
-                                                                   <p className="mt-2 max-w-xl text-sm text-gray-500">
+                                                                   <p className="mt-2  text-sm text-gray-500">
                                                                    <div
                                                                      dangerouslySetInnerHTML={{ __html: paragraphe.field_body?.processed }}
                                                                      className="mt-6 text-lg mx-auto max-w-screen-lg leading-loose prose"
                                                                    />
                                                                    </p>
                                                                </details>
- 
+
 
 
                                                </p>

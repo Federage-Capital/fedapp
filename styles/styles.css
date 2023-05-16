@@ -18,7 +18,11 @@ body{
 .gray-700{
 color:#4b5563;
   }
-
+.fix-bottom{
+position:absolute;
+bottom:0px;
+left:0px;
+right:0px;  }
 .newformfin  .pageheader{
 display:none;    }
 
