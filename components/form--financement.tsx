@@ -185,7 +185,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
           name="title"
           maxLength={255}
           required
-          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+          className="px-2 py-3 rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
         />
       </div>
 
@@ -196,19 +196,19 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
         <textarea
           id="body"
           name="body"
-          className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+          className="h-48 px-2 py-3 rounded-md border border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
         ></textarea>
       </div>
 
       <div className="grid gap-2">
-            <label className="blofont-semibold text-text" htmlFor="grid-state">
+            <label className="font-semibold text-text" htmlFor="grid-state">
   {t("Type d’apport")} <span className="text-sm text-red-500">*</span>
    </label>
             <div className="relative">
               <select
               id="field_choisir_une_categorie"
               name="field_choisir_une_categorie"
-              className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+              className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
             >
   <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">Numéraire</option>
     <option value="e49e869f-22d7-4edd-9017-f134106ff86d">Apport en industrie</option>
@@ -228,7 +228,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
               name="field_estimation_du_prix"
               maxLength={255}
 
-              className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+              className="px-2 py-3 rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
             />
           </div>
 
@@ -241,7 +241,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
               id="document"
               name="document"
 
-              className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
+              className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
             />
           </div>
 
@@ -260,8 +260,8 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
       <div className="grid gap-2">
       <div className="antialiased sans-serif">
         <div>
-          <div className="container mx-auto px-4 py-2 md:py-10">
-            <div className="mb-5 w-64">
+          <div className="container mx-auto  py-2 md:py-10">
+            <div className="mb-5 w-full">
               <label
                 htmlFor="datepicker"
                 className="font-bold mb-1 text-gray-700 block"
@@ -275,7 +275,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
                   id="field_date_de_livraison"
                   name="field_date_de_livraison"
                   readOnly
-                  className="cursor-pointer w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  className="cursor-pointer w-full pl-4 pr-10 py-3 leading-none rounded-md shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                   placeholder="Select date"
                   value={format(selectedDate, "yyyy-MM-dd'T'15:44:33+00:00")}
                   onClick={toggleDatepicker}
@@ -451,7 +451,7 @@ export function FormFinancement({ className, ...props }: FormFinancementProps) {
       </div>
 
 <p>
-Toute saisie réévalue l'apport. Les données financières doivent être validées par les partenaires pour être comptabilisées.
+Toute saisie réévalue l&apos;apport. Les données financières doivent être validées par les partenaires pour être comptabilisées.
 
 
 
@@ -464,19 +464,21 @@ Toute saisie réévalue l'apport. Les données financières doivent être valid�
 
       <div>
 
-      <button type="button" onClick={() => router.back()}>
-    Click here to go back
-  </button>
+      <div className="block  w-100 text-right">
+      <button onClick={() => router.back()} class="bg-white hover:bg-blue-500 text-black font-semibold hover:text-white py-2 px-4  hover:border-transparent rounded">
+        Annuler
+      </button>
+
         <input
           type="submit"
-          className="px-6 py-3 text-xl  transition-colors border-2 rounded-sm cursor-pointer bg-link hover:bg-white hover:text-black border-link"
-          disabled={formStatus?.status === "fetching"}
+          class="ml-10 bg-blue-300 hover:bg-blue-400 text-blue-700 font-bold py-2 px-4  hover:border-blue-500 rounded"
           value={
             formStatus?.status === "fetching"
               ? t("please-wait")
-              : t("suivant")
+              : t("Suivant")
           }
         />
+        </div>
       </div>
     </form>
   )

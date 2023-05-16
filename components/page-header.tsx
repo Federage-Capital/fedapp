@@ -18,11 +18,11 @@ export function PageHeader({
       {breadcrumbs?.length ? <Breadcrumbs items={breadcrumbs} /> : null}
       <div
         className={classNames(
-          "flex items-center py-10 text-text",
+          "pageheader flex items-center py-10 text-text",
           children ? "justify-between" : "justify-center"
         )}
       >
-        <h1 className="max-w-4xl text-2xl text-center md:text-5xl lg:text-4xl">
+        <h1 className=" max-w-4xl text-2xl text-center md:text-5xl lg:text-4xl">
           {heading}
         </h1>
         {children}

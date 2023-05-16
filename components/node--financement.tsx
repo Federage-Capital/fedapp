@@ -18,6 +18,9 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 
 export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
+  const router = useRouter()
+  const session = getSession()
+
 
   const { t } = useTranslation()
 
@@ -27,9 +30,6 @@ export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
 
 
 
-  const router = useRouter()
-  const session = getSession()
-
 
 
   return (
@@ -37,7 +37,6 @@ export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
 
 
       <div>
-
 
 
 
@@ -54,44 +53,58 @@ Publié par :
 />
 
 
+<div class="card shadow-md p-5">
 
-<div class="grid grid-cols-12 gap-4">
-<div className="col-span-1 text-right"><NodeFinancementRow key={node.id} node={node} /></div>
+<div class="grid grid-cols-12 gap-4 pb-10">
+  <div className="col-span-10 text-xl font-bold">Détail de l'apport</div>
+  <div className="col-span-2 text-right">
 
-  <div className="col-span-11 text-xl font-bold">Détail de l'apport</div>
 
-
-  <div>{node.field_statut.name}</div>
+  <button  class=" bg-blue-300 text-xs hover:bg-blue-400 text-blue-700  py-2 px-4  hover:border-blue-500 rounded">
+      {node.field_statut.name}
+  </button>
 </div>
 
 
-<p className="text-base font-medium">Prix négocié</p>
-<p className="text-base font-medium text-slate-500">{node.field_estimation_du_prix}€</p>
-
-<p className="text-base font-medium">Délai de livraison</p>
-<p className="text-base font-medium text-slate-500">{formatDate(node.field_date_de_livraison)}</p>
 
 
-  <button class="fedblue text-white w-full p-5">Edit</button>
+</div>
 
- 
+
+<p className="text-base ">Prix négocié</p>
+<p className="text-base font-medium text-slate-500 pb-5">{node.field_estimation_du_prix}€</p>
+
+<p className="text-base ">Délai de livraison</p>
+<p className="text-base font-medium text-slate-500 pb-5">{formatDate(node.field_date_de_livraison)}</p>
+
+<a
+  href={`/financement/edit?gid=${encodeURIComponent(node.id)}`}
+
+>
+
+  <button class="fedblue text-white w-full rounded p-1">Modifier</button>
+</a>
+</div>
+<div class="card shadow-md p-5">
+
   {revisionhistory?.length ? (
 
   <p>
 
       {revisionhistory.map((rev) => (
 
-      <div key={rev.id}>
+      <div key={rev.id} class="grid grid-cols-12 gap-4">
 
 
 
 
 
-  <p>
+<div className="col-span-1 text-xs text-slate-400">icone</div>
+<div className="col-span-10"><span className="font-semibold">{rev.revision_log} revison logs</span>
 
-{rev.changed}
-{rev.revision_log}
-<br/>revision id{rev.vid}  </p>
+<br/><span className="text-xs text-slate-400">{rev.changed}</span></div>
+<div className="col-span-1 text-xs text-slate-400"><br/>revision id : {rev.vid}  </div>
+
 
       </div>
 
@@ -104,6 +117,9 @@ Publié par :
   <p>   Participer à la conversation</p>
                                                 )}
 
+</div>
+
+<div class="card shadow-md p-5">
 
                                                 {node.field_document_s_annexe_s_.map((doc) => (
 
@@ -114,14 +130,19 @@ Publié par :
 
 
                                             <p>
-                                            <div className="col-span-11 text-xl font-bold">Ressources</div>
+                                            <div className=" text-xl font-bold">Ressources</div>
 
-                                            {doc.field_media_document.uri.url}
+Devis de l'apport :<br/>
+
+{absoluteURL(doc.field_media_document.uri.url)}
+
  </p>
 
                                                 </div>
 
                                                                       ))}
+
+                                                                      </div>
 </div>
 
 

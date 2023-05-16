@@ -18,6 +18,7 @@ export default function NewArticlesPage({
 
   return (
     <Layout meta={{ title: t("new-financement") }} menus={menus} blocks={blocks}>
+    <div className="newformfin">
       <PageHeader
 
         breadcrumbs={[
@@ -32,30 +33,35 @@ export default function NewArticlesPage({
           },
         ]}
       />
+      </div>
 
-      <div className="grid grid-cols-12 gap-4">
-      <div className="col-span-2">
+
+      <div className="grid grid-cols-12 gap-0 pb-10">
+      <div className="col-span-2 text-sm text-slate-400 font-semibold">
       <button type="button" onClick={() => router.back()}>
     Click here to go back
   </button>
   </div>
-  <div className="col-span-8 text-center">
-
-{t("Proposer un apport")}<br/>
-{t("Veuillez fournir des informations pour enregistrer votre participation au projet.")}
+  <div className="col-span-8 ">
 
 </div>
 
 
-<div className="col-span-2">
+<div className="col-span-2 text-sm text-slate-400 font-semibold">
 
 {t("Étape 1 sur 2")}
 </div>
       </div>
 
-      <div className="container pb-10">
+      <p className="text-3xl font-bold">
 
-        <FormFinancement className="max-w-2xl mx-auto" />
+    {t("Proposer un apport")}</p><br/>
+      <p className="text-slate-500">
+      {t("Veuillez fournir des informations pour enregistrer votre participation au projet.")}
+    </p>
+      <div className=" bg-slate-50  pb-10">
+
+        <FormFinancement className="max-w-2xl mx-auto mt-10 p-2 " />
       </div>
     </Layout>
   )
