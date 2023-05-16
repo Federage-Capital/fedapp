@@ -56,7 +56,7 @@ Publié par :
 <div class="card shadow-md p-5">
 
 <div class="grid grid-cols-12 gap-4 pb-10">
-  <div className="col-span-10 text-xl font-bold">Détail de l'apport</div>
+  <div className="col-span-10 text-xl font-bold">Détail de l&apos;apport</div>
   <div className="col-span-2 text-right">
 
 
@@ -132,7 +132,7 @@ Publié par :
                                             <p>
                                             <div className=" text-xl font-bold">Ressources</div>
 
-Devis de l'apport :<br/>
+Devis de l&apos;apport :<br/>
 
 {absoluteURL(doc.field_media_document.uri.url)}
 
