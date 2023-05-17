@@ -19,7 +19,7 @@ body{
 color:#4b5563;
   }
 
-  @media screen and (max-width: 640px) {
+  @media screen and (min-width: 769px) {
     .fix-bottom{
     position:fixed;
     bottom:0px;
