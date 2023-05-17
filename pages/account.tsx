@@ -69,7 +69,7 @@ export default function AccountsPage({
 
 
   const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
-  const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ user[0].id, fetcher)
+  const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ [user[0].id], fetcher)
   const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
   const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
   const { data: totaldugroupeprop, error: totaldugroupepropError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_7`, fetcher)

@@ -18,11 +18,16 @@ body{
 .gray-700{
 color:#4b5563;
   }
-.fix-bottom{
-position:fixed;
-bottom:0px;
-left:0px;
-right:0px;  }
+
+  @media screen and (max-width: 640px) {
+    .fix-bottom{
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;  }
+
+  }
+
 .newformfin  .pageheader{
 display:none;    }
 
