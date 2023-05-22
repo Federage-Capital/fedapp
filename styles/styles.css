@@ -20,9 +20,9 @@ color:#4b5563;
   }
 
   @media screen and (min-width: 769px) {
-    .fix-bottom{
-    position:fixed;
-    bottom:0px;
+   .fix-bottom{
+    position:absolute;
+
     left:0px;
     right:0px;  }
 
