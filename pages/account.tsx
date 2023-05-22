@@ -11,6 +11,7 @@ import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
 import { NodeGroupRow } from "components/node--group--row"
+import { useState, useEffect } from "react";
 
 import useSWR from 'swr'
 
@@ -66,13 +67,22 @@ export default function AccountsPage({
 
   const { status } = useSession()
   const [openTab, setOpenTab] = React.useState(1);
+  const [shouldFetch,setShouldFetch] = useState(false)
 
 
-  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
-  const { data: financementsd1groupe, error: financement1Error } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_4`+ `/`+ [user[0].id], fetcher)
+  const { data: total, error: totalError} = useSWR(() =>`https://fed.septembre.io/nested_total`+ `/`+ user[0].id, fetcher)
+
+  const { data: financements2dugroupe, error: financement2Error} = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
+  const { data: financementsd1groupe, error: financementError } = useSWR(shouldFetch ? 'https://fed.septembre.io/group_node_financement_rest_nested_4'+ `/`+ user[0].id : null, fetcher)
+
+
+
   const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
   const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
   const { data: totaldugroupeprop, error: totaldugroupepropError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_7`, fetcher)
+
+  if (financementError) return <div>Failed to load financementError</div>
+
 
   if (totaldugroupepropError) return <div>Failed to load total du groupe</div>
 if (!totaldugroupeprop) return <div>Loading  total du groupe ...</div>
@@ -80,23 +90,8 @@ if (!totaldugroupeprop) return <div>Loading  total du groupe ...</div>
   if (totaldugroupeError) return <div>Failed to load total du groupe</div>
 if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
 
-  if (propositionsError) return <div>Failed to propositionsError 23</div>
-if (!propositions) return <div>Loading Propositions ...</div>
 
-  if (financement1Error) return <div>Failed to load 23</div>
-  if (!financementsd1groupe) return <div>Loading financement ...</div>
 
-  if (financementError) return <div>Failed to load 23</div>
-  if (!financements2dugroupe) return <div>Loading financement ...</div>
-
-const getTotFin2 = (financements2dugroupe) => {
-        let sum = 0
-        for (let i = 0; i < financements2dugroupe.length; i++) {
-          sum += financements2dugroupe[i].field_estimation_du_prix
-        }
-        return sum
-
-      }
 
 
 
@@ -141,12 +136,26 @@ const getTotFin2 = (financements2dugroupe) => {
 
                           )}
 
+     <div className="px-5 py-3 text-base font-semibold">
+        Portefeuille<br/>
+             {total.length ? (
+   <span className="font-semibold text-2xl">                   {total.map((totaux) => (
+
+<p>
+ {totaux.field_estimation_du_prix} €
+</p>
+
+                   ))}
+                </span>
+               ) : (
+                 <p className="py-6">No Portefeuille found</p>
+               )}
 
 
-             <div className="px-5 py-3 text-base font-semibold">
-             Portefeuille<br/>
 
-             <span className="font-semibold text-2xl">  {getTotFin2(financements2dugroupe)} €</span>
+
+
+
              </div>
 
           </div>
