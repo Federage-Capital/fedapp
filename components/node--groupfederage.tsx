@@ -117,7 +117,19 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
 </div>
 <div>
 Estimation de la valeur :
-{total.field_estimation_du_prix}
+{total.length ? (
+<span className="font-semibold text-2xl">                   {total.map((totaux) => (
+
+<p key={totaux.field_estimation_du_prix}>
+{totaux.field_estimation_du_prix} €
+</p>
+
+      ))}
+   </span>
+  ) : (
+    <p className="py-6">No Portefeuille found</p>
+  )}
+
 
 </div>
 </div>
