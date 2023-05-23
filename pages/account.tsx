@@ -141,7 +141,7 @@ if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
              {total.length ? (
    <span className="font-semibold text-2xl">                   {total.map((totaux) => (
 
-<p>
+<p key={totaux.field_estimation_du_prix}>
  {totaux.field_estimation_du_prix} €
 </p>
 
