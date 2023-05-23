@@ -19,12 +19,15 @@ body{
 color:#4b5563;
   }
 
-  @media screen and (min-width: 769px) {
-   .fix-bottom{
-    position:absolute;
+  .fix-bottom{
 
-    left:0px;
-    right:0px;  }
+   position:absolute;
+
+   left:0px;
+   right:0px;  }
+
+  @media screen and (min-width: 769px) {
+
 
   }
 

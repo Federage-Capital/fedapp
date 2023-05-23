@@ -57,7 +57,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 
 
-      <div className="max-w-screen-lg px-6 mx-auto">
+      <div className="max-w-screen-lg px-0 mx-auto">
 
 
 <div className="container pt-15 pb-10">

@@ -28,7 +28,10 @@ const router = useRouter()
 
 
 const { data: users, error: userError } = useSWR('https://fed.septembre.io/users_in_group/'+ node.id, fetcher)
-const { data: financementsdugroupe, error: financementError } = useSWR(() =>'https://fed.septembre.io/group_node_financement_rest_nested/'+ node.id, fetcher)
+const { data: financementsdugroupe, error: financementError } = useSWR(() =>'https://fed.septembre.io/groupfederagewithoutcountersorprice/'+ node.id, fetcher)
+const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io/groupfederageestimation/'+ node.id, fetcher)
+
+
 
 
          if (userError) return <div>Failed to load</div>
@@ -36,18 +39,11 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
                 if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
 
+                if (totalError) return <div>Failed to load 23</div>
+                if (!total) return <div>Loading financement ...</div>
 
 
 
-
-                const getTotFin2 = (financementsdugroupe) => {
-      let sum = 0
-      for (let i = 0; i < financementsdugroupe.length; i++) {
-        sum += financementsdugroupe[i].field_estimation_du_prix
-      }
-      return sum
-
-    }
 
                 const session = getSession()
 
@@ -75,6 +71,8 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
 <div className="mb-4 grid grid-cols-12 gap-4">
 
 <div className="col-span-10"> <h1 className="text-3xl font-black leading-tight">{node.label}</h1><br/>
+
+{node.label}
 <div className="grid grid-cols-12 gap-0">
 
 <div>
@@ -119,7 +117,7 @@ const { data: financementsdugroupe, error: financementError } = useSWR(() =>'htt
 </div>
 <div>
 Estimation de la valeur :
-{getTotFin2(financementsdugroupe)}
+{total.field_estimation_du_prix}
 
 </div>
 </div>
@@ -201,6 +199,8 @@ Membres
                 <div className="box-content p-4 border-2 rounded-lg mb-8">
 
 
+                {node.id && (
+
                 <Link href={`/financement/new?gid=${encodeURIComponent(node.id)}`}>
                 <a className="grid grid-cols-4 gap-4">
 
@@ -217,6 +217,8 @@ Membres
                     </div>
                   </a>
                 </Link>
+
+                )}
                 </div>
 
 
@@ -244,11 +246,18 @@ Membres
               </svg>
               </div>
               <div className="col-span-9">
-              Ajouté par : <Link href={financementdugroupe.view_user}>
-              {financementdugroupe.uid}
+
+              {financementdugroupe.view_user && (
+<p>
+                Ajouté par : <Link href={financementdugroupe.view_user}>
+                {financementdugroupe.uid}
 
 
-                    </Link></div>
+                      </Link>
+                      </p>
+
+              )}
+          </div>
 
             <div className="col-span-2">
                     <button class="inline-block px-3 py-1 fedblue text-white transition-colors rounded-xl text-sm text-center font-semibold lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
@@ -264,7 +273,7 @@ Membres
 
                       <h1>
 
-
+{financementdugroupe.view_user && (
 
                       <Link href={financementdugroupe.view_node}>
 
@@ -274,6 +283,7 @@ Membres
                     />
 
                       </Link>
+                            )}
                       </h1>
 
 
@@ -298,11 +308,24 @@ Estimation : {financementdugroupe.field_estimation_du_prix} €
 
 
 <div className="button-fin w-100 text-center mx-auto">
-<Link href={financementdugroupe.view_node}>
 
-Détail du financement
 
-</Link>
+{financementdugroupe.view_node && (
+  <Link href={financementdugroupe.view_node}>
+
+  Détail du financement
+
+  </Link>
+)}
+
+{financementdugroupe.view_node && (
+
+  <Link href={financementdugroupe.view_node}>
+
+  Détail du financement
+
+  </Link>
+                            )}
 </div>
                     </div>
 
