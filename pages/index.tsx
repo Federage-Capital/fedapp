@@ -67,7 +67,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:py-10 md:mb-5 md:grid-cols-2 gap-12">
 <div>
-      <p className="mb-2 fedblueblue">
+      <p className="mb-4 fedblueblue">
 
 
 
@@ -178,7 +178,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 <Link href="./login" passHref>
   <a className="no-underline hover:text-blue-600">
   <h2 className="text-xl">Démarrer</h2>
-  <p>Financer le développement de son entreprise.</p>  </a>
+  <p>Financer le développement de son entreprise</p>  </a>
 </Link>
 </div>
 </div>
@@ -196,7 +196,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   <Link href="./alluserlist" passHref>
     <a className="no-underline hover:text-blue-600">
     <h2 className="text-xl">Explorer</h2>
-    <p>Parcourir des opportunités de partenariats.</p> </a>
+    <p>Parcourir des opportunités de partenariats</p> </a>
   </Link>
   </div>
   </div>
@@ -215,7 +215,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
   <Link href="./articles" passHref>
     <a className="no-underline hover:text-blue-600">
     <h2 className="text-xl">Blog</h2>
-    <p>En savoir plus sur les avantages du service.</p> </a>
+    <p>En savoir plus sur les avantages du service</p> </a>
   </Link>
   </div>
   </div>
@@ -231,7 +231,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
           <a className="no-underline hover:text-blue-600">
           <h2 className="text-xl">Documentation</h2>
-          <p>Support technique et code source de l’application.</p> </a>
+          <p>Support technique et code source de l’application</p> </a>
           </Link>
 
           </div>
