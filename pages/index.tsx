@@ -240,15 +240,6 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
             <hr className="col-span-6 my-10"/>
 
 
-
-           <div className="px-6 pt-5 mb-20 text-lg fedblueblue font-bold" >
-           <a href="mailto:bonjour@federage.com">Vous avez une question ?</a>
-           <a className="no-underline hover:text-blue-600"> </a>
-
-
-      </div>
-
-
 </div></div>
     </Layout>
     </div>

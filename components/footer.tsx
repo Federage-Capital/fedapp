@@ -15,7 +15,7 @@ export function Footer({ }) {
       <div className="col-span-12 md:col-span-7 text-center md:text-left pb-10 md:p-0">  FEDERAGE SAS • SIREN n°828743369 • Paris • 2023</div>
       <div className="col-span-3 md:col-span-2">  </div>
       <div className="col-span-2 md:col-span-1 text-center">
-      <a href="bonjour@federage.com" data-address="bonjour" data-domain="federage.com" className="mx-auto inline-block float-none md:float-right">
+      <a href="mailto:bonjour@federage.com" data-address="bonjour" data-domain="federage.com" className="mx-auto inline-block float-none md:float-right">
 
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"  xmlns="http://www.w3.org/2000/svg">
       <path d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
