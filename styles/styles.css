@@ -141,6 +141,15 @@ color:#012BDD;
     background-color: rgba(1, 43, 221, 1);
      }
 
+.dotted-background
+{
+background-image: radial-gradient(#E5E7EB 1px, transparent 0);
+background-size: 10px 10px;
+background-position: 70% -19px;
+background-position-x: left;
+}
+
+
 
 .cadre{
   border: 2px dashed #9CA3AF;

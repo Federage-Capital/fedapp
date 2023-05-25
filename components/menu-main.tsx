@@ -31,7 +31,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
               <Link href={item.url} passHref>
                 <a
                   className={classNames(
-                    "text-lg border-b-[3px] flex border-b-transparent transition-colors hover:text-primary",
+                    "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary",
                     {
                       "border-b-primary": isActive,
                     }
@@ -46,7 +46,8 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
           )
         })}
 
-                        <MenuUser />
+        <div className="md:hidden ">  <MenuUser/></div>
+
       </ul>
 
     </nav>

@@ -53,11 +53,14 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
       return setStatus("error")
     }
   return (
+    <div className="dotted-background bg-auto bg-left-top">
     <Layout meta={{ title: t("Accueil") }} menus={menus} blocks={blocks}>
 
 
 
       <div className="max-w-screen-lg px-0 mx-auto">
+
+
 
 
 <div className="container pt-15 pb-10">
@@ -150,7 +153,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 </div>
 <div className="hidden md:block mt-5">
 
-<Image src="https://fed.septembre.io/photo-1521737852567-6949f3f9f2b5.jpg" height={550} width={800}   class="mx-auto rounded-md"
+<Image src="https://fed.septembre.io/photo-1521737852567-6949f3f9f2b5.jpg" height={550} width={800}   class="mx-auto rounded-md shadow-lg"
   objectFit="cover" alt="demarrer" />
 
 </div>
@@ -248,6 +251,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 </div></div>
     </Layout>
+    </div>
   )
 }
 
