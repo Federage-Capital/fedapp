@@ -73,7 +73,7 @@ export function Header({ menus }: HeaderProps) {
   return (
     <header className="max-w-screen-lg px-6 mx-auto">
 
-      <div className="container relative flex-wrap justify-between items-center gray-500 py-6 md:flex lg:py-10">
+      <div className="container relative flex-wrap  items-center gray-500 py-6 md:flex lg:py-10">
       <Link href="/" passHref>
         <a className="flex justify-start">
 
@@ -115,8 +115,8 @@ export function Header({ menus }: HeaderProps) {
 
 
         </div>
-          <div className="flex justify-stretch">  </div>
-        <div className="hidden md:block flex order-last">  <MenuUser/></div>
+          <div className="grow">  </div>
+        <div className="hidden md:block flex">  <MenuUser/></div>
 
       </div>
     </header>

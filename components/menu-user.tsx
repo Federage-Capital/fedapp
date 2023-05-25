@@ -32,7 +32,7 @@ export function MenuUser() {
 
   if (status === "unauthenticated") {
     return (
-      <button class="shadow-lg justify-end fedblueblue rounded px-5 py-2 bg-white mr-2">
+      <button class="shadow-lg justify-end fedblueblue rounded px-5 py-2 bg-white ">
 
       <Link href="/login" passHref>
         <a className="text-lg">{t("Connexion")}</a>
