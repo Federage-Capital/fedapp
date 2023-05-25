@@ -137,6 +137,9 @@ flex-grow: 1;
 color:#012BDD;
   }
 
+.max-width-create{
+max-width:302.2px;
+  }
   .fedblue{
     background-color: rgba(1, 43, 221, 1);
      }

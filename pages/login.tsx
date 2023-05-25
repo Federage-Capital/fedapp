@@ -28,7 +28,8 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
 
 
   return (
-    <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
+    <div className="bg-slate-100">
+    <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks} >
       <PageHeader
         heading={t("Accedez à votre compte")}
 
@@ -136,6 +137,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
 
 
     </Layout>
+    </div>
   )
 }
 

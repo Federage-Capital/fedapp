@@ -76,15 +76,24 @@ return setStatus("error")
 
         <div className="grid">
 
-      <input
-        id="typestructure"
-        name="typestructure"
-        type="text"
-        placeholder="Type de structure"
-        className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-        {...register("typesdestructure")}
-      />
 
+      <div className="relative">
+        <select
+        id="categorie_d_entreprise"
+        name="categorie_d_entreprise"
+        placeholder="Type de structure"
+        className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+      >
+      <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Type de structure</option>
+    <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Entreprise</option>
+    <option value="dce93ed5-9f2c-4012-bc59-740601bd3165">ONG</option>
+    <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c">Association</option>
+    <option value="3e070dcb-1637-442a-beaa-50a5f1001159">Commun</option>
+    <option value="682283e2-29dc-422a-bd92-c5a1db95861b">Institution</option>
+
+        </select>
+
+      </div>
       <input
         id="siren"
         name="siren"
@@ -114,8 +123,30 @@ return setStatus("error")
           {...register("mail")}
         />
 
+        <div className="grid grid-cols-6 gap-4 max-width-create">
 
-
+        <Switch
+             checked={enabled}
+             onChange={setEnabled}
+             className={classNames(
+               enabled ? 'bg-indigo-600' : 'bg-gray-200',
+               'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2'
+             )}
+           >
+             <span className="sr-only">Use setting</span>
+             <span
+               aria-hidden="true"
+               className={classNames(
+                 enabled ? 'translate-x-5' : 'translate-x-0',
+                 'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
+               )}
+             />
+           </Switch>
+<div className="col-span-5">
+           En cochant cette case, vous acceptez notre <a href="/propos" className="fedblueblue">
+Politique de confidentialité.</a>
+           </div>
+</div>
         <button
           type="submit"
           data-cy="btn-submit"
