@@ -82,7 +82,8 @@ return setStatus("error")
         id="categorie_d_entreprise"
         name="categorie_d_entreprise"
         placeholder="Type de structure"
-        className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        className="relative block w-full px-3 py-2 mb-4  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link  sm:text-sm"
+
       >
       <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Type de structure</option>
     <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Entreprise</option>

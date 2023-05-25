@@ -7,7 +7,7 @@ import classNames from "classnames"
 export function Footer({ }) {
   return (
     <>
-    <footer className="bg-black fix-bottom text-white py-10 mx-auto">
+    <footer className="bg-black fix-bottom text-white py-10 text-base mx-auto">
 
     <article className="max-w-screen-lg px-6 mb-5 mx-auto">
 
