@@ -64,8 +64,19 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:py-10 md:mb-5 md:grid-cols-2 gap-12">
 <div>
-      <p className="mb-2 font-light text-gray-400">BIENTÔT DISPONIBLE
-        </p>
+      <p className="mb-2 fedblueblue">
+
+
+
+
+        <button class="bg-indigo-50 fedblueblue rounded px-3 mr-2">
+  Nouveauté
+</button>
+ La version 0.1.0 est déployée <svg width="6" height="10" viewBox="0 0 6 10" fill="none" className="inline-block" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.292894 9.70711C-0.0976307 9.31658 -0.0976307 8.68342 0.292894 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292894C0.683417 -0.0976312 1.31658 -0.0976312 1.70711 0.292894L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683418 10.0976 0.292894 9.70711Z" fill="#012BDD"/>
+</svg>
+
+</p>
 
         <h1 className="text-3xl font-bold">Le meilleur moyen</h1>
         <h1 className="mb-4 text-3xl font-bold">de <span className="fedblueblue">mesurer sa valeur</span></h1>
