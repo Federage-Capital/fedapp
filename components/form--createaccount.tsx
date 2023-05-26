@@ -82,7 +82,7 @@ return setStatus("error")
         id="categorie_d_entreprise"
         name="categorie_d_entreprise"
         placeholder="Type de structure"
-        className="relative block w-full px-3 py-2 mb-4  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link  sm:text-sm"
+        className="relative block w-full px-3 py-2 mb-2  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
 
       >
       <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Type de structure</option>
@@ -130,8 +130,8 @@ return setStatus("error")
              checked={enabled}
              onChange={setEnabled}
              className={classNames(
-               enabled ? 'bg-indigo-600' : 'bg-gray-200',
-               'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2'
+               enabled ? 'fedblue' : 'bg-gray-200',
+               'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2'
              )}
            >
              <span className="sr-only">Use setting</span>
@@ -153,7 +153,7 @@ Politique de confidentialité.</a>
           data-cy="btn-submit"
           className="px-3 fedblue py-2 text-md mt-4 mb-4 text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
         >
-          Enregistrement
+          Créer un compte
         </button>
       </div>
       <div>
