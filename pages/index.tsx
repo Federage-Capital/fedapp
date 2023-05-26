@@ -27,7 +27,7 @@ interface WebformPageProps {
   teams: DrupalTaxonomyTerm[]
 }
 
-  
+
 
 export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPageProps, WebformPageProps) {
   const { t } = useTranslation()
@@ -56,7 +56,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
     <div className="dotted-background bg-auto bg-left-top">
     <Layout meta={{ title: t("Accueil") }} menus={menus} blocks={blocks}>
 
-
+ 
 
       <div className="max-w-screen-lg px-0 mx-auto">
 
