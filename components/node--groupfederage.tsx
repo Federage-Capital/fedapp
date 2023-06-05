@@ -33,8 +33,7 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
 
 
 
-
-         if (userError) return <div>Failed to load</div>
+         if (userError) return <div>Failed to load user</div>
          if (!users) return <div>Loading ...</div>
                 if (financementError) return <div>Failed to load 23</div>
                 if (!financementsdugroupe) return <div>Loading financement ...</div>
@@ -239,14 +238,22 @@ Membres
 
 
 
+
+
+
                 {financementsdugroupe?.length ? (
 
 
                 <p>
-                    {financementsdugroupe.map((financementdugroupe) => (
+                    {financementsdugroupe.map((financementdugroupe,index) => (
 
 
-                    <div key={financementdugroupe.id} className="asset-card-2 mb-3">
+                    <div key={financementdugroupe.uuid} className="asset-card-2 mb-3">
+
+
+
+
+{financementdugroupe.title}
 
 
                     <div className="grid grid-cols-12 gap-4">
@@ -275,7 +282,7 @@ Membres
                     <button class="inline-block px-3 py-1 fedblue text-white transition-colors rounded-xl text-sm text-center font-semibold lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
 {financementdugroupe.field_statut}
 </button>
-<div className="inline-block">  <NodeFinRow key={financementdugroupe.id} node={financementdugroupe} /></div>
+<div className="inline-block">  <NodeFinRow key={financementdugroupe.uuid} node={financementdugroupe} /></div>
 
 </div>
               </div>
@@ -300,7 +307,7 @@ Membres
 
 
                       </div>
-                      <div className="col-span-2">
+                      <div className="col-span-3">
 
 Estimation : {financementdugroupe.field_estimation_du_prix} €
                       </div>

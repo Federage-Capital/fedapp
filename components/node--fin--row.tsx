@@ -27,7 +27,7 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
       return
     }
 
-    const response = await fetch(`/api/publish/financement/${node.uuid_2}`, {
+    const response = await fetch(`/api/publish/financement/${node.uuid}`, {
       method: "DELETE",
     })
 
@@ -41,7 +41,7 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
       return
     }
 
-    const response = await fetch(`/api/publish/financement/${node.uuid_2}`, {
+    const response = await fetch(`/api/publish/financement/${node.uuid}`, {
       method: "PUT",
 
         })
@@ -57,7 +57,7 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
       return
     }
 
-    const response = await fetch(`/api/publish/financement/${node.uuid_2}`, {
+    const response = await fetch(`/api/publish/financement/${node.uuid}`, {
       method: "PUT",
 
         })
@@ -121,7 +121,7 @@ export function NodeFinRow({ node, ...props }: NodeFinRowProps) {
                <Menu.Item>
                  {({ active }) => (
                    <a
-                     href={`/financement/edit?gid=${encodeURIComponent(node.uuid_2)}`}
+                     href={`/financement/edit?gid=${encodeURIComponent(node.uuid)}`}
                      className={classNames(
                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                        'block px-4 py-2 text-sm'
