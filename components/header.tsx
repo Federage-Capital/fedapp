@@ -30,96 +30,112 @@ export function Header({ menus }: HeaderProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { data: session, status } = useSession()
 
+  const containerClasses = `container relative flex-wrap items-center
+    ${showMenu ? "bg-white" : "gray-500"} py-6 md:flex lg:py-10`;
+
   if (status === "authenticated") {
     return (
       <header className="max-w-screen-lg mx-auto">
-      <Disclosure as="nav" className="bg-white border-b">
-            {({ open }) => (
-              <>
-                <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-0">
-                  <div className="relative flex h-16 justify-between">
-                    <div className="absolute inset-y-0 left-0 flex items-center">
-                        <MenuUser />
+        <Disclosure as="nav" className="bg-white border-b">
+          {({ open }) => (
+            <>
+              <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-0">
+                <div className="relative flex h-16 justify-between">
+                  <div className="absolute inset-y-0 left-0 flex items-center">
+                    <MenuUser />
+                  </div>
+                  <div className="flex flex-1 items-center justify-center">
+                    <div className="flex flex-shrink-0 items-center">
                     </div>
-                    <div className="flex flex-1 items-center justify-center">
-                      <div className="flex flex-shrink-0 items-center">
-                      </div>
 
-                    </div>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                      <button
-                        type="button"
-                        className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2"
-                      >
-                        <span className="sr-only">View notifications</span>
-                             <MenuDring />
-                      </button>
+                  </div>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button
+                      type="button"
+                      className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2"
+                    >
+                      <span className="sr-only">View notifications</span>
+                      <MenuDring />
+                    </button>
 
 
-                    </div>
                   </div>
                 </div>
+              </div>
 
 
-              </>
-            )}
-          </Disclosure>
-  <div className="mt-10">
+            </>
+          )}
+        </Disclosure>
+        <div className="mt-10">
 
-                              </div>
-  </header>
+        </div>
+      </header>
     )
   }
   return (
-    <header className="max-w-screen-lg px-6 mx-auto">
+    <header className="max-w-screen-lg mx-auto">
 
-      <div className="container relative flex-wrap  items-center gray-500 py-6 md:flex lg:py-10">
-      <Link href="/" passHref>
-        <a className="flex justify-start">
+      <div className={containerClasses}>
+        <Link href="/" passHref>
+          <a className="flex justify-start">
+            <div className="ml-5">
+              <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
 
-        <Image src="/federage-logo.svg" height={100} width={200}  alt="Logo federage" />
+            </div>
 
-          <span className="sr-only">{siteConfig.name}</span>
-        </a>
-      </Link>
+            <span className="sr-only">{siteConfig.name}</span>
+          </a>
+        </Link>
 
         <button
           className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
           onClick={() => setShowMenu(!showMenu)}
         >
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-8 h-8"
-            >
-              <path d="M3 12h18M3 6h18M3 18h18" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-8 h-8 mr-5"
+          >
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
+
+        {showMenu && (
+          <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+            onClick={() => setShowMenu(!showMenu)}>
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="w-8 h-8 mr-5">
+              <rect width="40" height="40" rx="6" fill="#F3F4F6" />
+              <path d="M14 26L26 14M14 14L26 26" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-
-          <div
-            className={classNames(
-              "max-h-0 transition-all overflow-hidden md:max-h-screen",
-              {
-                "max-h-screen": showMenu,
-              }
-            )}
-          >
+        )}
 
 
-          <MenuMain items={menus.main} className="ml-10 order-0"/>
+        <div
+          className={classNames(
+            "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 absolute",
+            {
+              "max-h-max bg-white": showMenu,
+            }
+          )}
+        >
+
+
+          <MenuMain items={menus.main} className="ml-0 order-0" />
 
 
         </div>
-          <div className="grow">  </div>
-        <div className="hidden md:block flex">  <MenuUser/></div>
+        <div className="grow">  </div>
+        <div className="hidden md:block flex">  <MenuUser /></div>
 
       </div>
-    </header>
+    </header >
 
   )
 }
