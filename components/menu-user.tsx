@@ -11,6 +11,7 @@ import { Fragment } from 'react'
 import useSWR from 'swr'
 import { absoluteURL } from "lib/utils"
 import Image, { ImageProps } from "next/image"
+import { useTranslation } from "next-i18next"
 
 import { MenuLink } from "components/menu-link"
 import MenuConnexion from "components/menu-connexion"
@@ -18,6 +19,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export function MenuUser() {
   const { data, status } = useSession()
+  const { t } = useTranslation();
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
