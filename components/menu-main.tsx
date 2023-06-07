@@ -67,10 +67,10 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
           )
         })}
 
-        <div className="border rounded-b-lg">
-          <div className="flex">
-            <div className="md:hidden ml-5 mt-3"><MenuUser /></div>
-            <div className="absolute inset-y-50 right-0 flex items-center pr-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0 mt-5">
+        {/* <div className="border rounded-b-lg">
+          <div className="flex"> */}
+        <div className="md:hidden ml-0 mt-3"><MenuUser /></div>
+        {/* <div className="absolute inset-y-50 right-0 flex items-center pr-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0 mt-5">
               <button
                 type="button"
                 className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2"
@@ -91,7 +91,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
           >
             <p>Déconnexion</p>
           </button>
-        </div>
+        </div> */}
       </ul>
 
     </nav>
