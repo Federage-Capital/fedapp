@@ -10,6 +10,7 @@ import { MenuMain } from "components/menu-main"
 import { MenuUser } from "components/menu-user"
 import { MenuDring } from "components/menu-dring"
 
+import { useRouter } from "next/router"
 import { FormSearch } from "components/form--search"
 import Image from "next/image"
 
@@ -29,11 +30,12 @@ export interface HeaderProps {
 export function Header({ menus }: HeaderProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { data: session, status } = useSession()
+  const router = useRouter()
 
   const containerClasses = `container relative flex-wrap items-center
     ${showMenu ? "bg-white" : "gray-500"} py-6 md:flex lg:py-10`;
 
-  if (status === "authenticated") {
+  if (status === "authenticated" && router.asPath !== "/") {
     return (
       <header className="max-w-screen-lg mx-auto">
         <Disclosure as="nav" className="bg-white border-b">
@@ -72,6 +74,74 @@ export function Header({ menus }: HeaderProps) {
         </div>
       </header>
     )
+  } else if (status === "authenticated") {
+    return (
+      <>
+        <header className="max-w-screen-lg mx-auto">
+          <div className={containerClasses}>
+            <Link href="/" passHref>
+              <a className="flex justify-start">
+                <div className="ml-5">
+                  <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
+
+                </div>
+
+                <span className="sr-only">{siteConfig.name}</span>
+              </a>
+            </Link>
+
+            <button
+              className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-8 h-8 mr-5"
+              >
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            </button>
+
+            {showMenu && (
+              <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+                onClick={() => setShowMenu(!showMenu)}>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="w-8 h-8 mr-5">
+                  <rect width="40" height="40" rx="6" fill="#F3F4F6" />
+                  <path d="M14 26L26 14M14 14L26 26" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            )}
+
+
+            <div
+              className={classNames(
+                "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 absolute",
+                {
+                  "max-h-max bg-white": showMenu,
+                }
+              )}
+            >
+
+
+              <MenuMain items={menus.main} className="ml-0 order-0" />
+
+
+            </div>
+
+            <div className="grow">  </div>
+            <div className="hidden md:block flex">  <MenuUser /></div>
+
+          </div>
+        </header>
+      </>
+    );
+
   }
   return (
     <header className="max-w-screen-lg mx-auto">

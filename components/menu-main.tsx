@@ -5,6 +5,8 @@ import { useRouter } from "next/router"
 import { MenuUser } from "components/menu-user"
 import Image from 'next/image';
 import * as React from "react"
+import { signOut } from "next-auth/react"
+import { MenuDring } from "components/menu-dring"
 
 interface MenuMainProps {
   items: DrupalMenuLinkContent[]
@@ -65,8 +67,31 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
           )
         })}
 
-        <div className="md:hidden ">  <MenuUser /></div>
+        <div className="border rounded-b-lg">
+          <div className="flex">
+            <div className="md:hidden ml-5 mt-3"><MenuUser /></div>
+            <div className="absolute inset-y-50 right-0 flex items-center pr-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0 mt-5">
+              <button
+                type="button"
+                className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2"
+              >
+                <span className="sr-only">View notifications</span>
+                <MenuDring />
+              </button>
 
+
+            </div>
+          </div>
+          <p className="ml-5 mt-5 text-gray-500"> Profil</p>
+          <p className="ml-5 mt-5 text-gray-500">Réglage</p>
+          <button
+            className={classNames(showMenu ? 'bg-gray-100' : '', 'block ml-5 text-sm text-gray-500 mt-5 pb-5')}
+
+            onClick={() => signOut()}
+          >
+            <p>Déconnexion</p>
+          </button>
+        </div>
       </ul>
 
     </nav>
