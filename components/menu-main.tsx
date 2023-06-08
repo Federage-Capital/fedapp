@@ -17,7 +17,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
 
-  if (status === "authenticated" && router.asPath === "/") {
+  if (status === "authenticated" && router.asPath === "/" || status === "authenticated" && router.asPath === "/alluserlist") {
     return (
       <nav {...props}>
         <ul className="items-center justify-center space-y-10 rounded w-screen">

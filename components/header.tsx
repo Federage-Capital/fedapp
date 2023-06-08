@@ -35,7 +35,7 @@ export function Header({ menus }: HeaderProps) {
   const containerClasses = `container relative flex-wrap items-center
     ${showMenu ? "bg-white" : "gray-500"} py-6 md:flex lg:py-10`;
 
-  if (status === "authenticated" && router.asPath !== "/") {
+  if (status === "authenticated" && router.asPath !== "/" && router.asPath !== "/alluserlist") {
     return (
       <header className="max-w-screen-lg mx-auto">
         <Disclosure as="nav" className="bg-white border-b">
