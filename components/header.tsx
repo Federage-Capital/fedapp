@@ -9,6 +9,7 @@ import { LocaleSwitcher } from "components/locale-switcher"
 import { MenuMain } from "components/menu-main"
 import { MenuUser } from "components/menu-user"
 import { MenuDring } from "components/menu-dring"
+import { ButtonConnexion } from "components/connexion-desktop"
 
 import { useRouter } from "next/router"
 import { FormSearch } from "components/form--search"
@@ -128,7 +129,6 @@ export function Header({ menus }: HeaderProps) {
               )}
             >
 
-
               <MenuMain items={menus.main} className="ml-0 order-0" />
 
 
@@ -149,7 +149,7 @@ export function Header({ menus }: HeaderProps) {
       <div className={containerClasses}>
         <Link href="/" passHref>
           <a className="flex justify-start ml-5">
-              <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
+            <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
 
 
 
@@ -203,6 +203,7 @@ export function Header({ menus }: HeaderProps) {
         )}
 
         <div className="hidden md:block flex">  <MenuUser /></div>
+        <div className="hidden md:block"> <ButtonConnexion /></div>
 
       </div>
     </header >
