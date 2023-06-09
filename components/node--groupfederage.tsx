@@ -167,8 +167,6 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
 
 <NodeFin2Row key={financementdugroupe.uuid} node={financementdugroupe} />
 
-
-
                           ))}
 
 
@@ -186,6 +184,7 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
                                               )}
 
 
+                                        
 
 <div className="box-content p-4 border-2 rounded-lg mb-8">
 <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">

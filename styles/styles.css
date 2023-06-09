@@ -266,7 +266,26 @@ box-sizing: border-box;
 
   }
 
+    /* Colors */
 
+    .skyfed{
+
+    background-color:#EEF2FF;
+
+  }
+
+  .textskyfed{
+
+color:#012BDD;
+
+}
+
+
+.font-xsxs{
+
+font-size:10px;
+
+}
   .asset-card-2{
 
 

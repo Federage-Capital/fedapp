@@ -27,6 +27,8 @@ interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
 export function FormCreate({ className, ...props}: FormCreateProps) {
 
   const [status, setStatus] = React.useState<"error" | "success">()
+  const { t } = useTranslation()
+
   const { register, handleSubmit, formState, reset } = useForm<FormData>({
     resolver: yupResolver(createFormSchema),
 
@@ -152,9 +154,15 @@ Politique de confidentialité.</a>
           type="submit"
           data-cy="btn-submit"
           className="px-3 fedblue py-2 text-md mt-4 mb-4 text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+          disabled={status?.status === "fetching"}
+          value={
+            status?.status === "fetching" ? t("Patientez") : t("Connexion")
+          }
         >
           Créer un compte
         </button>
+
+
       </div>
       <div>
 
