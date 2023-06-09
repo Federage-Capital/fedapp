@@ -178,7 +178,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
                 <Link href="./login" passHref>
                   <a className="no-underline hover:text-blue-600">
                     <h2 className="text-xl">Démarrer</h2>
-                    <p>Financer le développement de son entreprise</p>  </a>
+                    <p>Financer le développement de sa structure</p>  </a>
                 </Link>
               </div>
             </div>

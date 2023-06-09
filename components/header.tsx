@@ -90,30 +90,38 @@ export function Header({ menus }: HeaderProps) {
               </a>
             </Link>
 
-            <button
-              className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
-              onClick={() => setShowMenu(!showMenu)}
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-8 h-8 mr-5"
+            {!showMenu && (
+              <button
+                className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+                onClick={() => setShowMenu(!showMenu)}
               >
-                <path d="M3 12h18M3 6h18M3 18h18" />
-              </svg>
-            </button>
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-8 h-8 mr-5"
+                >
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+              </button>
+            )}
 
             {showMenu && (
-              <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+              <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link mr-5"
                 onClick={() => setShowMenu(!showMenu)}>
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="w-8 h-8 mr-5">
-                  <rect width="40" height="40" rx="6" fill="#F3F4F6" />
-                  <path d="M14 26L26 14M14 14L26 26" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                  <g clip-path="url(#clip0_712_7983)">
+                    <path d="M9 27L27 9M9 9L27 27" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_712_7983">
+                      <rect width="36" height="36" rx="9" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </button>
             )}
@@ -138,7 +146,7 @@ export function Header({ menus }: HeaderProps) {
             <div className="hidden md:block flex">  <MenuUser /></div>
 
           </div>
-        </header>
+        </header >
       </>
     );
 
@@ -158,31 +166,40 @@ export function Header({ menus }: HeaderProps) {
           </a>
         </Link>
 
-        <button
-          className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
-          onClick={() => setShowMenu(!showMenu)}
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-8 h-8 mr-5"
+        {!showMenu && (
+          <button
+            className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+            onClick={() => setShowMenu(!showMenu)}
           >
-            <path d="M3 12h18M3 6h18M3 18h18" />
-          </svg>
-        </button>
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-8 h-8 mr-5"
+            >
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </button>
+        )}
 
         {showMenu && (
-          <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
+          <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link mr-5"
             onClick={() => setShowMenu(!showMenu)}>
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="w-8 h-8 mr-5">
-              <rect width="40" height="40" rx="6" fill="#F3F4F6" />
-              <path d="M14 26L26 14M14 14L26 26" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <g clip-path="url(#clip0_712_7983)">
+                <path d="M9 27L27 9M9 9L27 27" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_712_7983">
+                  <rect width="36" height="36" rx="9" fill="white" />
+                </clipPath>
+              </defs>
             </svg>
+
           </button>
         )}
 

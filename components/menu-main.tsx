@@ -42,19 +42,19 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                   >
                     <div className="ml-5">
                       {item.title === 'Blog' && (
-                        <div className="pr-5 -px-3 flex items-center">
+                        <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/blog.svg" height={40} width={40} alt="blog" />
                           <p className="ml-2">{item.title}</p>
                         </div>
                       )}
                       {item.title === 'Explorer' && (
-                        <div className="pr-5 -px-3 flex items-center">
+                        <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/explorer.svg" height={40} width={40} alt="explorer" />
                           <p className="ml-2">{item.title}</p>
                         </div>
                       )}
                       {item.title !== 'Blog' && item.title !== 'Explorer' && (
-                        <div className="pr-5 -px-3 flex items-center">
+                        <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/documentation.svg" height={40} width={40} alt="documentation" />
                           <p className="ml-2">{item.title}</p>
                         </div>
@@ -82,14 +82,14 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
 
               </div>
             </div>
-            <p className="ml-5 mt-5 text-gray-500"> Profil</p>
-            <p className="ml-5 mt-5 text-gray-500">Réglage</p>
+            <p className="ml-5 mt-5 text-gray-500 text-base"> Profil</p>
+            <p className="ml-5 mt-5 text-gray-500 text-base">Réglage</p>
             <button
-              className={classNames(showMenu ? 'bg-gray-100' : '', 'block ml-5 text-sm text-gray-500 mt-5 pb-5')}
+              className={classNames(showMenu ? 'bg-gray-100' : '', 'block ml-5 text-sm text-gray-500 mt-5 pb-5 text-lg')}
 
               onClick={() => signOut()}
             >
-              <p>Déconnexion</p>
+              <p className="text-base">Déconnexion</p>
             </button>
           </div>
         </ul>
@@ -120,19 +120,19 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                 >
                   <div className="ml-5">
                     {item.title === 'Blog' && (
-                      <div className="pr-5 -px-3 flex items-center">
+                      <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/blog.svg" height={40} width={40} alt="blog" />
                         <p className="ml-2">{item.title}</p>
                       </div>
                     )}
                     {item.title === 'Explorer' && (
-                      <div className="pr-5 -px-3 flex items-center">
+                      <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/explorer.svg" height={40} width={40} alt="explorer" />
                         <p className="ml-2">{item.title}</p>
                       </div>
                     )}
                     {item.title !== 'Blog' && item.title !== 'Explorer' && (
-                      <div className="pr-5 -px-3 flex items-center">
+                      <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/documentation.svg" height={40} width={40} alt="documentation" />
                         <p className="ml-2">{item.title}</p>
                       </div>
