@@ -27,8 +27,8 @@ const MenuConnexion = (props: MenuConnexionProps) => {
             </div>
             <div className="flex justify-center mx-auto">
                 <div className="mt-5 relative pb-0 mr-12">
-                    <p className="text-gray-500">Jamais inscrit ?</p>
-                    <p className="relative -top-6 left-[115px] fedblueblue">Cliquer ici</p>
+                    <p className="text-gray-500 font-semibold">Jamais inscrit ?</p>
+                    <p className="relative -top-6 left-[125px] fedblueblue font-semibold">Cliquez ici</p>
                 </div>
             </div>
         </div >
