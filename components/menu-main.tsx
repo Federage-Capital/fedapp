@@ -42,19 +42,19 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                   >
                     <div className="ml-5">
                       {item.title === 'Blog' && (
-                        <div className="pr-5 -px-3 flex items-center">
+                        <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/blog.svg" height={40} width={40} alt="blog" />
                           <p className="ml-2">{item.title}</p>
                         </div>
                       )}
                       {item.title === 'Explorer' && (
-                        <div className="pr-5 -px-3 flex items-center">
+                        <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/explorer.svg" height={40} width={40} alt="explorer" />
                           <p className="ml-2">{item.title}</p>
                         </div>
                       )}
                       {item.title !== 'Blog' && item.title !== 'Explorer' && (
-                        <div className="pr-5 -px-3 flex items-center">
+                        <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/documentation.svg" height={40} width={40} alt="documentation" />
                           <p className="ml-2">{item.title}</p>
                         </div>
@@ -98,40 +98,40 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
   }
   return (
     <nav {...props}>
-    <div className="hidden md:block">
-    <ul className="flex flex-col place-self-start items-center justify-center w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14">
-      {items.map((item) => {
-        const isActive =
-          router.asPath === item.url ||
-          `/${router.locale}${router.asPath === "/" ? "" : router.asPath}` ===
-            item.url ||
-          (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false)
+      <div className="hidden md:block">
+        <ul className="flex flex-col place-self-start items-center justify-center w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14">
+          {items.map((item) => {
+            const isActive =
+              router.asPath === item.url ||
+              `/${router.locale}${router.asPath === "/" ? "" : router.asPath}` ===
+              item.url ||
+              (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false)
 
-        return (
+            return (
 
-          <li key={item.id}>
-            <Link href={item.url} passHref>
-              <a
-                className={classNames(
-                  "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary",
-                  {
-                    "border-b-primary": isActive,
-                  }
-                )}
-              >
-                {item.title}
-              </a>
-            </Link>
+              <li key={item.id}>
+                <Link href={item.url} passHref>
+                  <a
+                    className={classNames(
+                      "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary",
+                      {
+                        "border-b-primary": isActive,
+                      }
+                    )}
+                  >
+                    {item.title}
+                  </a>
+                </Link>
 
-          </li>
+              </li>
 
-        )
-      })}
+            )
+          })}
 
-      <div className="md:hidden ">  <MenuUser/></div>
+          <div className="md:hidden ">  <MenuUser /></div>
 
-    </ul>
-    </div>
+        </ul>
+      </div>
 
       <ul className=" md:hidden items-center justify-center space-y-10 rounded w-screen">
         {items.map((item) => {
@@ -155,19 +155,19 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                 >
                   <div className="ml-5">
                     {item.title === 'Blog' && (
-                      <div className="pr-5 -px-3 flex items-center">
+                      <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/blog.svg" height={40} width={40} alt="blog" />
                         <p className="ml-2">{item.title}</p>
                       </div>
                     )}
                     {item.title === 'Explorer' && (
-                      <div className="pr-5 -px-3 flex items-center">
+                      <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/explorer.svg" height={40} width={40} alt="explorer" />
                         <p className="ml-2">{item.title}</p>
                       </div>
                     )}
                     {item.title !== 'Blog' && item.title !== 'Explorer' && (
-                      <div className="pr-5 -px-3 flex items-center">
+                      <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/documentation.svg" height={40} width={40} alt="documentation" />
                         <p className="ml-2">{item.title}</p>
                       </div>
