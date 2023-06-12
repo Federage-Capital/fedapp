@@ -40,7 +40,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                       }
                     )}
                   >
-                    <div className="ml-5">
+                    <div className="ml-5 md:hidden">
                       {item.title === 'Blog' && (
                         <div className="pr-5 -px-3 flex items-center text-black">
                           <Image src="/blog.svg" height={40} width={40} alt="blog" />
@@ -67,7 +67,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
             )
           })}
 
-          <div className="border rounded-b-lg">
+          <div className="border rounded-b-lg md:hidden">
             <div className="flex">
               <div className="md:hidden ml-5 mt-3"><MenuUser /></div>
               <div className="absolute inset-y-50 right-0 flex items-center pr-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0 mt-5">
