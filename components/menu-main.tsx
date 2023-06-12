@@ -85,11 +85,11 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
             <p className="ml-5 mt-5 text-gray-500"> Profil</p>
             <p className="ml-5 mt-5 text-gray-500">Réglage</p>
             <button
-              className={classNames(showMenu ? 'bg-gray-100' : '', 'block ml-5 text-sm text-gray-500 mt-5 pb-5')}
+              className={classNames(showMenu ? 'bg-gray-100' : '', 'block ml-5 text-base text-gray-500 mt-5 pb-5 text-md')}
 
               onClick={() => signOut()}
             >
-              <p>Déconnexion</p>
+              Déconnexion
             </button>
           </div>
         </ul>
