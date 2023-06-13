@@ -21,7 +21,7 @@ const params = {
         "uri",
   },
   filter: {},
-  include: "user_picture",
+  include: "user_picture,field_type_de_structure",
 
 
 }
@@ -34,6 +34,8 @@ export default function AlluserlistPage
 }: AlluserlistPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
+
+
 
   const [status, setStatus] = React.useState<"error" | "success" | "loading">()
   const [results, setResults] = React.useState<DrupalNode[]>(nodes)
@@ -74,6 +76,7 @@ export default function AlluserlistPage
       setFacets(json.meta.facets)
     }
   }
+
 
 
   return (
@@ -130,6 +133,7 @@ export default function AlluserlistPage
 
 
           <div className="px-6 pt-4">
+
             <div className="grid gap-6 mt-8 md:grid-cols-1">
               {results.map((node) => (
                 <div key={node.id}>
@@ -139,14 +143,16 @@ export default function AlluserlistPage
                   >
 
 
+
 <div>
+
 
 
 
 
 {node.user_picture?.uri && (
   <div className="overflow-hidden h-10 w-10 rounded-xl">
-<Link href={`user/${node.drupal_internal__uid}`} passHref>
+<Link href=    {node.name.replaceAll(' ', '-')} passHref>
   <Image
     src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
     width={10}
@@ -213,6 +219,9 @@ const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
   {
     deserialize: false,
 params,
+
+
+
   }
 )
 
