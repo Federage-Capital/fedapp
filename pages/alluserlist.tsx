@@ -26,7 +26,7 @@ const params = {
       "uri",
   },
   filter: {},
-  include: "user_picture",
+  include: "user_picture, field_type_de_structure",
 
 
 }
@@ -86,13 +86,13 @@ export default function AlluserlistPage
       <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
 
 
-        <h1 className="max-w-4xl mb-1 text-4xl text-left md:text-5xl lg:text-4xl font-semibold">Explorer</h1>
+        <h1 className="max-w-4xl mb-1 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
         <p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets à la fois.</p>
 
         <form onSubmit={handleSubmit} className="px-2 space-y-2 mb-4">
-          <div className="flex xs:hidden items-start w-100">
-            <div>
+          <div className="flex xs:hidden items-start w-100 pb-4">
+            <div className="w-full -ml-3">
               <div className="mt-2 flex rounded-md shadow-sm">
                 <div className="relative flex flex-grow items-stretch focus-within:z-10">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -107,7 +107,7 @@ export default function AlluserlistPage
                 </div>
                 <button
                   type="button"
-                  className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 -mr-5"
                 >
                   <BarsArrowUpIcon className="-ml-0.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                   A-Z
@@ -122,13 +122,13 @@ export default function AlluserlistPage
             </div>
             <div className="flex">
 
-              <button
+              {/* <button
                 type="submit"
                 data-cy="btn-submit"
                 className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
               >
                 {status === "Chargement" ? "Attendez..." : "Recherche"}
-              </button>
+              </button> */}
             </div>
 
           </div>
@@ -143,8 +143,6 @@ export default function AlluserlistPage
             Aucun résultat.
           </p>
         ) : (
-
-
           <div className="px-6">
             <div className="md:grid-cols-1">
               {results.map((node) => (
@@ -155,14 +153,6 @@ export default function AlluserlistPage
             </div>
           </div>
         )}
-
-
-
-
-
-
-
-
       </Layout>
     </div>
   )
