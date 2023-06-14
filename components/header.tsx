@@ -37,7 +37,7 @@ export function Header({ menus }: HeaderProps) {
 
   if (status === "authenticated" && router.asPath !== "/" && router.asPath !== "/alluserlist") {
     return (
-      <header className="max-w-screen-lg mx-auto">
+      <header className={`max-w-screen-lg mx-auto md:bg-transparent ${showMenu ? "bg-white" : ""}`}>
         <Disclosure as="nav" className="bg-white border-b">
           {({ open }) => (
             <>
@@ -77,7 +77,7 @@ export function Header({ menus }: HeaderProps) {
   } else if (status === "authenticated") {
     return (
       <>
-        <header className="max-w-screen-lg mx-auto">
+        <header className={`max-w-screen-lg mx-auto md:bg-transparent ${showMenu ? "bg-white" : ""}`}>
           <div className={containerClasses}>
             <Link href="/" passHref>
               <a className="flex justify-start">
@@ -131,7 +131,7 @@ export function Header({ menus }: HeaderProps) {
               className={classNames(
                 "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 absolute",
                 {
-                  "max-h-max bg-white": showMenu,
+                  "max-h-max bg-white md:bg-transparent": showMenu,
                 }
               )}
             >
