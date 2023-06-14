@@ -33,8 +33,7 @@ export function Header({ menus }: HeaderProps) {
   const { data: session, status } = useSession()
   const router = useRouter()
 
-  const containerClasses = `container relative flex-wrap  items-center gray-500 py-6 md:flex lg:py-10
-    ${showMenu ? "bg-white" : "gray-500"}`;
+  const containerClasses = `container relative flex-wrap  items-center gray-500 py-6 md:flex lg:py-10 gray-500`;
 
   if (status === "authenticated" && router.asPath !== "/" && router.asPath !== "/alluserlist") {
     return (
@@ -152,15 +151,12 @@ export function Header({ menus }: HeaderProps) {
 
   }
   return (
-    <header className="max-w-screen-lg mx-auto">
+    <header className={`max-w-screen-lg mx-auto md:bg-transparent ${showMenu ? "bg-white" : ""}`}>
 
       <div className={containerClasses}>
         <Link href="/" passHref>
           <a className="flex justify-start ml-5">
             <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
-
-
-
             <span className="sr-only">{siteConfig.name}</span>
           </a>
         </Link>
@@ -171,7 +167,7 @@ export function Header({ menus }: HeaderProps) {
           className={classNames(
             "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 md:z-0 absolute md:relative",
             {
-              "max-h-max bg-white": showMenu,
+              "max-h-max bg-white md:bg-transparent": showMenu,
             }
           )}
         >
