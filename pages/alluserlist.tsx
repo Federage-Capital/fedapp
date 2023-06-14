@@ -17,7 +17,6 @@ import { PageHeader } from "components/page-header"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { BoxUserList } from "components/box-alluserlist"
 import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
-import { AiOutlineSearch } from 'react-icons/ai'
 
 
 const params = {
@@ -96,12 +95,14 @@ export default function AlluserlistPage
               <div className="mt-2 flex rounded-md shadow-sm">
                 <div className="relative flex flex-grow items-stretch focus-within:z-10">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <AiOutlineSearch className="h-4 w-4 text-gray-400" aria-hidden="true" />
+                    <svg width="17" height="17" viewBox="0 0 20 20" fill="none" className="relative -top-0.5">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 9.29583 13.5892 10.4957 12.8907 11.4765L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L11.4765 12.8907C10.4957 13.5892 9.29583 14 8 14C4.68629 14 2 11.3137 2 8Z" fill="#9CA3AF" />
+                    </svg>
                   </div>
                   <input
                     type="search"
                     name="fulltext"
-                    className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-9 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Recherche"
                   />
                 </div>
