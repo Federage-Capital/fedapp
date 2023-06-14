@@ -115,22 +115,6 @@ export default function AlluserlistPage
               </div>
             </div>
 
-
-
-            <div className="grid gap-4 py-4 md:grid-cols-1">
-
-            </div>
-            <div className="flex">
-
-              {/* <button
-                type="submit"
-                data-cy="btn-submit"
-                className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
-              >
-                {status === "Chargement" ? "Attendez..." : "Recherche"}
-              </button> */}
-            </div>
-
           </div>
         </form>
         {status === "error" ? (
