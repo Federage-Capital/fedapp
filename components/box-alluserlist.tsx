@@ -32,7 +32,9 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 								node.field_nom_affiche
 							)}
 						</div>
-
+					</div>
+					<div className="flex justify-center m-5">
+						app.federage.com/{node.name.replaceAll(' ', '-')}
 					</div>
 					{node.field_description?.value && (
 						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="mt-6 leading-loose prose ml-5 pb-5" />
