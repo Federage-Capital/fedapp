@@ -34,47 +34,42 @@ export function NodePage({ node }: NodePageProps) {
           )}
         </div>
         <div>
-          {/* {node.drupal_internal__nid} */}
 
 
-          {/* {node.field_paragraphs?.length ? (
-            <p>
-              {node.field_paragraphs?.map((paragraphe) => (
-                <p key={paragraphe.id} className="w-100">
-                  <details className="mb-5 shadow sm:rounded-lg px-4 py-5 sm:p-6">
-                    <summary className="text-lg">
-                      {paragraphe.field_title}
-                    </summary>
-                    <p className="mt-2  text-sm text-gray-500">
-                      <div
-                        dangerouslySetInnerHTML={{ __html: paragraphe.field_body?.processed }}
-                        className="mt-6 text-lg mx-auto max-w-screen-lg leading-loose prose"
-                      />
-                    </p>
-                  </details>
-                </p>
-              ))}
-            </p>
-          ) : null} */}
+        {node.field_paragraphs?.length ? (
+            <span>
+            {node.field_paragraphs.filter(entityref2 => entityref2.type.includes("paragraph--integrer_nodes")).map(filteredEntityref2 => {
+            return (
+            <div key={filteredEntityref2.id}>
+                 {filteredEntityref2.field_node_ref.map((legals) => (
+
+
+           <details key={legals.id} className="mb-5 shadow sm:rounded-lg px-4 py-5 sm:p-6" >
+  <summary className="text-lg">
+  {legals.title}
+  </summary>
+
+{legals.body?.processed && (
+  <div
+    dangerouslySetInnerHTML={{ __html: legals.body?.processed }}
+    className="mt-8 text-sm mx-auto max-w-screen-lg text-gray-500 leading-loose prose"
+  />
+)}
+
+           </details>
+
+
+                                    ))}
+            </div>)
+            })}
+            </span>
+          ) : null}
+
+
+
+
         </div>
       </article>
     </div>
   )
 }
-
-
-// export async function getData(): Promise<GetStaticPropsResult<NodePageProps>> {
-
-//   const response = await fetch("https://fed.septembre.io/jsonapi/node/page", {
-//     method: "GET",
-//   })
-
-//   return {
-//     props: {
-//       ...(await getGlobalElements()),
-
-//       data,
-//     },
-
-//   };
-// }
