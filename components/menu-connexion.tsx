@@ -13,7 +13,9 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 	return (
 		<div className="mt-5">
 			<div className="flex space-x-12">
-				<p className="ml-2">{props.text}</p>
+				<Link href="/mentions-legales" passHref>
+					<p className="ml-2">{props.text}</p>
+				</Link>
 				<p className="px-12">{props.text_confi}</p>
 			</div>
 			<p className="mt-3 ml-2 pb-5">{props.text_press}</p>
