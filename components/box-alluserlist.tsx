@@ -11,7 +11,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 					<div className="flex">
 						{node.user_picture?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full mt-3 ml-5">
-								<Link href={`users/${node.drupal_internal__uid}`} passHref>
+								<Link href={node.name.replaceAll(' ', '-')} passHref>
 									<Image
 										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
 										width={16}
@@ -24,8 +24,15 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 							</div>
 						)}
 						<div className="ml-5 mt-5">
-							{node.field_nom_affiche >= 0 ? node.name : node.field_nom_affiche}
+							{node.field_nom_affiche >= 0 ? (
+								<Link href={`user/${node.drupal_internal__uid}`} passHref>
+									{node.display_name}
+								</Link>
+							) : (
+								node.field_nom_affiche
+							)}
 						</div>
+
 					</div>
 					{node.field_description?.value && (
 						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="mt-6 leading-loose prose ml-5 pb-5" />
