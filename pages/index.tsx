@@ -83,7 +83,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
                 <h1 className="text-3xl font-bold">Le meilleur moyen</h1>
                 <h1 className="mb-4 text-3xl font-bold">de <span className="fedblueblue">mesurer sa valeur</span></h1>
-                <h2 className="mb-10 text-lg font-medium text-black">Federage construit un réseau économique coopératif pour les structures et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
+                <h2 className="mb-10 text-lg font-medium text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
                 <p className="flex mt-4 text-lm font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
                 </p>
@@ -178,7 +178,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
                 <Link href="./login" passHref>
                   <a className="no-underline hover:text-blue-600">
                     <h2 className="text-xl">Démarrer</h2>
-                    <p>Financer le développement de son entreprise</p>  </a>
+                    <p>Financer le développement de sa structure</p>  </a>
                 </Link>
               </div>
             </div>
