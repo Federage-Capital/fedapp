@@ -115,7 +115,7 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
                                                                       <p className="text-2xl cadre text-center p-20 mb-10">
 
 
-                                                                            <p>   Il n'y a pas de membres dans ce projet</p>
+                                                                            <p>   Il n&apos;y a pas de membres dans ce projet</p>
 
                                                                       </p>
                                                                     )}
