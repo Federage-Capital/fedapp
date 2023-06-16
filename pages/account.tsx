@@ -116,9 +116,7 @@ if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
           <div className="mb-4 py-3">
 <div className="grid grid-cols-4 gap-4">
 
-
-{user[0].id}
-                          {user[0].user_picture && (
+                          {user[0].user_picture ? (
 
 
 
@@ -133,7 +131,16 @@ if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
                                 className='rounded-lg shadow-sm ml-3  object-cover h-48 w-96'
                               />
 
-                          )}
+                            ) : (
+                              <div className="px-6">
+                                <div className="md:grid-cols-1">
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+
+                                </div>
+                              </div>
+                            )}
 
      <div className="px-5 py-3 text-base font-semibold">
         Portefeuille<br/>

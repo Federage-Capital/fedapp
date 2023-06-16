@@ -35,6 +35,8 @@ const { t } = useTranslation()
 
    <div class="col-span-9 text-right font-semibold font-xsxs">
    En attente
+   <div className="inline-block">  <NodeFinRow key={node.uuid} node={node} /></div>
+
    </div>
 </div>
 
@@ -42,14 +44,24 @@ const { t } = useTranslation()
  {node.title}
 </div>
 
+ {node.field_estimation_du_prix} € - {formatDate(node.field_date_de_livraison)}
 
 
- {node.body && (
-      <div
-        dangerouslySetInnerHTML={{ __html: node.body }}
-        className="text-prose gray-700 leading-loose"
-      />
-    )}
+
+                                                               <details className="mb-5 shadow sm:rounded-lg px-4 py-5 sm:p-6">
+
+                                                                   <summary className="text-lg">
+                                                          Détails de l’offre
+                                                                   </summary>
+                                                                   <p className="mt-2  text-sm text-gray-500">
+                                                                   <div
+                                                                     dangerouslySetInnerHTML={{ __html: node.field_body?.processed }}
+                                                                     className="mt-6 text-lg mx-auto max-w-screen-lg leading-loose prose"
+                                                                   />
+                                                                   </p>
+                                                               </details>
+
+
      <div className="grid grid-cols-12 gap-4">
 
      <div className="col-span-9 text-left font-xsxs">
@@ -79,13 +91,12 @@ const { t } = useTranslation()
  <div className="col-span-2">
 
 
- <div className="inline-block">  <NodeFinRow key={node.uuid} node={node} /></div>
 
  </div>
  </div>
 
 
- 
+
 
     </article>
   )
