@@ -6,8 +6,8 @@ import { TbWorld } from 'react-icons/tb';
 export function BoxUserList({ node }: BoxAlluserlistProps) {
 	return (
 		<>
-			<div className="pb-5">
-				<div className="bg-white rounded">
+			<div className="pb-5 p-0">
+				<div className="bg-white rounded-md">
 					<div className="flex">
 						{node.user_picture?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full mt-3 ml-5">
@@ -23,22 +23,33 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 								</Link>
 							</div>
 						)}
-						<div className="ml-5 mt-5">
+						<div className="ml-3 mt-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2">
 							{node.field_nom_affiche >= 0 ? (
 								<Link href={`user/${node.drupal_internal__uid}`} passHref>
-									{node.display_name}
+									<p className="font-semibold">
+										{node.display_name}
+									</p>
+								</Link>
+							) : (
+								node.field_nom_affiche
+							)}
+
+							{node.field_nom_affiche >= 0 ? (
+								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+									<div className="text-slate-500 lowercase relative -top-3 text-sm max-w-xs truncate">
+										app.federage.com/{node.name.replace(/è/g, 'e').replaceAll(' ', '-')}
+									</div>
 								</Link>
 							) : (
 								node.field_nom_affiche
 							)}
 						</div>
 					</div>
-					<div className="flex justify-center m-5">
-						app.federage.com/{node.name.replaceAll(' ', '-')}
-					</div>
+
 					{node.field_description?.value && (
-						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="mt-6 leading-loose prose ml-5 pb-5" />
+						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal prose ml-5 pb-5 text-slate-600 sm:text-base md:text-lg lg:text-xl px-4" />
 					)}
+
 					<div className="flex ml-5 items-center pb-5">
 						{node.field_type_de_structure?.id && (
 							<>
