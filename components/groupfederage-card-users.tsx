@@ -17,15 +17,15 @@ interface NodeCardUserRow {
 
 
 }
-const fetcher = (url) => fetch(url).then((r) => r.json());
 
+
+
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export function NodeCardUserRow({ node,   ...props }: NodeCardUserRowProps) {
 const { t } = useTranslation()
 
-const { data: users, error: userError } = useSWR('https://fed.septembre.io/users_in_group/'+ node.id, fetcher)
-const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io/groupfederageestimation/'+ node.id, fetcher)
-
+const { data: users, error: userError } = useSWR(() =>`https://fed.septembre.io/vue-des-membres-du-groupe-nest/` + [node.id], fetcher)
 
 
 
@@ -34,8 +34,6 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
          if (userError) return <div>Failed to load user</div>
          if (!users) return <div>Loading ...</div>
 
-         if (totalError) return <div>Failed to load 23</div>
-         if (!total) return <div>Loading financement ...</div>
 
   return (
     <article {...props} className="box-content p-4 border-2 rounded-lg mb-8 grid grid-cols-12 gap-4">
@@ -66,16 +64,17 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
                       )}
 
 
-                    {node.id}
+
                       {users?.length ? (
 
 
-                      <div>
+                      <div className="col-span-12 ">
                           {users.map((membres,index) => (
 
-
-<div key={membre.id} class="grid grid-cols-2 gap-4">
-<div>{membres.user_picture ? (
+                            <Link href={membres.view_node}>
+                            <a >
+<div key={membres.id} className=" grid grid-cols-12 gap-4">
+<div className="col-span-2 ">{membres.user_picture ? (
 
 
 
@@ -99,11 +98,16 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
     </div>
   )}</div>
 
-  <div>{membres.name}</div>
+  <div className="col-span-6 ">{membres.uid}</div>
+  <div className="col-span-4">{membres.field_estimation_du_prix} €</div>
+
+
+
 
 </div>
 
-
+</a>
+</Link>
 
 
                                                 ))}
