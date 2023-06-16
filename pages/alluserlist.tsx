@@ -102,7 +102,7 @@ export default function AlluserlistPage
                   <input
                     type="search"
                     name="fulltext"
-                    className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-9 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-fedblue sm:text-sm sm:leading-6"
+                    className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-9 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-fedblueblue sm:text-sm sm:leading-6"
                     placeholder="Recherche"
                   />
                 </div>
@@ -128,14 +128,12 @@ export default function AlluserlistPage
             Aucun résultat.
           </p>
         ) : (
-          <div className="px-6">
-            <div className="md:grid-cols-1">
-              {results.map((node) => (
-                <div key={node.id}>
-                  <BoxUserList key={node.id} node={node} />
-                </div>
-              ))}
-            </div>
+          <div className="md:grid-cols-1">
+            {results.map((node) => (
+              <div key={node.id}>
+                <BoxUserList key={node.id} node={node} />
+              </div>
+            ))}
           </div>
         )}
       </Layout>
