@@ -1,11 +1,13 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image"
-import { DrupalNode,
+import {
+  DrupalNode,
   getSearchIndexFromContext,
   deserialize,
   JsonApiSearchApiResponse,
-  DrupalSearchApiFacet, } from "next-drupal";
+  DrupalSearchApiFacet,
+} from "next-drupal";
 import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
 import { useRouter } from "next/router"
@@ -13,6 +15,8 @@ import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
+import { BoxUserList } from "components/box-alluserlist"
+import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
 
 
 const params = {
@@ -29,9 +33,9 @@ const params = {
 
 
 export default function AlluserlistPage
-({ menus, blocks, users, nodes,
-  facets: initialFacets,
-}: AlluserlistPageProps) {
+  ({ menus, blocks, users, nodes,
+    facets: initialFacets,
+  }: AlluserlistPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -80,45 +84,42 @@ export default function AlluserlistPage
 
 
   return (
-    <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
+    <div className="bg-slate-100">
+      <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
 
 
-<h1 class="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
+        <h1 className="max-w-4xl mb-1 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
-    <p className="px-6 mb-3 ">Parcourez la liste des membres, faites une proposition et intégrez des projets.
-        </p>
+        <p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets à la fois.</p>
 
-        <form onSubmit={handleSubmit} className="px-6 space-y-2 mb-4">
-        <div className="flex xs:hidden items-start w-100">
-
-          <input
-            type="search"
-            placeholder="Rechercher un membre"
-            name="fulltext"
-            className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-          />
-          <div className="grid gap-4 py-4 md:grid-cols-1">
+        <form onSubmit={handleSubmit} className="px-2 space-y-2 mb-4">
+          <div className="flex xs:hidden items-start w-100 pb-4">
+            <div className="w-full -ml-3">
+              <div className="mt-2 flex rounded-md shadow-sm">
+                <div className="relative flex flex-grow items-stretch focus-within:z-10">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg width="17" height="17" viewBox="0 0 20 20" fill="none" className="relative -top-0.5">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 9.29583 13.5892 10.4957 12.8907 11.4765L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L11.4765 12.8907C10.4957 13.5892 9.29583 14 8 14C4.68629 14 2 11.3137 2 8Z" fill="#9CA3AF" />
+                    </svg>
+                  </div>
+                  <input
+                    type="search"
+                    name="fulltext"
+                    className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="Recherche"
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 -mr-5"
+                >
+                  <BarsArrowUpIcon className="-ml-0.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                  A-Z
+                </button>
+              </div>
+            </div>
 
           </div>
-          <div className="flex">
-
-            <button
-              type="submit"
-              data-cy="btn-submit"
-              className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
-            >
-              {status === "Chargement" ? "Attendez..." : "Recherche"}
-            </button>
-          </div>
-
-          </div>
-          <button
-            type="submit"
-            data-cy="btn-submit"
-            className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
-          >
-            {status === "Chargement" ? "Attendez..." : "Recherche"}
-          </button>
         </form>
         {status === "error" ? (
           <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
@@ -130,81 +131,16 @@ export default function AlluserlistPage
             Aucun résultat.
           </p>
         ) : (
-
-
-          <div className="px-6 pt-4">
-
-            <div className="grid gap-6 mt-8 md:grid-cols-1">
-              {results.map((node) => (
-                <div key={node.id}>
-                  <article
-                    className="grid grid-cols-12 gap-4"
-                    data-cy="search-result"
-                  >
-
-
-
-<div>
-
-
-
-
-{node.user_picture?.uri && (
-  <div className="overflow-hidden h-10 w-10 rounded-xl">
-<Link href=    {node.name.replaceAll(' ', '-')} passHref>
-  <Image
-    src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
-    width={10}
-    height={10}
-    layout="responsive"
-    objectFit="cover"
-    alt={node.drupal_internal__uid}
-  />
-  </Link>
-  </div>
-)}
-
-
-{!node.user_picture?.uri && (
-  <span className="inline-block h-10 w-10 overflow-hidden rounded-xl bg-gray-100">
-        <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      </span>
-)}
-
-</div>
-
-<div className="col-span-5">
-
-
-<Link href={`user/${node.drupal_internal__uid}`} passHref>{node.display_name}</Link><br/>
-{node.field_description?.value && (
-  <div
-    dangerouslySetInnerHTML={{ __html: node.field_description?.value }}
-    className="mt-6 text-xl leading-loose prose"
-  />
-)}
-
-</div>
-<hr className="col-span-6 my-10"/>
-
-
-                  </article>
-                </div>
-              ))}
-            </div>
-</div>
+          <div className="md:grid-cols-1">
+            {results.map((node) => (
+              <div key={node.id}>
+                <BoxUserList key={node.id} node={node} />
+              </div>
+            ))}
+          </div>
         )}
-
-
-
-
-
-
-
-
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 
@@ -212,30 +148,27 @@ export async function getStaticProps(
   context
 ): Promise<GetStaticPropsResult<AccountPageProps>> {
 
-const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
-  "default_index",
-  context,
-  {
-    deserialize: false,
-params,
-
-
-
-  }
-)
+  const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
+    "default_index",
+    context,
+    {
+      deserialize: false,
+      params,
+    }
+  )
 
 
 
 
 
   return {
-     props: {
-       ...(await getGlobalElements(context)),
+    props: {
+      ...(await getGlobalElements(context)),
 
-       nodes: deserialize(results) as DrupalNode[],
-       facets: results.meta.facets,
-     },
-     revalidate: 5,
+      nodes: deserialize(results) as DrupalNode[],
+      facets: results.meta.facets,
+    },
+    revalidate: 5,
 
-   };
- }
+  };
+}

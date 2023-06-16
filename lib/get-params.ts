@@ -12,6 +12,7 @@ export function getParams(
     return params
     .addInclude([
       "field_paragraphs",
+      "field_paragraphs.field_node_ref",
     ])
       .addFilter("status", "1")
       .addFields("node--page", ["title", "body", "status","field_paragraphs"])
