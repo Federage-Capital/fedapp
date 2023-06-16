@@ -20,6 +20,39 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
   if (status === "authenticated" && router.asPath === "/" || status === "authenticated" && router.asPath === "/alluserlist") {
     return (
       <nav {...props}>
+        <div className="hidden md:block">
+          <ul className="flex flex-col place-self-start items-center justify-center w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14 relative" style={{ top: '100px', maxHeight: 'calc(100% - 20px)', right: '140px' }}>
+            {items.map((item) => {
+              const isActive =
+                router.asPath === item.url ||
+                `/${router.locale}${router.asPath === "/" ? "" : router.asPath}` ===
+                item.url ||
+                (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false);
+
+              return (
+                <li key={item.id}>
+                  <Link href={item.url} passHref>
+                    <a
+                      className={classNames(
+                        "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary",
+                        {
+                          "border-b-primary": isActive,
+                        }
+                      )}
+                    >
+                      {item.title}
+                    </a>
+                  </Link>
+                </li>
+              );
+            })}
+
+            <div className="md:hidden">
+              <MenuUser />
+            </div>
+          </ul>
+
+        </div>
         <ul className="items-center justify-center space-y-10 rounded w-screen">
           {items.map((item) => {
             const isActive =
@@ -185,30 +218,3 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
     </nav>
   )
 }
-
-
-//     <div className="border rounded-b-lg">
-//       <div className="flex">
-//         <div className="md:hidden ml-0 mt-3"><MenuUser /></div>
-//         <div className="absolute inset-y-50 right-0 flex items-center pr-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0 mt-5">
-//           <button
-//             type="button"
-//             className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2"
-//           >
-//             <span className="sr-only">View notifications</span>
-//             <MenuDring />
-//           </button>
-
-
-//         </div>
-//       </div>
-//       <p className="ml-5 mt-5 text-gray-500"> Profil</p>
-//       <p className="ml-5 mt-5 text-gray-500">Réglage</p>
-//       <button
-//         className={classNames(showMenu ? 'bg-gray-100' : '', 'block ml-5 text-sm text-gray-500 mt-5 pb-5')}
-
-//         onClick={() => signOut()}
-//       >
-//         <p>Déconnexion</p>
-//       </button>
-//     </div>
