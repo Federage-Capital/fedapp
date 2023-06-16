@@ -41,17 +41,13 @@ const { t } = useTranslation()
 </div>
 
 <div class="text-lg font-bold ">
+
+ <Link href= {node.view_node} passHref>
+
  {node.title}
 
- <Link href={`user/${node.uid_1}`} passHref>
-
-
-<span
-dangerouslySetInnerHTML={{ __html: node.uid }}
-className="ml-1 textskyfed"
-/>
-
   </Link>
+
 </div>
 
  {node.field_estimation_du_prix} € - {formatDate(node.field_date_de_livraison)}
@@ -63,11 +59,9 @@ className="ml-1 textskyfed"
                                                                    <summary className="text-lg">
                                                           Détails de l’offre
                                                                    </summary>
-                                                                   <p className="mt-2  text-sm text-gray-500">
-                                                                   <div
-                                                                     dangerouslySetInnerHTML={{ __html: node.field_body?.processed }}
-                                                                     className="mt-6 text-lg mx-auto max-w-screen-lg leading-loose prose"
-                                                                   />
+                                                                   <p className="mt-8  text-sm text-gray-500">
+                                                                   {node.body}
+                                                                  
                                                                    </p>
                                                                </details>
 

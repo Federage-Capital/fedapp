@@ -24,11 +24,18 @@ export function NodeCardUserRow({ node,   ...props }: NodeCardUserRowProps) {
 const { t } = useTranslation()
 
 const { data: users, error: userError } = useSWR('https://fed.septembre.io/users_in_group/'+ node.id, fetcher)
+const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io/groupfederageestimation/'+ node.id, fetcher)
+
+
+
+
 
 
          if (userError) return <div>Failed to load user</div>
          if (!users) return <div>Loading ...</div>
 
+         if (totalError) return <div>Failed to load 23</div>
+         if (!total) return <div>Loading financement ...</div>
 
   return (
     <article {...props} className="box-content p-4 border-2 rounded-lg mb-8 grid grid-cols-12 gap-4">
@@ -59,7 +66,60 @@ const { data: users, error: userError } = useSWR('https://fed.septembre.io/users
                       )}
 
 
-                  
+                    {node.id}
+                      {users?.length ? (
+
+
+                      <div>
+                          {users.map((membres,index) => (
+
+
+<div class="grid grid-cols-2 gap-4">
+<div>{membres.user_picture ? (
+
+
+
+    <Image
+      src={absoluteURL(membres.user_picture)}
+      alt={membres.name}
+      title={membres.name}
+      width={50}
+      height={50}
+      className='rounded-lg shadow-sm ml-3  object-cover h-48 w-96'
+    />
+
+  ) : (
+    <div className="px-6">
+      <div className="md:grid-cols-1">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+</svg>
+
+      </div>
+    </div>
+  )}</div>
+
+  <div>{membres.name}</div>
+
+</div>
+
+
+
+
+                                                ))}
+
+
+
+                      </div>
+                                                                    ) : (
+                                                                      <p className="text-2xl cadre text-center p-20 mb-10">
+
+
+                                                                            <p>   Il n'y a pas de membres dans ce projet</p>
+
+                                                                      </p>
+                                                                    )}
+
     </article>
   )
 
