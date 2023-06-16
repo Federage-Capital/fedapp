@@ -17,15 +17,15 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 
 const params = {
   fields: {
-      "file--file":
-        "uri",
+      "file--file":"uri",
   },
-  filter: {},
-  include: "user_picture,field_type_de_structure",
+  filter: {
+
+   },
+  include: "user_picture,field_type_de_structure,roles",
 
 
 }
-
 
 
 export default function AlluserlistPage
@@ -145,7 +145,6 @@ export default function AlluserlistPage
 
 
 <div>
-
 
 
 

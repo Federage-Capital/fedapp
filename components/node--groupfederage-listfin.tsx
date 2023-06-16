@@ -42,6 +42,16 @@ const { t } = useTranslation()
 
 <div class="text-lg font-bold ">
  {node.title}
+
+ <Link href={`user/${node.uid_1}`} passHref>
+
+
+<span
+dangerouslySetInnerHTML={{ __html: node.uid }}
+className="ml-1 textskyfed"
+/>
+
+  </Link>
 </div>
 
  {node.field_estimation_du_prix} € - {formatDate(node.field_date_de_livraison)}

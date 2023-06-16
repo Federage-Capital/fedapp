@@ -170,6 +170,7 @@ export function getParams(
     return params
       .addInclude([
         "user_picture",
+        "roles",
 
       ])
       .addFields("group_content--federage-group_membership", [
@@ -179,6 +180,7 @@ export function getParams(
         "body",
         "created",
         "uid",
+        "roles",
         "label",
         "group_type",
         "drupal_internal__id",
