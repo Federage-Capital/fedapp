@@ -17,7 +17,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
   const { data: userprojects, error: userprojectsError  } = useSWR(() =>'https://fed.septembre.io/user-s-projects-rest/' + node.id, fetcher)
 
 
-                  if (!userprojects) return <div>Loading User's project ...</div>
+                  if (!userprojects) return <div>Loading User&apos;s project ...</div>
 
   return (
     <article {...props}>
@@ -74,7 +74,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
           <p>
               {userprojects.map((sesprojets,index) => (
 
-      <p>
+      <p key=  {sesprojets.label}>
 
 
       {sesprojets.label}

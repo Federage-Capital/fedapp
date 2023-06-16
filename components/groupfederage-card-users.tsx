@@ -74,7 +74,7 @@ const { data: total, error: totalError } = useSWR(() =>'https://fed.septembre.io
                           {users.map((membres,index) => (
 
 
-<div class="grid grid-cols-2 gap-4">
+<div key={membre.id} class="grid grid-cols-2 gap-4">
 <div>{membres.user_picture ? (
 
 
