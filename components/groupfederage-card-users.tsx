@@ -70,10 +70,10 @@ const { data: users, error: userError } = useSWR(() =>`https://fed.septembre.io/
 
                       <div className="col-span-12 ">
                           {users.map((membres,index) => (
-
+<div key={membres.id} className=" grid grid-cols-12 gap-4">
                             <Link href={membres.view_node}>
                             <a >
-<div key={membres.id} className=" grid grid-cols-12 gap-4">
+
 <div className="col-span-2 ">{membres.user_picture ? (
 
 
@@ -103,11 +103,11 @@ const { data: users, error: userError } = useSWR(() =>`https://fed.septembre.io/
 
 
 
-
+  </a>
+  </Link>
 </div>
 
-</a>
-</Link>
+
 
 
                                                 ))}
