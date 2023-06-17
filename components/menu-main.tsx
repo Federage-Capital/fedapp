@@ -17,43 +17,44 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
 
-  if (status === "authenticated" && router.asPath === "/" || status === "authenticated" && router.asPath === "/alluserlist") {
+  if (status === "authenticated" && router.asPath === "/") {
     return (
       <nav {...props}>
-        <div className="hidden md:block">
-          <ul className="flex flex-col place-self-start items-center justify-center w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14 relative" style={{ top: '100px', maxHeight: 'calc(100% - 20px)', right: '140px' }}>
-            {items.map((item) => {
-              const isActive =
-                router.asPath === item.url ||
-                `/${router.locale}${router.asPath === "/" ? "" : router.asPath}` ===
-                item.url ||
-                (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false);
+      <div className="hidden md:block">
+        <ul className="flex flex-col place-self-start items-center justify-center w-full pt-8 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:space-x-14">
+          {items.map((item) => {
+            const isActive =
+              router.asPath === item.url ||
+              `/${router.locale}${router.asPath === "/" ? "" : router.asPath}` ===
+              item.url ||
+              (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false)
 
-              return (
-                <li key={item.id}>
-                  <Link href={item.url} passHref>
-                    <a
-                      className={classNames(
-                        "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary",
-                        {
-                          "border-b-primary": isActive,
-                        }
-                      )}
-                    >
-                      {item.title}
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
+            return (
 
-            <div className="md:hidden">
-              <MenuUser />
-            </div>
-          </ul>
+              <li key={item.id}>
+                <Link href={item.url} passHref>
+                  <a
+                    className={classNames(
+                      "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary",
+                      {
+                        "border-b-primary": isActive,
+                      }
+                    )}
+                  >
+                    {item.title}
+                  </a>
+                </Link>
 
-        </div>
-        <ul className="items-center justify-center space-y-10 rounded w-screen">
+              </li>
+
+            )
+          })}
+
+          <div className="md:hidden ">  <MenuUser /></div>
+
+        </ul>
+      </div>
+        <ul className="md:hidden items-center justify-center space-y-10 rounded w-screen">
           {items.map((item) => {
             const isActive =
               router.asPath === item.url ||
@@ -126,7 +127,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
             </button>
           </div>
         </ul>
-        
+
       </nav>
     );
   }
