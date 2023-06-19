@@ -27,8 +27,6 @@ interface FormCreateProps extends React.HTMLProps<HTMLFormElement> { }
 export function FormCreate({ className, ...props }: FormCreateProps) {
 
   const [status, setStatus] = React.useState<"error" | "success">()
-  const { t } = useTranslation()
-
   const { register, handleSubmit, formState, reset } = useForm<FormData>({
     resolver: yupResolver(createFormSchema),
 
@@ -73,24 +71,21 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
       <form className={classNames("grid gap-4", "inputWithButton", className)}
         onSubmit={handleSubmit(onSubmit)}>
         <div className="grid">
-          <select
-            id="country"
-            name="country"
-            autoComplete="country-name"
-            className="relative block w-full rounded rounded-t-md mb-2 border-0 bg-white py-3 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          >
-            <option value="" disabled selected hidden>
-              Société
-            </option>
-            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Type de structure</option>
-            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Entreprise</option>
-            <option value="dce93ed5-9f2c-4012-bc59-740601bd3165">ONG</option>
-            <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c">Association</option>
-            <option value="3e070dcb-1637-442a-beaa-50a5f1001159">Commun</option>
-            <option value="682283e2-29dc-422a-bd92-c5a1db95861b">Institution</option>
-          </select>
-
-
+          <div className="relative">
+            <select
+              id="categorie_d_entreprise"
+              name="categorie_d_entreprise"
+              placeholder="Type de structure"
+              className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholer-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+            >
+              <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Type de structure</option>
+              <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Entreprise</option>
+              <option value="dce93ed5-9f2c-4012-bc59-740601bd3165" className="hover:bg-blue-500">ONG</option>
+              <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c" className="hover:bg-blue-500">Association</option>
+              <option value="3e070dcb-1637-442a-beaa-50a5f1001159" className="hover:bg-blue-500">Commun</option>
+              <option value="682283e2-29dc-422a-bd92-c5a1db95861b" className="hover:bg-blue-500">Institution</option>
+            </select>
+          </div>
           <input
             id="siren"
             name="siren"
@@ -146,11 +141,13 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
             Créer un compte
           </button>
         </div>
-
-
-
-
-      </form >
-    </div >
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+      </form>
+    </div>
   )
 }
