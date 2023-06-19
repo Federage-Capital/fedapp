@@ -6,8 +6,8 @@ import { TbWorld } from 'react-icons/tb';
 export function BoxUserList({ node }: BoxAlluserlistProps) {
 	return (
 		<>
-			<div className="pb-5 p-0">
-				<div className="bg-white rounded-md">
+			<div className="pb-4 p-0">
+				<div className="bg-white rounded-lg">
 					<div className="flex">
 						{node.user_picture?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full mt-3 ml-5">
@@ -36,7 +36,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 
 							{node.field_nom_affiche >= 0 ? (
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
-									<div className="text-slate-500 lowercase relative -top-3 text-sm max-w-xs truncate">
+									<div className="text-slate-500 font-semibold mr-4 lowercase relative -top-3 text-sm max-w-xs truncate">
 										app.federage.com/{node.name.replace(/è/g, 'e').replaceAll(' ', '-')}
 									</div>
 								</Link>
@@ -47,10 +47,10 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 					</div>
 
 					{node.field_description?.value && (
-						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal prose ml-5 pb-5 text-slate-600 sm:text-base md:text-lg lg:text-xl px-4" />
+						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal prose ml-2 pb-5 text-slate-600 sm:text-base md:text-base lg:text-xl px-4" />
 					)}
 
-					<div className="flex ml-5 items-center pb-5">
+					<div className="flex ml-6 items-center pb-5">
 						{node.field_type_de_structure?.id && (
 							<>
 								<div className="pr-2">
@@ -59,7 +59,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 									</svg>
 								</div>
 								{node.field_type_de_structure?.name && (
-									<p className="text-sm">
+									<p className="text-sm text-slate-600">
 										{node.field_type_de_structure.name}
 									</p>
 								)}
