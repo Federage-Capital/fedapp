@@ -10,7 +10,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 				<div className="bg-white rounded-lg">
 					<div className="flex">
 						{node.user_picture?.uri && (
-							<div className="overflow-hidden h-10 w-10 rounded-full mt-3 ml-5">
+							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5">
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
 									<Image
 										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
@@ -23,7 +23,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 								</Link>
 							</div>
 						)}
-						<div className="ml-3 mt-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2">
+						<div className="ml-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2 pt-5">
 							{node.field_nom_affiche >= 0 ? (
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
 									<p className="font-semibold">
@@ -47,8 +47,10 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 					</div>
 
 					{node.field_description?.value && (
-						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal prose ml-2 pb-5 text-slate-600 sm:text-base md:text-base lg:text-xl px-4" />
+						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-sm px-4" />
 					)}
+
+
 
 					<div className="flex ml-6 items-center pb-5">
 						{node.field_type_de_structure?.id && (
