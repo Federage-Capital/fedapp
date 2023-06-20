@@ -12,26 +12,27 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 	const { t } = useTranslation()
 	return (
 		<div className="mt-5">
-			<div className="flex space-x-12">
+			<div className="flex justify-center space-x-20">
 				<button>
 					<Link href="/mentions-legales" passHref>
-						<p className="ml-2">{props.text}</p>
+						<div className="ml-2">{props.text}</div>
 					</Link>
 				</button>
 				<button>
 					<Link href="/confidentialite" passHref>
-						<p className="px-12">{props.text_confi}</p>
+						<p className="ml-2 px-2 sm:px-12">{props.text_confi}</p>
 					</Link>
 				</button>
 			</div>
+
 			<button>
 				<Link href="/cgu" passHref>
-					<p className="mt-3 ml-2 pb-5">{props.text_press}</p>
+					<p className="mt-3 ml-2 pb-5 md:ml-5">{props.text_press}</p>
 				</Link>
 			</button>
 			<div className="flex justify-center">
 				<button className="px-3 fedblue py-2 text-md text-white transition-colors rounded-xl
-					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6">
+					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6 w-full">
 					<Link href="/login" passHref>
 						<a className="text-lg">{t("Connexion")}</a>
 					</Link>
