@@ -128,7 +128,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
                 )}
               />
             </Switch>
-            <div className="col-span-5">
+            <div className="text-base col-span-4">
               En cochant cette case, vous acceptez notre <a href="/propos" className="fedblueblue">
                 Politique de confidentialité.</a>
             </div>
