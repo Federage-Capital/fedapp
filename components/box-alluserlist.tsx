@@ -6,7 +6,7 @@ import { TbWorld } from 'react-icons/tb';
 export function BoxUserList({ node }: BoxAlluserlistProps) {
 	return (
 		<>
-			<div className="pb-4 p-0">
+			<div className="pb-4">
 				<div className="bg-white rounded-lg">
 					<div className="flex">
 						{node.user_picture?.uri && (
@@ -45,13 +45,9 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 							)}
 						</div>
 					</div>
-
 					{node.field_description?.value && (
-						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-sm px-4" />
+						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4" />
 					)}
-
-
-
 					<div className="flex ml-6 items-center pb-5">
 						{node.field_type_de_structure?.id && (
 							<>

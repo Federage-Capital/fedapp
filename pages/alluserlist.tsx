@@ -119,6 +119,7 @@ export default function AlluserlistPage
               {status === "Chargement" ? "Attendez..." : "Recherche"}
             </button>
           </form>
+          <div className="pb-10" />
           {status === "error" ? (
             <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
               Une erreur s&#39;est produite. Veuillez réessayer.
