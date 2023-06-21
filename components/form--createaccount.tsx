@@ -70,7 +70,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
     <div>
       <form className={classNames("grid gap-4", "inputWithButton", className)}
         onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid -mt-4">
+        <div className="grid">
           <div className="relative">
             <select
               id="categorie_d_entreprise"
@@ -110,7 +110,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
             className="relative block w-full px-3 py-2 mb-4  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
             {...register("mail")}
           />
-          <div className="grid grid-cols-6 gap-4 max-width-create">
+          <div className="grid grid-cols-6 gap-4 max-width-create" style={{ width: '270px' }}>
             <Switch
               checked={enabled}
               onChange={setEnabled}
@@ -128,7 +128,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
                 )}
               />
             </Switch>
-            <div className="text-base col-span-4">
+            <div className="text-sm col-span-5">
               En cochant cette case, vous acceptez notre <a href="/propos" className="fedblueblue">
                 Politique de confidentialité.</a>
             </div>
@@ -140,14 +140,14 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
           >
             Créer un compte
           </button>
-        </div>
+        </div >
         <div>
         </div>
         <div>
         </div>
         <div>
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   )
 }

@@ -118,12 +118,12 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
                           <FormResetpassword className="max-w-xl mx-auto" />
                         </p>
                       </div>
+                      <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                        <p>
+                          <FormCreate className="max-w-xl mx-auto" />
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                    <p>
-                      <FormCreate className="max-w-xl mx-auto" />
-                    </p>
                   </div>
                 </div>
               </div>
