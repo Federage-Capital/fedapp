@@ -70,7 +70,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
     <div>
       <form className={classNames("grid gap-4", "inputWithButton", className)}
         onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid">
+        <div className="grid -mt-4">
           <div className="relative">
             <select
               id="categorie_d_entreprise"

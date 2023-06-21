@@ -8,7 +8,8 @@ export function UserListCard({ node }: BoxUserProfileProps) {
 			<div className="pb-5 p-0">
 				<div className="bg-white rounded-md">
 					<div className="flex">
-						okkkkkk
+
+						
 					</div>
 				</div>
 			</div >

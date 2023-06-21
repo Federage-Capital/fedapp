@@ -78,16 +78,31 @@ export function Header({ menus }: HeaderProps) {
     return (
       <>
         <header className={`max-w-screen-lg mx-auto md:bg-transparent ${showMenu ? "bg-white" : ""}`}>
+
           <div className={containerClasses}>
             <Link href="/" passHref>
-              <a className="flex justify-start">
-                <div className="ml-5">
-                  <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
-                </div>
-
+              <a className="flex justify-start ml-5">
+                <Image src="/federage-logo.svg" height={100} width={200} alt="Logo federage" />
                 <span className="sr-only">{siteConfig.name}</span>
               </a>
             </Link>
+
+
+
+            <div
+              className={classNames(
+                "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 md:z-0 absolute md:relative",
+                {
+                  "max-h-max bg-white md:bg-transparent": showMenu,
+                }
+              )}
+            >
+
+
+              <MenuMain items={menus.main} className="ml-10 order-0" />
+
+
+            </div>
 
             {!showMenu && (
               <button
@@ -124,22 +139,6 @@ export function Header({ menus }: HeaderProps) {
                 </svg>
               </button>
             )}
-
-
-            <div
-              className={classNames(
-                "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 absolute",
-                {
-                  "max-h-max bg-white md:bg-transparent": showMenu,
-                }
-              )}
-            >
-
-              <MenuMain items={menus.main} className="ml-0 order-0" />
-
-
-            </div>
-
             <div className="grow">  </div>
             <div className="hidden md:block flex">  <MenuUser /></div>
 

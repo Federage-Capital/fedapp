@@ -26,7 +26,14 @@ export function MenuDring() {
   }
 
   const { data: actualuser, error: actualuserError } = useSWR(() => `https://fed.septembre.io/actualuser` + `/` + data.user.userId, fetcher)
-  if (actualuserError) return <div>Failed to load User</div>
+  const { data: danses, error: dansesError } = useSWR(() => `https://fed.septembre.io/danse-propositions-nested`, fetcher)
+  const { data: dansesAdduser, error: dansesAdduserError } = useSWR(() => `https://fed.septembre.io/danse_add_user_nested`, fetcher)
+
+
+
+
+
+
   if (status === "loading") {
     return null
   }
@@ -68,8 +75,58 @@ export function MenuDring() {
 
 
           <Menu.Items className="absolute right-0 z-10 mt-2 w-96 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            1 msg
+            {danses?.length ? (
 
+              <>
+                Alerte nouvelles offres
+                {danses.map((danse) => (
+                  <div key={danse.id} className="divide-y divide-gray-200">
+
+                    # {danse.id} - {danse.plugin} - {danse.topic}<br />
+                    {danse.payload.entity.bundle}-{danse.payload.entity.id}<br />
+
+                    <div
+                      dangerouslySetInnerHTML={{ __html: danse.payload_export }}
+                      className="mt-6 text-xl leading-loose prose"
+                    />
+                  </div>
+                ))}
+
+              </>
+            ) : (
+              <p className="text-2xl cadre text-center p-20 mb-10">
+
+
+                <p>   Vide</p>
+
+              </p>
+            )}
+
+
+
+            {dansesAdduser?.length ? (
+
+              <>
+                Alerte Ajout à un groupe
+                {dansesAdduser.map((adduser) => (
+                  <div key={adduser.id} className="divide-y divide-gray-200">
+
+                    # {adduser.id} <br />
+                    <br />
+                    {adduser.payload.form['#action']}
+
+                  </div>
+                ))}
+
+              </>
+            ) : (
+              <p className="text-2xl cadre text-center p-20 mb-10">
+
+
+                <p>   Vide 2</p>
+
+              </p>
+            )}
 
 
 
