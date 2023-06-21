@@ -3,6 +3,7 @@ import classNames from "classnames"
 import { useTranslation } from "next-i18next"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
+import Link from "next/link"
 
 interface FormLoginProps extends React.HTMLProps<HTMLFormElement> { }
 
@@ -71,7 +72,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             maxLength={255}
             placeholder="Adresse mail"
             required
-            className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+            className="relative block w-full px-3 py-2 mb text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
 
           <input
@@ -82,7 +83,27 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             required
             className="relative block w-full px-3 py-2 mb-4 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           />
+          <div className="flex h-6 items-center mb-5">
+            <input
+              id="comments"
+              aria-describedby="comments-description"
+              name="comments"
+              type="checkbox"
+              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+            />
+            <p className="ml-2 text-sm">
+              Resté connecté
+            </p>
+            <Link href="/register" passHref>
+              <p className="ml-auto fedblueblue text-sm">
+                Mot de passe oublié ?
+              </p>
+            </Link>
+          </div>
 
+          <div className="flex">
+
+          </div>
 
 
           <input

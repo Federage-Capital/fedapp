@@ -28,114 +28,33 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
 
 
   return (
-    <div className="bg-slate-100">
-      <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks} >
-        <PageHeader
-          heading={t("Accedez à votre compte")}
-
-        />
+    <div className="flex flex-col h-screen bg-slate-100">
+      <div className="flex flex-col justify-center items-center flex-1">
+        <PageHeader heading={t("Accéder à mon compte")} className="text-semibold" />
+        <div className="text-sm text-slate-500 -mt-10 mb-5">
+          Connectez-vous à federage.
+          <div className="text-sm">
+            Jamais inscrit ? <a href="/register" className="fedblueblue">Cliquez-ici</a>
+          </div>
+        </div>
         {status === "unauthenticated" && (
           <div className="container pb-1">
-
-            <div className="flex flex-wrap">
+            <div className="items-center">
               <div className="grid gap-4 max-lg mx-auto">
-                <ul
-                  className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
-                  role="tablist"
-                >
-                  <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                    <a
-                      className={
-                        "text-xs font-bold px-2 py-3 rounded-md leading-normal " +
-                        (openTab === 1
-                          ? "bg-gray" + "-100"
-                          : "text-" + "bg-white")
-                      }
-
-
-                      onClick={e => {
-                        e.preventDefault();
-                        setOpenTab(1);
-                      }}
-                      data-toggle="tab"
-                      href="#link1"
-                      role="tablist"
-                    >
-                      Connexion
-                    </a>
-                  </li>
-                  <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                    <a
-                      className={
-                        "text-xs font-bold px-2 py-3 rounded-md leading-normal " +
-                        (openTab === 2
-                          ? "bg-gray" + "-100"
-                          : "text-" + "bg-white")
-                      }
-
-
-                      onClick={e => {
-                        e.preventDefault();
-                        setOpenTab(2);
-                      }}
-                      data-toggle="tab"
-                      href="#link2"
-                      role="tablist"
-                    >
-                      Mot de passe oublié
-                    </a>
-                  </li>
-                  <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                    <a
-                      className={
-                        "text-xs font-bold px-2 py-3 rounded-md leading-normal " +
-                        (openTab === 3
-                          ? "bg-gray" + "-100"
-                          : "text-" + "bg-white")
-                      }
-                      onClick={e => {
-                        e.preventDefault();
-                        setOpenTab(3);
-                      }}
-                      data-toggle="tab"
-                      href="#link3"
-                      role="tablist"
-                    >
-                      Inscription
-                    </a>
-                  </li>
-                </ul>
-                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6">
                   <div className="px-4 py-5 flex-auto">
                     <div className="tab-content tab-space">
-                      <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                        <p>
-                          <FormLogin className="max-w-xl mx-auto" />
-                        </p>
-                      </div>
-                      <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                        <p>
-                          <FormResetpassword className="max-w-xl mx-auto" />
-                        </p>
-                      </div>
-                      <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                        <p>
-                          <FormCreate className="max-w-xl mx-auto" />
-                        </p>
-                      </div>
+                      <FormLogin className="max-w-xl mx-auto" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         )}
-
-
-      </Layout>
+      </div>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps(
