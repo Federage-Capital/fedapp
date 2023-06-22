@@ -20,6 +20,17 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 	const router = useRouter()
 	const { status } = useSession()
 	const [openTab, setOpenTab] = React.useState(1);
+	const { toggleValue } = router.query;
+	const [toggle, setToggle] = React.useState<boolean>(toggleValue === 'true');
+
+	React.useEffect(() => {
+		setToggle(toggleValue === 'true');
+	}, [toggleValue]);
+
+	React.useEffect(() => {
+		const activeTab = parseInt(router.query.tab, 10) || 1;
+		setOpenTab(activeTab);
+	}, [router.query.tab]);
 
 	if (status === "authenticated") {
 		router.push("/account")
@@ -114,14 +125,25 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 												</p>
 											</div>
 											<div className={openTab === 2 ? "block" : "hidden"} id="link2">
-												<p>
-													<FormResetpassword className="max-w-xl mx-auto" />
-												</p>
+												{toggle ? (
+													<p>
+														<FormResetpassword className="max-w-xl mx-auto" />
+													</p>
+												) :
+													<p>
+														<FormResetpassword className="max-w-xl mx-auto" />
+													</p>}
 											</div>
 											<div className={openTab === 3 ? "block" : "hidden"} id="link3">
-												<p>
-													<FormCreate className="max-w-xl mx-auto" />
-												</p>
+												{toggle ? (
+													<p>
+														<FormCreate className="max-w-xl mx-auto" />
+													</p>
+												) :
+													<p>
+														<FormCreate className="max-w-xl mx-auto" />
+													</p>
+												}
 											</div>
 										</div>
 									</div>

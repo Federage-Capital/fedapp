@@ -94,10 +94,14 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             <p className="ml-2 text-sm">
               Resté connecté
             </p>
-            <Link href="/register" passHref>
-              <p className="ml-auto fedblueblue text-sm">
-                Mot de passe oublié ?
-              </p>
+            <Link href={{
+              pathname: '/register',
+              query: {
+                tab: 2,
+                toggleValue: false
+              }
+            }}>
+              <button className="ml-auto fedblueblue text-sm" onClick={() => router.push("/register")}>Mot de passe oublié</button>
             </Link>
           </div>
 

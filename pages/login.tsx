@@ -9,6 +9,7 @@ import { FormLogin } from "components/form--login"
 import { FormCreate } from "components/form--createaccount"
 import { FormResetpassword } from "components/form--resetpassword"
 import { WhoIs } from "components/whois"
+import Link from 'next/link'
 import React from "react";
 
 
@@ -28,13 +29,23 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
 
 
   return (
+    // <Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks}>
     <div className="flex flex-col h-screen bg-slate-100">
       <div className="flex flex-col justify-center items-center flex-1">
         <PageHeader heading={t("Accéder à mon compte")} className="text-semibold" />
         <div className="text-sm text-slate-500 -mt-10 mb-5">
           Connectez-vous à federage.
           <div className="text-sm">
-            Jamais inscrit ? <a href="/register" className="fedblueblue">Cliquez-ici</a>
+            Jamais inscrit ?
+            <Link href={{
+              pathname: '/register',
+              query: {
+                tab: 3,
+                toggleValue: false
+              }
+            }}>
+              <button className="ml-2 fedblueblue text-sm" onClick={() => router.push("/register")}>Cliquez-ici</button>
+            </Link>
           </div>
         </div>
         {status === "unauthenticated" && (
@@ -54,6 +65,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
         )}
       </div>
     </div>
+    // </Layout >
   );
 }
 
