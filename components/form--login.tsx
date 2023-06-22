@@ -105,9 +105,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             </Link>
           </div>
 
-          <div className="flex">
 
-          </div>
 
 
           <input
