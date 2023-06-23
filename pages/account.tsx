@@ -33,7 +33,7 @@ interface AccountPageProps extends LayoutProps {
 }
 
 
-interface FormGroupfinProps extends React.HTMLProps<HTMLFormElement> {}
+interface FormGroupfinProps extends React.HTMLProps<HTMLFormElement> { }
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -67,28 +67,28 @@ export default function AccountsPage({
 
   const { status } = useSession()
   const [openTab, setOpenTab] = React.useState(1);
-  const [shouldFetch,setShouldFetch] = useState(false)
+  const [shouldFetch, setShouldFetch] = useState(false)
 
 
-  const { data: total, error: totalError} = useSWR(() =>`https://fed.septembre.io/nested_total`+ `/`+ user[0].id, fetcher)
+  const { data: total, error: totalError } = useSWR(() => `https://fed.septembre.io/nested_total` + `/` + user[0].id, fetcher)
 
-  const { data: financements2dugroupe, error: financement2Error} = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
-  const { data: financementsd1groupe, error: financementError } = useSWR(shouldFetch ? 'https://fed.septembre.io/group_node_financement_rest_nested_4'+ `/`+ user[0].id : null, fetcher)
+  const { data: financements2dugroupe, error: financement2Error } = useSWR(() => `https://fed.septembre.io/group_node_financement_rest_nested_3` + `/` + user[0].id, fetcher)
+  const { data: financementsd1groupe, error: financementError } = useSWR(shouldFetch ? 'https://fed.septembre.io/group_node_financement_rest_nested_4' + `/` + user[0].id : null, fetcher)
 
 
 
-  const { data: propositions, error: propositionsError } = useSWR(() =>`https://fed.septembre.io/propositions_nested`+ `/`+ user[0].id, fetcher)
-  const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
-  const { data: totaldugroupeprop, error: totaldugroupepropError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_7`, fetcher)
+  const { data: propositions, error: propositionsError } = useSWR(() => `https://fed.septembre.io/propositions_nested` + `/` + user[0].id, fetcher)
+  const { data: totaldugroupe, error: totaldugroupeError } = useSWR(() => `https://fed.septembre.io/group_node_financement_rest_nested_6`, fetcher)
+  const { data: totaldugroupeprop, error: totaldugroupepropError } = useSWR(() => `https://fed.septembre.io/group_node_financement_rest_nested_7`, fetcher)
 
   if (financementError) return <div>Failed to load financementError</div>
 
 
   if (totaldugroupepropError) return <div>Failed to load total du groupe</div>
-if (!totaldugroupeprop) return <div>Loading  total du groupe ...</div>
+  if (!totaldugroupeprop) return <div>Loading  total du groupe ...</div>
 
   if (totaldugroupeError) return <div>Failed to load total du groupe</div>
-if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
+  if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
 
 
 
@@ -114,59 +114,59 @@ if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
 
         <div className="title">
           <div className="mb-4 py-3">
-<div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4">
 
-                          {user[0].user_picture ? (
-
-
-
-                              <Image
-                                src={absoluteURL(user[0].user_picture.uri.url)}
-                                objectFit={objectFit}
-                                alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
-                                title={user[0].user_picture.resourceIdObjMeta.title}
-                                priority={priority}
-                                width={130}
-                                height={130}
-                                className='rounded-lg shadow-sm ml-3  object-cover h-48 w-96'
-                              />
-
-                            ) : (
-                              <div className="px-6">
-                                <div className="md:grid-cols-1">
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-
-                                </div>
-                              </div>
-                            )}
-
-     <div className="px-5 py-3 text-base font-semibold">
-        Portefeuille<br/>
-             {total.length ? (
-   <span className="font-semibold text-2xl">                   {total.map((totaux) => (
-
-<p key={totaux.field_estimation_du_prix}>
- {totaux.field_estimation_du_prix} €
-</p>
-
-                   ))}
-                </span>
-               ) : (
-                 <p className="py-6">No Portefeuille found</p>
-               )}
+              {user[0].user_picture ? (
 
 
+
+                <Image
+                  src={absoluteURL(user[0].user_picture.uri.url)}
+                  objectFit={objectFit}
+                  alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
+                  title={user[0].user_picture.resourceIdObjMeta.title}
+                  priority={priority}
+                  width={130}
+                  height={130}
+                  className='rounded-lg shadow-sm ml-3  object-cover h-48 w-96'
+                />
+
+              ) : (
+                <div className="px-6">
+                  <div className="md:grid-cols-1">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+
+                  </div>
+                </div>
+              )}
+
+              <div className="px-5 py-3 text-base font-semibold">
+                Portefeuille<br />
+                {total.length ? (
+                  <span className="font-semibold text-2xl">                   {total.map((totaux) => (
+
+                    <p key={totaux.field_estimation_du_prix}>
+                      {totaux.field_estimation_du_prix} €
+                    </p>
+
+                  ))}
+                  </span>
+                ) : (
+                  <p className="py-6">No Portefeuille found</p>
+                )}
 
 
 
 
-             </div>
+
+
+              </div>
+
+            </div>
 
           </div>
-
-</div>
 
 
         </div>
@@ -175,349 +175,349 @@ if (!totaldugroupe) return <div>Loading  total du groupe ...</div>
 
 
           <p className="text-lg mb-12">
-          <Link href="/groupfederage/new" passHref>
-          <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-             Nouveau projet
+            <Link href="/groupfederage/new" passHref>
+              <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                Nouveau projet
 
-             {user.id
-             }
+                {user.id
+                }
 
-            </a>
-          </Link>
+              </a>
+            </Link>
           </p>
 
         </div>
 
         <div className="flex flex-wrap">
-                <div className="w-full">
-                <br/>
-                <span
-                  className="px-5 py-3 p-4 text-xl font-semibold"
-                >  Opérations
+          <div className="w-full">
+            <br />
+            <span
+              className="px-5 py-3 p-4 text-xl font-semibold"
+            >  Opérations
 
-                </span>
-                  <ul
-                    className="flex mb-0 mt-4 list-none flex-wrap pt-3 pb-4 flex-row"
-                    role="tablist"
-                    aria-label="liste des taches"
-                  >
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 1
-                            ? "bg-gray" + "-100"
-                            : "text-" + "gray-700")
-                        }
-
-
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(1);
-                        }}
-                        data-toggle="tab"
-                        href="#link1"
-                        role="tablist"
-                        aria-label="tab 1"
-
-                      >
-                        En cours
-                      </a>
-                    </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 2
-                            ? "bg-gray" + "-100"
-                            : "text-" + "gray-700")
-                        }
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(2);
-                        }}
-                        data-toggle="tab"
-                        href="#link2"
-                        role="tablist"
-                        aria-label="offres"
-
-                      >
-                        Offres
-                      </a>
-                    </li>
-
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 3
-                            ? "bg-gray" + "-100"
-                            : "text-" + "gray-700")
-                        }
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(3);
-                        }}
-                        data-toggle="tab"
-                        href="#link4"
-                        role="tablist"
-                        aria-label="transactions"
-
-                      >
-                         Transactions
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
-                    <div className="px-4 py-5 flex-auto">
-                      <div className="tab-content tab-space">
-                        <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+            </span>
+            <ul
+              className="flex mb-0 mt-4 list-none flex-wrap pt-3 pb-4 flex-row"
+              role="tablist"
+              aria-label="liste des taches"
+            >
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 1
+                      ? "bg-gray" + "-100"
+                      : "text-" + "gray-700")
+                  }
 
 
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(1);
+                  }}
+                  data-toggle="tab"
+                  href="#link1"
+                  role="tablist"
+                  aria-label="tab 1"
+
+                >
+                  En cours
+                </a>
+              </li>
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 2
+                      ? "bg-gray" + "-100"
+                      : "text-" + "gray-700")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(2);
+                  }}
+                  data-toggle="tab"
+                  href="#link2"
+                  role="tablist"
+                  aria-label="offres"
+
+                >
+                  Offres
+                </a>
+              </li>
+
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 3
+                      ? "bg-gray" + "-100"
+                      : "text-" + "gray-700")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(3);
+                  }}
+                  data-toggle="tab"
+                  href="#link4"
+                  role="tablist"
+                  aria-label="transactions"
+
+                >
+                  Transactions
+                </a>
+              </li>
+            </ul>
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
+              <div className="px-4 py-5 flex-auto">
+                <div className="tab-content tab-space">
+                  <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
 
 
 
 
-                        <p>
-
-                        {membersdugroupe?.length ? (
-
-                          <div>
-
-                                              {membersdugroupe.map((membre) => (
 
 
+                    <p>
 
-                                                          <div
-                                                            key={membre.id}
-                                                          >
+                      {membersdugroupe?.length ? (
+
+                        <div>
+
+                          {membersdugroupe.map((membre) => (
 
 
 
+                            <div
+                              key={membre.id}
+                            >
 
-                        {financementsdansgr?.length ? (
-                        <p>
 
-                        {financementsdansgr.filter(person1 => person1.id.includes(membre.gid.id)).map(filteredPerson1 => {
 
-                        return (
 
-                        <div key={filteredPerson1.id} className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
-                        <div className="flex-shrink-0">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" stroke-dasharray="5 5"/>
-                        </svg>
+                              {financementsdansgr?.length ? (
+                                <p>
+
+                                  {financementsdansgr.filter(person1 => person1.id.includes(membre.gid.id)).map(filteredPerson1 => {
+
+                                    return (
+
+                                      <div key={filteredPerson1.id} className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
+                                        <div className="flex-shrink-0">
+                                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" stroke-dasharray="5 5" />
+                                          </svg>
+                                        </div>
+
+                                        <div className="min-w-0 flex-1">
+                                          {filteredPerson1.label}<br />
+                                          admin : {filteredPerson1.uid.display_name}
+                                          <span >
+                                            {totaldugroupe?.length ? (
+                                              <div>
+                                                {totaldugroupe.filter(person6 => person6.uuid.includes(filteredPerson1.id)).map(filteredPerson6 => {
+
+                                                  return (
+
+                                                    <div className="flex-container card" key={filteredPerson6.uuid}>
+
+                                                      <div className="content">
+
+                                                        Montant total des apports validés (tous):     <span className="text-2xl font-semibold">{filteredPerson6.field_estimation_du_prix} €</span>
+
+                                                        <div>
+
+                                                        </div>
+                                                      </div>
+
+
+                                                    </div>)
+                                                })}
+
+
+
+                                              </div>
+                                            ) : (
+                                              <p >
+
+
+
+                                              </p>
+
+
+                                            )}
+
+                                            {totaldugroupeprop?.length ? (
+                                              <div>
+                                                {totaldugroupeprop.filter(person7 => person7.uuid.includes(filteredPerson1.id)).map(filteredPerson7 => {
+
+                                                  return (
+
+                                                    <div className="flex-container card" key={filteredPerson7.uuid}>
+
+                                                      <div className="content">
+                                                        Montant total des apports non-validés:     <span className="text-2xl font-semibold">{filteredPerson7.field_estimation_du_prix} €</span>
+
+                                                        <div>
+
+                                                        </div>
+                                                      </div>
+
+
+                                                    </div>)
+                                                })}
+
+
+
+                                              </div>
+                                            ) : (
+                                              <p >
+
+
+
+                                              </p>
+
+
+                                            )}
+
+
+                                            {financements2dugroupe?.length ? (
+                                              <div>
+
+                                                {financements2dugroupe.filter(person5 => person5.uuid.includes(membre.gid.id)).map(filteredPerson5 => {
+
+                                                  return (
+
+                                                    <div className="flex-container card" key={filteredPerson5.uuid}>
+
+                                                      <div className="content">
+                                                        Montant de mon apport dans le projet :   <span className="text-2xl font-semibold">{filteredPerson5.field_estimation_du_prix} €</span>
+                                                        <div>
+
+                                                        </div>
+                                                      </div>
+
+
+                                                    </div>)
+                                                })}
+
+
+
+                                              </div>
+                                            ) : (
+                                              <p >
+
+
+
+                                              </p>
+
+
+                                            )}
+                                          </span>
+                                          <div>
+
+
+
+
+
+
+
+                                          </div>
+                                        </div>
+                                        <div className="flex-shrink-2">
+                                          <NodeGroupRow key={filteredPerson1.id} node={filteredPerson1} />
+
+
+                                          {filteredPerson1.moderation_state == 'published' &&
+                                            <h2>
+                                              <Link href={filteredPerson1.path.alias} passHref>
+
+                                                <a>
+                                                  <svg
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    className="w-4 h-4 ml-2"
+                                                  >
+                                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                                  </svg>
+
+                                                </a>
+                                              </Link>
+                                            </h2>
+
+
+
+
+                                          }
+
+
+
+
+
+
+                                        </div>
+
+                                      </div>)
+                                  })}
+
+
+
+                                </p>
+
+                              ) : (
+                                <p >
+
+
+
+                                </p>
+
+
+                              )}
+
+
+
+
+
+                            </div>
+
+                          ))}
                         </div>
-
-                          <div className="min-w-0 flex-1">
-                             {filteredPerson1.label}<br/>
-admin : {filteredPerson1.uid.display_name}
-                             <span >
-                             {totaldugroupe?.length ? (
-                             <div>
-                             {totaldugroupe.filter(person6 => person6.uuid.includes(filteredPerson1.id)).map(filteredPerson6 => {
-
-                             return (
-
-                             <div className="flex-container card" key={filteredPerson6.uuid}>
-
-                               <div className="content">
-
-                                Montant total des apports validés (tous):     <span className="text-2xl font-semibold">{filteredPerson6.field_estimation_du_prix} €</span>
-
-                                 <div>
-
-                             </div>
-                               </div>
-
-
-                             </div>)
-                             })}
-
-
-
-                             </div>
-                             ) : (
-                             <p >
-
-
-
-                             </p>
-
-
-                             )}
-
-                             {totaldugroupeprop?.length ? (
-                             <div>
-                             {totaldugroupeprop.filter(person7 => person7.uuid.includes(filteredPerson1.id)).map(filteredPerson7 => {
-
-                             return (
-
-                             <div className="flex-container card" key={filteredPerson7.uuid}>
-
-                               <div className="content">
-                                Montant total des apports non-validés:     <span className="text-2xl font-semibold">{filteredPerson7.field_estimation_du_prix} €</span>
-
-                                 <div>
-
-                             </div>
-                               </div>
-
-
-                             </div>)
-                             })}
-
-
-
-                             </div>
-                             ) : (
-                             <p >
-
-
-
-                             </p>
-
-
-                             )}
-
-
-                             {financements2dugroupe?.length ? (
-                             <div>
-
-                             {financements2dugroupe.filter(person5 => person5.uuid.includes(membre.gid.id)).map(filteredPerson5 => {
-
-                             return (
-
-                             <div className="flex-container card" key={filteredPerson5.uuid}>
-
-                               <div className="content">
-                                Montant de mon apport dans le projet :   <span className="text-2xl font-semibold">{filteredPerson5.field_estimation_du_prix} €</span>
-                                 <div>
-
-                             </div>
-                               </div>
-
-
-                             </div>)
-                             })}
-
-
-
-                             </div>
-                             ) : (
-                             <p >
-
-
-
-                             </p>
-
-
-                             )}
-                             </span>
-                            <div>
-
-
-
-
-
-
-
-                        </div>
-                          </div>
-                          <div className="flex-shrink-2">
-                          <NodeGroupRow key={filteredPerson1.id} node={filteredPerson1} />
-
-
-                          {filteredPerson1.moderation_state == 'published' &&
-                                  <h2>
-                                  <Link href={filteredPerson1.path.alias} passHref>
-
-                                <a>
-                                    <svg
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      strokeWidth="2"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      className="w-4 h-4 ml-2"
-                                    >
-                                      <path d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-
-                                </a>
-                                  </Link>
-                                  </h2>
-
-
-
-
-                          }
-
-
-
-
-
-
-                        </div>
-
-                        </div>)
-                        })}
-
-
-
+                      ) : (
+                        <p className="text-2xl cadre text-center p-20 mb-10">
+                          <p className="inline-block mb-5">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg></p>
+
+                          <p>  Aucun projet</p>
+                          <p className="mb-10">   Commencez par créer un projet</p>
+                          <Link href="/groupfederage/new" passHref>
+                            <a className="px-3 py-1 cadre transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                              + démarrez un projet
+                            </a>
+                          </Link>
                         </p>
+                      )}
+                    </p>
 
-                        ) : (
-                        <p >
-
-
-
-                        </p>
-
-
-                        )}
+                  </div>
 
 
 
 
 
-                                                          </div>
-
-                                                     ))}
-                                                     </div>
-                                                   ) : (
-                                                     <p className="text-2xl cadre text-center p-20 mb-10">
-                                                       <p className="inline-block mb-5">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                               <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"/>
-                               </svg></p>
-
-                                                     <p>  Aucun projet</p>
-                                                           <p className="mb-10">   Commencez par créer un projet</p>
-                                                     <Link href="/groupfederage/new" passHref>
-                                                     <a className="px-3 py-1 cadre transition-colors rounded-xl lg:text-xl lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                                                    + démarrez un projet
-                                                       </a>
-                                                     </Link>
-                                                     </p>
-                                                   )}
-                        </p>
-
-                        </div>
+                  <div className={openTab === 2 ? "block" : "hidden"} id="link2">
 
 
+                    <p>
+                      {propositions?.length ? (
 
-
-
-                        <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-
-
-                        <p>
-                        {propositions?.length ? (
-
-                          <div>
+                        <div>
 
 
 
@@ -526,253 +526,253 @@ admin : {filteredPerson1.uid.display_name}
 
                           {propositions.filter(offre1 => !offre1.uuid_2.includes(user[0].id)).map(filteredOffre1 => {
 
-                          return (
+                            return (
 
-                          <div key={filteredOffre1.uuid} className="flex-container card" >
-                          <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
-                          >
+                              <div key={filteredOffre1.uuid} className="flex-container card" >
+                                <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
+                                >
 
-                            <div className="flex-shrink-0">
-                            <Image
-                              src={absoluteURL(filteredOffre1.user_picture)}
-                              width={30}
-                              height={30}
-                              className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
-                              objectFit="cover"
-                              alt={filteredOffre1.title}
-                              priority
-                            />
+                                  <div className="flex-shrink-0">
+                                    <Image
+                                      src={absoluteURL(filteredOffre1.user_picture)}
+                                      width={30}
+                                      height={30}
+                                      className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                                      objectFit="cover"
+                                      alt={filteredOffre1.title}
+                                      priority
+                                    />
 
-                                                              </div>
-                            <div className="min-w-0 flex-1">
+                                  </div>
+                                  <div className="min-w-0 flex-1">
 
-                    <Link href={filteredOffre1.view_group} passHref>
-                            <a>
-                            <div className="w-100">
-                    <h2 className="text-sm inline-block gray-700">{filteredOffre1.label}</h2>
-                    <h2 className="text-sm inline-block float-right">  <NodeGroupRow key={filteredOffre1.id} node={filteredOffre1} /></h2>
-</div>
-                    <span className="text-2xl font-semibold">
-                    {filteredOffre1.field_estimation_du_prix} €
+                                    <Link href={filteredOffre1.view_group} passHref>
+                                      <a>
+                                        <div className="w-100">
+                                          <h2 className="text-sm inline-block gray-700">{filteredOffre1.label}</h2>
+                                          <h2 className="text-sm inline-block float-right">  <NodeGroupRow key={filteredOffre1.id} node={filteredOffre1} /></h2>
+                                        </div>
+                                        <span className="text-2xl font-semibold">
+                                          {filteredOffre1.field_estimation_du_prix} €
 
-                    Nom du contributeur: {filteredOffre1.uid_1}<br/>
-                    statut: {filteredOffre1.field_statut}<br/>
-
-
-
-
-
-                    </span>
-
-                    </a>
-                    </Link>
-
-
-
-                            </div>
-                            <div className="flex-shrink-2">
-
-
-                    </div>
-                          </div>
-
-
-
-
-                              <div>
-
-
-                            </div>
+                                          Nom du contributeur: {filteredOffre1.uid_1}<br />
+                                          statut: {filteredOffre1.field_statut}<br />
 
 
 
 
 
-                          </div>
+                                        </span>
+
+                                      </a>
+                                    </Link>
+
+
+
+                                  </div>
+                                  <div className="flex-shrink-2">
+
+
+                                  </div>
+                                </div>
+
+
+
+
+                                <div>
+
+
+                                </div>
 
 
 
 
 
-                          )
+                              </div>
+
+
+
+
+
+                            )
                           })}
 
 
-                                                     </div>
-                                                   ) : (
-                                                     <p>
-
-                                                     </p>
-                                                   )}
+                        </div>
+                      ) : (
+                        <p>
 
                         </p>
+                      )}
+
+                    </p>
 
 
 
 
 
-                          <p>
+                    <p>
 
-                          {financementsd1groupe?.length ? (
+                      {financementsd1groupe?.length ? (
 
-                            <div>
-
-
-
-                            <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes auxquels je participe</h3>
-
-
-                                                {financementsd1groupe.map((demandes) => (
+                        <div>
 
 
 
-                                                            <div
-                                                              key={demandes.id}
-                                                              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
-                                                            >
-                                                              <div className="flex-shrink-0">
-                                                              <Image
-                                                                src={absoluteURL(demandes.user_picture)}
-                                                                width={30}
-                                                                height={30}
-                                                                className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
-                                                                objectFit="cover"
-                                                                alt={demandes.title}
-                                                                priority
-                                                              />
-                                                                                                </div>
-                                                              <div className="min-w-0 flex-1">
-                                                  <Link href={demandes.view_node} passHref>
-                                                              <a>
-                                                              <div className="w-100">
-                                                      <h2 className="text-sm inline-block gray-700">{demandes.label}</h2>
-                                                      <h2 className="text-sm inline-block float-right">  <NodeGroupRow key={demandes.id} node={demandes} /></h2>
-                                  </div>
-
-                                                  <span className="text-2xl font-semibold">
-
-                                                  {demandes.field_estimation_du_prix} €
-
-statut : {demandes.field_statut}
+                          <h3 className="mb-2 text-lg font-black text-gray-400 text-left">Propositions dans les groupes auxquels je participe</h3>
 
 
-                                                  </span>
-
-                                                  </a>
-                                                  </Link>
+                          {financementsd1groupe.map((demandes) => (
 
 
 
-                                                              </div>
-                                                              <div className="flex-shrink-2">
+                            <div
+                              key={demandes.id}
+                              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400"
+                            >
+                              <div className="flex-shrink-0">
+                                <Image
+                                  src={absoluteURL(demandes.user_picture)}
+                                  width={30}
+                                  height={30}
+                                  className='flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white'
+                                  objectFit="cover"
+                                  alt={demandes.title}
+                                  priority
+                                />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <Link href={demandes.view_node} passHref>
+                                  <a>
+                                    <div className="w-100">
+                                      <h2 className="text-sm inline-block gray-700">{demandes.label}</h2>
+                                      <h2 className="text-sm inline-block float-right">  <NodeGroupRow key={demandes.id} node={demandes} /></h2>
+                                    </div>
+
+                                    <span className="text-2xl font-semibold">
+
+                                      {demandes.field_estimation_du_prix} €
+
+                                      statut : {demandes.field_statut}
 
 
-                          </div>
-                                                            </div>
+                                    </span>
 
-                                                       ))}
-                                                       </div>
-                                                     ) : (
-                                                       <p className="text-2xl cadre text-center p-20 mb-10">
+                                  </a>
+                                </Link>
 
-                                                       </p>
-                                                     )}
-                          </p>
+
+
+                              </div>
+                              <div className="flex-shrink-2">
+
+
+                              </div>
+                            </div>
+
+                          ))}
                         </div>
+                      ) : (
+                        <p className="text-2xl cadre text-center p-20 mb-10">
+
+                        </p>
+                      )}
+                    </p>
+                  </div>
 
 
-                        <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                          <p>
+                  <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                    <p>
 
 
-{financementsdansgr?.length ? (
+                      {financementsdansgr?.length ? (
 
-  <div>
-
-
-
-
-
-                      {financementsdansgr.map((findetails) => (
-
-
-
-                                  <div
-                                    key={findetails.id}
-                                    className="grid grid-cols-6 gap-4"
-                                  >
-
-
-                                    {findetails.label}
-
-                                    <div>Intitulé de l&apos;apport</div>
-                                    <div>Type d&apos;apport</div>
-                                    <div>    {financements2dugroupe?.length ? (
-
-<span>
-                                        {financements2dugroupe.filter(person5 => person5.uuid.includes(findetails.id)).map(filteredPerson5 => {
-
-                                        return (
-
-                                        <div key={filteredPerson5.uuid}>
-
-                                          <div className="content">
-                                             {filteredPerson5.field_estimation_du_prix} €
- {filteredPerson5.field_statut}
-
-                                            <div>
+                        <div>
 
 
 
-                                        </div>
+
+
+                          {financementsdansgr.map((findetails) => (
+
+
+
+                            <div
+                              key={findetails.id}
+                              className="grid grid-cols-6 gap-4"
+                            >
+
+
+                              {findetails.label}
+
+                              <div>Intitulé de l&apos;apport</div>
+                              <div>Type d&apos;apport</div>
+                              <div>    {financements2dugroupe?.length ? (
+
+                                <span>
+                                  {financements2dugroupe.filter(person5 => person5.uuid.includes(findetails.id)).map(filteredPerson5 => {
+
+                                    return (
+
+                                      <div key={filteredPerson5.uuid}>
+
+                                        <div className="content">
+                                          {filteredPerson5.field_estimation_du_prix} €
+                                          {filteredPerson5.field_statut}
+
+                                          <div>
+
+
+
                                           </div>
-
-
-
-
-
                                         </div>
 
 
 
 
 
-                                      )
-                                        })}
-
-
-</span>
-                                        ) : (
-                                        <p >
-
-                                        00000 €
-
-                                        </p>
-
-
-                                        )}</div>
-      <div>Comptabilisé</div>
-                                    <div>Accepté</div>
-                                  </div>
-
-                             ))}
-                             </div>
-                           ) : (
-                             <p>
-
-                             </p>
-                           )}
+                                      </div>
 
 
 
 
-                          </p>
+
+                                    )
+                                  })}
+
+
+                                </span>
+                              ) : (
+                                <p >
+
+                                  00000 €
+
+                                </p>
+
+
+                              )}</div>
+                              <div>Comptabilisé</div>
+                              <div>Accepté</div>
+                            </div>
+
+                          ))}
                         </div>
-                      </div>
-                    </div>
+                      ) : (
+                        <p>
+
+                        </p>
+                      )}
+
+
+
+
+                    </p>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -791,53 +791,53 @@ export async function getServerSideProps(
   if (!session) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/register",
         permanent: false,
       },
     };
   }
 
   const params = new DrupalJsonApiParams()
-      .addInclude(["uid.user_picture"])
-      .addSort("created", "ASC")
+    .addInclude(["uid.user_picture"])
+    .addSort("created", "ASC")
 
-      const financementsdansgr = await drupal.getResourceCollection(
-        "group--federage",
-        {
-          params: new DrupalJsonApiParams()
-            .addInclude(["uid", "group_type", "revision_user"])
-            .addFields("group_content--federage-group_node-financement", ["id", "type","meta"])
-            .addFields("group_type--group_type", ["id", "type","meta"])
+  const financementsdansgr = await drupal.getResourceCollection(
+    "group--federage",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid", "group_type", "revision_user"])
+        .addFields("group_content--federage-group_node-financement", ["id", "type", "meta"])
+        .addFields("group_type--group_type", ["id", "type", "meta"])
 
-            .addFields("user--user", ["display_name", "user_picture"])
+        .addFields("user--user", ["display_name", "user_picture"])
 
-            .addSort("created", "DESC")
-            .getQueryObject(),
+        .addSort("created", "DESC")
+        .getQueryObject(),
 
-          withAuth: session.accessToken,
+      withAuth: session.accessToken,
 
-        }
+    }
 
-      )
+  )
 
-      const membersdugroupe = await drupal.getResourceCollection(
-        "group_content--federage-group_membership",
-        {
-          params: new DrupalJsonApiParams()
-            .addInclude(["uid", "group_content_type", "gid", "entity_id", "group_roles"])
+  const membersdugroupe = await drupal.getResourceCollection(
+    "group_content--federage-group_membership",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid", "group_content_type", "gid", "entity_id", "group_roles"])
 
 
-            .addFields("user--user", ["display_name", "user_picture"])
-            .addFilter("entity_id.meta.drupal_internal__target_id", session.user.userId)
+        .addFields("user--user", ["display_name", "user_picture"])
+        .addFilter("entity_id.meta.drupal_internal__target_id", session.user.userId)
 
-            .addSort("created", "DESC")
-            .getQueryObject(),
+        .addSort("created", "DESC")
+        .getQueryObject(),
 
-          withAuth: session.accessToken,
+      withAuth: session.accessToken,
 
-        }
+    }
 
-      )
+  )
 
   // Fetch user info
   const user = await drupal.getResourceCollectionFromContext<DrupalUser[]>(
@@ -845,15 +845,15 @@ export async function getServerSideProps(
     context,
     {
       params: new DrupalJsonApiParams()
-      .addInclude(["user_picture"])
-      .addFields("user--user", [
+        .addInclude(["user_picture"])
+        .addFields("user--user", [
           "display_name",
           "mail",
           "drupal_internal__uid",
           "field_description",
           "field_site_internet",
           "field_user_slogan",
-            "user_picture",
+          "user_picture",
         ])
         .addFields("file--file", ["uri", "resourceIdObjMeta"])
 

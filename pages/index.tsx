@@ -167,7 +167,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
             <div className="flex items-start w-100">
               <div className="content-start w-20 min-w-fit">
-                <Link href="./login" passHref><a>
+                <Link href="./register" passHref><a>
                   <Image src="/demarrer.svg" height={60} width={60} alt="demarrer" />
                 </a>
                 </Link>
@@ -175,7 +175,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
               </div>
               <div className="ml-3 content-end">
-                <Link href="./login" passHref>
+                <Link href="./register" passHref>
                   <a className="no-underline hover:text-blue-600">
                     <h2 className="text-xl">Démarrer</h2>
                     <p>Financer le développement de sa structure</p>  </a>

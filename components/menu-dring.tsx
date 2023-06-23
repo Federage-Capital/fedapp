@@ -40,7 +40,7 @@ export function MenuDring() {
 
   if (status === "unauthenticated") {
     return (
-      <Link href="/login" passHref>
+      <Link href="/register" passHref>
         <a className="text-text hover:underline">{t("login")}</a>
       </Link>
     )

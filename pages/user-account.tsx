@@ -173,7 +173,7 @@ export default function AccountsPage({
           "Email changed. Please login again with your new credentials."
         );
         signOut();
-        router.push("/login");
+        router.push("/register");
       } else {
         confirm("Account updated!")
         router.push("/account");
@@ -214,7 +214,7 @@ export default function AccountsPage({
     if (response?.ok) {
       alert("Password changed. Please login again with your new credentials.");
       signOut();
-      router.push("/login");
+      router.push("/register");
     }
   }
 
@@ -227,19 +227,19 @@ export default function AccountsPage({
 
 
 
-  const { data: financements2dugroupe, error: financementError } = useSWR(() =>`https://fed.septembre.io/group_node_financement_rest_nested_3`+ `/`+ user[0].id, fetcher)
+  const { data: financements2dugroupe, error: financementError } = useSWR(() => `https://fed.septembre.io/group_node_financement_rest_nested_3` + `/` + user[0].id, fetcher)
   if (financementError) return <div>Failed to load 23</div>
   if (!financements2dugroupe) return <div>Loading financement ...</div>
 
 
-const getTotFin2 = (financements2dugroupe) => {
-        let sum = 0
-        for (let i = 0; i < financements2dugroupe.length; i++) {
-          sum += financements2dugroupe[i].field_estimation_du_prix
-        }
-        return sum
+  const getTotFin2 = (financements2dugroupe) => {
+    let sum = 0
+    for (let i = 0; i < financements2dugroupe.length; i++) {
+      sum += financements2dugroupe[i].field_estimation_du_prix
+    }
+    return sum
 
-      }
+  }
 
 
 
@@ -274,19 +274,19 @@ const getTotFin2 = (financements2dugroupe) => {
 
         <div className="title">
           <div className="mb-4 py-3">
-<div className="grid grid-cols-4 gap-4">
-          <Listbox>
-               {({ open }) => (
-                 <>
-                   <Listbox.Label className="sr-only"> Change published status </Listbox.Label>
-                   <div className="relative">
-                     <div className="inline-flex rounded-md shadow-sm">
-                       <div className="inline-flex rounded-md shadow-sm">
-                         <div className="inline-flex items-center rounded-l-md border border-transparent   pr-4  shadow-sm">
+            <div className="grid grid-cols-4 gap-4">
+              <Listbox>
+                {({ open }) => (
+                  <>
+                    <Listbox.Label className="sr-only"> Change published status </Listbox.Label>
+                    <div className="relative">
+                      <div className="inline-flex rounded-md shadow-sm">
+                        <div className="inline-flex rounded-md shadow-sm">
+                          <div className="inline-flex items-center rounded-l-md border border-transparent   pr-4  shadow-sm">
 
 
 
-                          {user[0].user_picture && (
+                            {user[0].user_picture && (
 
 
                               <Image
@@ -300,46 +300,46 @@ const getTotFin2 = (financements2dugroupe) => {
                                 className='rounded-lg'
                               />
 
-                          )}
-                          <p className="ml-5 text-xl">{user[0].display_name}</p>
+                            )}
+                            <p className="ml-5 text-xl">{user[0].display_name}</p>
 
-                         </div>
-                         <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-fedblue focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2 focus:ring-offset-gray-50">
-                           <span className="sr-only">Change published status</span>
-                           <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
-                         </Listbox.Button>
-                       </div>
-                     </div>
+                          </div>
+                          <Listbox.Button className="inline-flex items-center rounded-l-none rounded-r-md  p-2 text-sm font-medium text-white hover:bg-fedblue focus:outline-none focus:ring-2 focus:ring-fedblue focus:ring-offset-2 focus:ring-offset-gray-50">
+                            <span className="sr-only">Change published status</span>
+                            <ChevronDownIcon className="h-5 w-5 text-black" aria-hidden="true" />
+                          </Listbox.Button>
+                        </div>
+                      </div>
 
-                     <Transition
-                       show={open}
-                       as={Fragment}
-                       leave="transition ease-in duration-100"
-                       leaveFrom="opacity-100"
-                       leaveTo="opacity-0"
-                     >
-                       <Listbox.Options className="absolute left-0 z-10 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-
-
+                      <Transition
+                        show={open}
+                        as={Fragment}
+                        leave="transition ease-in duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <Listbox.Options className="absolute left-0 z-10 w-72 origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
 
 
 
-                       </Listbox.Options>
-                     </Transition>
-                   </div>
-                 </>
-               )}
-             </Listbox>
 
-             <div className="px-5 py-3 mt-4 text-xl font-semibold">
-             Portefeuille<br/>
 
-             <span className="font-semibold text-2xl">  {getTotFin2(financements2dugroupe)} €</span>
-             </div>
+                        </Listbox.Options>
+                      </Transition>
+                    </div>
+                  </>
+                )}
+              </Listbox>
+
+              <div className="px-5 py-3 mt-4 text-xl font-semibold">
+                Portefeuille<br />
+
+                <span className="font-semibold text-2xl">  {getTotFin2(financements2dugroupe)} €</span>
+              </div>
+
+            </div>
 
           </div>
-
-</div>
 
 
         </div>
@@ -457,138 +457,138 @@ const getTotFin2 = (financements2dugroupe) => {
 
 
           <p className="text-lg mt-10">
-          <Link href="/groupfederage/new" passHref>
-          <a className="px-3 py-1 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-             + Nouveau financement
-            </a>
-          </Link>
+            <Link href="/groupfederage/new" passHref>
+              <a className="px-3 py-1 fedbutton text-white transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                + Nouveau financement
+              </a>
+            </Link>
           </p>
 
         </div>
 
         <div className="flex flex-wrap">
-                <div className="w-full">
-                <br/>
-                <span
-                  className="px-5 py-3 mt-4 text-xl font-semibold"
-                >  Opérations
-<br/><br/>
-                </span>
-                  <ul
-                    className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
-                    role="tablist"
-                  >
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 1
-                            ? "bg-" + "-900"
-                            : "text-" + "-600 bg-white")
-                        }
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(1);
-                        }}
-                        data-toggle="tab"
-                        href="#link1"
-                        role="tablist"
-                      >
-                        En cours
-                      </a>
+          <div className="w-full">
+            <br />
+            <span
+              className="px-5 py-3 mt-4 text-xl font-semibold"
+            >  Opérations
+              <br /><br />
+            </span>
+            <ul
+              className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
+              role="tablist"
+            >
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 1
+                      ? "bg-" + "-900"
+                      : "text-" + "-600 bg-white")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(1);
+                  }}
+                  data-toggle="tab"
+                  href="#link1"
+                  role="tablist"
+                >
+                  En cours
+                </a>
+              </li>
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 2
+                      ? "bg-" + "-900"
+                      : "text-" + "-600 bg-white")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(2);
+                  }}
+                  data-toggle="tab"
+                  href="#link2"
+                  role="tablist"
+                >
+                  Demandes
+                </a>
+              </li>
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 3
+                      ? "bg-" + "-900"
+                      : "text-" + "-600 bg-white")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(3);
+                  }}
+                  data-toggle="tab"
+                  href="#link3"
+                  role="tablist"
+                >
+                  Historique
+                </a>
+              </li>
+            </ul>
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
+              <div className="px-4 py-5 flex-auto">
+                <div className="tab-content tab-space">
+                  <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+
+
+
+
+
+
+
+
+                    <li className="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
+                      <button className="modal-toggle" onClick={toggleUserDataForm}>
+                        <u>Edit profile</u>
+                      </button>
+
+
                     </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 2
-                            ? "bg-" + "-900"
-                            : "text-" + "-600 bg-white")
-                        }
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(2);
-                        }}
-                        data-toggle="tab"
-                        href="#link2"
-                        role="tablist"
+                    <li className="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
+                      <button
+                        className="modal-toggle text-underline mr-4"
+                        onClick={togglePasswordForm}
                       >
-Demandes
-                      </a>
+                        <u>Edit password</u>
+                      </button>
+
                     </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                      <a
-                        className={
-                          "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                          (openTab === 3
-                            ? "bg-" + "-900"
-                            : "text-" + "-600 bg-white")
-                        }
-                        onClick={e => {
-                          e.preventDefault();
-                          setOpenTab(3);
-                        }}
-                        data-toggle="tab"
-                        href="#link3"
-                        role="tablist"
-                      >
-                         Historique
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
-                    <div className="px-4 py-5 flex-auto">
-                      <div className="tab-content tab-space">
-                        <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+
+                    <p>
+                      <br /><br /><br />
+                    </p>
+                  </div>
+
+                  <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                    <p>
+
+
+                    </p>
+                  </div>
+                  <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                    <p>
 
 
 
 
-
-
-
-
-                        <li className="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
-                                 <button className="modal-toggle" onClick={toggleUserDataForm}>
-                                   <u>Edit profile</u>
-                                 </button>
-
-
-                             </li>
-                             <li className="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
-                                                  <button
-                                                    className="modal-toggle text-underline mr-4"
-                                                    onClick={togglePasswordForm}
-                                                  >
-                                                    <u>Edit password</u>
-                                                  </button>
-
-                                  </li>
-
-<p>
-<br/><br/><br/>
-                          </p>
-                        </div>
-
-                        <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                          <p>
-
-
-                          </p>
-                        </div>
-                        <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                          <p>
-
-
-
-
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -607,35 +607,35 @@ export async function getServerSideProps(
   if (!session) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/register",
         permanent: false,
       },
     };
   }
 
   const params = new DrupalJsonApiParams()
-      .addInclude(["uid.user_picture"])
-      .addSort("created", "ASC")
+    .addInclude(["uid.user_picture"])
+    .addSort("created", "ASC")
 
-      const financementsdansgr = await drupal.getResourceCollection(
-        "group--federage",
-        {
-          params: new DrupalJsonApiParams()
-            .addInclude(["uid", "group_type", "revision_user"])
-            .addFields("group_content--federage-group_node-financement", ["id", "type","meta"])
-            .addFields("group_type--group_type", ["id", "type","meta"])
+  const financementsdansgr = await drupal.getResourceCollection(
+    "group--federage",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid", "group_type", "revision_user"])
+        .addFields("group_content--federage-group_node-financement", ["id", "type", "meta"])
+        .addFields("group_type--group_type", ["id", "type", "meta"])
 
-            .addFields("user--user", ["display_name", "user_picture"])
-            .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+        .addFields("user--user", ["display_name", "user_picture"])
+        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
-            .addSort("created", "DESC")
-            .getQueryObject(),
+        .addSort("created", "DESC")
+        .getQueryObject(),
 
-          withAuth: session.accessToken,
+      withAuth: session.accessToken,
 
-        }
+    }
 
-      )
+  )
 
   // Fetch user info
   const user = await drupal.getResourceCollectionFromContext<DrupalUser[]>(
@@ -643,15 +643,15 @@ export async function getServerSideProps(
     context,
     {
       params: new DrupalJsonApiParams()
-      .addInclude(["user_picture"])
-      .addFields("user--user", [
+        .addInclude(["user_picture"])
+        .addFields("user--user", [
           "display_name",
           "mail",
           "drupal_internal__uid",
           "field_description",
           "field_site_internet",
           "field_user_slogan",
-            "user_picture",
+          "user_picture",
         ])
         .addFields("file--file", ["uri", "resourceIdObjMeta"])
 

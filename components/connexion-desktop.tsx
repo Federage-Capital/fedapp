@@ -8,7 +8,13 @@ export function ButtonConnexion() {
 	return (
 		<button class="shadow-lg justify-end fedblueblue rounded-md px-5 py-2 bg-white ">
 
-			<Link href="/login" passHref>
+			<Link href={{
+				pathname: '/register',
+				query: {
+					tab: 1,
+					toggleValue: false
+				}
+			}}>
 				<a className="text-lg">{t("Connexion")}</a>
 			</Link>
 

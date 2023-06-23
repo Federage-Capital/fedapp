@@ -6,7 +6,7 @@ import { clearJWT, getJWT } from "lib/jwt"
 
 export default NextAuth({
   pages: {
-    signIn: "/login",
+    signIn: "/register",
   },
   providers: [
     CredentialsProvider({
