@@ -48,7 +48,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 				{status === "unauthenticated" && (
 					<div className="container pb-1">
 						<div className="flex flex-col justify-center items-center flex-1">
-							<div className={`text-sm text-slate-500 ${openTab === 1 ? "block" : "hidden"} -mt-10 mb-5 justify-center`}>
+							<div className={`text-sm text-slate-500 ${openTab === 1 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1`}>
 
 								Connectez-vous à Federage.
 								<div className="text-sm">
@@ -60,7 +60,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 											toggleValue: false
 										}
 									}}>
-										<button className="ml-2 fedblueblue text-sm" onClick={() => router.push("/register")}>Cliquez-ici</button>
+										<button className="ml-1 fedblueblue text-sm" onClick={() => router.push("/register")}>Cliquez-ici</button>
 									</Link>
 								</div>
 							</div>

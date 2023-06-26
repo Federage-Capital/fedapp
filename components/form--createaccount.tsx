@@ -67,50 +67,50 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
 
   return (
 
-    <div>
-      <form className={classNames("grid gap-4", "inputWithButton", className)}
-        onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid">
-          <div className="relative">
-            <select
-              id="categorie_d_entreprise"
-              name="categorie_d_entreprise"
-              placeholder="Type de structure"
-              className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholer-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-            >
-              <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Type de structure</option>
-              <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Entreprise</option>
-              <option value="dce93ed5-9f2c-4012-bc59-740601bd3165" className="hover:bg-blue-500">ONG</option>
-              <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c" className="hover:bg-blue-500">Association</option>
-              <option value="3e070dcb-1637-442a-beaa-50a5f1001159" className="hover:bg-blue-500">Commun</option>
-              <option value="682283e2-29dc-422a-bd92-c5a1db95861b" className="hover:bg-blue-500">Institution</option>
-            </select>
-          </div>
-          <input
-            id="siren"
-            name="siren"
-            type="text"
-            placeholder="Numéro SIREN"
-            className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-            {...register("siren")}
-          />
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Dénomination sociale"
-            className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-            {...register("name")}
-          />
-          <input
-            id="mail"
-            name="mail"
-            type="mail"
-            placeholder="Adresse mail"
-            className="relative block w-full px-3 py-2 mb-4  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-            {...register("mail")}
-          />
-          <div className="grid grid-cols-6 gap-4 max-width-create" style={{ width: '270px' }}>
+    <form className={classNames("flex flex-col gap-4", "inputWithButton", className)} onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col">
+        <div className="relative">
+          <select
+            id="categorie_d_entreprise"
+            name="categorie_d_entreprise"
+            placeholder="Type de structure"
+            className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholer-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          >
+            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Type de structure</option>
+            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Entreprise</option>
+            <option value="dce93ed5-9f2c-4012-bc59-740601bd3165" className="hover:bg-blue-500">ONG</option>
+            <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c" className="hover:bg-blue-500">Association</option>
+            <option value="3e070dcb-1637-442a-beaa-50a5f1001159" className="hover:bg-blue-500">Commun</option>
+            <option value="682283e2-29dc-422a-bd92-c5a1db95861b" className="hover:bg-blue-500">Institution</option>
+          </select>
+        </div>
+        <input
+          id="siren"
+          name="siren"
+          type="text"
+          placeholder="Numéro SIREN"
+          className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          {...register("siren")}
+        />
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Dénomination sociale"
+          className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          {...register("name")}
+        />
+        <input
+          id="mail"
+          name="mail"
+          type="mail"
+          placeholder="Adresse mail"
+          className="relative block w-full px-3 py-2 mb-4  text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+          {...register("mail")}
+        />
+        <div className="flex items-center">
+          <div className="pb-5">
+
             <Switch
               checked={enabled}
               onChange={setEnabled}
@@ -128,26 +128,28 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
                 )}
               />
             </Switch>
-            <div className="text-sm col-span-5">
-              En cochant cette case, vous acceptez notre <a href="/propos" className="fedblueblue">
-                Politique de confidentialité.</a>
-            </div>
           </div>
-          <button
-            type="submit"
-            data-cy="btn-submit"
-            className="px-3 fedblue py-2 text-md mt-4 mb-4 text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
-          >
-            Créer un compte
-          </button>
-        </div >
-        <div>
+          <div className="text-base ml-2">
+            En cochant cette case, vous acceptez notre <a href="/propos" className="fedblueblue">Politique de confidentialité.</a>
+          </div>
         </div>
-        <div>
-        </div>
-        <div>
-        </div>
-      </form >
-    </div >
+        <button
+          type="submit"
+          data-cy="btn-submit"
+          className="px-3 fedblue py-2 text-md mt-4 mb-4 text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+        >
+          Créer un compte
+        </button>
+      </div>
+    </form>
+
+    //     <div>
+    //     </div>
+    //     <div>
+    //     </div>
+    //     <div>
+    //     </div>
+    //   </form >
+    // </div >
   )
 }
