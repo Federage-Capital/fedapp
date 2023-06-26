@@ -38,6 +38,16 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 		return null
 	}
 
+	const handleButtonClick = () => {
+		router.push({
+			pathname: '/register',
+			query: {
+				tab: 3,
+				toggleValue: false
+			}
+		});
+	};
+
 
 	return (
 		<div className="bg-slate-100">
@@ -53,15 +63,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 								Connectez-vous à Federage.
 								<div className="text-sm">
 									Jamais inscrit ?
-									<Link href={{
-										pathname: '/register',
-										query: {
-											tab: 3,
-											toggleValue: false
-										}
-									}}>
-										<button className="ml-1 fedblueblue text-sm" onClick={() => router.push("/register")}>Cliquez-ici</button>
-									</Link>
+									<button className="ml-1 fedblueblue text-sm" onClick={handleButtonClick}>Cliquez-ici</button>
 								</div>
 							</div>
 						</div>
@@ -165,7 +167,6 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 									</div>
 								</div>
 							</div>
-							{/* </div> */}
 						</div>
 					</div>
 

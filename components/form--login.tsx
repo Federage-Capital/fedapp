@@ -17,6 +17,16 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
   const { t } = useTranslation()
   const router = useRouter()
 
+  const redirectButton = () => {
+    router.push({
+      pathname: '/register',
+      query: {
+        tab: 2,
+        toggleValue: false
+      }
+    });
+  }
+
   React.useEffect(() => {
     if (router.query.error === "CredentialsSignin") {
       return setFormStatus({
@@ -93,15 +103,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             <p className="ml-2 text-sm">
               Resté connecté
             </p>
-            <Link href={{
-              pathname: '/register',
-              query: {
-                tab: 2,
-                toggleValue: false
-              }
-            }}>
-              <button className="ml-auto fedblueblue text-sm" onClick={() => router.push("/register")}>Mot de passe oublié</button>
-            </Link>
+            <button className="ml-auto fedblueblue text-sm" onClick={redirectButton}>Mot de passe oublié</button>
           </div>
 
 

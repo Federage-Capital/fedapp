@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
+
 
 type MenuConnexionProps = {
 	text: string;
@@ -10,6 +12,18 @@ type MenuConnexionProps = {
 
 const MenuConnexion = (props: MenuConnexionProps) => {
 	const { t } = useTranslation()
+
+	const router = useRouter()
+	const buttonRedirect = () => {
+		router.push({
+			pathname: '/register',
+			query: {
+				tab: 3,
+				toggleValue: false
+			}
+		});
+	}
+
 	return (
 		<div className="mt-5">
 			<div className="flex justify-center space-x-20">
@@ -41,10 +55,8 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 			<div className="flex justify-center mx-auto">
 				<div className="mt-5 relative pb-0 mr-12">
 					<p className="text-gray-500 font-semibold">Jamais inscrit ?</p>
-					<button>
-						<Link href="/register" passHref>
-							<p className="relative -top-6 left-[125px] fedblueblue font-semibold">Cliquez ici</p>
-						</Link>
+					<button onClick={buttonRedirect}>
+						<p className="relative -top-6 left-[125px] fedblueblue font-semibold">Cliquez ici</p>
 					</button>
 				</div>
 			</div>
