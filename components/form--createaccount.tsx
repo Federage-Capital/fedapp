@@ -69,20 +69,23 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
 
     <form className={classNames("flex flex-col gap-4", "inputWithButton", className)} onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col">
-        <div className="flex flex-wrap">
+        <div className="relative">
           <select
             id="categorie_d_entreprise"
             name="categorie_d_entreprise"
             placeholder="Type de structure"
-            className="relative block w-full p-3 px-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm bg-white"
+            className="relative block w-full px-3 py-3 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md leading-tight focus:outline-none focus:ring-black focus:border-black sm:text-sm bg-white appearance-none"
           >
-            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500 ">Type de structure</option>
-            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f" className="hover:bg-blue-500">Entreprise</option>
-            <option value="dce93ed5-9f2c-4012-bc59-740601bd3165" className="hover:bg-blue-500">ONG</option>
-            <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c" className="hover:bg-blue-500">Association</option>
-            <option value="3e070dcb-1637-442a-beaa-50a5f1001159" className="hover:bg-blue-500">Commun</option>
-            <option value="682283e2-29dc-422a-bd92-c5a1db95861b" className="hover:bg-blue-500">Institution</option>
+            <option value=" disabled selected hidden caret-slate-600">Type de structure</option>
+            <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Entreprise</option>
+            <option value="dce93ed5-9f2c-4012-bc59-740601bd3165">ONG</option>
+            <option value="08b9bdbe-9e4b-465f-820c-c5e70771019c">Association</option>
+            <option value="3e070dcb-1637-442a-beaa-50a5f1001159">Commun</option>
+            <option value="682283e2-29dc-422a-bd92-c5a1db95861b">Institution</option>
           </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg className="fill-current h-4 w-4 mb-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+          </div>
         </div>
         <input
           id="siren"
@@ -147,7 +150,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
         <div>
         </div>
       </div>
-    </form>
+    </form >
 
     //   </form >
     // </div >
