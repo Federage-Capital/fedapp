@@ -16,6 +16,35 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
   const router = useRouter()
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
+  const [isHidden, setIsHidden] = React.useState(false)
+
+
+
+  // const ref = React.useRef(null);
+
+  // React.useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (ref.current && !ref.current.contains(event.target)) {
+  //       setShowMenu(true);
+  //       console.log('click outside');
+  //     }
+  //   };
+
+  //   document.addEventListener('mousedown', handleClickOutside);
+
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
+
+  const handleClick = () => {
+    setIsHidden(true);
+  };
+
+  const clickPrintMenu = () => {
+    setIsHidden(false);
+  };
+
 
   if (status === "authenticated" && router.asPath === "/") {
     return (
@@ -168,27 +197,22 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
         </ul>
       </div>
 
-      <ul className="md:hidden items-center justify-center space-y-10 rounded w-screen">
+      <ul className={`md:hidden items-center justify-center space-y-10 rounded w-screen ${isHidden ? "hidden" : 'block'}`}
+        onClick={(e) => { e.preventDefault(), setIsHidden(true) }}>
         {items.map((item) => {
           const isActive =
             router.asPath === item.url ||
-            `/${router.locale}${router.asPath === "/" ? "" : router.asPath}` ===
-            item.url ||
-            (item.url !== "/" ? router.asPath.indexOf(item.url) === 0 : false)
+            `/${router.locale}${router.asPath === '/' ? '' : router.asPath}` === item.url ||
+            (item.url !== '/' ? router.asPath.indexOf(item.url) === 0 : false);
 
           return (
-
-            <li key={item.id} className=" relative h-10 w-80">
+            <li key={item.id} className="relative h-10 w-80">
               <Link href={item.url} passHref>
                 <a
-                  className={classNames(
-                    "text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary absolute inset-y-50 left-0",
-                    {
-                      "border-b-primary": isActive,
-                    }
-                  )}
+                  className={`text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary absolute inset-y-50 left-0 ${isActive ? 'border-b-primary' : ''}`}
+                  onClick={handleClick}
                 >
-                  <div className="ml-5">
+                  <div className="ml-5" onClick={(e) => { setIsHidden(true) }}>
                     {item.title === 'Blog' && (
                       <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/blog.svg" height={40} width={40} alt="blog" />
@@ -211,12 +235,13 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                 </a>
               </Link>
             </li>
-
-          )
+          );
         })}
-        <div className="md:hidden ml-0 mt-3"><MenuUser /></div>
+        <div className="md:hidden ml-0 mt-3">
+          <MenuUser />
+        </div>
       </ul>
 
-    </nav>
+    </nav >
   )
 }
