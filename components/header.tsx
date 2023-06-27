@@ -181,7 +181,6 @@ export function Header({ menus }: HeaderProps) {
             className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
             onClick={() => setShowMenu(!showMenu)}
           >
-
             <svg
               viewBox="0 0 24 24"
               fill="none"

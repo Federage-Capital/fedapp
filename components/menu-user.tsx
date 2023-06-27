@@ -37,9 +37,6 @@ export function MenuUser() {
       <div className="md:hidden border flex justify-center rounded-b-lg">
         <MenuConnexion text='Mentions légales' text_confi="Confidentialité" text_press="CGU" />
       </div >
-
-
-
     )
   }
 

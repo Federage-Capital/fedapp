@@ -14,6 +14,20 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 	const { t } = useTranslation()
 
 	const router = useRouter()
+	const refreshPage = () => {
+		router.reload();
+	}
+
+	const buttonPage = () => {
+		router.push({
+			pathname: '/register',
+			query: {
+				tab: 1,
+				toggleValue: false
+			}
+		}).then(() => refreshPage());
+	}
+
 	const buttonRedirect = () => {
 		router.push({
 			pathname: '/register',
@@ -21,8 +35,9 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 				tab: 3,
 				toggleValue: false
 			}
-		});
+		}).then(() => refreshPage());
 	}
+
 
 	return (
 		<div className="mt-5">
@@ -46,10 +61,8 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 			</button>
 			<div className="flex justify-center">
 				<button className="px-3 fedblue py-2 text-md text-white transition-colors rounded-xl
-					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6 w-full">
-					<Link href="/register" passHref>
-						<a className="text-lg">{t("Connexion")}</a>
-					</Link>
+					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6 w-full" onClick={buttonPage}>
+					<a className="text-lg">{t("Connexion")}</a>
 				</button>
 			</div>
 			<div className="flex justify-center mx-auto">
