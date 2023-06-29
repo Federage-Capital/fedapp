@@ -101,7 +101,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
               className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
             />
             <p className="ml-2 text-sm">
-              Resté connecté
+              Rester connecté
             </p>
             <button className="ml-auto fedblueblue text-sm" onClick={redirectButton}>Mot de passe oublié</button>
           </div>

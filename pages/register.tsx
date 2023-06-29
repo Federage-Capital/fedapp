@@ -58,13 +58,29 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 				{status === "unauthenticated" && (
 					<div className="container pb-1">
 						<div className="flex flex-col justify-center items-center flex-1">
-							<div className={`text-sm text-slate-500 ${openTab === 1 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1`}>
+							<div className={`text-md text-slate-500 ${openTab === 1 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1`}>
 
 								Connectez-vous à Federage.
-								<div className="text-sm">
+								<div className="text-md">
 									Jamais inscrit ?
-									<button className="ml-1 fedblueblue text-sm" onClick={handleButtonClick}>Cliquez-ici</button>
+									<button className="ml-1 fedblueblue text-md" onClick={handleButtonClick}>Cliquez-ici</button>
 								</div>
+							</div>
+							<div className={`text-md text-slate-500 ${openTab === 2 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1 text-center`}>
+								<p>
+									Entrez l'adresse mail associée à votre
+								</p>
+								<p>
+									compte pour modifier votre mot de passe.
+								</p>
+							</div>
+							<div className={`text-md text-slate-500 ${openTab === 3 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1 text-center`}>
+								<p>
+									Inscrivez-vous pour trouver des partenaires
+								</p>
+								<p>
+									et financer vos projets professionnels.
+								</p>
 							</div>
 						</div>
 						<div className="flex flex-wrap justify-center">
