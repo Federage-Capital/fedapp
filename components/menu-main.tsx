@@ -16,7 +16,7 @@ interface MenuMainProps {
 
 export function MenuMain({ items, isHidden, setIsHidden, ...props }: MenuMainProps) {
   const router = useRouter()
-  const [showMenu, setShowMenu] = React.useState<Boolean>(false)
+  // const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
   // const [isHidden, setIsHidden] = React.useState(false)
 
@@ -200,7 +200,7 @@ export function MenuMain({ items, isHidden, setIsHidden, ...props }: MenuMainPro
       </div>
 
       <ul className={`md:hidden items-center justify-center space-y-10 rounded w-screen ${isHidden ? "hidden" : 'block'}`}
-        onClick={(e) => { e.preventDefault() }}>
+        onClick={(e) => { e.preventDefault(), setIsHidden(true) }}>
         {items.map((item) => {
           const isActive =
             router.asPath === item.url ||

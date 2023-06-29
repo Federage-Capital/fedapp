@@ -36,6 +36,7 @@ export function Header({ menus }: HeaderProps) {
 
   const handleClick = () => {
     setShowMenu(true);
+    // setIsHidden(false);
   }
 
 
