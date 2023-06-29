@@ -11,9 +11,10 @@ import { MenuDring } from "components/menu-dring"
 interface MenuMainProps {
   items: DrupalMenuLinkContent[]
   isHidden: boolean
+  setIsHidden: boolean
 }
 
-export function MenuMain({ items, isHidden, ...props }: MenuMainProps) {
+export function MenuMain({ items, isHidden, setIsHidden, ...props }: MenuMainProps) {
   const router = useRouter()
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
@@ -38,13 +39,13 @@ export function MenuMain({ items, isHidden, ...props }: MenuMainProps) {
   //   };
   // }, []);
 
-  const handleClick = () => {
-    setIsHidden(true);
-  };
+  // const handleClick = () => {
+  //   setIsHidden(true);
+  // };
 
-  const clickPrintMenu = () => {
-    setIsHidden(false);
-  };
+  // const clickPrintMenu = () => {
+  //   setIsHidden(false);
+  // };
 
 
   if (status === "authenticated" && router.asPath === "/") {
@@ -199,7 +200,7 @@ export function MenuMain({ items, isHidden, ...props }: MenuMainProps) {
       </div>
 
       <ul className={`md:hidden items-center justify-center space-y-10 rounded w-screen ${isHidden ? "hidden" : 'block'}`}
-        onClick={(e) => { e.preventDefault(), setIsHidden(true) }}>
+        onClick={(e) => { e.preventDefault() }}>
         {items.map((item) => {
           const isActive =
             router.asPath === item.url ||
@@ -211,9 +212,9 @@ export function MenuMain({ items, isHidden, ...props }: MenuMainProps) {
               <Link href={item.url} passHref>
                 <a
                   className={`text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary absolute inset-y-50 left-0 ${isActive ? 'border-b-primary' : ''}`}
-                  onClick={handleClick}
+                // onClick={handleClick}
                 >
-                  <div className="ml-5" onClick={() => { setIsHidden(true) }}>
+                  <div className="ml-5" onClick={() => { }}>
                     {item.title === 'Blog' && (
                       <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/blog.svg" height={40} width={40} alt="blog" />

@@ -178,7 +178,7 @@ export function Header({ menus }: HeaderProps) {
         >
 
 
-          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} />
+          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} setIsHidden={setIsHidden} />
 
 
         </div>
