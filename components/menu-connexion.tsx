@@ -25,7 +25,7 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 				tab: 1,
 				toggleValue: false
 			}
-		}).then(() => refreshPage());
+		});
 	}
 
 	const buttonRedirect = () => {
@@ -35,7 +35,7 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 				tab: 3,
 				toggleValue: false
 			}
-		}).then(() => refreshPage());
+		});
 	}
 
 
