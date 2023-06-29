@@ -10,13 +10,14 @@ import { MenuDring } from "components/menu-dring"
 
 interface MenuMainProps {
   items: DrupalMenuLinkContent[]
+  isHidden: boolean
 }
 
-export function MenuMain({ items, ...props }: MenuMainProps) {
+export function MenuMain({ items, isHidden, ...props }: MenuMainProps) {
   const router = useRouter()
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
-  const [isHidden, setIsHidden] = React.useState(false)
+  // const [isHidden, setIsHidden] = React.useState(false)
 
 
 
@@ -212,7 +213,7 @@ export function MenuMain({ items, ...props }: MenuMainProps) {
                   className={`text-lg border-b-[3px] text-gray-500 flex border-b-transparent transition-colors hover:text-primary absolute inset-y-50 left-0 ${isActive ? 'border-b-primary' : ''}`}
                   onClick={handleClick}
                 >
-                  <div className="ml-5" onClick={(e) => { setIsHidden(true) }}>
+                  <div className="ml-5" onClick={() => { setIsHidden(true) }}>
                     {item.title === 'Blog' && (
                       <div className="pr-5 -px-3 flex items-center text-black">
                         <Image src="/blog.svg" height={40} width={40} alt="blog" />

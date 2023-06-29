@@ -20,6 +20,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { isSameHour } from "date-fns/esm"
 
 
 export interface HeaderProps {
@@ -30,6 +31,14 @@ export interface HeaderProps {
 
 export function Header({ menus }: HeaderProps) {
   const [showMenu, setShowMenu] = React.useState<Boolean>(false)
+  const [isHidden, setIsHidden] = React.useState(false)
+
+
+  const handleClick = () => {
+    setShowMenu(true);
+  }
+
+
   const { data: session, status } = useSession()
   const router = useRouter()
 
@@ -107,7 +116,7 @@ export function Header({ menus }: HeaderProps) {
             {!showMenu && (
               <button
                 className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={handleClick}
               >
 
                 <svg
@@ -126,7 +135,7 @@ export function Header({ menus }: HeaderProps) {
 
             {showMenu && (
               <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link mr-5"
-                onClick={() => setShowMenu(!showMenu)}>
+                onClick={handleClick}>
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
                   <g clip-path="url(#clip0_712_7983)">
                     <path d="M9 27L27 9M9 9L27 27" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -159,8 +168,6 @@ export function Header({ menus }: HeaderProps) {
           </a>
         </Link>
 
-
-
         <div
           className={classNames(
             "max-h-0 transition-all overflow-hidden md:max-h-screen z-50 md:z-0 absolute md:relative",
@@ -171,7 +178,7 @@ export function Header({ menus }: HeaderProps) {
         >
 
 
-          <MenuMain items={menus.main} className="md:ml-10 order-0" />
+          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} />
 
 
         </div>
