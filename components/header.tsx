@@ -35,8 +35,9 @@ export function Header({ menus }: HeaderProps) {
 
 
   const handleClick = () => {
-    setShowMenu(true);
-    // setIsHidden(false);
+    setShowMenu(!showMenu);
+    setIsHidden(false);
+    // console.log('value= ' + isHidden);
   }
 
 
@@ -187,7 +188,7 @@ export function Header({ menus }: HeaderProps) {
         {!showMenu && (
           <button
             className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link"
-            onClick={() => setShowMenu(!showMenu)}
+            onClick={handleClick}
           >
             <svg
               viewBox="0 0 24 24"
@@ -205,7 +206,7 @@ export function Header({ menus }: HeaderProps) {
 
         {showMenu && (
           <button className="absolute transition-all border border-transparent md:hidden right-0 mt-2 top-12 hover:border-link mr-5"
-            onClick={() => setShowMenu(!showMenu)}>
+            onClick={handleClick}>
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
               <g clip-path="url(#clip0_712_7983)">
                 <path d="M9 27L27 9M9 9L27 27" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
