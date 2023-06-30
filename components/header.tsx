@@ -113,7 +113,8 @@ export function Header({ menus }: HeaderProps) {
             >
 
 
-              <MenuMain items={menus.main} className="ml-10 order-0" />
+              <MenuMain items={menus.main} className="md:ml-10" isHidden={isHidden} setIsHidden={setIsHidden} closeMenu={closeMenu} showMenu={showMenu} />
+
 
 
             </div>
@@ -183,7 +184,7 @@ export function Header({ menus }: HeaderProps) {
         >
 
 
-          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} setIsHidden={setIsHidden} closeMenu={closeMenu} />
+          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} setIsHidden={setIsHidden} closeMenu={closeMenu} showMenu={showMenu} />
 
 
         </div>
