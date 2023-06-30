@@ -30,14 +30,17 @@ export interface HeaderProps {
 }
 
 export function Header({ menus }: HeaderProps) {
-  const [showMenu, setShowMenu] = React.useState<Boolean>(false)
+  const [showMenu, setShowMenu] = React.useState<boolean>(false)
   const [isHidden, setIsHidden] = React.useState(false)
 
 
   const handleClick = () => {
     setShowMenu(!showMenu);
     setIsHidden(false);
-    // console.log('value= ' + isHidden);
+  }
+
+  const closeMenu = () => {
+    setShowMenu(false);
   }
 
 
@@ -180,7 +183,7 @@ export function Header({ menus }: HeaderProps) {
         >
 
 
-          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} setIsHidden={setIsHidden} />
+          <MenuMain items={menus.main} className="md:ml-10 order-0" isHidden={isHidden} setIsHidden={setIsHidden} closeMenu={closeMenu} />
 
 
         </div>

@@ -11,42 +11,13 @@ import { MenuDring } from "components/menu-dring"
 interface MenuMainProps {
   items: DrupalMenuLinkContent[]
   isHidden: boolean
-  setIsHidden: boolean
+  setIsHidden: (value: boolean) => void
+  closeMenu: () => void
 }
 
-export function MenuMain({ items, isHidden, setIsHidden, ...props }: MenuMainProps) {
+export function MenuMain({ items, isHidden, setIsHidden, closeMenu, ...props }: MenuMainProps) {
   const router = useRouter()
-  // const [showMenu, setShowMenu] = React.useState<Boolean>(false)
   const { status } = useSession()
-  // const [isHidden, setIsHidden] = React.useState(false)
-
-
-
-  // const ref = React.useRef(null);
-
-  // React.useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (ref.current && !ref.current.contains(event.target)) {
-  //       setShowMenu(true);
-  //       console.log('click outside');
-  //     }
-  //   };
-
-  //   document.addEventListener('mousedown', handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside);
-  //   };
-  // }, []);
-
-  // const handleClick = () => {
-  //   setIsHidden(true);
-  // };
-
-  // const clickPrintMenu = () => {
-  //   setIsHidden(false);
-  // };
-
 
   if (status === "authenticated" && router.asPath === "/") {
     return (
@@ -200,7 +171,7 @@ export function MenuMain({ items, isHidden, setIsHidden, ...props }: MenuMainPro
       </div>
 
       <ul className={`md:hidden items-center justify-center space-y-10 rounded w-screen ${isHidden ? "hidden" : 'block'}`}
-        onClick={(e) => { e.preventDefault(), setIsHidden(true) }}>
+        onClick={(e) => { e.preventDefault(), setIsHidden(true), closeMenu() }}>
         {items.map((item) => {
           const isActive =
             router.asPath === item.url ||
