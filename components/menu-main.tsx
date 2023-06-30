@@ -20,7 +20,7 @@ export function MenuMain({ items, isHidden, setIsHidden, closeMenu, showMenu, ..
   const router = useRouter()
   const { status } = useSession()
 
-  if (status === "authenticated" && router.asPath === "/") {
+  if (status === "authenticated" && router.asPath === "/" || status == "authenticated" && router.asPath === "/alluserlist") {
     return (
       <nav {...props}>
         <div className="hidden md:block">
