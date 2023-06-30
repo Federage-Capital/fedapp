@@ -68,7 +68,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 							</div>
 							<div className={`text-md text-slate-500 ${openTab === 2 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1 text-center`}>
 								<p>
-									Entrez l'adresse mail associée à votre
+									Entrez l&lsquo;adresse mail associée à votre
 								</p>
 								<p>
 									compte pour modifier votre mot de passe.
