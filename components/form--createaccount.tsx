@@ -133,7 +133,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
             </Switch>
           </div>
           <div className="text-base ml-2">
-            En cochant cette case, vous acceptez notre <a href="/propos" className="fedblueblue">Politique de confidentialité.</a>
+            En cochant cette case, vous acceptez notre <a href="/fr/propos" className="fedblueblue">Politique de confidentialité.</a>
           </div>
         </div>
         <button
