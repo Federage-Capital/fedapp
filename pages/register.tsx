@@ -53,7 +53,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 		<div className="bg-slate-100">
 			<Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks} >
 				<PageHeader
-					heading={t("Accedez à mon compte")}
+					heading={t("Accedez à Federage")}
 				/>
 				{status === "unauthenticated" && (
 					<div className="container pb-1">

@@ -55,7 +55,7 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 			</div>
 
 			<button>
-				<Link href="/cgu" passHref>
+				<Link href="https://www.federage.com/fr/propos" passHref>
 					<p className="mt-3 ml-2 pb-5 md:ml-5">{props.text_press}</p>
 				</Link>
 			</button>

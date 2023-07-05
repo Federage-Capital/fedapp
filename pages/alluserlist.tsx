@@ -87,9 +87,9 @@ export default function AlluserlistPage
     <div className="bg-slate-100">
       <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
         <div className="px-6">
-          <h1 className="max-w-4xl mb-1 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
+          <h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 
-          <p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets à la fois.</p>
+          <p className="mb-3 text-zinc-500">intégrer plusieurs projets.</p>
 
           <form onSubmit={handleSubmit} className="space-y-2 mb-4">
             <div className="flex xs:hidden items-start w-100">

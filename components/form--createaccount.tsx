@@ -88,18 +88,10 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
           </div>
         </div>
         <input
-          id="siren"
-          name="siren"
-          type="text"
-          placeholder="Numéro SIREN"
-          className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-          {...register("siren")}
-        />
-        <input
           id="name"
           name="name"
           type="text"
-          placeholder="Dénomination sociale"
+          placeholder="Nom ou dénomination sociale"
           className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           {...register("name")}
         />
@@ -133,7 +125,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
             </Switch>
           </div>
           <div className="text-base ml-2">
-            En cochant cette case, vous acceptez notre <a href="/fr/propos" className="fedblueblue">Politique de confidentialité.</a>
+            En cochant cette case, vous acceptez notre <a href="https://www.federage.com/fr/confidentialite" className="fedblueblue">Politique de confidentialité.</a>
           </div>
         </div>
         <button
