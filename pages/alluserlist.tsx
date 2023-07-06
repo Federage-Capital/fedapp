@@ -17,6 +17,7 @@ import { PageHeader } from "components/page-header"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { BoxUserList } from "components/box-alluserlist"
 import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
+import { BoxProjectList } from "components/box-project-alluserlist";
 
 
 const params = {
@@ -26,7 +27,6 @@ const params = {
   filter: {
 
   },
-  include: "user_picture,field_type_de_structure,roles",
 
 
 }
@@ -43,6 +43,7 @@ export default function AlluserlistPage
 
   const [status, setStatus] = React.useState<"error" | "success" | "loading">()
   const [results, setResults] = React.useState<DrupalNode[]>(nodes)
+  const [openTab, setOpenTab] = React.useState(1);
   const [facets, setFacets] =
     React.useState<DrupalSearchApiFacet[]>(initialFacets)
 
@@ -82,7 +83,6 @@ export default function AlluserlistPage
   }
 
 
-
   return (
     <div className="bg-slate-100">
       <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
@@ -119,27 +119,75 @@ export default function AlluserlistPage
               {status === "Chargement" ? "Attendez..." : "Recherche"}
             </button>
           </form>
+          <ul className="flex justify-center items-center">
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+              <a
+                className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? "bg-gray" + "-100" : "text-" + "bg-white")}
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(1);
+                }}
+                data-toggle="tab"
+                href="#link1"
+                role="tablist"
+              >
+                Entreprise
+              </a>
+            </li>
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+              <a
+                className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? "bg-gray" + "-100" : "text-" + "bg-white")}
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(2);
+                }}
+                data-toggle="tab"
+                href="#link1"
+                role="tablist"
+              >
+                Projet
+              </a>
+            </li>
+          </ul>
           <div className="pb-10" />
           {status === "error" ? (
             <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
               Une erreur s&#39;est produite. Veuillez réessayer.
             </div>
           ) : null}
-          {!results.length ? (
-            <p className="text-sm" data-cy="search-no-results">
-              Aucun résultat.
-            </p>
-          ) : (
-            <div className="md:grid-cols-1">
-              {results.map((node) => (
-                <div key={node.id}>
-                  <BoxUserList key={node.id} node={node} />
-                </div>
-              ))}
-            </div>
-          )}
+          <div className={openTab === 1 ? "block" : "hidden"}>
+            {!results.length ? (
+              <p className="text-sm" data-cy="search-no-results">
+                Aucun résultat.
+              </p>
+            ) : (
+              <div className="md:grid-cols-1">
+                {results.map((node) => (
+                  <div key={node.id}>
+                    {node.type}
+                    <BoxUserList key={node.id} node={node} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className={openTab === 2 ? "block" : "hidden"}>
+            {!results.length ? (
+              <p className="text-sm" data-cy="search-no-results">
+                Aucun résultat.
+              </p>
+            ) : (
+              <div className="md:grid-cols-1">
+                {results.filter(results_projets => results_projets.type.includes("group--federage")).map((filterNode) => (
+                  <div key={filterNode.id}>
+                    <BoxProjectList key={filterNode.id} node={filterNode} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </Layout>
+      </Layout >
 
     </div >
 
@@ -158,10 +206,6 @@ export async function getStaticProps(
       params,
     }
   )
-
-
-
-
 
   return {
     props: {

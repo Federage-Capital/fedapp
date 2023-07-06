@@ -1,16 +1,25 @@
 import React from "react";
 import Link from 'next/link'
 import Image from 'next/image'
+import { TbWorld } from 'react-icons/tb';
 
-export function BoxUserList({ node }: BoxAlluserlistProps) {
+export function BoxProjectList({ node }: BoxProjectAlluserlistProps) {
 	return (
 		<>
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
+					{/* {node}<br /> */}
+					{/* {node.label}<br /> */}
+					{/* {node.field_description?.value} */}
+				</div>
+			</div>
+			{/* <div className="pb-4">
+				<div className="bg-white rounded-lg">
 					<div className="flex">
+
 						{node.user_picture?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5">
-								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+								<Link href={node.name.replace(/Ã¨/g, 'e').replaceAll(' ', '-')} passHref>
 									<Image
 										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
 										width={16}
@@ -24,7 +33,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 						)}
 						<div className="ml-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2 pt-5">
 							{node.field_nom_affiche >= 0 ? (
-								<Link href={node.display_name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+								<Link href={node.name.replace(/Ã¨/g, 'e').replaceAll(' ', '-')} passHref>
 									<p className="font-semibold">
 										{node.display_name}
 									</p>
@@ -32,10 +41,11 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 							) : (
 								node.field_nom_affiche
 							)}
+
 							{node.field_nom_affiche >= 0 ? (
-								<Link href={node.display_name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+								<Link href={node.name.replace(/Ã¨/g, 'e').replaceAll(' ', '-')} passHref>
 									<div className="text-slate-500 font-semibold mr-4 lowercase relative -top-3 text-sm max-w-xs truncate">
-										app.federage.com/{node.name.replace(/è/g, 'e').replaceAll(' ', '-')}
+										app.federage.com/{node.name.replace(/Ã¨/g, 'e').replaceAll(' ', '-')}
 									</div>
 								</Link>
 							) : (
@@ -63,7 +73,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 						)}
 					</div>
 				</div>
-			</div >
+			</div > */}
 		</>
 	);
 }
