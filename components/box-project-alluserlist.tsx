@@ -2,35 +2,72 @@ import React from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 import { TbWorld } from 'react-icons/tb';
+import { useTranslation } from "next-i18next"
 
-export function BoxProjectList({ node }: BoxProjectAlluserlistProps) {
+
+export function BoxProjectList({ node, useringroup }: BoxProjectAlluserlistProps) {
+	const { t } = useTranslation()
+
 	return (
 		<>
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
-					{/* {node}<br /> */}
-					{/* {node.label}<br /> */}
-					{/* {node.field_description?.value} */}
+					<div className="flex font-semibold ml-3 pt-3">
+						{useringroup
+							.filter(userin => userin.uuid.includes(node.id))
+							.map((filterUser) => (
+								<div key={filterUser.id}>
+									{filterUser.user_picture && (
+										<Image
+											src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
+											alt={filterUser.uid}
+											width={50}
+											height={50}
+											className='h-8 w-8 rounded-full'
+										/>
+									)}
+								</div>
+							))}
+						{node.label}
+					</div>
+					<div>
+						{node.field_description?.value && (
+							<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4" />
+						)}
+					</div>
+					<div className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4">
+						•  apports = calcul des apports
+					</div>
+					<div>
+						apport attendu : intitulé du pre-apport
+					</div>
+					<div className="flex justify-center">
+						<button className="px-3 fedblue py-2 mb-4 text-md text-white transition-colors rounded-xl
+					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6">
+							<a className="text-lg">{t("Contribuer")}</a>
+						</button>
+					</div>
 				</div>
 			</div>
 			{/* <div className="pb-4">
 				<div className="bg-white rounded-lg">
 					<div className="flex">
 
-						{node.user_picture?.uri && (
-							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5">
-								<Link href={node.name.replace(/Ã¨/g, 'e').replaceAll(' ', '-')} passHref>
-									<Image
-										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
-										width={16}
-										height={16}
-										layout="responsive"
-										objectFit="cover"
-										alt={node.drupal_internal__uid}
-									/>
-								</Link>
-							</div>
-						)}
+                      {useringroup
+                        .filter(userin => userin.uuid.includes(filterNode.id))
+                        .map((filterUser) => (
+                          <div key={filterUser.id}>
+                            {filterUser.user_picture && (
+                              <Image
+                                src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
+                                alt={filterUser.uid}
+                                width={50}
+                                height={50}
+                                className='h-8 w-8 rounded-full'
+                              />
+                            )}
+                          </div>
+                        ))}
 						<div className="ml-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2 pt-5">
 							{node.field_nom_affiche >= 0 ? (
 								<Link href={node.name.replace(/Ã¨/g, 'e').replaceAll(' ', '-')} passHref>

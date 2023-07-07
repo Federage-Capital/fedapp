@@ -18,7 +18,10 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { BoxUserList } from "components/box-alluserlist"
 import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
 import { BoxProjectList } from "components/box-project-alluserlist";
+import useSWR from 'swr'
 
+
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const params = {
   fields: {
@@ -28,9 +31,7 @@ const params = {
 
   },
 
-
 }
-
 
 export default function AlluserlistPage
   ({ menus, blocks, users, nodes,
@@ -39,6 +40,7 @@ export default function AlluserlistPage
   const { t } = useTranslation()
   const router = useRouter()
 
+  const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
 
 
   const [status, setStatus] = React.useState<"error" | "success" | "loading">()
@@ -122,7 +124,7 @@ export default function AlluserlistPage
           <ul className="flex justify-center items-center">
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
-                className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? "bg-gray" + "-100" : "text-" + "bg-white")}
+                className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? "fedblueblue" + "" : "text-" + "bg-white")}
                 onClick={e => {
                   e.preventDefault();
                   setOpenTab(1);
@@ -136,7 +138,7 @@ export default function AlluserlistPage
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
-                className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? "bg-gray" + "-100" : "text-" + "bg-white")}
+                className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? "fedblueblue" + "" : "text-" + "bg-white")}
                 onClick={e => {
                   e.preventDefault();
                   setOpenTab(2);
@@ -164,7 +166,6 @@ export default function AlluserlistPage
               <div className="md:grid-cols-1">
                 {results.map((node) => (
                   <div key={node.id}>
-                    {node.type}
                     <BoxUserList key={node.id} node={node} />
                   </div>
                 ))}
@@ -178,14 +179,35 @@ export default function AlluserlistPage
               </p>
             ) : (
               <div className="md:grid-cols-1">
-                {results.filter(results_projets => results_projets.type.includes("group--federage")).map((filterNode) => (
-                  <div key={filterNode.id}>
-                    <BoxProjectList key={filterNode.id} node={filterNode} />
-                  </div>
-                ))}
+                {results
+                  .filter(results_projets => results_projets.type.includes("group--federage"))
+                  .slice(0, 3)
+                  .map((filterNode) => (
+                    <div key={filterNode.id}>
+                      {/* {filterNode.id} */}
+                      <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} />
+                      {/* {useringroup
+                        .filter(userin => userin.uuid.includes(filterNode.id))
+                        .map((filterUser) => (
+                          <div key={filterUser.id}>
+                            {filterUser.user_picture && (
+                              <Image
+                                src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
+                                alt={filterUser.uid}
+                                width={50}
+                                height={50}
+                                className='h-8 w-8 rounded-full'
+                              />
+                            )}
+                          </div>
+                        ))} */}
+                    </div>
+                  ))}
               </div>
             )}
           </div>
+
+
         </div>
       </Layout >
 
