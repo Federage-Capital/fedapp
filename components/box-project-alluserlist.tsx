@@ -13,21 +13,22 @@ export function BoxProjectList({ node, useringroup }: BoxProjectAlluserlistProps
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
 					<div className="flex font-semibold ml-3 pt-3">
-						{useringroup
-							.filter(userin => userin.uuid.includes(node.id))
-							.map((filterUser) => (
-								<div key={filterUser.id}>
-									{filterUser.user_picture && (
-										<Image
-											src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
-											alt={filterUser.uid}
-											width={50}
-											height={50}
-											className='h-8 w-8 rounded-full'
-										/>
-									)}
-								</div>
-							))}
+						{useringroup &&
+							useringroup
+								.filter(userin => userin.uuid.includes(node.id))
+								.map((filterUser) => (
+									<div key={filterUser.id}>
+										{filterUser.user_picture && (
+											<Image
+												src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
+												alt={filterUser.uid}
+												width={50}
+												height={50}
+												className='h-8 w-8 rounded-full'
+											/>
+										)}
+									</div>
+								))}
 						{node.label}
 					</div>
 					<div>
