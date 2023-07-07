@@ -94,7 +94,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 										className={
 											"text-xs font-bold px-2 py-3 rounded-md leading-normal " +
 											(openTab === 1
-												? "bg-gray" + "-100"
+												? "fedblueblue"
 												: "text-" + "bg-white")
 										}
 
@@ -115,7 +115,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 										className={
 											"text-xs font-bold px-2 py-3 rounded-md leading-normal " +
 											(openTab === 2
-												? "bg-gray" + "-100"
+												? "fedblueblue"
 												: "text-" + "bg-white")
 										}
 
@@ -136,7 +136,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 										className={
 											"text-xs font-bold px-2 py-3 rounded-md leading-normal " +
 											(openTab === 3
-												? "bg-gray" + "-100"
+												? "fedblueblue"
 												: "text-" + "bg-white")
 										}
 										onClick={e => {
