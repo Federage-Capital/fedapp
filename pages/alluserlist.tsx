@@ -18,6 +18,8 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { BoxUserList } from "components/box-alluserlist"
 import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
 import { BoxProjectList } from "components/box-project-alluserlist";
+import { useSession, signIn, signOut } from "next-auth/react"
+
 import useSWR from 'swr'
 
 
@@ -40,10 +42,13 @@ export default function AlluserlistPage
   const { t } = useTranslation()
   const router = useRouter()
 
+  const { data: session, status } = useSession()
+
+
   const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
 
 
-  const [status, setStatus] = React.useState<"error" | "success" | "loading">()
+  const [state, setStatus] = React.useState<"error" | "success" | "loading">()
   const [results, setResults] = React.useState<DrupalNode[]>(nodes)
   const [openTab, setOpenTab] = React.useState(1);
   const [facets, setFacets] =
@@ -109,7 +114,7 @@ export default function AlluserlistPage
                   data-cy="btn-submit"
                   className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
                 >
-                  {status === "Chargement" ? "Attendez..." : "Recherche"}
+                  {state === "Chargement" ? "Attendez..." : "Recherche"}
                 </button>
               </div>
             </div>
@@ -118,7 +123,7 @@ export default function AlluserlistPage
               data-cy="btn-submit"
               className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
             >
-              {status === "Chargement" ? "Attendez..." : "Recherche"}
+              {state === "Chargement" ? "Attendez..." : "Recherche"}
             </button>
           </form>
           <ul className="flex justify-center items-center">
@@ -152,7 +157,7 @@ export default function AlluserlistPage
             </li>
           </ul>
           <div className="pb-10" />
-          {status === "error" ? (
+          {state === "error" ? (
             <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
               Une erreur s&#39;est produite. Veuillez réessayer.
             </div>
@@ -184,23 +189,7 @@ export default function AlluserlistPage
                   .slice(0, 3)
                   .map((filterNode) => (
                     <div key={filterNode.id}>
-                      {/* {filterNode.id} */}
-                      <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} />
-                      {/* {useringroup
-                        .filter(userin => userin.uuid.includes(filterNode.id))
-                        .map((filterUser) => (
-                          <div key={filterUser.id}>
-                            {filterUser.user_picture && (
-                              <Image
-                                src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
-                                alt={filterUser.uid}
-                                width={50}
-                                height={50}
-                                className='h-8 w-8 rounded-full'
-                              />
-                            )}
-                          </div>
-                        ))} */}
+                      <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
                     </div>
                   ))}
               </div>
