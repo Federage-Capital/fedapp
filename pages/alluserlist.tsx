@@ -186,7 +186,6 @@ export default function AlluserlistPage
               <div className="md:grid-cols-1">
                 {results
                   .filter(results_projets => results_projets.type.includes("group--federage"))
-                  .slice(0, 3)
                   .map((filterNode) => (
                     <div key={filterNode.id}>
                       <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
@@ -195,13 +194,9 @@ export default function AlluserlistPage
               </div>
             )}
           </div>
-
-
         </div>
       </Layout >
-
     </div >
-
   )
 }
 

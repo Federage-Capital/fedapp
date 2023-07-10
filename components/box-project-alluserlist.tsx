@@ -28,20 +28,23 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 					<div className="flex font-semibold ml-3 pt-3">
 						{useringroup &&
 							useringroup
-								.filter(userin => userin.uuid.includes(node.id))
-								.map((filterUser) => (
-									<div key={filterUser.id}>
+								.filter((userin) => userin.uuid.includes(node.id))
+								.slice(0, 5)
+								.map((filterUser, index) => (
+									<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
 										{filterUser.user_picture && (
 											<Image
 												src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
 												alt={filterUser.uid}
-												width={50}
-												height={50}
-												className='h-8 w-8 rounded-full'
+												width={30}
+												height={30}
+												className="h-8 w-8 rounded-full"
 											/>
 										)}
 									</div>
 								))}
+					</div>
+					<div className="flex font-semibold ml-3 pt-3 relative">
 						{node.label}
 					</div>
 					<div>
@@ -72,20 +75,23 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 					<div className="flex font-semibold ml-3 pt-3">
 						{useringroup &&
 							useringroup
-								.filter(userin => userin.uuid.includes(node.id))
-								.map((filterUser) => (
-									<div key={filterUser.id}>
+								.filter((userin) => userin.uuid.includes(node.id))
+								.slice(0, 5)
+								.map((filterUser, index) => (
+									<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
 										{filterUser.user_picture && (
 											<Image
 												src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
 												alt={filterUser.uid}
-												width={50}
-												height={50}
-												className='h-8 w-8 rounded-full'
+												width={30}
+												height={30}
+												className="h-8 w-8 rounded-full"
 											/>
 										)}
 									</div>
 								))}
+					</div>
+					<div className="flex font-semibold ml-3 pt-3 relative">
 						{node.label}
 					</div>
 					<div>
