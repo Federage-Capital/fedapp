@@ -169,11 +169,13 @@ export default function AlluserlistPage
               </p>
             ) : (
               <div className="md:grid-cols-1">
-                {results.map((node) => (
-                  <div key={node.id}>
-                    <BoxUserList key={node.id} node={node} />
-                  </div>
-                ))}
+                {results
+                  .filter(results_users => results_users.type.includes("user--user"))
+                  .map((node) => (
+                    <div key={node.id}>
+                      <BoxUserList key={node.id} node={node} useringroup={useringroup} />
+                    </div>
+                  ))}
               </div>
             )}
           </div>

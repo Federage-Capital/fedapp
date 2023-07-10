@@ -2,6 +2,7 @@ import React from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from "next/router"
+import CalculApport from "./calcul-apport";
 
 import { useTranslation } from "next-i18next"
 
@@ -100,7 +101,8 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 						)}
 					</div>
 					<div className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4">
-						•  apports = calcul des apports
+						<CalculApport key={node.uuid} node={node} />
+
 					</div>
 					<div>
 						apport attendu : intitulé du pre-apport
