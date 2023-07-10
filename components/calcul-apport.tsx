@@ -14,7 +14,7 @@ export default function CalculApport({ node, ...props }: CalculApportProps) {
 	return (
 		<div>
 			{calcvalues.map((calcvalue) => (
-				<div key={calcvalue.id}>{calcvalue.field_estimation_du_prix}</div>
+				<div key={calcvalue.id}>{calcvalue.field_estimation_du_prix}€ • (nombre d'apports) apports</div>
 			))}
 		</div>
 	);
