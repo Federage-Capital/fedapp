@@ -16,9 +16,10 @@ import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { BoxUserList } from "components/box-alluserlist"
-import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
 import { BoxProjectList } from "components/box-project-alluserlist";
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useCallback, useState, useRef, useMemo } from "react";
+
 
 import useSWR from 'swr'
 
@@ -27,13 +28,36 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const params = {
   fields: {
-    "file--file": "uri",
+    "group--federage": "label",
+    "user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure",
+
   },
   filter: {
 
   },
 
+
+  // include: "display_name",
+
 }
+
+
+export const useInfiniteScroll = (observer, callback) => {
+  const lastDataRendered = useCallback(
+    (node) => {
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          callback();
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [callback, observer]
+  );
+
+  return { lastDataRendered };
+};
 
 export default function AlluserlistPage
   ({ menus, blocks, users, nodes,
@@ -173,6 +197,8 @@ export default function AlluserlistPage
                   .filter(results_users => results_users.type.includes("user--user"))
                   .map((node) => (
                     <div key={node.id}>
+                      {node.id}
+
                       <BoxUserList key={node.id} node={node} useringroup={useringroup} />
                     </div>
                   ))}
