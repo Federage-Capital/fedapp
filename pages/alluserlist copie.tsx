@@ -6,6 +6,7 @@ import {
   getSearchIndexFromContext,
   deserialize,
   JsonApiSearchApiResponse,
+  DrupalSearchApiFacet,
 } from "next-drupal";
 import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
@@ -17,19 +18,7 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { BoxUserList } from "components/box-alluserlist"
 import { BoxProjectList } from "components/box-project-alluserlist";
 import { useSession, signIn, signOut } from "next-auth/react"
-
-
-import { usePaginatedSearch } from "../hooks/use-paginated-search"
-
-function formatDate(input: string): string {
-  const date = new Date(input)
-  return date.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  })
-}
-
+import { useCallback, useState, useRef, useMemo } from "react";
 
 
 import useSWR from 'swr'
@@ -53,6 +42,22 @@ const params = {
 }
 
 
+export const useInfiniteScroll = (observer, callback) => {
+  const lastDataRendered = useCallback(
+    (node) => {
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          callback();
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [callback, observer]
+  );
+
+  return { lastDataRendered };
+};
 
 export default function AlluserlistPage
   ({ menus, blocks, users, nodes,
@@ -73,22 +78,40 @@ export default function AlluserlistPage
   const [facets, setFacets] =
     React.useState<DrupalSearchApiFacet[]>(initialFacets)
 
+  async function handleSubmit(event) {
+    event.preventDefault()
 
-
-    const { data, hasNextPage, isFetching, fetchNextPage, isError } =
-      usePaginatedSearch()
-
-    function onSubmit(event) {
-      event.preventDefault()
-
-      router.push({
-        pathname: "/alluserlist",
-        query: `keywords=${event.target.keywords.value}`,
-      })
+    for (const filter of ["fulltext", "name", "field_status"]) {
+      if (event.target[filter]?.value != "") {
+        params["filter"][filter] = event.target[filter]?.value
+      }
     }
 
 
+    setStatus("loading")
+    const response = await fetch("/api/search/default_index", {
+      method: "POST",
+      body: JSON.stringify({
+        deserialize: false,
+        params,
+      }),
+    })
 
+    if (!response.ok) {
+      return setStatus("error")
+    }
+
+    setStatus("success")
+
+    const json = await response.json()
+    const results = deserialize(json) as DrupalNode[]
+
+    setResults(results)
+
+    if (results?.length) {
+      setFacets(json.meta.facets)
+    }
+  }
 
 
   return (
@@ -99,102 +122,34 @@ export default function AlluserlistPage
 
           <p className="mb-3 text-zinc-500">intégrer plusieurs projets.</p>
 
-
-          <form onSubmit={onSubmit} className="mb-4">
-            <div className="items-center gap-4 sm:grid sm:grid-cols-7">
+          <form onSubmit={handleSubmit} className="space-y-2 mb-4">
+            <div className="flex xs:hidden items-start w-100">
               <input
                 type="search"
-                placeholder="Search articles..."
-                name="keywords"
-                required
-                className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+                placeholder="Rechercher un membre"
+                name="fulltext"
+                className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
               />
-              <button
-                type="submit"
-                data-cy="btn-submit"
-                className="flex justify-center w-full px-4 py-2 mt-4 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm sm:col-span-2 sm:mt-0 hover:bg-black"
-              >
-                {isFetching ? "Please wait..." : "Search"}
-              </button>
-            </div>
-          </form>
-          {isError ? (
-            <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-              An error occured. Please try again.
-            </div>
-          ) : null}
-          {!data?.pages?.length ? (
-            <p className="text-sm" data-cy="search-no-results">
-              No results found. Try searching for <strong>static</strong> or{" "}
-              <strong>preview</strong>.
-            </p>
-          ) : (
-            <div className="pt-4">
-              <h3 className="mt-0" data-cy="search-results">
-                Found {data?.pages[0]?.total} result(s).
-              </h3>
-              {data?.pages.map((page, index) => (
-                <div key={index}>
-                  {page.items?.map((node) => (
-                    <div key={node.id} className="pb-4 mb-4 border-b">
-                      <article
-                        className="grid-cols-3 gap-4 sm:grid"
-                        data-cy="search-result"
-                      >
-                      {node.label}
-                        {node.field_image?.uri && (
-                          <div className="col-span-1 mb-4 sm:mb-0">
-                            <Image
-                              src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.field_image.uri.url}`}
-                              width={200}
-                              height={110}
-                              layout="responsive"
-                              objectFit="cover"
-                            />
-                          </div>
-                        )}
-                        <div className="col-span-2 not-prose">
-                          <h4 className="font-semibold text-black leading-normal">
-                            {node.name}
-                          </h4>
-                          <p className="mb-0">
-                            <small>{formatDate(node.created)}</small>
-                          </p>
-                        </div>
-                      </article>
-                    </div>
-                  ))}
-                </div>
-              ))}
-              {hasNextPage && (
+              <div className="grid gap-4 py-4 md:grid-cols-1">
+              </div>
+              <div className="flex">
                 <button
-                  onClick={() => fetchNextPage()}
-                  disabled={isFetching}
-                  className="flex justify-center px-4 py-2 mt-4 text-sm font-medium text-black bg-slate-200 border border-slate-200 rounded-md shadow-sm sm:col-span-2 sm:mt-0"
+                  type="submit"
+                  data-cy="btn-submit"
+                  className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
                 >
-                  {isFetching ? "Loading..." : "Show more"}
+                  {state === "Chargement" ? "Attendez..." : "Recherche"}
                 </button>
-              )}
+              </div>
             </div>
-          )}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <button
+              type="submit"
+              data-cy="btn-submit"
+              className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
+            >
+              {state === "Chargement" ? "Attendez..." : "Recherche"}
+            </button>
+          </form>
           <ul className="flex justify-center items-center">
             <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
               <a
