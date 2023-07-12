@@ -144,7 +144,7 @@ export function Header({ menus }: HeaderProps) {
                 onClick={handleClick}>
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
                   <g clip-path="url(#clip0_712_7983)">
-                    <path d="M9 27L27 9M9 9L27 27" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M9 27L27 9M9 9L27 27" stroke="#111827" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   </g>
                   <defs>
                     <clipPath id="clip0_712_7983">

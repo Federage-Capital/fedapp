@@ -1,5 +1,4 @@
 import * as React from "react";
-import Link from "next/link";
 import Image from "next/image"
 import {
   DrupalNode,
@@ -11,12 +10,10 @@ import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
 import { useRouter } from "next/router"
 import { getGlobalElements } from "lib/get-global-elements"
-import { Layout, LayoutProps } from "components/layout"
-import { PageHeader } from "components/page-header"
-import { DrupalJsonApiParams } from "drupal-jsonapi-params";
+import { Layout } from "components/layout"
 import { BoxUserList } from "components/box-alluserlist"
 import { BoxProjectList } from "components/box-project-alluserlist";
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 
 import { usePaginatedSearch } from "../hooks/use-paginated-search"
@@ -29,8 +26,6 @@ function formatDate(input: string): string {
     year: "numeric",
   })
 }
-
-
 
 import useSWR from 'swr'
 
@@ -46,10 +41,6 @@ const params = {
   filter: {
 
   },
-
-
-  // include: "display_name",
-
 }
 
 
@@ -73,23 +64,17 @@ export default function AlluserlistPage
   const [facets, setFacets] =
     React.useState<DrupalSearchApiFacet[]>(initialFacets)
 
+  const { data, hasNextPage, isFetching, fetchNextPage, isError } =
+    usePaginatedSearch()
 
+  function onSubmit(event) {
+    event.preventDefault()
 
-    const { data, hasNextPage, isFetching, fetchNextPage, isError } =
-      usePaginatedSearch()
-
-    function onSubmit(event) {
-      event.preventDefault()
-
-      router.push({
-        pathname: "/alluserlist",
-        query: `keywords=${event.target.keywords.value}`,
-      })
-    }
-
-
-
-
+    router.push({
+      pathname: "/alluserlist",
+      query: `keywords=${event.target.keywords.value}`,
+    })
+  }
 
   return (
     <div className="bg-slate-100">
@@ -141,7 +126,7 @@ export default function AlluserlistPage
                         className="grid-cols-3 gap-4 sm:grid"
                         data-cy="search-result"
                       >
-                      {node.label}
+                        {node.label}
                         {node.field_image?.uri && (
                           <div className="col-span-1 mb-4 sm:mb-0">
                             <Image
@@ -150,6 +135,7 @@ export default function AlluserlistPage
                               height={110}
                               layout="responsive"
                               objectFit="cover"
+                              alt="ok"
                             />
                           </div>
                         )}
@@ -177,18 +163,6 @@ export default function AlluserlistPage
               )}
             </div>
           )}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -242,8 +216,6 @@ export default function AlluserlistPage
                   .filter(results_users => results_users.type.includes("user--user"))
                   .map((node) => (
                     <div key={node.id}>
-                      {node.id}
-
                       <BoxUserList key={node.id} node={node} useringroup={useringroup} />
                     </div>
                   ))}
