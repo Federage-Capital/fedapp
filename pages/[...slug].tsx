@@ -35,44 +35,46 @@ export default function ResourcePage({
   if (!resource) return null
 
   return (
-    <Layout
-      menus={menus}
-      meta={{
-        title: resource.title || resource.name,
-      }}
-    >
-      {resource.type === "node--page" && (
-        <NodePage node={resource as DrupalNode} />
-      )}
-      {resource.type === "node--article" && (
-        <NodeArticle
-          node={resource as DrupalNode}
+    <div className="bg-slate-100">
+      <Layout
+        menus={menus}
+        meta={{
+          title: resource.title || resource.name,
+        }}
+      >
+        {resource.type === "node--page" && (
+          <NodePage node={resource as DrupalNode} />
+        )}
+        {resource.type === "node--article" && (
+          <NodeArticle
+            node={resource as DrupalNode}
 
-        />
-      )}
-      {resource.type === "group--federage" && (
-        <NodeGroupFinancement
-          node={resource as DrupalNode}
+          />
+        )}
+        {resource.type === "group--federage" && (
+          <NodeGroupFinancement
+            node={resource as DrupalNode}
 
-        />
-      )}
+          />
+        )}
 
-      {resource.type === "user--user" && (
-        <UserProfile
-          node={resource as DrupalNode}
+        {resource.type === "user--user" && (
+          <UserProfile
+            node={resource as DrupalNode}
 
-        />
-      )}
+          />
+        )}
 
-      {resource.type === "node--financement" && (
-        <NodeFinancement
-          node={resource as DrupalNode}
+        {resource.type === "node--financement" && (
+          <NodeFinancement
+            node={resource as DrupalNode}
 
-        />
-      )}
+          />
+        )}
 
 
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 
