@@ -110,7 +110,6 @@ export default function AlluserlistPage
           ) : null}
           {!data?.pages?.length ? (
             <div className="text-sm" data-cy="search-no-results">
-              Aucun résultat
               <ul className="flex justify-center items-center">
                 <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                   <a
@@ -190,33 +189,9 @@ export default function AlluserlistPage
               {data?.pages.map((page, index) => (
                 <div key={index}>
                   {page.items?.map((node) => (
-                    <div key={node.id} className="pb-4 mb-4 bg-white rounded-lg flex">
-                      <article
-                        className="grid-cols-3 gap-4 sm:grid"
-                        data-cy="search-result"
-                      >
-                        {node.label}
-                        {node.field_image?.uri && (
-                          <div className="col-span-1 mb-4 sm:mb-0">
-                            <Image
-                              src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.field_image.uri.url}`}
-                              width={200}
-                              height={110}
-                              layout="responsive"
-                              objectFit="cover"
-                              alt="ok"
-                            />
-                          </div>
-                        )}
-                        <div className="col-span-2 not-prose">
-                          <h4 className="font-semibold text-black leading-normal ml-3 mt-3">
-                            {node.name}
-                          </h4>
-                          <p className="mb-0 ml-3">
-                            <small>{formatDate(node.created)}</small>
-                          </p>
-                        </div>
-                      </article>
+                    <div key={node.id}>
+                      <BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
+                      <BoxUserList key={node.id} node={node} useringroup={useringroup} />
                     </div>
                   ))}
                 </div>
