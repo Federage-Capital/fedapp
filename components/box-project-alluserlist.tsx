@@ -34,13 +34,15 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 								.map((filterUser, index) => (
 									<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
 										{filterUser.user_picture && (
-											<Image
-												src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
-												alt={filterUser.uid}
-												width={30}
-												height={30}
-												className="h-8 w-8 rounded-full"
-											/>
+											<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+												<Image
+													src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
+													alt={filterUser.uid}
+													width={30}
+													height={30}
+													className="h-8 w-8 rounded-full"
+												/>
+											</Link>
 										)}
 									</div>
 								))}
@@ -55,7 +57,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 						)}
 					</div>
 					<div className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4">
-						•  apports = calcul des apports
+						<CalculApport key={node.uuid} node={node} />
 					</div>
 					<div>
 						apport attendu : intitulé du pre-apport
