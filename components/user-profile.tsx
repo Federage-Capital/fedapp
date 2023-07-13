@@ -74,14 +74,12 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
               )}
             </div>
           </div>
-          <div className="mb-4 text-gray-600">
-            {node.field_description?.processed && (
-              <div
-                dangerouslySetInnerHTML={{ __html: node.field_description?.processed }}
-                className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4"
-              />
-            )}
-          </div>
+          {node.field_description?.processed && (
+            <div
+              dangerouslySetInnerHTML={{ __html: node.field_description?.processed }}
+              className="leading-normal ml-2 text-slate-600 text-base sm:text-base lg:text-lg px-4"
+            />
+          )}
           <UserListCard key={node.id} node={node} />
           {userprojects?.length ? (
             <p>
