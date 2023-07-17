@@ -2,22 +2,24 @@ import React from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 
-export function BoxUserList({ node }: BoxAlluserlistProps) {
+
+
+export function BoxUserList({ node, itemlogo }: BoxAlluserlistProps) {
 	return (
 		<>
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
 					<div className="flex">
-						{node.user_picture?.uri && (
+						{itemlogo?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5">
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
 									<Image
-										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
+										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${itemlogo.uri.url}`}
 										width={16}
 										height={16}
 										layout="responsive"
 										objectFit="cover"
-										alt={node.drupal_internal__uid}
+										alt={node.name}
 									/>
 								</Link>
 							</div>
@@ -47,6 +49,7 @@ export function BoxUserList({ node }: BoxAlluserlistProps) {
 						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4" />
 					)}
 					<div className="flex ml-6 items-center pb-5">
+						{/* {node.field_type_de_structure} */}
 						{node.field_type_de_structure?.id && (
 							<>
 								<div className="pr-2">

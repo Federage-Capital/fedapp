@@ -14,6 +14,7 @@ import { Layout } from "components/layout"
 import { BoxUserList } from "components/box-alluserlist"
 import { BoxProjectList } from "components/box-project-alluserlist";
 import { useSession } from "next-auth/react"
+import { drupal } from "lib/drupal"
 
 
 import { usePaginatedSearch } from "../hooks/use-paginated-search"
@@ -34,19 +35,20 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const params = {
   fields: {
-    "group--federage": "label",
-    "user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure",
+    "group--federage": "label,field_description",
+    "user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 
   },
   filter: {
 
   },
+
 }
 
 
 
 export default function AlluserlistPage
-  ({ menus, blocks, users, nodes,
+  ({ menus, blocks, users, nodes, logouri,
     facets: initialFacets,
   }: AlluserlistPageProps) {
   const { t } = useTranslation()
@@ -154,10 +156,27 @@ export default function AlluserlistPage
                 ) : (
                   <div className="md:grid-cols-1">
                     {results
-                      .filter(results_users => results_users.type.includes("user--user"))
+                      .filter((results_users) => results_users.type.includes("user--user"))
                       .map((node) => (
                         <div key={node.id}>
-                          <BoxUserList key={node.id} node={node} useringroup={useringroup} />
+                          {node.user_picture ? (
+                            <div className="text-sm" data-cy="search-no-results">
+                              {logouri
+                                .filter((results_logo) => results_logo.id.includes(node.user_picture.id))
+                                .map((itemlogo) => (
+                                  <div key={itemlogo.id}>
+                                    <BoxUserList key={node.id} node={node} itemlogo={itemlogo} />
+                                  </div>
+                                ))}
+                            </div>
+                          ) : (
+                            <div>
+
+                              <p className="text-sm" data-cy="search-no-results">
+                                <BoxUserList key={node.id} node={node} />
+                              </p>
+                            </div>
+                          )}
                         </div>
                       ))}
                   </div>
@@ -174,6 +193,7 @@ export default function AlluserlistPage
                       .filter(results_projets => results_projets.type.includes("group--federage"))
                       .map((filterNode) => (
                         <div key={filterNode.id}>
+
                           <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
                         </div>
                       ))}
@@ -188,10 +208,11 @@ export default function AlluserlistPage
               </h3>
               {data?.pages.map((page, index) => (
                 <div key={index}>
+                  {page.items.type}
                   {page.items?.map((node) => (
                     <div key={node.id}>
-                      <BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
-                      <BoxUserList key={node.id} node={node} useringroup={useringroup} />
+                      {index}
+                      {node.links.self.href}
                     </div>
                   ))}
                 </div>
@@ -226,12 +247,26 @@ export async function getStaticProps(
     }
   )
 
+
+  const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "file--file",
+    context,
+    {
+      params: {
+        "fields[file--file]": "id,uri",
+
+        sort: "-created",
+      },
+    }
+  )
+
   return {
     props: {
       ...(await getGlobalElements(context)),
 
       nodes: deserialize(results) as DrupalNode[],
       facets: results.meta.facets,
+      logouri,
     },
     revalidate: 5,
 

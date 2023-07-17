@@ -48,7 +48,6 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 								))}
 					</div>
 					<div className="flex font-semibold ml-3 pt-3 relative">*
-						{/* {node} */}
 						{node.label}
 					</div>
 					<div>
