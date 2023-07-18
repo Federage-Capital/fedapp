@@ -83,10 +83,7 @@ export default function AlluserlistPage
       <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
         <div className="px-6">
           <h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
-
           <p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, faire une offre d'apport et intégrer plusieurs projets.</p>
-
-
           <form onSubmit={onSubmit} className="mb-4">
             <div className="items-center gap-4 sm:grid sm:grid-cols-7">
               <input
@@ -171,10 +168,9 @@ export default function AlluserlistPage
                             </div>
                           ) : (
                             <div>
-
-                              <p className="text-sm" data-cy="search-no-results">
+                              <div className="text-sm" data-cy="search-no-results">
                                 <BoxUserList key={node.id} node={node} />
-                              </p>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -193,7 +189,6 @@ export default function AlluserlistPage
                       .filter(results_projets => results_projets.type.includes("group--federage"))
                       .map((filterNode) => (
                         <div key={filterNode.id}>
-
                           <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
                         </div>
                       ))}
@@ -213,6 +208,8 @@ export default function AlluserlistPage
                     <div key={node.id}>
                       {index}
                       {node.links.self.href}
+                      <BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
+                      <BoxUserList key={node.id} node={node} />
                     </div>
                   ))}
                 </div>
