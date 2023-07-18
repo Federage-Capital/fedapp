@@ -10,7 +10,7 @@ import { FormCreate } from "components/form--create-account"
 import { FormPass } from "components/form--password-reset"
 import { PageHeader } from "components/page-header"
 
-interface LoginPageProps extends LayoutProps {}
+interface LoginPageProps extends LayoutProps { }
 
 export default function PageWithJSbasedForm() {
   // Handles the submit event on form submit.

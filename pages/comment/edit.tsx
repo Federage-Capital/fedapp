@@ -9,13 +9,13 @@ import { useState, useEffect } from "react";
 import { Folder } from "public/foldersvg"
 import { NodeFinComment } from "components/node--financement--comment"
 
-interface EditArticlesPageProps extends LayoutProps {}
+interface EditArticlesPageProps extends LayoutProps { }
 
 export default function EditArticlesPage({
   menus,
   blocks,
   articles,
-node,
+  node,
 }: EditArticlesPageProps) {
   const { t } = useTranslation()
 
@@ -24,16 +24,16 @@ node,
 
   return (
     <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
-    <div className="container text-center">
-    <div className="inline-block">  <Folder /> </div>
-    </div>
+      <div className="container text-center">
+        <div className="inline-block">  <Folder /> </div>
+      </div>
       <PageHeader
         heading={t("decrire-le-projet")}
 
       />
       <div className="container pb-10">
 
-    </div>
+      </div>
 
 
     </Layout>

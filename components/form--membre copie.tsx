@@ -26,15 +26,15 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
 
 
 
-     const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/user/user?include=user_picture', fetcher)
+  const { data: users, error } = useSWR('https://fed.septembre.io/jsonapi/user/user?include=user_picture', fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
 
 
-       if (error) return <div>Failed to load</div>
-       if (!users) return <div>Loading...</div>
+  if (error) return <div>Failed to load</div>
+  if (!users) return <div>Loading...</div>
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -89,65 +89,65 @@ export function FormMembre({ className, ...props }: FormMembreProps) {
       PARTENAIRES DE L’OPÉRATION
 
 
-             <div className="grid gap-2">
+      <div className="grid gap-2">
 
-             <fieldset className="border-t border-b border-gray-200">
-                                   <legend className="sr-only">Notifications</legend>
-                                    {users.data.map((user) => (
-                                   <div key={user.id} className="divide-y divide-gray-200">
-                                     <div className="relative flex items-start py-4">
-                                       <div className="min-w-0 flex-1 text-sm">
-                                         <label htmlFor="comments" className="font-medium text-gray-700">
-                                           {user.attributes.display_name}
-                                         </label>
-                                         <p id="comments-description" className="text-gray-500">
-                                           Get notified when someones posts a comment on a posting.
-                                         </p>
-                                       </div>
-
-
+        <fieldset className="border-t border-b border-gray-200">
+          <legend className="sr-only">Notifications</legend>
+          {users.data.map((user) => (
+            <div key={user.id} className="divide-y divide-gray-200">
+              <div className="relative flex items-start py-4">
+                <div className="min-w-0 flex-1 text-sm">
+                  <label htmlFor="comments" className="font-medium text-gray-700">
+                    {user.attributes.display_name}
+                  </label>
+                  <p id="comments-description" className="text-gray-500">
+                    Get notified when someones posts a comment on a posting.
+                  </p>
+                </div>
 
 
 
 
 
-                                       <div className="ml-3 flex h-5 items-center">
-                                         <input
-                                         id="select_users"
-                                         name="select_users"
-                                           aria-describedby="comments-description"
-                                           value={user.id}
-                                           type="checkbox"
-                                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                         />
-                                       </div>
-                                     </div>
 
 
-                                   </div>
-                                     ))}
-                                 </fieldset>
-                      <label
-                      htmlFor="select_users"
-                      className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
-                      >
-Sélectionnez un membre                   </label>
-                      <select
-                      id="select_users"
-                      name="select_users"
-                      className="rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-                    >
-     {users.data.map((user) => (
-
-<option key={user.id} value={user.id}>{user.attributes.display_name}</option>
-
-                          ))}
-                      </select>
+                <div className="ml-3 flex h-5 items-center">
+                  <input
+                    id="select_users"
+                    name="select_users"
+                    aria-describedby="comments-description"
+                    value={user.id}
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                </div>
+              </div>
 
 
+            </div>
+          ))}
+        </fieldset>
+        <label
+          htmlFor="select_users"
+          className="d-block text-black-2 font-size-4 font-weight-semibold mb-4"
+        >
+          Sélectionnez un membre                   </label>
+        <select
+          id="select_users"
+          name="select_users"
+          className="rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        >
+          {users.data.map((user) => (
+
+            <option key={user.id} value={user.id}>{user.attributes.display_name}</option>
+
+          ))}
+        </select>
 
 
-                  </div>
+
+
+      </div>
 
 
 

@@ -8,7 +8,7 @@ import { Layout, LayoutProps } from "components/layout"
 import { FormCreate } from "components/form--createaccount"
 import { PageHeader } from "components/page-header"
 
-interface CreatePageProps extends LayoutProps {}
+interface CreatePageProps extends LayoutProps { }
 
 export default function CreatePage({ menus, blocks }: CreatePageProps) {
   const { t } = useTranslation()

@@ -8,7 +8,7 @@ import { FormGroupfinedit } from "components/form--groupfinedit"
 import { useState, useEffect } from "react";
 import { Folder } from "public/foldersvg"
 
-interface EditArticlesPageProps extends LayoutProps {}
+interface EditArticlesPageProps extends LayoutProps { }
 
 export default function EditArticlesPage({
   menus,
@@ -23,9 +23,9 @@ export default function EditArticlesPage({
 
   return (
     <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
-    <div className="container text-center">
-    <div className="inline-block">  <Folder /> </div>
-    </div>
+      <div className="container text-center">
+        <div className="inline-block">  <Folder /> </div>
+      </div>
       <PageHeader
         heading={t("modifier-le-projet")}
 

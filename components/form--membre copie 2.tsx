@@ -13,8 +13,8 @@ import useSWR from 'swr'
 interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {
 
   users: DrupalUser,
-    nodes: DrupalNode,
-    group: DrupalGroup,
+  nodes: DrupalNode,
+  group: DrupalGroup,
 }
 
 
@@ -27,16 +27,16 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
 
-     const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in'+ `/`+ query.gid, fetcher)
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in', fetcher)
+  const { data: users, error2 } = useSWR('https://fed.septembre.io/user_in_group_not_in' + `/` + query.gid, fetcher)
+  const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in', fetcher)
 
 
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
 
 
-       if (error2, error3) return <div>Failed to load</div>
-       if (!users, !usersnotin) return <div>Loading...</div>
+  if (error2, error3) return <div>Failed to load</div>
+  if (!users, !usersnotin) return <div>Loading...</div>
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -91,12 +91,12 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
       PARTENAIRES DE L’OPÉRATION
 
 
-             <div className="grid gap-2">
+      <div className="grid gap-2">
 
-             <fieldset className="border-t border-b border-gray-200">
+        <fieldset className="border-t border-b border-gray-200">
 
 
-             {usersnotin.map((usernotin) => (
+          {usersnotin.map((usernotin) => (
             <div key={usernotin.id} className="divide-y divide-gray-200">
               <div className="relative flex items-start py-4">
                 <div className="min-w-0 flex-1 text-sm">
@@ -105,38 +105,38 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                   </label>
                   <p id="comments-description" className="text-gray-500">
                     Get notified when someones posts a comment on a posting.
-                         {usernotin.name}
+                    {usernotin.name}
                   </p>
 
                   {users?.length ? (
-                  <div>
+                    <div>
 
-                  {users.filter(person5 => person5.name.includes(usernotin.name)).map(filteredPerson5 => {
+                      {users.filter(person5 => person5.name.includes(usernotin.name)).map(filteredPerson5 => {
 
-                  return (
+                        return (
 
-                  <div className="flex-container card" key={filteredPerson5.name}>
+                          <div className="flex-container card" key={filteredPerson5.name}>
 
-                    <div className="content">
-                       {filteredPerson5.name} €
-                      <div>
+                            <div className="content">
+                              {filteredPerson5.name} €
+                              <div>
 
-                  </div>
+                              </div>
+                            </div>
+
+
+                          </div>)
+                      })}
+
+
+
                     </div>
-
-
-                  </div>)
-                  })}
-
-
-
-                  </div>
                   ) : (
-                  <p >
+                    <p >
 
-                  00000 €
+                      00000 €
 
-                  </p>
+                    </p>
 
 
                   )}
@@ -150,8 +150,8 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
                 <div className="ml-3 flex h-5 items-center">
                   <input
-                  id="select_users"
-                  name="select_users"
+                    id="select_users"
+                    name="select_users"
                     aria-describedby="comments-description"
                     value={usernotin.id}
                     type="radio"
@@ -162,55 +162,55 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
             </div>
-              ))}
+          ))}
 
 
-                                   <legend className="sr-only">Notifications</legend>
-                                    {users.map((user) => (
-                                   <div key={user.id} className="divide-y divide-gray-200">
-                                     <div className="relative flex items-start py-4">
-                                       <div className="min-w-0 flex-1 text-sm">
-                                         <label htmlFor="comments" className="font-medium text-gray-700">
-                                           {user.name}
-                                         </label>
-                                         <p id="comments-description" className="text-gray-500">
-                                           Get notified when someones posts a comment on a posting.
-                                                {user.name}
-                                         </p>
+          <legend className="sr-only">Notifications</legend>
+          {users.map((user) => (
+            <div key={user.id} className="divide-y divide-gray-200">
+              <div className="relative flex items-start py-4">
+                <div className="min-w-0 flex-1 text-sm">
+                  <label htmlFor="comments" className="font-medium text-gray-700">
+                    {user.name}
+                  </label>
+                  <p id="comments-description" className="text-gray-500">
+                    Get notified when someones posts a comment on a posting.
+                    {user.name}
+                  </p>
 
 
-                                       </div>
-
-
-
+                </div>
 
 
 
 
 
 
-                                       <div className="ml-3 flex h-5 items-center">
-                                         <input
-                                         id="select_users"
-                                         name="select_users"
-                                           aria-describedby="comments-description"
-                                           value={user.id}
-                                           type="radio"
-                                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                         />
-                                       </div>
-                                     </div>
-
-
-                                   </div>
-                                     ))}
-                                 </fieldset>
 
 
 
+                <div className="ml-3 flex h-5 items-center">
+                  <input
+                    id="select_users"
+                    name="select_users"
+                    aria-describedby="comments-description"
+                    value={user.id}
+                    type="radio"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                </div>
+              </div>
 
 
-                  </div>
+            </div>
+          ))}
+        </fieldset>
+
+
+
+
+
+      </div>
 
 
 

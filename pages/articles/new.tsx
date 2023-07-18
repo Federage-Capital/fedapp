@@ -6,7 +6,7 @@ import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormArticle } from "components/form--article"
 
-interface NewArticlesPageProps extends LayoutProps {}
+interface NewArticlesPageProps extends LayoutProps { }
 
 export default function NewArticlesPage({
   menus,

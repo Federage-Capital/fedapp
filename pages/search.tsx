@@ -11,7 +11,7 @@ import { useSearch } from "hooks/use-search"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 
-interface SearchPageProps extends LayoutProps {}
+interface SearchPageProps extends LayoutProps { }
 
 export default function SearchPage({ menus, blocks }: SearchPageProps) {
   const { t } = useTranslation()

@@ -49,7 +49,8 @@ export function BoxUserList({ node, itemlogo }: BoxAlluserlistProps) {
 						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4" />
 					)}
 					<div className="flex ml-6 items-center pb-5">
-						{/* {node.field_type_de_structure} */}
+						{/* {node.type}<br /> */}
+						{/* {node.label} */}
 						{node.field_type_de_structure?.id && (
 							<>
 								<div className="pr-2">
@@ -59,7 +60,7 @@ export function BoxUserList({ node, itemlogo }: BoxAlluserlistProps) {
 								</div>
 								{node.field_type_de_structure?.name && (
 									<p className="text-sm text-slate-600">
-										{node.field_type_de_structure.name}
+										{node.field_type_de_structure}
 									</p>
 								)}
 							</>

@@ -36,32 +36,32 @@ export function NodePage({ node }: NodePageProps) {
         <div>
 
 
-        {node.field_paragraphs?.length ? (
+          {node.field_paragraphs?.length ? (
             <span>
-            {node.field_paragraphs.filter(entityref2 => entityref2.type.includes("paragraph--integrer_nodes")).map(filteredEntityref2 => {
-            return (
-            <div key={filteredEntityref2.id}>
-                 {filteredEntityref2.field_node_ref.map((legals) => (
+              {node.field_paragraphs.filter(entityref2 => entityref2.type.includes("paragraph--integrer_nodes")).map(filteredEntityref2 => {
+                return (
+                  <div key={filteredEntityref2.id}>
+                    {filteredEntityref2.field_node_ref.map((legals) => (
 
 
-           <details key={legals.id} className="mb-5 shadow sm:rounded-lg px-4 py-5 sm:p-6" >
-  <summary className="text-lg">
-  {legals.title}
-  </summary>
+                      <details key={legals.id} className="mb-5 shadow sm:rounded-lg px-4 py-5 sm:p-6" >
+                        <summary className="text-lg">
+                          {legals.title}
+                        </summary>
 
-{legals.body?.processed && (
-  <div
-    dangerouslySetInnerHTML={{ __html: legals.body?.processed }}
-    className="mt-8 text-sm mx-auto max-w-screen-lg text-gray-500 leading-loose prose"
-  />
-)}
+                        {legals.body?.processed && (
+                          <div
+                            dangerouslySetInnerHTML={{ __html: legals.body?.processed }}
+                            className="mt-8 text-sm mx-auto max-w-screen-lg text-gray-500 leading-loose prose"
+                          />
+                        )}
 
-           </details>
+                      </details>
 
 
-                                    ))}
-            </div>)
-            })}
+                    ))}
+                  </div>)
+              })}
             </span>
           ) : null}
 

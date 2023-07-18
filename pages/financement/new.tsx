@@ -7,7 +7,7 @@ import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormFinancement } from "components/form--financement"
 
-interface NewArticlesPageProps extends LayoutProps {}
+interface NewArticlesPageProps extends LayoutProps { }
 
 export default function NewArticlesPage({
   menus,
@@ -18,47 +18,47 @@ export default function NewArticlesPage({
 
   return (
     <Layout meta={{ title: t("new-financement") }} menus={menus} blocks={blocks}>
-    <div className="newformfin">
-      <PageHeader
+      <div className="newformfin">
+        <PageHeader
 
-        breadcrumbs={[
-          {
-            title: t("Projet"),
-            url: "/group/federage/",
+          breadcrumbs={[
+            {
+              title: t("Projet"),
+              url: "/group/federage/",
 
-          },
+            },
 
-          {
-            title: t("Nouvel apport"),
-          },
-        ]}
-      />
+            {
+              title: t("Nouvel apport"),
+            },
+          ]}
+        />
       </div>
 
 
       <div className="grid grid-cols-12 gap-0 pb-10">
-      <div className="col-span-2 text-sm text-slate-400 font-semibold">
-      <button type="button" onClick={() => router.back()}>
-    Click here to go back
-  </button>
-  </div>
-  <div className="col-span-8 ">
+        <div className="col-span-2 text-sm text-slate-400 font-semibold">
+          <button type="button" onClick={() => router.back()}>
+            Click here to go back
+          </button>
+        </div>
+        <div className="col-span-8 ">
 
-</div>
+        </div>
 
 
-<div className="col-span-2 text-sm text-slate-400 font-semibold">
+        <div className="col-span-2 text-sm text-slate-400 font-semibold">
 
-{t("Étape 1 sur 2")}
-</div>
+          {t("Étape 1 sur 2")}
+        </div>
       </div>
 
       <p className="text-3xl font-bold">
 
-    {t("Proposer un apport")}</p><br/>
+        {t("Proposer un apport")}</p><br />
       <p className="text-slate-500">
-      {t("Veuillez fournir des informations pour enregistrer votre participation au projet.")}
-    </p>
+        {t("Veuillez fournir des informations pour enregistrer votre participation au projet.")}
+      </p>
       <div className=" bg-slate-50  pb-10">
 
         <FormFinancement className="max-w-2xl mx-auto mt-10 p-2 " />

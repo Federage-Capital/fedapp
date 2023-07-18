@@ -7,7 +7,7 @@ import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormContact } from "components/form--contact"
 
-interface ContactPageProps extends LayoutProps {}
+interface ContactPageProps extends LayoutProps { }
 
 export default function ContactPage({ menus, blocks }: ContactPageProps) {
   const { t } = useTranslation()

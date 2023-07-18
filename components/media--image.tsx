@@ -3,7 +3,7 @@ import Image, { ImageProps } from "next/image"
 import { absoluteURL } from "lib/utils"
 import { MediaProps } from "components/media"
 
-interface MediaImageProps extends MediaProps, Partial<ImageProps> {}
+interface MediaImageProps extends MediaProps, Partial<ImageProps> { }
 
 export function MediaImage({
   media,
@@ -24,9 +24,9 @@ export function MediaImage({
     layout === "fill"
       ? null
       : {
-          width: width || image.resourceIdObjMeta.width,
-          height: height || image.resourceIdObjMeta.height,
-        }
+        width: width || image.resourceIdObjMeta.width,
+        height: height || image.resourceIdObjMeta.height,
+      }
 
   return (
     <div className="media__content image__wrapper" {...props}>

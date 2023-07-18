@@ -8,7 +8,7 @@ import { FormGroupfin } from "components/form--groupfin"
 import { useState, useEffect } from "react";
 import { Folder } from "public/foldersvg"
 
-interface NewArticlesPageProps extends LayoutProps {}
+interface NewArticlesPageProps extends LayoutProps { }
 
 export default function NewArticlesPage({
   menus,
@@ -18,9 +18,9 @@ export default function NewArticlesPage({
 
   return (
     <Layout meta={{ title: t("new-groupfederage") }} menus={menus} blocks={blocks}>
-    <div className="container text-center">
-    <div className="inline-block">  <Folder /> </div>
-    </div>
+      <div className="container text-center">
+        <div className="inline-block">  <Folder /> </div>
+      </div>
       <PageHeader
         heading={t("decrire-le-projet")}
 
