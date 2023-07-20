@@ -214,7 +214,7 @@ export default function AlluserlistPage
 										Infos Groupes :<br/>
 											{node.type} <br />
 									Label = 		{node.label} <br />
-									{node.gid.id}
+									{node.gid?.id}
 	{node.relationshipNames}
 <br/><br/><br/>
 Infos User :<br/>
