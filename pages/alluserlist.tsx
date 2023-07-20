@@ -209,8 +209,16 @@ export default function AlluserlistPage
 								<div key={index}>
 									{page.items?.map((node) => (
 										<div key={node.id}>
+
+
+										Infos Groupes :<br/>
 											{node.type} <br />
-											{node.label} <br />
+									Label = 		{node.label} <br />
+									{node.gid.id}
+	{node.relationshipNames}
+<br/><br/><br/>
+Infos User :<br/>
+Name = 	{node.name}
 											{/* {node.relationshipNames} */}
 											{/* {node.display_name} <br /> */}
 											{/* {node.name} */}
