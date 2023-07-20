@@ -17,7 +17,7 @@ async function fetchSearch(params: SearchParams) {
     body: JSON.stringify({
       page: params.page,
       params: {
-    
+
         filter: {
           fulltext: params.keywords,
         },

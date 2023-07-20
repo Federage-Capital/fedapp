@@ -15,7 +15,7 @@ export default async function handler(
     response.json({
       total: results.meta.count,
       items: deserialize(results),
-      nextPage: results.links?.next ? parseInt(request.body.page) + 10 : null,
+      nextPage: results.links?.next ? parseInt(request.body.page) + 1 : null,
     })
   } catch (error) {
     return response.status(400).json(error.message)

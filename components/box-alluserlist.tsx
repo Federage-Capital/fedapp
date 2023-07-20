@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 
 
-export function BoxUserList({ node, itemlogo }: BoxAlluserlistProps) {
+export function BoxUserList({ node, itemlogo, results }: BoxAlluserlistProps) {
 	return (
 		<>
 			<div className="pb-4">
@@ -49,8 +49,6 @@ export function BoxUserList({ node, itemlogo }: BoxAlluserlistProps) {
 						<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal ml-2 pb-5 text-slate-600 text-base sm:text-base lg:text-lg px-4" />
 					)}
 					<div className="flex ml-6 items-center pb-5">
-						{/* {node.type}<br /> */}
-						{/* {node.label} */}
 						{node.field_type_de_structure?.id && (
 							<>
 								<div className="pr-2">

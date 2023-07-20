@@ -164,15 +164,15 @@ export default function AlluserlistPage
 																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
 																.map((itemlogo) => (
 																	<div key={itemlogo.id}>
+																		{node.type}
 																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} />
-																		{/* {node.field_type_de_structure.id} */}
 																	</div>
 																))}
 														</div>
 													) : (
 														<div>
 															<div className="text-sm" data-cy="search-no-results">
-																<BoxUserList key={node.id} node={node} />
+																{/* <BoxUserList key={node.id} node={node} /> */}
 															</div>
 														</div>
 													)}
@@ -192,6 +192,7 @@ export default function AlluserlistPage
 											.filter(results_projets => results_projets.type.includes("group--federage"))
 											.map((filterNode) => (
 												<div key={filterNode.id}>
+													{nodes.type}
 													<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
 												</div>
 											))}
@@ -208,53 +209,60 @@ export default function AlluserlistPage
 								<div key={index}>
 									{page.items?.map((node) => (
 										<div key={node.id}>
-											{/* {logouri
-                        .filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-                        .map((itemlogo) => (
-                          <div key={itemlogo.id}>
-                            <BoxResultSearch key={node.id} node={node} itemlogo={itemlogo} />
-                          </div>
-                        ))} */}
-											{/* {node.type} */}
-											{node.type === "user--user" && logouri
-												.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-												.slice(0, 1)
-												.map((itemlogo) => (
-													<div key={itemlogo.id}>
-														<BoxUserList key={node.id} node={node} itemlogo={itemlogo} />
-													</div>
-												))
-											}
+											{node.type} <br />
+											{node.label} <br />
+											{/* {node.relationshipNames} */}
+											{/* {node.display_name} <br /> */}
+											{/* {node.name} */}
+											{/* {node.type === "user--user" && */}
+											{node.user_picture ? (
+												<div>
+													{
+														logouri
+															.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
+															.slice(0, 1)
+															.map((itemlogo) => (
+																<div key={itemlogo.id}>
+																	{node.type}
+																	<BoxUserList key={node.id} node={node} itemlogo={itemlogo} />
+																</div>
+															))
+													}
+												</div>
+											) : null}
+											{/* // </div> */}
+											{/* // )) */}
 
-											{node.id}
+											{index}<br />
 											{node.type === "group--federage" &&
-												// .filter(results_projets => results_projets.type.includes("group--federage"))
-												// .slice(0, 1)
-												// .map((filterNode) => (
-												// 	<div key={filterNode.id}>
-												< BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
-												// </div>
-												// ))
+												results
+													.filter(results_projets => results_projets.type.includes("group--federage"))
+													.slice(0, 1)
+													.map((filterNode) => (
+														<div key={filterNode.id}>
+															< BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
+														</div>
+													))
 											}
+											{node.type === "group_content--federage-group_membership" ? (
+												<BoxResultNameSearch node={node} logouri={logouri} />
+											) : (
 
-											{/* {node.type === "group_content--federage-group_membership" && logouri
-												.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-												.slice(0, 1)
-												.map((itemlogo) => (
-													<div key={itemlogo.id}>
-													</div>
-												))
-											} */}
-											{node.type}
-											<br />
-											<BoxResultNameSearch node={node} />
-											{/* <BoxResultLabelSearch key={node.id} node={node} /> */}
+												<BoxUserList node={node} logouri={logouri} />
+											)}
 
+											{/* // node.user_picture ? (
+												// logouri
+												// 	.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
+												// 	.slice(0, 1)
+												// 	.map((itemlogo) => (
+												// 		<div key={itemlogo.id}>
+												// <BoxResultNameSearch node={node} logouri={logouri} />
+												// 			</div>
+												// 		))
+												//  ) : null} */}
+											{/* } */}
 
-											{/* <BoxResultLabelSearch key={node.id} node={node} /> */}
-											{/* <BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
-                      <BoxUserList key={node.uid} node={node} /> */}
-											{/* {node} */}
 										</div>
 									))}
 								</div>
