@@ -41,6 +41,7 @@ export function BoxResultNameSearch({ node, logouri }: BoxResultsearchAlluserlis
 			{node.label} = label <br /> */}
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
+					BOXRESULTNAMESEARCH COMPONENT
 					<div className="flex">
 						{logouri.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5">

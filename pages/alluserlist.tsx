@@ -16,6 +16,7 @@ import { BoxProjectList } from "components/box-project-alluserlist";
 import { BoxResultNameSearch } from "components/box-searchbar";
 import { useSession } from "next-auth/react"
 import { drupal } from "lib/drupal"
+import { BoxResearch } from "components/box-research";
 
 
 import { usePaginatedSearch } from "../hooks/use-paginated-search"
@@ -209,21 +210,21 @@ export default function AlluserlistPage
 								<div key={index}>
 									{page.items?.map((node) => (
 										<div key={node.id}>
-
-
-										Infos Groupes :<br/>
+											{/* Infos Groupes :<br />
+											{node.created} <br />
 											{node.type} <br />
-									Label = 		{node.label} <br />
-									{node.gid?.id}
-	{node.relationshipNames}
-<br/><br/><br/>
-Infos User :<br/>
-Name = 	{node.name}
+											Label = 		{node.label} <br />
+											{node.gid?.id} = id <br />
+											{node.relationshipNames}
+											<br /><br /><br />
+											Infos User :<br />
+											Name = 	{node.name} */}
+											<BoxResearch key={node.id} node={node} />
 											{/* {node.relationshipNames} */}
 											{/* {node.display_name} <br /> */}
 											{/* {node.name} */}
-											{/* {node.type === "user--user" && */}
-											{node.user_picture ? (
+											{node.type === "user--user" &&
+												node.user_picture ? (
 												<div>
 													{
 														logouri
@@ -241,7 +242,7 @@ Name = 	{node.name}
 											{/* // </div> */}
 											{/* // )) */}
 
-											{index}<br />
+											{/* {index}<br /> */}
 											{node.type === "group--federage" &&
 												results
 													.filter(results_projets => results_projets.type.includes("group--federage"))
@@ -255,7 +256,7 @@ Name = 	{node.name}
 											{node.type === "group_content--federage-group_membership" ? (
 												<BoxResultNameSearch node={node} logouri={logouri} />
 											) : (
-
+												// null
 												<BoxUserList node={node} logouri={logouri} />
 											)}
 
