@@ -11,7 +11,8 @@ export function BoxUserList({ node, itemlogo, results }: BoxAlluserlistProps) {
 				<div className="bg-white rounded-lg">
 					<div className="flex">
 						{itemlogo?.uri && (
-							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5">
+							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5"
+								style={{ cursor: "pointer" }}>
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
 									<Image
 										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${itemlogo.uri.url}`}

@@ -173,7 +173,7 @@ export default function AlluserlistPage
 													) : (
 														<div>
 															<div className="text-sm" data-cy="search-no-results">
-																{/* <BoxUserList key={node.id} node={node} /> */}
+																<BoxUserList key={node.id} node={node} />
 															</div>
 														</div>
 													)}
@@ -210,39 +210,7 @@ export default function AlluserlistPage
 								<div key={index}>
 									{page.items?.map((node) => (
 										<div key={node.id}>
-											{/* Infos Groupes :<br />
-											{node.created} <br />
-											{node.type} <br />
-											Label = 		{node.label} <br />
-											{node.gid?.id} = id <br />
-											{node.relationshipNames}
-											<br /><br /><br />
-											Infos User :<br />
-											Name = 	{node.name} */}
-											<BoxResearch key={node.id} node={node} />
-											{/* {node.relationshipNames} */}
-											{/* {node.display_name} <br /> */}
-											{/* {node.name} */}
-											{node.type === "user--user" &&
-												node.user_picture ? (
-												<div>
-													{
-														logouri
-															.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-															.slice(0, 1)
-															.map((itemlogo) => (
-																<div key={itemlogo.id}>
-																	{node.type}
-																	<BoxUserList key={node.id} node={node} itemlogo={itemlogo} />
-																</div>
-															))
-													}
-												</div>
-											) : null}
-											{/* // </div> */}
-											{/* // )) */}
-
-											{/* {index}<br /> */}
+											<BoxResearch key={node.id} node={node} logouri={logouri} useringroup={useringroup} results={results} status={status} />
 											{node.type === "group--federage" &&
 												results
 													.filter(results_projets => results_projets.type.includes("group--federage"))
@@ -253,25 +221,6 @@ export default function AlluserlistPage
 														</div>
 													))
 											}
-											{node.type === "group_content--federage-group_membership" ? (
-												<BoxResultNameSearch node={node} logouri={logouri} />
-											) : (
-												// null
-												<BoxUserList node={node} logouri={logouri} />
-											)}
-
-											{/* // node.user_picture ? (
-												// logouri
-												// 	.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-												// 	.slice(0, 1)
-												// 	.map((itemlogo) => (
-												// 		<div key={itemlogo.id}>
-												// <BoxResultNameSearch node={node} logouri={logouri} />
-												// 			</div>
-												// 		))
-												//  ) : null} */}
-											{/* } */}
-
 										</div>
 									))}
 								</div>
