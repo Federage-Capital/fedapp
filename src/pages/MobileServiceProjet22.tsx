@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 
-const MobileServiceProjet2: FunctionComponent = () => {
+const MobileServiceProjet22: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-xs-leading-4-font-medium">
+    <div className="relative w-full flex flex-col pt-0 px-0 pb-6 box-border items-start justify-start text-left text-base text-dimgray font-text-xs-leading-4-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -57,60 +57,52 @@ const MobileServiceProjet2: FunctionComponent = () => {
             <b className="self-stretch relative leading-[20px] text-gray-700">
               De quels apports avez-vous besoin ?
             </b>
-            <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px] text-3xs">
-              <div className="self-stretch flex flex-col items-start justify-start">
-                <div className="self-stretch flex flex-col items-center justify-start gap-[23px]">
-                  <div className="self-stretch flex flex-row items-center justify-between">
-                    <div className="rounded-10xs bg-whitesmoke-200 flex flex-row py-0 px-1.5 items-start justify-start">
-                      <b className="relative leading-[20px]">Public</b>
-                    </div>
-                    <div className="flex flex-row items-center justify-start gap-[5px]">
-                      <img
-                        className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
-                        alt=""
-                        src="/clock.svg"
-                      />
-                      <b className="relative leading-[20px]">62 jours</b>
-                    </div>
-                  </div>
-                  <div className="self-stretch flex flex-row items-center justify-start text-xl text-gray-900">
-                    <div className="flex-1 relative leading-[20px] font-semibold">
-                      Solution pour le développement de nutriments actifs
-                      anti-cancérigènes
-                    </div>
-                  </div>
+            <div className="self-stretch rounded-lg bg-white flex flex-col py-[18px] px-0 items-center justify-center gap-[12px] text-xs border-[3px] border-solid border-mediumblue-100">
+              <div className="self-stretch flex flex-row py-0 px-3.5 items-start justify-start text-lg text-gray-900">
+                <div className="flex-1 relative leading-[24px] font-semibold">
+                  Ajouter un apport
                 </div>
               </div>
-              <div className="self-stretch bg-white flex flex-col items-start justify-center gap-[8px] text-base">
-                <div className="self-stretch flex flex-row items-center justify-between text-sm text-mediumblue-100">
-                  <div className="relative leading-[20.03px] font-semibold">
-                    Détails de l’apport
-                  </div>
-                  <img
-                    className="relative w-2.5 h-1.5"
-                    alt=""
-                    src="/icon2.svg"
-                  />
-                </div>
-                <div className="self-stretch relative leading-[20px] font-semibold">{`3 000€ • 19 mai 2023 `}</div>
-                <div className="self-stretch rounded-lg flex flex-col items-start justify-start">
-                  <div className="self-stretch flex flex-row items-center justify-start gap-[10px]">
-                    <img
-                      className="rounded-sm w-7 h-7 object-cover"
-                      alt=""
-                      src="/avatar@2x.png"
-                    />
-                    <div className="flex-1 flex flex-col items-start justify-start">
-                      <div className="self-stretch relative leading-[20px] font-semibold">
-                        Léonard RENARD
+              <div className="self-stretch h-[58.29px] flex flex-col py-2 px-3.5 box-border items-start justify-between text-gray-500">
+                <div className="self-stretch flex-1 rounded-lg bg-whitesmoke-200 flex flex-row items-center justify-start">
+                  <div className="flex-1 rounded-lg bg-whitesmoke-200 flex flex-row p-1 items-center justify-start gap-[32px]">
+                    <div className="flex-1 rounded-md bg-white flex flex-col py-2 px-3 items-center justify-center text-mediumblue-100">
+                      <div className="relative leading-[20px] font-semibold">
+                        Membres
+                      </div>
+                    </div>
+                    <div className="flex-1 rounded-md flex flex-col py-2 px-3 items-center justify-center">
+                      <div className="relative leading-[20px] font-semibold">
+                        Objet
+                      </div>
+                    </div>
+                    <div className="flex-1 rounded-md flex flex-col py-2 px-3 items-center justify-center">
+                      <div className="relative leading-[20px] font-semibold">
+                        Détails
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="self-stretch rounded-lg bg-whitesmoke-200 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center text-sm">
-                <div className="flex-1 relative leading-[20px] font-semibold">
-                  Modifier
+              <div className="self-stretch flex flex-col pt-0 px-3.5 pb-2.5 items-start justify-start">
+                <div className="self-stretch flex flex-col pt-0 px-0 pb-2 items-start justify-start gap-[4px]">
+                  <div className="self-stretch relative leading-[20px] font-semibold">
+                    Décrire l’apport
+                  </div>
+                  <div className="self-stretch rounded-lg bg-white flex flex-row py-2.5 px-3 items-center justify-center text-sm text-gray-900 border-[2px] border-solid border-gray-200">
+                    <div className="flex-1 relative leading-[24px]">
+                      Solution pour le développement de nutriments actifs
+                      agissant directement sur les cellules potentiellement
+                      cancérigènes.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="self-stretch flex flex-col py-0 px-3.5 items-center justify-start text-center text-sm">
+                <div className="self-stretch rounded-lg bg-whitesmoke-200 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center">
+                  <div className="flex-1 relative leading-[20px] font-semibold">
+                    Ajouter l’apport
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,7 +115,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
                   <img
                     className="relative w-3.5 h-3.5 overflow-hidden shrink-0"
                     alt=""
-                    src="/plus1.svg"
+                    src="/plus11.svg"
                   />
                 </div>
               </div>
@@ -135,7 +127,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
             <div className="self-stretch bg-gray-200" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
-                Créer un projet
+                Suivant
               </div>
             </div>
           </div>
@@ -145,4 +137,4 @@ const MobileServiceProjet2: FunctionComponent = () => {
   );
 };
 
-export default MobileServiceProjet2;
+export default MobileServiceProjet22;
