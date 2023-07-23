@@ -69,7 +69,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 <img
                   className="rounded-4xl w-[46px] h-[46px] object-cover"
                   alt=""
-                  src="/avatar2@2x.png"
+                  src="/avatar21@2x.png"
                 />
                 <div className="flex-1 flex flex-col items-start justify-start">
                   <b className="self-stretch relative leading-[20px]">
@@ -135,7 +135,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 <img
                   className="rounded-4xl w-[46px] h-[46px] object-cover"
                   alt=""
-                  src="/avatar@2x.png"
+                  src="/avatar2@2x.png"
                 />
                 <div className="flex-1 flex flex-col items-start justify-start">
                   <b className="self-stretch relative leading-[20px]">
