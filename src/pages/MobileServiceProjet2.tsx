@@ -2,13 +2,13 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet2: FunctionComponent = () => {
   return (
-    <div className="relative w-full flex flex-col pt-0 px-0 pb-6 box-border items-start justify-start text-left text-base text-dimgray font-text-base-leading-6-font-normal">
+    <div className="relative w-full flex flex-col pt-0 px-0 pb-6 box-border items-start justify-start text-left text-base text-dimgray font-text-xs-leading-4-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
-            src="/avatar@2x.png"
+            src="/avatar1@2x.png"
           />
         </div>
         <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">

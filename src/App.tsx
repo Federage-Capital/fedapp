@@ -4,6 +4,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import MobileServiceProjetPriv1 from "./pages/MobileServiceProjetPriv1";
 import MobileServiceProjet2 from "./pages/MobileServiceProjet2";
 import MobileServiceProjet21 from "./pages/MobileServiceProjet21";
 import MobileAccueil from "./pages/MobileAccueil";
@@ -27,6 +28,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-mobileserviceprojet21":
         title = "";
         metaDescription = "";
         break;
@@ -60,7 +65,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MobileServiceProjet2 />} />
+      <Route path="/" element={<MobileServiceProjetPriv1 />} />
+      <Route
+        path="/-mobileserviceprojet21"
+        element={<MobileServiceProjet2 />}
+      />
       <Route
         path="/-mobileserviceprojet2"
         element={<MobileServiceProjet21 />}
