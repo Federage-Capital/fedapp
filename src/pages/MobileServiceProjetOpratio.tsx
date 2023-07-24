@@ -88,7 +88,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img
                 className="relative w-3 h-[12.86px]"
                 alt=""
-                src="/icon1.svg"
+                src="/icon11.svg"
               />
               <div className="relative leading-[20px] font-medium">Admin</div>
             </div>
@@ -121,29 +121,35 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-start">
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-4 pr-4 pl-[17px] items-start justify-start gap-[20px] border-[2px] border-solid border-gray-200">
-              <div className="self-stretch flex flex-row items-start justify-between">
-                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row p-2.5 box-border items-center justify-center">
-                  <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
-                    alt=""
-                    src="/cash.svg"
-                  />
+          <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px] text-3xs text-chocolate">
+            <div className="self-stretch flex flex-col items-center justify-start gap-[22px]">
+              <div className="self-stretch flex flex-row items-center justify-between">
+                <div className="rounded-10xs bg-papayawhip flex flex-row py-0 px-1 items-center justify-start">
+                  <b className="relative leading-[20px]">En cours</b>
                 </div>
-                <div className="rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[9px] px-[17px] items-center justify-between">
-                  <div className="relative leading-[20px] font-semibold">
-                    Visualiser le capital
-                  </div>
+                <div className="flex flex-row items-center justify-start gap-[5px] text-dimgray">
+                  <img
+                    className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+                    alt=""
+                    src="/clock.svg"
+                  />
+                  <b className="relative leading-[20px]">31 jours restants</b>
                 </div>
               </div>
-              <div className="self-stretch flex flex-col items-start justify-center gap-[5px] text-5xl text-gray-900">
-                <div className="relative leading-[20px] font-semibold">
-                  0,00€
+              <div className="self-stretch flex flex-col items-start justify-start gap-[24px] text-xl text-gray-900">
+                <div className="self-stretch h-10 flex flex-row items-center justify-start">
+                  <div className="flex-1 relative leading-[20px] font-semibold">
+                    Maquettage d’application, PHP/CSS, design d’interfaces,
+                    ergonomie et flux utilisateurs
+                  </div>
                 </div>
-                <div className="relative text-sm leading-[20px] font-semibold text-gray-500">
-                  Total du capital
-                </div>
+                <div className="self-stretch relative text-base leading-[20px] font-semibold text-dimgray">{`3 190,00€ • 19 mai 2023 `}</div>
+              </div>
+            </div>
+            <div className="flex flex-row items-center justify-center text-sm text-dimgray">
+              <div className="relative leading-[20.03px] font-semibold">
+                <span>{`Par `}</span>
+                <span className="text-mediumblue-100">Lisa MARTEL</span>
               </div>
             </div>
           </div>
@@ -167,6 +173,52 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
                 <div className="relative leading-[20px] font-semibold">7</div>
                 <div className="relative text-sm leading-[20px] font-semibold text-gray-500">
                   Membres actifs
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="self-stretch rounded-lg bg-white flex flex-col py-0 px-4 items-start justify-start text-dimgray">
+            <div className="self-stretch flex flex-row py-4 px-0 items-center justify-start gap-[16px]">
+              <img
+                className="rounded-xl w-6 h-6 object-cover"
+                alt=""
+                src="/avatar@2x.png"
+              />
+              <div className="flex-1 flex flex-col items-start justify-start">
+                <b className="self-stretch relative leading-[20px]">
+                  Léonard RENARD
+                </b>
+              </div>
+              <div className="flex flex-row items-center justify-start gap-[14px] text-right text-xs text-gray-500">
+                <div className="relative leading-[20px] font-medium">
+                  12 237€ (21,52%)
+                </div>
+                <img className="relative w-1.5 h-2.5" alt="" src="/icon1.svg" />
+              </div>
+            </div>
+          </div>
+          <div className="self-stretch flex flex-col items-start justify-start">
+            <div className="self-stretch rounded-lg bg-white flex flex-col py-4 pr-4 pl-[17px] items-start justify-start gap-[20px] border-[2px] border-solid border-gray-200">
+              <div className="self-stretch flex flex-row items-start justify-between">
+                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row p-2.5 box-border items-center justify-center">
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/cash.svg"
+                  />
+                </div>
+                <div className="rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[9px] px-[17px] items-center justify-between">
+                  <div className="relative leading-[20px] font-semibold">
+                    Visualiser le capital
+                  </div>
+                </div>
+              </div>
+              <div className="self-stretch flex flex-col items-start justify-center gap-[5px] text-5xl text-gray-900">
+                <div className="relative leading-[20px] font-semibold">
+                  0,00€
+                </div>
+                <div className="relative text-sm leading-[20px] font-semibold text-gray-500">
+                  Total du capital
                 </div>
               </div>
             </div>

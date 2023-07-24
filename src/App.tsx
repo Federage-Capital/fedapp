@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjetOpratio from "./pages/MobileServiceProjetOpratio";
+import MobileServiceProjetOpratio1 from "./pages/MobileServiceProjetOpratio1";
 import MobileServiceCrerProjet from "./pages/MobileServiceCrerProjet";
 import MobileServiceProjet211 from "./pages/MobileServiceProjet211";
 import MobileServiceProjet2 from "./pages/MobileServiceProjet2";
@@ -32,6 +33,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-mobileserviceprojet-oprationel":
         title = "";
         metaDescription = "";
         break;
@@ -86,6 +91,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjetOpratio />} />
+      <Route
+        path="/-mobileserviceprojet-oprationel"
+        element={<MobileServiceProjetOpratio1 />}
+      />
       <Route
         path="/-mobileservicecrer-projet"
         element={<MobileServiceCrerProjet />}

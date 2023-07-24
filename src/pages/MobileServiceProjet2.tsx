@@ -98,7 +98,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
                     <img
                       className="rounded-sm w-7 h-7 object-cover"
                       alt=""
-                      src="/avatar@2x.png"
+                      src="/avatar2@2x.png"
                     />
                     <div className="flex-1 flex flex-col items-start justify-start">
                       <div className="self-stretch relative leading-[20px] font-semibold">
