@@ -5,6 +5,7 @@ import {
 	getSearchIndexFromContext,
 	deserialize,
 	JsonApiSearchApiResponse,
+	DrupalTaxonomyTerm,
 } from "next-drupal";
 import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
@@ -50,7 +51,7 @@ const params = {
 
 
 export default function AlluserlistPage
-	({ menus, blocks, users, nodes, logouri,
+	({ menus, blocks, users, nodes, logouri, categorie_d_entreprise,
 		facets: initialFacets,
 	}: AlluserlistPageProps) {
 	const { t } = useTranslation()
@@ -60,7 +61,8 @@ export default function AlluserlistPage
 
 
 	const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
-
+	const { data: valuetypestructure, error: valuetypestructureErrorError } = useSWR(() => 'https://fed.septembre.io/jsonapi/taxonomy_term/categorie_d_entreprise', fetcher)
+	const colored = "bg-white fedblueblue";
 
 	const [state, setStatus] = React.useState<"error" | "success" | "loading">()
 	const [results, setResults] = React.useState<DrupalNode[]>(nodes)
@@ -86,12 +88,12 @@ export default function AlluserlistPage
 			<Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
 				<div className="px-6">
 					<h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
-					<p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, faire une offre d'apport et intégrer plusieurs projets.</p>
+					<p className="mb-3 text-zinc-500">Vous pouvez faire une offre d'apport, conclure des partenariats et intégrer plusieurs projets.</p>
 					<form onSubmit={onSubmit} className="mb-4">
 						<div className="items-center gap-4 sm:grid sm:grid-cols-7">
 							<input
 								type="search"
-								placeholder="Rechercher un projet"
+								placeholder="Rechercher un projet ou un membre"
 								name="keywords"
 								required
 								className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
@@ -112,10 +114,10 @@ export default function AlluserlistPage
 					) : null}
 					{!data?.pages?.length ? (
 						<div className="text-sm" data-cy="search-no-results">
-							<ul className="flex justify-center items-center">
+							<ul className="flex pt-3">
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
 									<a
-										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? "fedblueblue" + "" : "text-" + "bg-white")}
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? colored : "text-" + "bg-white")}
 										onClick={e => {
 											e.preventDefault();
 											setOpenTab(1);
@@ -129,7 +131,7 @@ export default function AlluserlistPage
 								</li>
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
 									<a
-										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? "fedblueblue" + "" : "text-" + "bg-white")}
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? colored : "text-" + "bg-white")}
 										onClick={e => {
 											e.preventDefault();
 											setOpenTab(2);
@@ -159,21 +161,37 @@ export default function AlluserlistPage
 											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
+													{node.field_type_de_structure?.resourceIdObjMeta.drupal_internal__target_id}
 													{node.user_picture ? (
 														<div className="text-sm" data-cy="search-no-results">
 															{logouri
 																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
 																.map((itemlogo) => (
 																	<div key={itemlogo.id}>
-																		{node.type}
-																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} />
+																		{Array.isArray(valuetypestructure) &&
+																			valuetypestructure
+																				.filter(valuetype => valuetype?.id.includes(node?.field_type_de_structure?.id))
+																				.map(valuetype => (
+																					<div key={valuetype.id}>
+																						{categorie_d_entreprise
+																							.filter(struct => struct?.id.includes(valuetype?.field_structure?.id))
+																							.map(struct => (
+																								<div key={struct.id}>
+																									{struct.name}
+																									<BoxUserList key={struct.id} node={node} itemlogo={itemlogo} structure={struct} valuetypestructure={valuetypestructure} />
+
+																								</div>
+																							))}
+																					</div>
+																				))}
+																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} structure={categorie_d_entreprise} valuetypestructure={valuetypestructure} />
 																	</div>
 																))}
 														</div>
 													) : (
 														<div>
 															<div className="text-sm" data-cy="search-no-results">
-																<BoxUserList key={node.id} node={node} />
+																<BoxUserList key={node.id} node={node} structure={categorie_d_entreprise} valuetypestructure={valuetypestructure} />
 															</div>
 														</div>
 													)}
@@ -194,6 +212,7 @@ export default function AlluserlistPage
 											.map((filterNode) => (
 												<div key={filterNode.id}>
 													{nodes.type}
+
 													<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
 												</div>
 											))}
@@ -204,7 +223,7 @@ export default function AlluserlistPage
 					) : (
 						<div className="pt-4">
 							<h3 className="mt-0" data-cy="search-results">
-								Found {data?.pages[0]?.total} result(s).
+								{data?.pages[0]?.total} résultat(s).
 							</h3>
 							{data?.pages.map((page, index) => (
 								<div key={index}>
@@ -235,8 +254,9 @@ export default function AlluserlistPage
 								</button>
 							)}
 						</div>
-					)}
-				</div>
+					)
+					}
+				</div >
 			</Layout >
 		</div >
 	)
@@ -255,6 +275,15 @@ export async function getStaticProps(
 		}
 	)
 
+	const categorie_d_entreprise = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
+		"taxonomy_term--categorie_d_entreprise",
+		context,
+		{
+			params: {
+				"fields[taxonomy_term--categorie_d_entreprise]": "id,name",
+			},
+		}
+	)
 
 	const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
 		"file--file",
@@ -275,6 +304,7 @@ export async function getStaticProps(
 			nodes: deserialize(results) as DrupalNode[],
 			facets: results.meta.facets,
 			logouri,
+			categorie_d_entreprise,
 		},
 		revalidate: 5,
 

@@ -3,12 +3,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 
-
-export function BoxUserList({ node, itemlogo, results }: BoxAlluserlistProps) {
+export function BoxUserList({ node, itemlogo, results, categorie_d_entreprise, valuetypestructure }: BoxAlluserlistProps) {
 	return (
 		<>
+
+			Name sur SWR = {valuetypestructure?.data?.attributes?.name}
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
+					{/* {structure.name} */}
 					<div className="flex">
 						{itemlogo?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5"
