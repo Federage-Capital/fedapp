@@ -82,7 +82,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0"
                   alt=""
-                  src="/check-circle1.svg"
+                  src="/check-circle11.svg"
                 />
               </div>
             </div>
@@ -104,7 +104,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0"
                   alt=""
-                  src="/check-circle1.svg"
+                  src="/check-circle11.svg"
                 />
               </div>
             </div>
@@ -126,7 +126,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0"
                   alt=""
-                  src="/check-circle1.svg"
+                  src="/check-circle11.svg"
                 />
               </div>
             </div>
@@ -148,7 +148,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0"
                   alt=""
-                  src="/check-circle1.svg"
+                  src="/check-circle11.svg"
                 />
               </div>
             </div>

@@ -88,7 +88,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
               <img
                 className="relative w-3 h-[12.86px]"
                 alt=""
-                src="/icon11.svg"
+                src="/icon112.svg"
               />
               <div className="relative leading-[20px] font-medium">Admin</div>
             </div>

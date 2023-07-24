@@ -182,7 +182,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-3 h-3"
                         alt=""
-                        src="/icon4.svg"
+                        src="/icon41.svg"
                       />
                     </div>
                   </div>

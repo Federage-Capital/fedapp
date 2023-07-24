@@ -88,7 +88,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img
                 className="relative w-3 h-[12.86px]"
                 alt=""
-                src="/icon11.svg"
+                src="/icon112.svg"
               />
               <div className="relative leading-[20px] font-medium">Admin</div>
             </div>
@@ -193,7 +193,11 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
                 <div className="relative leading-[20px] font-medium">
                   12 237€ (21,52%)
                 </div>
-                <img className="relative w-1.5 h-2.5" alt="" src="/icon1.svg" />
+                <img
+                  className="relative w-1.5 h-2.5"
+                  alt=""
+                  src="/icon11.svg"
+                />
               </div>
             </div>
           </div>

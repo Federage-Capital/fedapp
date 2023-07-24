@@ -4,8 +4,9 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import MobileExplorerMembre from "./pages/MobileExplorerMembre";
 import MobileServiceAjouterUnAppo from "./pages/MobileServiceAjouterUnAppo";
+import MobileExplorerMembre from "./pages/MobileExplorerMembre";
+import MobileServiceAjouterUnAppo1 from "./pages/MobileServiceAjouterUnAppo1";
 import MobileServiceProjetOpratio from "./pages/MobileServiceProjetOpratio";
 import MobileServiceProjetOpratio1 from "./pages/MobileServiceProjetOpratio1";
 import MobileServiceCrerProjet from "./pages/MobileServiceCrerProjet";
@@ -35,6 +36,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-mobileexplorermembre":
         title = "";
         metaDescription = "";
         break;
@@ -100,10 +105,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MobileExplorerMembre />} />
+      <Route path="/" element={<MobileServiceAjouterUnAppo />} />
+      <Route path="/-mobileexplorermembre" element={<MobileExplorerMembre />} />
       <Route
         path="/-mobileserviceajouter-un-apport"
-        element={<MobileServiceAjouterUnAppo />}
+        element={<MobileServiceAjouterUnAppo1 />}
       />
       <Route
         path="/-mobileserviceprojet-oprationel-2"
