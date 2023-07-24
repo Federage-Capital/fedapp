@@ -9,7 +9,7 @@ const MobileServiceProjet1: FunctionComponent = () => {
   }, [navigate]);
 
   return (
-    <div className="relative bg-white w-full h-[873px] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative bg-white w-full h-[873px] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
       <div className="w-[376px] flex flex-col items-center justify-start z-[0]">
         <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
           <div className="flex flex-row p-4 items-center justify-start">
@@ -37,8 +37,8 @@ const MobileServiceProjet1: FunctionComponent = () => {
         <div className="absolute top-[0px] left-[0px] bg-white h-[201px]" />
         <div className="absolute top-[18.62px] left-[16px] flex flex-col items-start justify-start gap-[32px]">
           <div className="flex flex-row items-center justify-start gap-[11px]">
-            <div className="rounded-lg bg-whitesmoke-200 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center gap-[6px]">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
+            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center gap-[6px]">
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
               <div className="relative leading-[14.05px] font-semibold hidden">
                 Site web
               </div>
@@ -115,7 +115,7 @@ const MobileServiceProjet1: FunctionComponent = () => {
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/calendar.svg"
+                  src="/calendar2.svg"
                 />
                 <div className="relative leading-[24px] font-medium">
                   Saisir une date
@@ -392,7 +392,7 @@ const MobileServiceProjet1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-21.svg"
+            src="/component-211.svg"
           />
           <div className="relative leading-[16px] font-medium">Activité</div>
         </div>
@@ -400,7 +400,7 @@ const MobileServiceProjet1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-12.svg"
+            src="/component-121.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -408,7 +408,7 @@ const MobileServiceProjet1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-51.svg"
+            src="/component-511.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>

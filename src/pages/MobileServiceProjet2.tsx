@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet2: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -27,8 +27,8 @@ const MobileServiceProjet2: FunctionComponent = () => {
       <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[32px]">
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
-            <div className="rounded-lg bg-whitesmoke-200 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon.svg" />
+            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon2.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -61,7 +61,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
               <div className="self-stretch flex flex-col items-start justify-start">
                 <div className="self-stretch flex flex-col items-center justify-start gap-[23px]">
                   <div className="self-stretch flex flex-row items-center justify-between">
-                    <div className="rounded-10xs bg-whitesmoke-200 flex flex-row py-0 px-1.5 items-start justify-start">
+                    <div className="rounded-10xs bg-gray-100 flex flex-row py-0 px-1.5 items-start justify-start">
                       <b className="relative leading-[20px]">Public</b>
                     </div>
                     <div className="flex flex-row items-center justify-start gap-[5px]">
@@ -89,7 +89,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
                   <img
                     className="relative w-2.5 h-1.5"
                     alt=""
-                    src="/icon2.svg"
+                    src="/icon21.svg"
                   />
                 </div>
                 <div className="self-stretch relative leading-[20px] font-semibold">{`3 000€ • 19 mai 2023 `}</div>
@@ -108,7 +108,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className="self-stretch rounded-lg bg-whitesmoke-200 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center text-sm">
+              <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center text-sm">
                 <div className="flex-1 relative leading-[20px] font-semibold">
                   Modifier
                 </div>
@@ -119,7 +119,7 @@ const MobileServiceProjet2: FunctionComponent = () => {
                 <div className="flex-1 relative leading-[20px] font-semibold">
                   Ajouter un apport
                 </div>
-                <div className="rounded-md bg-whitesmoke-200 flex flex-row p-1.5 items-center justify-center">
+                <div className="rounded-md bg-gray-100 flex flex-row p-1.5 items-center justify-center">
                   <img
                     className="relative w-3.5 h-3.5 overflow-hidden shrink-0"
                     alt=""

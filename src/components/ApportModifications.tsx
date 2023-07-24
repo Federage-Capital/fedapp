@@ -2,14 +2,14 @@ import { FunctionComponent } from "react";
 
 const ApportModifications: FunctionComponent = () => {
   return (
-    <div className="relative rounded-lg bg-white box-border w-[346px] overflow-hidden flex flex-col p-[15px] items-start justify-start text-left text-xl text-gray-900 font-text-base-leading-6-font-normal border-[2px] border-solid border-gray-200">
+    <div className="relative rounded-lg bg-white box-border w-[346px] overflow-hidden flex flex-col p-[15px] items-start justify-start text-left text-xl text-gray-900 font-text-2xl-leading-8-font-bold border-[2px] border-solid border-gray-200">
       <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
         <div className="self-stretch flex flex-col items-start justify-start gap-[13px]">
           <div className="self-stretch flex flex-row py-3 px-0 items-start justify-between sm:flex-row sm:gap-[0px] sm:items-center sm:justify-between">
             <div className="relative leading-[26px] font-semibold flex items-end w-[225px] shrink-0">
               Améliorer l’ergonomie de l’application mobile
             </div>
-            <div className="rounded-lg bg-whitesmoke-200 w-[44.09px] h-11 flex flex-row p-1.5 box-border items-center justify-center">
+            <div className="rounded-lg bg-gray-100 w-[44.09px] h-11 flex flex-row p-1.5 box-border items-center justify-center">
               <img className="relative w-3 h-3" alt="" src="/icon8.svg" />
             </div>
           </div>

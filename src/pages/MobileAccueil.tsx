@@ -6,7 +6,7 @@ const MobileAccueil: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="relative bg-whitesmoke-100 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-base-leading-6-font-normal">
+    <div className="relative bg-whitesmoke-100 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch overflow-y-auto shrink-0 flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-y-auto shrink-0 flex flex-col items-center justify-start z-[2]">
           <div className="self-stretch bg-black h-7 z-[1]" />
@@ -82,7 +82,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/cash.svg"
+                        src="/cash3.svg"
                       />
                     </div>
                     <div className="flex-1 flex flex-col items-start justify-start">

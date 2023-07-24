@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceCrerProjet: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -27,8 +27,8 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
       <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[32px] text-dimgray">
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
-            <div className="rounded-lg bg-whitesmoke-200 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon.svg" />
+            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon2.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -82,7 +82,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/calendar.svg"
+                  src="/calendar2.svg"
                 />
                 <div className="relative leading-[24px] font-medium">
                   Saisir une date
