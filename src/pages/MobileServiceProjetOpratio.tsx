@@ -8,7 +8,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
-            src="/avatar1@2x.png"
+            src="/avatar11@2x.png"
           />
         </div>
         <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
@@ -182,7 +182,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img
                 className="rounded-xl w-6 h-6 object-cover"
                 alt=""
-                src="/avatar@2x.png"
+                src="/avatar9@2x.png"
               />
               <div className="flex-1 flex flex-col items-start justify-start">
                 <b className="self-stretch relative leading-[20px]">
