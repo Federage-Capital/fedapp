@@ -8,11 +8,7 @@ body{
   line-height: 24px;
   /* identical to box height, or 150% */
   background-color:#F9FAFB;
-<<<<<<< Updated upstream
-  }
-=======
    }
->>>>>>> Stashed changes
 
 
 .cadre{
@@ -22,7 +18,6 @@ body{
 
 .fedblue{
   background-color: rgba(1, 43, 221, 1);
-<<<<<<< Updated upstream
   }
 
 
@@ -39,27 +34,10 @@ body{
   background-color: rgba(221, 1, 43, 1);
   }
 
-=======
-   }
-
-.fedbutton{
-  background-color: rgba(224,231,255, 1);
-  color: rgba(1, 43, 221, 1);
-   }
-
-.fedtextblue{
-  color: rgba(1, 43, 221, 1);
-   }
-
-.redbutton{
-  background-color: rgba(221, 1, 43, 1);
-   }
->>>>>>> Stashed changes
 
 .fedblue:hover{
   background-color: rgba(1, 43, 255, 1);
   color:#FFFF;
-<<<<<<< Updated upstream
   }
 
 .height-1-2{
@@ -69,45 +47,21 @@ body{
 .pt-25{
   padding-top:15%;
   }
-=======
-   }
-
-.height-1-2{
-  height: 50vh;
-   }
-
-.pt-25{
-  padding-top:15%;
-   }
->>>>>>> Stashed changes
 
 
 .pb-25{
   padding-bottom:15%;
-<<<<<<< Updated upstream
   }
-=======
-   }
->>>>>>> Stashed changes
 
 .form-group {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
-<<<<<<< Updated upstream
   }
 
 li::marker {
   color: white;
-  }
-=======
    }
-
-li::marker {
-  color: white;
-   }
->>>>>>> Stashed changes
-
 
   /* Modifs Arnaud */
 
