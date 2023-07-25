@@ -39,19 +39,21 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 const params = {
 	fields: {
 		"group--federage": "label,field_description",
-		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
-
+"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 	},
 	filter: {
 
-	},
+   },
 
+  include: "",
 }
 
 
 
+
+
 export default function AlluserlistPage
-	({ menus, blocks, users, nodes, logouri, categorie_d_entreprise,
+	({ menus, blocks, users, nodes, logouri, catentreprise,
 		facets: initialFacets,
 	}: AlluserlistPageProps) {
 	const { t } = useTranslation()
@@ -63,6 +65,7 @@ export default function AlluserlistPage
 	const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
 	const { data: valuetypestructure, error: valuetypestructureErrorError } = useSWR(() => 'https://fed.septembre.io/jsonapi/taxonomy_term/categorie_d_entreprise', fetcher)
 	const colored = "bg-white fedblueblue";
+	const names = ['James', 'John', 'Paul', 'Ringo', 'George'];
 
 	const [state, setStatus] = React.useState<"error" | "success" | "loading">()
 	const [results, setResults] = React.useState<DrupalNode[]>(nodes)
@@ -157,11 +160,29 @@ export default function AlluserlistPage
 									</p>
 								) : (
 									<div className="md:grid-cols-1">
+
+
+
 										{results
 											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
-													{node.field_type_de_structure?.resourceIdObjMeta.drupal_internal__target_id}
+
+
+
+
+													{catentreprise
+													.filter((catent) => catent.id.includes(node.field_type_de_structure?.id))
+													.map((catname) => (
+														<div key={catname.id}>
+
+																	{catname.name}
+
+														</div>
+														))}
+
+
+
 													{node.user_picture ? (
 														<div className="text-sm" data-cy="search-no-results">
 															{logouri
@@ -173,7 +194,7 @@ export default function AlluserlistPage
 																				.filter(valuetype => valuetype?.id.includes(node?.field_type_de_structure?.id))
 																				.map(valuetype => (
 																					<div key={valuetype.id}>
-																						{categorie_d_entreprise
+																						{catentreprise
 																							.filter(struct => struct?.id.includes(valuetype?.field_structure?.id))
 																							.map(struct => (
 																								<div key={struct.id}>
@@ -184,14 +205,15 @@ export default function AlluserlistPage
 																							))}
 																					</div>
 																				))}
-																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} structure={categorie_d_entreprise} valuetypestructure={valuetypestructure} />
+																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} structure={catentreprise} valuetypestructure={valuetypestructure} />
 																	</div>
 																))}
 														</div>
 													) : (
 														<div>
 															<div className="text-sm" data-cy="search-no-results">
-																<BoxUserList key={node.id} node={node} structure={categorie_d_entreprise} valuetypestructure={valuetypestructure} />
+
+																<BoxUserList key={node.id} node={node} structure={catentreprise} valuetypestructure={valuetypestructure} />
 															</div>
 														</div>
 													)}
@@ -266,6 +288,19 @@ export async function getStaticProps(
 	context
 ): Promise<GetStaticPropsResult<AccountPageProps>> {
 
+
+	const catentreprise = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
+		"taxonomy_term--categorie_d_entreprise",
+		context,
+		{
+			params: {
+"fields[taxonomy_term--categorie_d_entreprise]": "id,name",
+								sort: "-name",
+			},
+		}
+	)
+
+
 	const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
 		"default_index",
 		context,
@@ -275,15 +310,8 @@ export async function getStaticProps(
 		}
 	)
 
-	const categorie_d_entreprise = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
-		"taxonomy_term--categorie_d_entreprise",
-		context,
-		{
-			params: {
-				"fields[taxonomy_term--categorie_d_entreprise]": "id,name",
-			},
-		}
-	)
+
+
 
 	const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
 		"file--file",
@@ -300,11 +328,11 @@ export async function getStaticProps(
 	return {
 		props: {
 			...(await getGlobalElements(context)),
-
+			catentreprise,
 			nodes: deserialize(results) as DrupalNode[],
 			facets: results.meta.facets,
 			logouri,
-			categorie_d_entreprise,
+
 		},
 		revalidate: 5,
 

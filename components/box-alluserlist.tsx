@@ -7,7 +7,7 @@ export function BoxUserList({ node, itemlogo, results, categorie_d_entreprise, v
 	return (
 		<>
 
-			Name sur SWR = {valuetypestructure?.data?.attributes?.name}
+			Name sur SWR = {valuetypestructure?.data?.attributes?.id}
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
 					{/* {structure.name} */}
