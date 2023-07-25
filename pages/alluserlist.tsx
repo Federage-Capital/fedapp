@@ -39,13 +39,13 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 const params = {
 	fields: {
 		"group--federage": "label,field_description",
-"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
+		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 	},
 	filter: {
 
-   },
+	},
 
-  include: "",
+	include: "",
 }
 
 
@@ -63,7 +63,6 @@ export default function AlluserlistPage
 
 
 	const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
-	const { data: valuetypestructure, error: valuetypestructureErrorError } = useSWR(() => 'https://fed.septembre.io/jsonapi/taxonomy_term/categorie_d_entreprise', fetcher)
 	const colored = "bg-white fedblueblue";
 	const names = ['James', 'John', 'Paul', 'Ringo', 'George'];
 
@@ -160,63 +159,33 @@ export default function AlluserlistPage
 									</p>
 								) : (
 									<div className="md:grid-cols-1">
-
-
-
 										{results
 											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
-
-
-
-
 													{catentreprise
-													.filter((catent) => catent.id.includes(node.field_type_de_structure?.id))
-													.map((catname) => (
-														<div key={catname.id}>
-
-																	{catname.name}
-
-														</div>
-														))}
-
-
-
-													{node.user_picture ? (
-														<div className="text-sm" data-cy="search-no-results">
-															{logouri
-																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-																.map((itemlogo) => (
-																	<div key={itemlogo.id}>
-																		{Array.isArray(valuetypestructure) &&
-																			valuetypestructure
-																				.filter(valuetype => valuetype?.id.includes(node?.field_type_de_structure?.id))
-																				.map(valuetype => (
-																					<div key={valuetype.id}>
-																						{catentreprise
-																							.filter(struct => struct?.id.includes(valuetype?.field_structure?.id))
-																							.map(struct => (
-																								<div key={struct.id}>
-																									{struct.name}
-																									<BoxUserList key={struct.id} node={node} itemlogo={itemlogo} structure={struct} valuetypestructure={valuetypestructure} />
-
-																								</div>
-																							))}
-																					</div>
-																				))}
-																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} structure={catentreprise} valuetypestructure={valuetypestructure} />
+														.filter((catent) => catent.id.includes(node.field_type_de_structure?.id))
+														.map((catname) => (
+															<div key={catname.id}>
+																{node.user_picture ? (
+																	<div className="text-sm" data-cy="search-no-results">
+																		{logouri
+																			.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
+																			.map((itemlogo) => (
+																				<div key={itemlogo.id}>
+																					<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catentreprise={catname} />
+																				</div>
+																			))}
 																	</div>
-																))}
-														</div>
-													) : (
-														<div>
-															<div className="text-sm" data-cy="search-no-results">
-
-																<BoxUserList key={node.id} node={node} structure={catentreprise} valuetypestructure={valuetypestructure} />
+																) : (
+																	<div>
+																		<div className="text-sm" data-cy="search-no-results">
+																			<BoxUserList key={node.id} node={node} results={results} catentreprise={catentreprise} />
+																		</div>
+																	</div>
+																)}
 															</div>
-														</div>
-													)}
+														))}
 												</div>
 											))}
 									</div>
@@ -251,7 +220,7 @@ export default function AlluserlistPage
 								<div key={index}>
 									{page.items?.map((node) => (
 										<div key={node.id}>
-											<BoxResearch key={node.id} node={node} logouri={logouri} useringroup={useringroup} results={results} status={status} />
+											<BoxResearch key={node.id} node={node} logouri={logouri} useringroup={useringroup} results={results} status={status} catentreprise={catentreprise} />
 											{node.type === "group--federage" &&
 												results
 													.filter(results_projets => results_projets.type.includes("group--federage"))
@@ -294,8 +263,8 @@ export async function getStaticProps(
 		context,
 		{
 			params: {
-"fields[taxonomy_term--categorie_d_entreprise]": "id,name",
-								sort: "-name",
+				"fields[taxonomy_term--categorie_d_entreprise]": "id,name",
+				sort: "-name",
 			},
 		}
 	)
