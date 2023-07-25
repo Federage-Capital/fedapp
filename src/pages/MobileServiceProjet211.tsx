@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet211: FunctionComponent = () => {
   return (
-    <div className="relative w-full flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -92,29 +92,29 @@ const MobileServiceProjet211: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-center text-gray-500">
+          <div className="self-stretch flex flex-col items-start justify-center gap-[12px]">
             <div className="self-stretch flex flex-col items-start justify-start gap-[5px]">
-              <b className="self-stretch relative leading-[20px] text-gray-700">
+              <b className="self-stretch relative leading-[20px]">
                 Vous êtes investisseur professionnel ?
               </b>
-              <div className="self-stretch relative text-xs leading-[18px] font-medium">
+              <div className="self-stretch relative text-xs leading-[18px] font-medium text-gray-500">
                 <span>{`Réservé aux fonds d'investissement et aux financeurs publics. Vous pouvez en faire la demande `}</span>
                 <span className="text-mediumblue-100">depuis ce lien</span>
                 <span>.</span>
               </div>
-              <div className="self-stretch rounded-lg bg-gainsboro flex flex-row py-[15px] px-4 items-start justify-between border-[2px] border-solid border-darkgray-100 sm:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
-                <div className="w-[282px] flex flex-col items-start justify-start gap-[4px]">
-                  <div className="relative leading-[20px] font-semibold">
-                    Mode investisseur
-                  </div>
-                  <div className="self-stretch relative text-xs leading-[16px] font-medium">
-                    Le projet est entièrement configurable. Ce paramètre est
-                    désactivé par défaut.
-                  </div>
+            </div>
+            <div className="self-stretch rounded-lg bg-gainsboro flex flex-row py-[15px] px-4 items-start justify-between text-gray-500 border-[2px] border-solid border-darkgray-100 sm:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+              <div className="w-[282px] flex flex-col items-start justify-start gap-[4px]">
+                <div className="relative leading-[20px] font-semibold">
+                  Mode investisseur
                 </div>
-                <div className="rounded-lg w-4 h-5 flex flex-row items-center justify-center">
-                  <div className="relative rounded-lg bg-gainsboro box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
+                <div className="self-stretch relative text-xs leading-[16px] font-medium">
+                  Le projet est entièrement configurable. Ce paramètre est
+                  désactivé par défaut.
                 </div>
+              </div>
+              <div className="rounded-lg w-4 h-5 flex flex-row items-center justify-center">
+                <div className="relative rounded-lg bg-gainsboro box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
             <div className="self-stretch bg-gray-200" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
-                Créer un projet
+                Suivant
               </div>
             </div>
           </div>

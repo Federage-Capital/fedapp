@@ -4,6 +4,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import MobileServiceProjet211 from "./pages/MobileServiceProjet211";
 import MobileServiceCrerProjet from "./pages/MobileServiceCrerProjet";
 import MobileServiceModificationAp from "./pages/MobileServiceModificationAp";
 import MobileServiceAjouterUnAppo from "./pages/MobileServiceAjouterUnAppo";
@@ -11,7 +12,6 @@ import MobileExplorerMembre from "./pages/MobileExplorerMembre";
 import MobileServiceAjouterUnAppo1 from "./pages/MobileServiceAjouterUnAppo1";
 import MobileServiceProjetOpratio from "./pages/MobileServiceProjetOpratio";
 import MobileServiceProjetOpratio1 from "./pages/MobileServiceProjetOpratio1";
-import MobileServiceProjet211 from "./pages/MobileServiceProjet211";
 import MobileServiceProjet2 from "./pages/MobileServiceProjet2";
 import MobileServiceProjet21 from "./pages/MobileServiceProjet21";
 import MobileServiceProjetPriv1 from "./pages/MobileServiceProjetPriv1";
@@ -40,6 +40,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-mobileservicecrer-projet":
+        title = "";
+        metaDescription = "";
+        break;
       case "/-mobileservicemodification-apport":
         title = "";
         metaDescription = "";
@@ -61,10 +65,6 @@ function App() {
         metaDescription = "";
         break;
       case "/-mobileserviceprojet-oprationel":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceprojet2":
         title = "";
         metaDescription = "";
         break;
@@ -110,7 +110,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MobileServiceCrerProjet />} />
+      <Route path="/" element={<MobileServiceProjet211 />} />
+      <Route
+        path="/-mobileservicecrer-projet"
+        element={<MobileServiceCrerProjet />}
+      />
       <Route
         path="/-mobileservicemodification-apport"
         element={<MobileServiceModificationAp />}
@@ -131,10 +135,6 @@ function App() {
       <Route
         path="/-mobileserviceprojet-oprationel"
         element={<MobileServiceProjetOpratio1 />}
-      />
-      <Route
-        path="/-mobileserviceprojet2"
-        element={<MobileServiceProjet211 />}
       />
       <Route
         path="/-mobileserviceprojet21"
