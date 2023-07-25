@@ -22,6 +22,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 	const { status } = useSession()
 	const [openTab, setOpenTab] = React.useState(1);
 	const { toggleValue } = router.query;
+	const styles = "bg-white fedblueblue"
 	const [toggle, setToggle] = React.useState<boolean>(toggleValue === 'true');
 
 	React.useEffect(() => {
@@ -94,7 +95,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 										className={
 											"text-xs font-bold px-2 py-3 rounded-md leading-normal " +
 											(openTab === 1
-												? "fedblueblue"
+												? styles
 												: "text-" + "bg-white")
 										}
 
@@ -115,7 +116,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 										className={
 											"text-xs font-bold px-2 py-3 rounded-md leading-normal " +
 											(openTab === 2
-												? "fedblueblue"
+												? styles
 												: "text-" + "bg-white")
 										}
 
@@ -136,7 +137,7 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 										className={
 											"text-xs font-bold px-2 py-3 rounded-md leading-normal " +
 											(openTab === 3
-												? "fedblueblue"
+												? styles
 												: "text-" + "bg-white")
 										}
 										onClick={e => {

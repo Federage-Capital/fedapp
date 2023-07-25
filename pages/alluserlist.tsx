@@ -180,7 +180,7 @@ export default function AlluserlistPage
 																) : (
 																	<div>
 																		<div className="text-sm" data-cy="search-no-results">
-																			<BoxUserList key={node.id} node={node} results={results} catentreprise={catentreprise} />
+																			<BoxUserList key={node.id} node={node} results={results} catentreprise={catname} />
 																		</div>
 																	</div>
 																)}
