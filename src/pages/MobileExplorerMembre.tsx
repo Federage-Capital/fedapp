@@ -8,7 +8,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
-            src="/avatar11@2x.png"
+            src="/avatar111@2x.png"
           />
         </div>
         <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
@@ -77,7 +77,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
               <div className="relative leading-[20.03px] font-semibold">
                 Lire plus
               </div>
-              <img className="relative w-2.5 h-1.5" alt="" src="/icon3.svg" />
+              <img className="relative w-2.5 h-1.5" alt="" src="/icon31.svg" />
             </div>
           </div>
         </div>
@@ -149,7 +149,11 @@ const MobileExplorerMembre: FunctionComponent = () => {
                 <div className="relative leading-[20.03px] font-semibold">
                   Détails de l’apport
                 </div>
-                <img className="relative w-2.5 h-1.5" alt="" src="/icon3.svg" />
+                <img
+                  className="relative w-2.5 h-1.5"
+                  alt=""
+                  src="/icon31.svg"
+                />
               </div>
               <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center text-base text-white">
                 <div className="flex-1 relative leading-[20px] font-semibold">
@@ -219,7 +223,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
                     <img
                       className="relative w-2.5 h-1.5"
                       alt=""
-                      src="/icon21.svg"
+                      src="/icon211.svg"
                     />
                   </div>
                   <div className="self-stretch flex flex-row items-start justify-start text-base text-gray-500">

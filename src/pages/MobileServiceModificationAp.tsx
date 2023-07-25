@@ -8,7 +8,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
-            src="/avatar11@2x.png"
+            src="/avatar111@2x.png"
           />
         </div>
         <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
@@ -28,7 +28,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-start">
           <div className="flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-white w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon2.svg" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
             </div>
             <b className="relative leading-[24px]">Détails de l’apport</b>
           </div>
@@ -117,7 +117,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <img
                     className="relative w-[10.56px] h-[11.11px]"
                     alt=""
-                    src="/icon.svg"
+                    src="/icon4.svg"
                   />
                 </div>
               </div>
@@ -148,7 +148,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <img
                     className="relative w-[10.56px] h-[11.11px]"
                     alt=""
-                    src="/icon.svg"
+                    src="/icon4.svg"
                   />
                 </div>
               </div>
@@ -179,7 +179,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <img
                     className="relative w-[10.56px] h-[11.11px]"
                     alt=""
-                    src="/icon.svg"
+                    src="/icon4.svg"
                   />
                 </div>
               </div>
@@ -210,7 +210,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <img
                     className="relative w-[10.56px] h-[11.11px]"
                     alt=""
-                    src="/icon.svg"
+                    src="/icon4.svg"
                   />
                 </div>
               </div>

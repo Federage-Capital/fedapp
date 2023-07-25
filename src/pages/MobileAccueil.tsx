@@ -1,9 +1,12 @@
 import { FunctionComponent, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MobileAccueil: FunctionComponent = () => {
+  const navigate = useNavigate();
+
   const onFrameContainerClick = useCallback(() => {
-    // Please sync "₣ - Mobile/Explorer" to the project
-  }, []);
+    navigate("/");
+  }, [navigate]);
 
   return (
     <div className="relative bg-whitesmoke-100 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-xs-leading-4-font-medium">
@@ -98,7 +101,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-[8.99px] h-[16.26px]"
                         alt=""
-                        src="/icon31.svg"
+                        src="/icon311.svg"
                       />
                     </div>
                   </div>
@@ -128,7 +131,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-[8.99px] h-[16.26px]"
                         alt=""
-                        src="/icon31.svg"
+                        src="/icon311.svg"
                       />
                     </div>
                   </div>
@@ -155,7 +158,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-[8.99px] h-[16.26px]"
                         alt=""
-                        src="/icon31.svg"
+                        src="/icon311.svg"
                       />
                     </div>
                   </div>
@@ -182,7 +185,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-3 h-3"
                         alt=""
-                        src="/icon41.svg"
+                        src="/icon411.svg"
                       />
                     </div>
                   </div>

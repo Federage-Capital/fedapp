@@ -12,7 +12,7 @@ const Validateur: FunctionComponent = () => {
             <img
               className="relative w-[9.6px] h-[7.47px]"
               alt=""
-              src="/icon1111.svg"
+              src="/icon11111.svg"
             />
           </div>
         </div>

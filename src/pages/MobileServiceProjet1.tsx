@@ -16,7 +16,7 @@ const MobileServiceProjet1: FunctionComponent = () => {
             <img
               className="rounded-xl w-10 h-10 object-cover"
               alt=""
-              src="/avatar11@2x.png"
+              src="/avatar111@2x.png"
             />
           </div>
           <div className="w-[304px] h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
@@ -38,7 +38,11 @@ const MobileServiceProjet1: FunctionComponent = () => {
         <div className="absolute top-[18.62px] left-[16px] flex flex-col items-start justify-start gap-[32px]">
           <div className="flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center gap-[6px]">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+              <img
+                className="relative w-1.5 h-2.5"
+                alt=""
+                src="/icon2111.svg"
+              />
               <div className="relative leading-[14.05px] font-semibold hidden">
                 Site web
               </div>
