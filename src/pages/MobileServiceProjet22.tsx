@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet22: FunctionComponent = () => {
   return (
-    <div className="relative w-full flex flex-col pt-0 px-0 pb-6 box-border items-start justify-start text-left text-base text-dimgray font-text-xs-leading-4-font-medium">
+    <div className="relative w-full flex flex-col pt-0 px-0 pb-6 box-border items-start justify-start text-left text-base text-dimgray font-text-sm-leading-5-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -115,7 +115,7 @@ const MobileServiceProjet22: FunctionComponent = () => {
                   <img
                     className="relative w-3.5 h-3.5 overflow-hidden shrink-0"
                     alt=""
-                    src="/plus11.svg"
+                    src="/plus111.svg"
                   />
                 </div>
               </div>
