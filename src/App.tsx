@@ -4,22 +4,21 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import MobileServiceProjet22 from "./pages/MobileServiceProjet22";
+import MobileServiceProjet22 from "./pages/CrerProjetPublic";
 import Partenaires from "./pages/Partenaires";
 import Explorer from "./pages/Explorer";
-import MobileServiceProjet211 from "./pages/MobileServiceProjet211";
-import MobileServiceCrerProjet from "./pages/MobileServiceCrerProjet";
-import MobileServiceModificationAp from "./pages/MobileServiceModificationAp";
-import MobileServiceAjouterUnAppo from "./pages/MobileServiceAjouterUnAppo";
-import MobileExplorerMembre from "./pages/MobileExplorerMembre";
-import MobileServiceAjouterUnAppo1 from "./pages/MobileServiceAjouterUnAppo1";
-import MobileServiceProjetOpratio from "./pages/MobileServiceProjetOpratio";
-import MobileServiceProjetOpratio1 from "./pages/MobileServiceProjetOpratio1";
-import MobileServiceProjet2 from "./pages/MobileServiceProjet2";
-import MobileServiceProjet21 from "./pages/MobileServiceProjet21";
-import MobileServiceProjetPriv1 from "./pages/MobileServiceProjetPriv1";
-import MobileAccueil from "./pages/MobileAccueil";
-import MobileServiceProjet1 from "./pages/MobileServiceProjet1";
+import MobileServiceProjet211 from "./pages/CrerProjet2";
+import MobileServiceCrerProjet from "./pages/CrerProjet";
+import MobileServiceModificationAp from "./pages/ModificationAp";
+import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
+import MobileExplorerMembre from "./pages/ExplorerMembre";
+import MobileServiceAjouterUnAppo1 from "./pages/AjouterUnAppo2";
+import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
+import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
+import MobileServiceProjet2 from "./pages/CrerProjetPublic2";
+import MobileServiceProjet21 from "./pages/CrerProjetPublic3";
+import MobileServiceProjetPriv1 from "./pages/CrerProjetPriv";
+import MobileAccueil from "./pages/SiteAccueil";
 import { useEffect } from "react";
 
 function App() {
@@ -50,7 +49,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileserviceprojet2":
+      case "/-crer-projet-2":
         title = "";
         metaDescription = "";
         break;
@@ -82,11 +81,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileserviceprojet21":
+      case "/-mobileserviceprojet2":
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileserviceprojet22":
+      case "/-mobileserviceprojet21":
         title = "";
         metaDescription = "";
         break;
@@ -95,10 +94,6 @@ function App() {
         metaDescription = "";
         break;
       case "/-mobileaccueil":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceprojet1":
         title = "";
         metaDescription = "";
         break;
@@ -123,10 +118,7 @@ function App() {
       <Route path="/" element={<MobileServiceProjet22 />} />
       <Route path="/-partenaires" element={<Partenaires />} />
       <Route path="/-mobileexplorer" element={<Explorer />} />
-      <Route
-        path="/-mobileserviceprojet2"
-        element={<MobileServiceProjet211 />}
-      />
+      <Route path="/-crer-projet-2" element={<MobileServiceProjet211 />} />
       <Route
         path="/-mobileservicecrer-projet"
         element={<MobileServiceCrerProjet />}
@@ -152,12 +144,9 @@ function App() {
         path="/-mobileserviceprojet-oprationel"
         element={<MobileServiceProjetOpratio1 />}
       />
+      <Route path="/-mobileserviceprojet2" element={<MobileServiceProjet2 />} />
       <Route
         path="/-mobileserviceprojet21"
-        element={<MobileServiceProjet2 />}
-      />
-      <Route
-        path="/-mobileserviceprojet22"
         element={<MobileServiceProjet21 />}
       />
       <Route
@@ -165,7 +154,6 @@ function App() {
         element={<MobileServiceProjetPriv1 />}
       />
       <Route path="/-mobileaccueil" element={<MobileAccueil />} />
-      <Route path="/-mobileserviceprojet1" element={<MobileServiceProjet1 />} />
     </Routes>
   );
 }
