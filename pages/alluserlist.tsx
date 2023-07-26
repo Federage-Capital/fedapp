@@ -164,7 +164,7 @@ export default function AlluserlistPage
 											.map((node) => (
 												<div key={node.id}>
 													{catentreprise
-														.filter((catent) => catent.id.includes(node.field_type_de_structure?.id))
+														.filter((catent) => catent.id.includes(node?.field_type_de_structure?.id))
 														.map((catname) => (
 															<div key={catname.id}>
 																{node.user_picture ? (
@@ -173,14 +173,14 @@ export default function AlluserlistPage
 																			.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
 																			.map((itemlogo) => (
 																				<div key={itemlogo.id}>
-																					<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catentreprise={catname} />
+																					<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catname={catname} />
 																				</div>
 																			))}
 																	</div>
 																) : (
 																	<div>
 																		<div className="text-sm" data-cy="search-no-results">
-																			<BoxUserList key={node.id} node={node} results={results} catentreprise={catname} />
+																			<BoxUserList key={node.id} node={node} results={results} catname={catname} />
 																		</div>
 																	</div>
 																)}
