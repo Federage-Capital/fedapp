@@ -4,14 +4,14 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import MobileExplorerMembre from "./pages/ExplorerMembre";
 import MobileServiceProjet22 from "./pages/CrerProjetPublic";
 import Partenaires from "./pages/Partenaires";
 import Explorer from "./pages/Explorer";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
 import MobileServiceCrerProjet from "./pages/CrerProjet";
-import MobileServiceModificationAp from "./pages/ModificationAp";
+import MobileServiceModificationAp from "./pages/ModiApport";
 import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
-import MobileExplorerMembre from "./pages/ExplorerMembre";
 import MobileServiceAjouterUnAppo1 from "./pages/AjouterUnAppo2";
 import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
 import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
@@ -41,6 +41,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-crer-projet-public-1":
+        title = "";
+        metaDescription = "";
+        break;
       case "/-partenaires":
         title = "";
         metaDescription = "";
@@ -62,10 +66,6 @@ function App() {
         metaDescription = "";
         break;
       case "/-mobileserviceajouter-un-apport-2":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileexplorermembre":
         title = "";
         metaDescription = "";
         break;
@@ -115,7 +115,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MobileServiceProjet22 />} />
+      <Route path="/" element={<MobileExplorerMembre />} />
+      <Route
+        path="/-crer-projet-public-1"
+        element={<MobileServiceProjet22 />}
+      />
       <Route path="/-partenaires" element={<Partenaires />} />
       <Route path="/-mobileexplorer" element={<Explorer />} />
       <Route path="/-crer-projet-2" element={<MobileServiceProjet211 />} />
@@ -131,7 +135,6 @@ function App() {
         path="/-mobileserviceajouter-un-apport-2"
         element={<MobileServiceAjouterUnAppo />}
       />
-      <Route path="/-mobileexplorermembre" element={<MobileExplorerMembre />} />
       <Route
         path="/-mobileserviceajouter-un-apport"
         element={<MobileServiceAjouterUnAppo1 />}

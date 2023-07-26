@@ -84,17 +84,17 @@ const MobileExplorerMembre: FunctionComponent = () => {
       </div>
       <div className="self-stretch bg-whitesmoke-100 flex flex-row pt-8 px-4 pb-12 items-start justify-start text-center text-[11.28px] text-dimgray">
         <div className="flex-1 flex flex-col items-start justify-start gap-[32px]">
-          <div className="self-stretch flex flex-row items-center justify-between">
+          <div className="self-stretch flex flex-row items-center justify-start gap-[28px]">
             <div className="rounded-lg bg-white flex flex-col py-1.5 px-[15px] items-center justify-center text-mediumblue-200">
               <b className="relative leading-[18.8px]">Tous</b>
             </div>
             <b className="relative leading-[18.8px]">Annonces</b>
             <b className="relative leading-[18.8px]">Partenaires</b>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-xl text-gray-900">
-            <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
+          <div className="self-stretch flex flex-col items-start justify-start text-left text-base text-gray-900">
+            <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start">
               <div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
-                <div className="self-stretch flex flex-col items-center justify-start gap-[22px]">
+                <div className="self-stretch flex flex-col items-center justify-start gap-[22px] text-xl">
                   <div className="self-stretch flex flex-row items-center justify-between">
                     <div className="relative w-[84px] h-6">
                       <img
@@ -127,125 +127,31 @@ const MobileExplorerMembre: FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="self-stretch flex flex-col items-center justify-center gap-[10px] text-base text-black">
+                <div className="self-stretch flex flex-col items-start justify-start text-gray-500">
                   <div className="self-stretch flex flex-col items-start justify-start">
-                    <div className="self-stretch flex flex-col items-start justify-start">
-                      <div className="self-stretch h-14 flex flex-col items-center justify-end">
-                        <div className="self-stretch relative leading-[20px] font-semibold">
-                          Recherche un procédé agro-alimentaire pour
-                          expérimenter des solutions nutritionnelles médicales.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="self-stretch flex flex-col items-start justify-start text-dimgray">
-                    <div className="self-stretch relative leading-[20px] font-semibold">
-                      210 000€ • 18 apports
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch flex flex-row items-center justify-between text-sm text-mediumblue-100">
-                <div className="relative leading-[20.03px] font-semibold">
-                  Détails de l’apport
-                </div>
-                <img
-                  className="relative w-2.5 h-1.5"
-                  alt=""
-                  src="/icon31.svg"
-                />
-              </div>
-              <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center text-base text-white">
-                <div className="flex-1 relative leading-[20px] font-semibold">
-                  Contribuer
-                </div>
-              </div>
-            </div>
-            <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
-              <div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
-                <div className="self-stretch flex flex-col items-center justify-start gap-[22px]">
-                  <div className="self-stretch flex flex-row items-center justify-between">
-                    <div className="relative w-[84px] h-6">
-                      <img
-                        className="absolute top-[-2px] left-[58px] rounded-xl w-7 h-7 overflow-hidden object-cover"
-                        alt=""
-                        src="/avatar4@2x.png"
-                      />
-                      <img
-                        className="absolute top-[-2px] left-[38px] rounded-xl w-7 h-7 overflow-hidden object-cover"
-                        alt=""
-                        src="/avatar5@2x.png"
-                      />
-                      <img
-                        className="absolute top-[-2px] left-[18px] rounded-xl w-7 h-7 overflow-hidden object-cover"
-                        alt=""
-                        src="/avatar6@2x.png"
-                      />
-                      <img
-                        className="absolute top-[-2px] left-[-2px] rounded-xl w-7 h-7 overflow-hidden object-cover"
-                        alt=""
-                        src="/avatar7@2x.png"
-                      />
-                    </div>
-                    <div className="rounded-10xs bg-indigo-50" />
-                  </div>
-                  <div className="self-stretch flex flex-row items-center justify-start">
-                    <div className="flex-1 relative leading-[20px] font-semibold">
-                      Solution pour le développement de nutriments actifs
-                      anti-cancérigènes
-                    </div>
-                  </div>
-                </div>
-                <div className="self-stretch flex flex-col items-center justify-center gap-[10px] text-base text-black">
-                  <div className="self-stretch flex flex-col items-start justify-start">
-                    <div className="self-stretch flex flex-col items-start justify-start">
-                      <div className="self-stretch h-14 flex flex-col items-center justify-end">
-                        <div className="self-stretch relative leading-[20px] font-semibold">
-                          Recherche un procédé agro-alimentaire pour
-                          expérimenter des solutions nutritionnelles médicales.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="self-stretch flex flex-col items-start justify-start text-dimgray">
-                    <div className="self-stretch relative leading-[20px] font-semibold">
-                      210 000€ • 18 apports
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-sm text-mediumblue-100">
-                <div className="self-stretch flex-1 flex flex-col items-start justify-start gap-[5px]">
-                  <div className="w-[318px] flex flex-row items-center justify-between">
-                    <div className="relative leading-[20.03px] font-semibold">
-                      Détails de l’apport
-                    </div>
-                    <img
-                      className="relative w-2.5 h-1.5"
-                      alt=""
-                      src="/icon211.svg"
-                    />
-                  </div>
-                  <div className="self-stretch flex flex-row items-start justify-start text-base text-gray-500">
-                    <div className="flex-1 flex flex-col items-start justify-start gap-[7px]">
+                    <div className="self-stretch flex flex-col items-center justify-center">
                       <div className="self-stretch relative leading-[20px] font-medium">
-                        Développer un aliment anti-cancérigène innovant, sûr et
-                        succulent. Répondre aux besoins des personnes souhaitant
-                        prévenir le cancer - simplement avec un produit riche en
-                        nutriments bénéfiques pour la santé.
-                      </div>
-                      <div className="flex flex-row items-center justify-start">
-                        <div className="relative leading-[24px] font-medium">
-                          23 mai 2023
-                        </div>
+                        Recherche un procédé agro-alimentaire pour expérimenter
+                        des solutions nutritionnelles médicales.
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center text-base text-white">
-                <div className="flex-1 relative leading-[20px] font-semibold">
-                  Contribuer
+                <div className="self-stretch flex flex-col items-center justify-center text-mediumblue-100">
+                  <div className="self-stretch rounded-lg flex flex-row items-center justify-start">
+                    <div className="flex-1 flex flex-col items-start justify-start">
+                      <div className="self-stretch flex flex-row py-0 pr-7 pl-0 items-center justify-between">
+                        <div className="relative leading-[20px] font-semibold">
+                          210 000€ • 4 apports recherchés
+                        </div>
+                        <img
+                          className="relative w-3.5 h-[8.4px]"
+                          alt=""
+                          src="/icon1.svg"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
