@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceModificationAp: FunctionComponent = () => {
   return (
-    <div className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-medium">
+    <div className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img

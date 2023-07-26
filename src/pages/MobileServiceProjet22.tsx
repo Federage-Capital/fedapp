@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet22: FunctionComponent = () => {
   return (
-    <div className="relative w-full flex flex-col pt-0 px-0 pb-6 box-border items-start justify-start text-left text-base text-dimgray font-text-sm-leading-5-font-medium">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-base-leading-6-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -68,17 +68,17 @@ const MobileServiceProjet22: FunctionComponent = () => {
                   <div className="flex-1 rounded-lg bg-gray-100 flex flex-row p-1 items-center justify-start gap-[32px]">
                     <div className="flex-1 rounded-md bg-white flex flex-col py-2 px-3 items-center justify-center text-mediumblue-100">
                       <div className="relative leading-[20px] font-semibold">
-                        Membres
-                      </div>
-                    </div>
-                    <div className="flex-1 rounded-md flex flex-col py-2 px-3 items-center justify-center">
-                      <div className="relative leading-[20px] font-semibold">
                         Objet
                       </div>
                     </div>
                     <div className="flex-1 rounded-md flex flex-col py-2 px-3 items-center justify-center">
                       <div className="relative leading-[20px] font-semibold">
                         Détails
+                      </div>
+                    </div>
+                    <div className="flex-1 rounded-md flex flex-col py-2 px-3 items-center justify-center">
+                      <div className="relative leading-[20px] font-semibold">
+                        Membres
                       </div>
                     </div>
                   </div>
@@ -127,7 +127,7 @@ const MobileServiceProjet22: FunctionComponent = () => {
             <div className="self-stretch bg-gray-200" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
-                Suivant
+                Créer un projet
               </div>
             </div>
           </div>

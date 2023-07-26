@@ -4,6 +4,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import MobileServiceProjet22 from "./pages/MobileServiceProjet22";
 import Partenaires from "./pages/Partenaires";
 import Explorer from "./pages/Explorer";
 import MobileServiceProjet211 from "./pages/MobileServiceProjet211";
@@ -17,7 +18,6 @@ import MobileServiceProjetOpratio1 from "./pages/MobileServiceProjetOpratio1";
 import MobileServiceProjet2 from "./pages/MobileServiceProjet2";
 import MobileServiceProjet21 from "./pages/MobileServiceProjet21";
 import MobileServiceProjetPriv1 from "./pages/MobileServiceProjetPriv1";
-import MobileServiceProjet22 from "./pages/MobileServiceProjet22";
 import MobileAccueil from "./pages/MobileAccueil";
 import MobileServiceProjet1 from "./pages/MobileServiceProjet1";
 import { useEffect } from "react";
@@ -39,6 +39,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-partenaires":
         title = "";
         metaDescription = "";
         break;
@@ -90,10 +94,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileserviceprojet23":
-        title = "";
-        metaDescription = "";
-        break;
       case "/-mobileaccueil":
         title = "";
         metaDescription = "";
@@ -120,7 +120,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Partenaires />} />
+      <Route path="/" element={<MobileServiceProjet22 />} />
+      <Route path="/-partenaires" element={<Partenaires />} />
       <Route path="/-mobileexplorer" element={<Explorer />} />
       <Route
         path="/-mobileserviceprojet2"
@@ -162,10 +163,6 @@ function App() {
       <Route
         path="/-mobileserviceprojet-priv-1"
         element={<MobileServiceProjetPriv1 />}
-      />
-      <Route
-        path="/-mobileserviceprojet23"
-        element={<MobileServiceProjet22 />}
       />
       <Route path="/-mobileaccueil" element={<MobileAccueil />} />
       <Route path="/-mobileserviceprojet1" element={<MobileServiceProjet1 />} />
