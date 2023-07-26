@@ -31,7 +31,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
     if (router.query.error === "CredentialsSignin") {
       return setFormStatus({
         status: "error",
-        message: t("unrecognized-username-or-password-please-try-again"),
+        message: t("Nom d'utilisateur ou mot de passe non reconnu veuillez réessayer"),
       })
     }
 
