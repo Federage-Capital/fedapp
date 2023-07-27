@@ -9,10 +9,10 @@ const MobileAccueil: FunctionComponent = () => {
   }, [navigate]);
 
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-base-leading-6-font-normal">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-xs-leading-4-font-normal">
       <div className="self-stretch overflow-y-auto shrink-0 flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-y-auto shrink-0 flex flex-col items-center justify-start z-[2]">
-          <div className="self-stretch bg-black h-7 z-[1]" />
+          <div className="self-stretch bg-black1 h-7 z-[1]" />
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
               className="relative w-[154.89px] h-8"
@@ -199,7 +199,7 @@ const MobileAccueil: FunctionComponent = () => {
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch relative bg-gray-200 h-px" />
-              <div className="self-stretch bg-black flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch bg-black1 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>

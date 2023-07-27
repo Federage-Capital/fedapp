@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet22: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -38,7 +38,7 @@ const MobileServiceProjet22: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Demander des apports
           </div>
@@ -57,13 +57,13 @@ const MobileServiceProjet22: FunctionComponent = () => {
             <b className="self-stretch relative leading-[20px] text-gray-700">
               De quels apports avez-vous besoin ?
             </b>
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-[18px] px-0 items-center justify-center gap-[12px] text-xs border-[3px] border-solid border-mediumblue-100">
-              <div className="self-stretch flex flex-row py-0 px-3.5 items-start justify-start text-lg text-gray-900">
-                <div className="flex-1 relative leading-[24px] font-semibold">
+            <div className="self-stretch rounded-lg bg-white flex flex-col py-[18px] px-0 items-start justify-start gap-[12px] text-xs">
+              <div className="flex flex-row py-0 px-3.5 items-start justify-between text-lg text-gray-900">
+                <div className="relative leading-[24px] font-semibold">
                   Ajouter un apport
                 </div>
               </div>
-              <div className="self-stretch h-[58.29px] flex flex-col py-2 px-3.5 box-border items-start justify-between text-gray-500">
+              <div className="self-stretch bg-white h-[58.29px] flex flex-col py-2 px-3.5 box-border items-start justify-between text-gray-500">
                 <div className="self-stretch flex-1 rounded-lg bg-gray-100 flex flex-row items-center justify-start">
                   <div className="flex-1 rounded-lg bg-gray-100 flex flex-row p-1 items-center justify-start gap-[32px]">
                     <div className="flex-1 rounded-md bg-white flex flex-col py-2 px-3 items-center justify-center text-mediumblue-100">
@@ -84,23 +84,36 @@ const MobileServiceProjet22: FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className="self-stretch flex flex-col pt-0 px-3.5 pb-2.5 items-start justify-start">
-                <div className="self-stretch flex flex-col pt-0 px-0 pb-2 items-start justify-start gap-[4px]">
-                  <div className="self-stretch relative leading-[20px] font-semibold">
-                    Décrire l’apport
+              <div className="self-stretch flex flex-col pt-0 px-3.5 pb-2.5 items-start justify-start gap-[18px]">
+                <div className="self-stretch flex flex-col items-start justify-start gap-[4px]">
+                  <div className="relative leading-[20px] font-semibold">
+                    Titre de l’apport
                   </div>
-                  <div className="self-stretch rounded-lg bg-white flex flex-row py-2.5 px-3 items-center justify-center text-sm text-gray-900 border-[2px] border-solid border-gray-200">
-                    <div className="flex-1 relative leading-[24px]">
-                      Solution pour le développement de nutriments actifs
-                      agissant directement sur les cellules potentiellement
-                      cancérigènes.
+                  <div className="self-stretch rounded-lg bg-white flex flex-row py-2.5 px-3 items-center justify-center text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                    <div className="flex-1 relative leading-[24px]">{`Formule bio-synthétique humanoïde `}</div>
+                  </div>
+                </div>
+                <div className="self-stretch flex flex-col items-start justify-start gap-[4px]">
+                  <div className="relative leading-[20px] font-semibold">
+                    Type d’apport
+                  </div>
+                  <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                    <div className="flex-1 flex flex-row items-center justify-start">
+                      <div className="flex-1 relative leading-[24px]">
+                        Industrie
+                      </div>
                     </div>
+                    <img
+                      className="relative w-5 h-5 overflow-hidden shrink-0"
+                      alt=""
+                      src="/chevron-down2.svg"
+                    />
                   </div>
                 </div>
               </div>
-              <div className="self-stretch flex flex-col py-0 px-3.5 items-center justify-start text-center text-sm">
-                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center">
-                  <div className="flex-1 relative leading-[20px] font-semibold">
+              <div className="self-stretch flex flex-col py-0 px-3.5 items-center justify-start text-sm">
+                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-10 overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center">
+                  <div className="relative leading-[20px] font-semibold">
                     Ajouter l’apport
                   </div>
                 </div>

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceModificationAp: FunctionComponent = () => {
   return (
-    <div className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -33,14 +33,14 @@ const MobileServiceModificationAp: FunctionComponent = () => {
             <b className="relative leading-[24px]">Détails de l’apport</b>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
           <b className="self-stretch relative leading-[32px]">
             Solution de développement anti-cancérigène
           </b>
           <div className="self-stretch relative text-base leading-[24px] text-gray-500">
             <span className="font-medium">
               <span>Publié par</span>
-              <span className="text-black">{` `}</span>
+              <span className="text-black1">{` `}</span>
             </span>
             <span className="font-semibold text-mediumblue-200">
               Sylvie DEPARDIEU

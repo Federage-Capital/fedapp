@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Inscription: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-9xl text-black font-text-base-leading-6-font-normal">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-9xl text-black1 font-text-xs-leading-4-font-normal">
       <div className="self-stretch flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
@@ -89,7 +89,7 @@ const Inscription: FunctionComponent = () => {
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch relative bg-gray-200 h-px" />
-              <div className="self-stretch bg-black flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch bg-black1 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>

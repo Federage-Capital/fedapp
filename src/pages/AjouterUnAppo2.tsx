@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -38,7 +38,7 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Ajouter un apport
           </div>
@@ -139,7 +139,7 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch rounded-3xs bg-white shadow-[0px_0px_0.5px_rgba(66,_71,_76,_0.32),_0px_4px_8px_rgba(66,_71,_76,_0.05),_0px_4px_40px_#eee] flex flex-col p-[15px] items-start justify-start gap-[10px] text-center text-mini text-black">
+          <div className="self-stretch rounded-3xs bg-white shadow-[0px_0px_0.5px_rgba(66,_71,_76,_0.32),_0px_4px_8px_rgba(66,_71,_76,_0.05),_0px_4px_40px_#eee] flex flex-col p-[15px] items-start justify-start gap-[10px] text-center text-mini text-black1">
             <div className="self-stretch h-11 flex flex-row items-start justify-start gap-[15px] text-left text-base">
               <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start">
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
@@ -179,12 +179,12 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
             </div>
             <div className="self-stretch flex flex-col items-start justify-start">
               <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8 text-black1">
+                <div className="flex-1 relative h-8 text-black">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black1">
+                <div className="flex-1 relative h-8 text-black">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
@@ -348,24 +348,24 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
                     30
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black1">
+                <div className="flex-1 relative h-8 text-black">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black1">
+                <div className="flex-1 relative h-8 text-black">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     30
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black1">
+                <div className="flex-1 relative h-8 text-black">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
                 </div>
               </div>
             </div>
-            <div className="self-stretch h-11 hidden flex-row items-start justify-start gap-[15px] text-gray-600">
+            <div className="self-stretch h-11 hidden flex-row items-start justify-start gap-[15px] text-gray-6001">
               <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start border-[1px] border-solid border-gray-200">
                 <img
                   className="relative w-6 h-6 hidden"

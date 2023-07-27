@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Explorer: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-base-leading-6-font-normal">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-xs-leading-4-font-normal">
       <div className="self-stretch flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
@@ -21,7 +21,7 @@ const Explorer: FunctionComponent = () => {
           </div>
         </div>
         <div className="self-stretch overflow-y-auto flex flex-col pt-6 px-4 pb-12 items-start justify-start gap-[22px]">
-          <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black">
+          <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black1">
             <div className="self-stretch flex flex-col items-start justify-center gap-[10px]">
               <div className="self-stretch relative leading-[20px] font-semibold">
                 Explorer
@@ -165,7 +165,7 @@ const Explorer: FunctionComponent = () => {
                         src="/icon3.svg"
                       />
                     </div>
-                    <div className="self-stretch flex flex-col items-center justify-start text-black">
+                    <div className="self-stretch flex flex-col items-center justify-start text-black1">
                       <div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-whitesmoke-500">
                         <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
                           <div className="self-stretch relative leading-[20px] font-semibold">{`Formule bio-synthétique humanoïde `}</div>
@@ -221,7 +221,7 @@ const Explorer: FunctionComponent = () => {
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar@2x.png"
+                  src="/avatar2@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -287,7 +287,7 @@ const Explorer: FunctionComponent = () => {
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch relative bg-gray-200 h-px" />
-              <div className="self-stretch bg-black flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch bg-black1 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>
