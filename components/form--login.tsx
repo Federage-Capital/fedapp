@@ -31,7 +31,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
     if (router.query.error === "CredentialsSignin") {
       return setFormStatus({
         status: "error",
-        message: t("Nom d'utilisateur ou mot de passe non reconnu veuillez réessayer"),
+        message: t("Nom d'utilisateur ou mot de passe non reconnu. Veuillez réessayer."),
       })
     }
 
@@ -66,7 +66,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             className={classNames("py-3 px-4 border", {
               "border-link bg-link/10 text-link":
                 formStatus?.status === "success",
-              "border-error bg-error/10 text-error":
+              "px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md":
                 formStatus?.status === "error",
             })}
           >
@@ -103,7 +103,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
             <p className="ml-2 text-sm">
               Rester connecté
             </p>
-            <button className="ml-auto fedblueblue text-sm" onClick={redirectButton}>Mot de passe oublié</button>
+            <button className="ml-auto fedblueblue text-sm" onClick={redirectButton}>Mot de passe oublié ? </button>
           </div>
 
 

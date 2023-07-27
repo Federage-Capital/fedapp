@@ -128,7 +128,7 @@ export default function AlluserlistPage
 										href="#link1"
 										role="tablist"
 									>
-										Projet
+										Projets
 									</a>
 								</li>
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
@@ -142,7 +142,7 @@ export default function AlluserlistPage
 										href="#link1"
 										role="tablist"
 									>
-										Entreprise
+										Membres
 									</a>
 								</li>
 							</ul>

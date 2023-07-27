@@ -74,7 +74,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
             id="categorie_d_entreprise"
             name="categorie_d_entreprise"
             placeholder="Type de structure"
-            className="relative block w-full px-3 py-3 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md leading-tight focus:outline-none focus:ring-black focus:border-black sm:text-sm bg-white appearance-none"
+            className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md leading-tight focus:outline-none focus:ring-black focus:border-black sm:text-sm bg-white appearance-none"
           >
             <option value=" disabled selected hidden caret-slate-600">Type de structure</option>
             <option value="9f599b2e-2e4c-4f68-b215-4f3dff4ce84f">Entreprise</option>

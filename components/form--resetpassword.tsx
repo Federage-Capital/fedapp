@@ -12,7 +12,7 @@ import { contactFormSchema2 } from "../validations/resetaccount"
 type FormData = yup.TypeOf<typeof contactFormSchema2>
 
 
-interface FormCreateProps extends React.HTMLProps<HTMLFormElement> {}
+interface FormCreateProps extends React.HTMLProps<HTMLFormElement> { }
 
 
 export function FormResetpassword({ className, ...props }: FormCreateProps) {
@@ -25,8 +25,8 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
   // The Drupal base URL and the webform_id are NOT exposed.
   async function onSubmit(data: FormData) {
     const response2 = await fetch(`https://fed.septembre.io/user/lost-password?_format=json`, {
-        method: "POST",
-        body: JSON.stringify(data),
+      method: "POST",
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -43,59 +43,59 @@ export function FormResetpassword({ className, ...props }: FormCreateProps) {
 
   return (
 
-<div>
-    {status === "error" ? (
-      <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-        Il y a une erreur. Veuillez recommencer.
-      </div>
-    ) : null}
-    {status === "success" ? (
-      <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
-        Votre message a été envoyé. Merci.
-      </div>
-    ) : null}
-    {Object.values(formState.errors)?.length ? (
-      <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-        {Object.values(formState.errors).map((error, index) => (
-          <p key={index}>{error.message}</p>
-        ))}
-      </div>
-    ) : null}
+    <div>
+      {status === "error" ? (
+        <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+          Il y a une erreur. Veuillez recommencer.
+        </div>
+      ) : null}
+      {status === "success" ? (
+        <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
+          Votre message a été envoyé. Merci.
+        </div>
+      ) : null}
+      {Object.values(formState.errors)?.length ? (
+        <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+          {Object.values(formState.errors).map((error, index) => (
+            <p key={index}>{error.message}</p>
+          ))}
+        </div>
+      ) : null}
 
-    <form className={classNames("grid gap-4","inputWithButton", className)}
+      <form className={classNames("grid gap-4", "inputWithButton", className)}
 
         onSubmit={handleSubmit(onSubmit)}>
 
 
         <div className="grid">
 
-        <input
-          id="mail"
-          name="mail"
-          type="mail"
-          placeholder="Adresse mail"
-          className="relative block w-full px-3 py-2 mb-4 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-          {...register("mail")}
-        />
-        <button
-          type="submit"
-          data-cy="btn-submit"
-          className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
-        >
-          Réinitialiser
-        </button>
-      </div>
-      <div>
+          <input
+            id="mail"
+            name="mail"
+            type="mail"
+            placeholder="Adresse mail"
+            className="relative block w-full px-3 py-2 mb-4 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+            {...register("mail")}
+          />
+          <button
+            type="submit"
+            data-cy="btn-submit"
+            className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <div>
 
-      </div>
-      <div>
+        </div>
+        <div>
 
-      </div>
-      <div>
+        </div>
+        <div>
 
-      </div>
+        </div>
 
-    </form>
+      </form>
     </div>
   )
 }

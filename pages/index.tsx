@@ -103,7 +103,9 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
                 {Object.values(formState.errors)?.length ? (
                   <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
                     {Object.values(formState.errors).map((error, index) => (
-                      <p key={index}>{error.message}</p>
+                      <p key={index}>
+                        Veuillez entrer une adresse mail valide.
+                      </p>
                     ))}
                   </div>
                 ) : null}
