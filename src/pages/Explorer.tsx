@@ -167,10 +167,8 @@ const Explorer: FunctionComponent = () => {
                     </div>
                     <div className="self-stretch flex flex-col items-center justify-start text-black">
                       <div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-whitesmoke-500">
-                        <div className="w-[129px] flex flex-col items-start justify-start gap-[2px]">
-                          <div className="self-stretch relative leading-[20px] font-semibold">
-                            Apport #1
-                          </div>
+                        <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
+                          <div className="self-stretch relative leading-[20px] font-semibold">{`Formule bio-synthétique humanoïde `}</div>
                           <div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
                             Prix recherché : 0,00€
                           </div>
@@ -182,9 +180,9 @@ const Explorer: FunctionComponent = () => {
                         />
                       </div>
                       <div className="self-stretch flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-whitesmoke-500 border-b-[2px] border-l-[2px]">
-                        <div className="w-[129px] flex flex-col items-start justify-start gap-[2px]">
+                        <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
                           <div className="self-stretch relative leading-[20px] font-semibold">
-                            Apport #1
+                            Traitement immunothérapie
                           </div>
                           <div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
                             Prix recherché : 0,00€
@@ -197,9 +195,9 @@ const Explorer: FunctionComponent = () => {
                         />
                       </div>
                       <div className="self-stretch rounded-t-none rounded-b-lg flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-whitesmoke-500 border-b-[2px] border-l-[2px]">
-                        <div className="w-[129px] flex flex-col items-start justify-start gap-[2px]">
+                        <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
                           <div className="self-stretch relative leading-[20px] font-semibold">
-                            Apport #1
+                            Laboratoire de type Cancéropôle
                           </div>
                           <div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
                             Prix recherché : 0,00€
