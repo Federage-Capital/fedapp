@@ -14,7 +14,6 @@ import { UserProfile } from "components/user-profile"
 
 
 
-
 const RESOURCE_TYPES = [
   "node--page",
   "node--article",

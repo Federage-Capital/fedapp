@@ -54,7 +54,6 @@ export function NodeGroupFinancement({ node, ...props }: NodeGroupFinancementPro
 
 
 
-
       <div>
 
 

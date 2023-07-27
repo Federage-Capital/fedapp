@@ -34,7 +34,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 								.map((filterUser, index) => (
 									<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
 										{filterUser.user_picture && (
-											<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+											<Link href={`/group/federage/${filterUser.label.replace(/è/g, 'e').replaceAll(' ', '-')}`} passHref>
 												<Image
 													src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
 													alt={filterUser.uid}
@@ -62,10 +62,12 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 						apport attendu : intitulé du pre-apport
 					</div>
 					<div className="flex justify-center">
-						<button className="px-3 fedblue py-2 mb-4 text-md text-white transition-colors rounded-xl
+						<Link href="/contribuer" passHref>
+							<button className="px-3 fedblue py-2 mb-4 text-md text-white transition-colors rounded-xl
 					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6">
-							<a className="text-lg">{t("Contribuer")}</a>
-						</button>
+								<a className="text-lg">{t("Contribuer")}</a>
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>
@@ -83,13 +85,15 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 								.map((filterUser, index) => (
 									<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
 										{filterUser.user_picture && (
-											<Image
-												src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
-												alt={filterUser.uid}
-												width={30}
-												height={30}
-												className="h-8 w-8 rounded-full"
-											/>
+											<Link href={filterUser.label.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
+												<Image
+													src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
+													alt={filterUser.uid}
+													width={30}
+													height={30}
+													className="h-8 w-8 rounded-full"
+												/>
+											</Link>
 										)}
 									</div>
 								))}

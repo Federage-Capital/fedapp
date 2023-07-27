@@ -52,8 +52,9 @@ const params = {
 
 
 
+
 export default function AlluserlistPage
-	({ menus, blocks, users, nodes, logouri, catentreprise,
+	({ menus, blocks, users, nodes, logouri, catentreprise, result_users,
 		facets: initialFacets,
 	}: AlluserlistPageProps) {
 	const { t } = useTranslation()
@@ -64,7 +65,6 @@ export default function AlluserlistPage
 
 	const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
 	const colored = "bg-white fedblueblue";
-	const names = ['James', 'John', 'Paul', 'Ringo', 'George'];
 
 	const [state, setStatus] = React.useState<"error" | "success" | "loading">()
 	const [results, setResults] = React.useState<DrupalNode[]>(nodes)
@@ -163,29 +163,23 @@ export default function AlluserlistPage
 											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
-													{catentreprise
-														.filter((catent) => catent.id.includes(node?.field_type_de_structure?.id))
-														.map((catname) => (
-															<div key={catname.id}>
-																{node.user_picture ? (
-																	<div className="text-sm" data-cy="search-no-results">
-																		{logouri
-																			.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-																			.map((itemlogo) => (
-																				<div key={itemlogo.id}>
-																					<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catname={catname} />
-																				</div>
-																			))}
+													{node.user_picture ? (
+														<div className="text-sm" data-cy="search-no-results">
+															{logouri
+																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
+																.map((itemlogo) => (
+																	<div key={itemlogo.id}>
+																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catentreprise={catentreprise} />
 																	</div>
-																) : (
-																	<div>
-																		<div className="text-sm" data-cy="search-no-results">
-																			<BoxUserList key={node.id} node={node} results={results} catname={catname} />
-																		</div>
-																	</div>
-																)}
+																))}
+														</div>
+													) : (
+														<div>
+															<div className="text-sm" data-cy="search-no-results">
+																<BoxUserList key={node.id} node={node} results={results} catentreprise={catentreprise} />
 															</div>
-														))}
+														</div>
+													)}
 												</div>
 											))}
 									</div>
@@ -203,7 +197,6 @@ export default function AlluserlistPage
 											.map((filterNode) => (
 												<div key={filterNode.id}>
 													{nodes.type}
-
 													<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
 												</div>
 											))}
@@ -280,6 +273,17 @@ export async function getStaticProps(
 	)
 
 
+	const result_users = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
+		"default_index",
+		context,
+		{
+			deserialize: false,
+			params: {
+				"filter[type]": "user--user",
+
+			},
+		}
+	)
 
 
 	const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
@@ -288,6 +292,7 @@ export async function getStaticProps(
 		{
 			params: {
 				"fields[file--file]": "id,uri",
+
 
 				sort: "-created",
 			},
@@ -298,7 +303,10 @@ export async function getStaticProps(
 		props: {
 			...(await getGlobalElements(context)),
 			catentreprise,
+
 			nodes: deserialize(results) as DrupalNode[],
+			nodes2: deserialize(result_users) as DrupalNode[],
+
 			facets: results.meta.facets,
 			logouri,
 
