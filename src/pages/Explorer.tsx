@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Explorer: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-xs-leading-4-font-medium">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-base-leading-6-font-normal">
       <div className="self-stretch flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">

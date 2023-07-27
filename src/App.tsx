@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
+import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import MobileExplorerMembre from "./pages/ExplorerMembre";
 import MobileServiceProjet22 from "./pages/CrerProjetPublic";
@@ -39,6 +40,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-inscription":
         title = "";
         metaDescription = "";
         break;
@@ -121,6 +126,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjet211 />} />
+      <Route path="/-inscription" element={<Inscription />} />
       <Route path="/-connexion" element={<Connexion />} />
       <Route path="/-explorermembre" element={<MobileExplorerMembre />} />
       <Route
