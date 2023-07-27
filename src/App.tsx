@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
+import Explorer from "./pages/Explorer";
 import Profil from "./pages/Profil";
 import MobileAccueil from "./pages/SiteAccueil";
 import MobileServiceProjetPriv1 from "./pages/CrerProjetPriv";
@@ -20,7 +21,6 @@ import Partenaires from "./pages/Partenaires";
 import MobileExplorerMembre from "./pages/ExplorerMembre";
 import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
-import Explorer from "./pages/Explorer";
 import MobileServiceProjet22 from "./pages/CrerProjetPublic";
 import { useEffect } from "react";
 
@@ -41,6 +41,10 @@ function App() {
 
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-mobileexplorer":
         title = "";
         metaDescription = "";
         break;
@@ -104,10 +108,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileexplorer":
-        title = "";
-        metaDescription = "";
-        break;
       case "/-crerprojetpublic":
         title = "";
         metaDescription = "";
@@ -131,6 +131,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjet211 />} />
+      <Route path="/-mobileexplorer" element={<Explorer />} />
       <Route path="/-profil" element={<Profil />} />
       <Route path="/-mobileaccueil" element={<MobileAccueil />} />
       <Route
@@ -173,7 +174,6 @@ function App() {
       <Route path="/-explorermembre" element={<MobileExplorerMembre />} />
       <Route path="/-connexion" element={<Connexion />} />
       <Route path="/-inscription" element={<Inscription />} />
-      <Route path="/-mobileexplorer" element={<Explorer />} />
       <Route path="/-crerprojetpublic" element={<MobileServiceProjet22 />} />
     </Routes>
   );
