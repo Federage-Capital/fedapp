@@ -31,15 +31,15 @@ const Explorer: FunctionComponent = () => {
                 offre d’apport et intégrer plusieurs projets.
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-base border-[2px] border-solid border-whitesmoke-500">
+            <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-base text-darkgray-200 border-[2px] border-solid border-gray-200">
               <div className="flex-1 flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px]">
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
                   src="/search.svg"
                 />
-                <div className="flex-1 relative leading-[24px] font-medium">
-                  Alimentation
+                <div className="relative leading-[24px] font-medium">
+                  Rechercher un projet
                 </div>
               </div>
             </div>
@@ -52,30 +52,30 @@ const Explorer: FunctionComponent = () => {
                     <img
                       className="absolute top-[-2px] left-[58px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar4@2x.png"
+                      src="/avatar1@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[38px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar5@2x.png"
+                      src="/avatar8@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[18px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar6@2x.png"
+                      src="/avatar9@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[-2px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar7@2x.png"
+                      src="/avatar10@2x.png"
                     />
                   </div>
                   <div className="rounded-10xs bg-indigo-50" />
                 </div>
                 <div className="self-stretch flex flex-row items-center justify-start">
                   <div className="flex-1 relative leading-[20px] font-semibold">
-                    Solution pour le développement de nutriments actifs
-                    anti-cancérigènes
+                    Développement d’un site de voyages prémium par abonnement
+                    mensuel
                   </div>
                 </div>
               </div>
@@ -83,18 +83,18 @@ const Explorer: FunctionComponent = () => {
                 <div className="self-stretch flex flex-col items-start justify-start">
                   <div className="self-stretch flex flex-col items-center justify-center">
                     <div className="self-stretch relative leading-[20px] font-medium">
-                      Recherche un procédé agro-alimentaire pour expérimenter
-                      des solutions nutritionnelles médicales.
+                      Plateforme privative d'abonnement de services pour voyages
+                      haut-de-gamme.
                     </div>
                   </div>
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-center justify-center text-mediumblue-100">
-                <div className="self-stretch rounded-lg flex flex-row items-center justify-start">
+                <div className="self-stretch rounded-lg overflow-hidden flex flex-row items-center justify-start">
                   <div className="flex-1 flex flex-col items-start justify-start">
                     <div className="self-stretch flex flex-row py-0 pr-7 pl-0 items-center justify-between">
                       <div className="relative leading-[20px] font-semibold">
-                        210 000€ • 4 apports recherchés
+                        167 00€ • 4 apports spécifiés
                       </div>
                       <img
                         className="relative w-3.5 h-[8.4px]"
@@ -135,7 +135,7 @@ const Explorer: FunctionComponent = () => {
                     <img
                       className="absolute top-[-2px] left-[-2px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar7@2x.png"
+                      src="/avatar@2x.png"
                     />
                   </div>
                   <div className="rounded-10xs bg-indigo-50" />
@@ -162,7 +162,7 @@ const Explorer: FunctionComponent = () => {
                   <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
                     <div className="self-stretch flex flex-row py-0 pr-7 pl-0 items-center justify-between">
                       <div className="relative leading-[20px] font-semibold">
-                        210 000€ • 4 apports recherchés
+                        210 000€ • 3 apports spécifiés
                       </div>
                       <img
                         className="relative w-3.5 h-[8.4px]"

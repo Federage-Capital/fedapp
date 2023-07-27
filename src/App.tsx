@@ -5,8 +5,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
-import Configuration from "./pages/Configuration";
 import Explorer from "./pages/Explorer";
+import Configuration from "./pages/Configuration";
 import Profil from "./pages/Profil";
 import MobileAccueil from "./pages/SiteAccueil";
 import MobileServiceProjetPriv1 from "./pages/CrerProjetPriv";
@@ -45,11 +45,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-configuration":
+      case "/-mobileexplorer":
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileexplorer":
+      case "/-configuration":
         title = "";
         metaDescription = "";
         break;
@@ -136,8 +136,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjet211 />} />
-      <Route path="/-configuration" element={<Configuration />} />
       <Route path="/-mobileexplorer" element={<Explorer />} />
+      <Route path="/-configuration" element={<Configuration />} />
       <Route path="/-profil" element={<Profil />} />
       <Route path="/-mobileaccueil" element={<MobileAccueil />} />
       <Route

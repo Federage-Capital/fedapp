@@ -8,7 +8,7 @@ const Profil: FunctionComponent = () => {
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
-            src="/avatar1@2x.png"
+            src="/avatar12@2x.png"
           />
         </div>
         <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
@@ -49,7 +49,7 @@ const Profil: FunctionComponent = () => {
             <img
               className="rounded-5xl w-12 h-12 object-cover"
               alt=""
-              src="/avatar@2x.png"
+              src="/avatar13@2x.png"
             />
             <div className="rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-center border-[1px] border-solid border-gray-300">
               <div className="relative leading-[16px] font-semibold">

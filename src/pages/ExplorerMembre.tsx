@@ -30,7 +30,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
             <img
               className="rounded-[24.02px] w-12 h-12 object-cover"
               alt=""
-              src="/avatar8@2x.png"
+              src="/avatar81@2x.png"
             />
             <div className="flex-1 flex flex-col items-start justify-start">
               <div className="self-stretch flex flex-row items-center justify-start">
