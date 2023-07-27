@@ -9,7 +9,7 @@ const MobileAccueil: FunctionComponent = () => {
   }, [navigate]);
 
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-xs-leading-4-font-normal">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-sm-leading-5-font-medium">
       <div className="self-stretch overflow-y-auto shrink-0 flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-y-auto shrink-0 flex flex-col items-center justify-start z-[2]">
           <div className="self-stretch bg-black1 h-7 z-[1]" />
