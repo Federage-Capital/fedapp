@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceCrerProjet: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -51,7 +51,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch flex-1 bg-whitesmoke-100 flex flex-col py-6 px-4 items-center justify-start gap-[20px] text-sm">
+      <div className="self-stretch flex-1 bg-gray-50 flex flex-col py-6 px-4 items-center justify-start gap-[20px] text-sm">
         <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
           <b className="relative leading-[20px]">Intitulé de l’apport</b>
           <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-200">

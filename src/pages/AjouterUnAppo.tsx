@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceAjouterUnAppo: FunctionComponent = () => {
   return (
-    <div className="relative w-full flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative w-full flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -48,7 +48,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-whitesmoke-100 flex flex-col py-6 px-4 items-start justify-start gap-[20px] text-xl text-gray-900">
+      <div className="self-stretch bg-gray-50 flex flex-col py-6 px-4 items-start justify-start gap-[20px] text-xl text-gray-900">
         <div className="self-stretch rounded-lg bg-white flex flex-col py-[22px] px-4 items-center justify-start gap-[24px] border-[2px] border-solid border-gray-100">
           <div className="self-stretch flex flex-row items-start justify-center gap-[42px]">
             <div className="flex-1 relative leading-[26px] font-semibold">

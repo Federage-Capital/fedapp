@@ -4,11 +4,12 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import MobileServiceProjet211 from "./pages/CrerProjet2";
+import Connexion from "./pages/Connexion";
 import MobileExplorerMembre from "./pages/ExplorerMembre";
 import MobileServiceProjet22 from "./pages/CrerProjetPublic";
 import Partenaires from "./pages/Partenaires";
 import Explorer from "./pages/Explorer";
-import MobileServiceProjet211 from "./pages/CrerProjet2";
 import MobileServiceCrerProjet from "./pages/CrerProjet";
 import MobileServiceModificationAp from "./pages/ModiApport";
 import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
@@ -41,6 +42,14 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-connexion":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-explorermembre":
+        title = "";
+        metaDescription = "";
+        break;
       case "/-crer-projet-public-1":
         title = "";
         metaDescription = "";
@@ -50,10 +59,6 @@ function App() {
         metaDescription = "";
         break;
       case "/-mobileexplorer":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-crer-projet-2":
         title = "";
         metaDescription = "";
         break;
@@ -115,14 +120,15 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MobileExplorerMembre />} />
+      <Route path="/" element={<MobileServiceProjet211 />} />
+      <Route path="/-connexion" element={<Connexion />} />
+      <Route path="/-explorermembre" element={<MobileExplorerMembre />} />
       <Route
         path="/-crer-projet-public-1"
         element={<MobileServiceProjet22 />}
       />
       <Route path="/-partenaires" element={<Partenaires />} />
       <Route path="/-mobileexplorer" element={<Explorer />} />
-      <Route path="/-crer-projet-2" element={<MobileServiceProjet211 />} />
       <Route
         path="/-mobileservicecrer-projet"
         element={<MobileServiceCrerProjet />}

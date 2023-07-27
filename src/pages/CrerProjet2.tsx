@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet211: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-base-leading-6-font-normal">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-medium">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -51,7 +51,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-whitesmoke-100 flex flex-col pt-6 px-4 pb-0 items-center justify-start gap-[48px]">
+      <div className="self-stretch bg-gray-50 flex flex-col pt-6 px-4 pb-0 items-center justify-start gap-[48px]">
         <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
             <b className="self-stretch relative leading-[20px]">
