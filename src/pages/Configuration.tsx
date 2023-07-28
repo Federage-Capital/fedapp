@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Configuration: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full h-[844px] overflow-y-auto flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-medium">
+    <div className="relative bg-white w-full h-[844px] overflow-y-auto flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -143,7 +143,7 @@ const Configuration: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-11.svg"
+            src="/component-111.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -151,7 +151,7 @@ const Configuration: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-51.svg"
+            src="/component-511.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
@@ -159,7 +159,7 @@ const Configuration: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-21.svg"
+            src="/component-211.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

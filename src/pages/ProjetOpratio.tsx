@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjetOpratio: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-900 font-text-sm-leading-5-font-medium">
+    <div className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-900 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -78,7 +78,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img
                 className="relative w-5 h-5 overflow-hidden shrink-0"
                 alt=""
-                src="/cash2.svg"
+                src="/cash21.svg"
               />
               <div className="relative leading-[20px] font-medium">
                 Capital ouvert
@@ -160,7 +160,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
                   <img
                     className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                     alt=""
-                    src="/user-group1.svg"
+                    src="/user-group11.svg"
                   />
                 </div>
                 <div className="rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[9px] px-[17px] items-center justify-between">
@@ -242,7 +242,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-111.svg"
+            src="/component-1112.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -250,7 +250,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-511.svg"
+            src="/component-5111.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>

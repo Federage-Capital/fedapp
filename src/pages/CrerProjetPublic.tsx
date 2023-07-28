@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileServiceProjet22: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-sm-leading-5-font-medium">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-dimgray font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img

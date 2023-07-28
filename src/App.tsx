@@ -5,14 +5,14 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
+import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
 import Explorer from "./pages/Explorer";
-import Configuration from "./pages/Configuration";
 import Profil from "./pages/Profil";
+import Configuration from "./pages/Configuration";
 import MobileAccueil from "./pages/SiteAccueil";
 import MobileServiceProjetPriv1 from "./pages/CrerProjetPriv";
 import MobileServiceProjet21 from "./pages/CrerProjetPublic3";
 import MobileServiceProjet2 from "./pages/CrerProjetPublic2";
-import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
 import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
 import MobileServiceAjouterUnAppo1 from "./pages/AjouterUnAppo2";
 import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
@@ -45,15 +45,19 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-projetopratio":
+        title = "";
+        metaDescription = "";
+        break;
       case "/-mobileexplorer":
         title = "";
         metaDescription = "";
         break;
-      case "/-configuration":
+      case "/-profil":
         title = "";
         metaDescription = "";
         break;
-      case "/-profil":
+      case "/-configuration":
         title = "";
         metaDescription = "";
         break;
@@ -73,15 +77,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileserviceprojet-oprationel":
-        title = "";
-        metaDescription = "";
-        break;
       case "/-mobileserviceprojet-oprationel-2":
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileserviceajouter-un-apport":
+      case "/-ajouterunappo":
         title = "";
         metaDescription = "";
         break;
@@ -136,9 +136,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjet211 />} />
+      <Route path="/-projetopratio" element={<MobileServiceProjetOpratio1 />} />
       <Route path="/-mobileexplorer" element={<Explorer />} />
-      <Route path="/-configuration" element={<Configuration />} />
       <Route path="/-profil" element={<Profil />} />
+      <Route path="/-configuration" element={<Configuration />} />
       <Route path="/-mobileaccueil" element={<MobileAccueil />} />
       <Route
         path="/-mobileserviceprojet-priv-1"
@@ -153,17 +154,10 @@ function App() {
         element={<MobileServiceProjet2 />}
       />
       <Route
-        path="/-mobileserviceprojet-oprationel"
-        element={<MobileServiceProjetOpratio1 />}
-      />
-      <Route
         path="/-mobileserviceprojet-oprationel-2"
         element={<MobileServiceProjetOpratio />}
       />
-      <Route
-        path="/-mobileserviceajouter-un-apport"
-        element={<MobileServiceAjouterUnAppo1 />}
-      />
+      <Route path="/-ajouterunappo" element={<MobileServiceAjouterUnAppo1 />} />
       <Route
         path="/-mobileserviceajouter-un-apport-2"
         element={<MobileServiceAjouterUnAppo />}

@@ -1,8 +1,9 @@
 import { FunctionComponent } from "react";
+import BoutonIcon from "../components/BoutonIcon";
 
 const Explorer: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-sm-leading-5-font-medium">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
@@ -178,11 +179,7 @@ const Explorer: FunctionComponent = () => {
                             Prix recherché : 40 000,00€
                           </div>
                         </div>
-                        <img
-                          className="relative rounded-[6.91px] w-[38.27px] h-[38px]"
-                          alt=""
-                          src="/bouton2.svg"
-                        />
+                        <BoutonIcon />
                       </div>
                       <div className="self-stretch flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-gray-100 border-b-[2px] border-l-[2px]">
                         <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
