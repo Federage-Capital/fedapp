@@ -82,14 +82,14 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 	else if (status === "unauthenticated") {
 		return (
 			<div className="self-stretch flex flex-col items-center justify-start">
-				<div className="self-stretch overflow-y-auto flex flex-col pt-6 px-4 pb-12 items-start justify-start gap-[22px]">
+				<div className="self-stretch overflow-y-auto flex flex-col px-4 items-start justify-start gap-[22px]">
 					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black1">
 					</div>
 					<div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
 						<div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
 							<div className="self-stretch flex flex-col items-center justify-start gap-[22px] text-xl">
 								<div className="self-stretch flex flex-row items-center justify-between">
-									<div className="relative w-[84px] h-6">
+									<div className="relative w-[84px] h-6 flex">
 										{useringroup &&
 											useringroup
 												.filter((userin) => userin.uuid.includes(node.id))
@@ -163,73 +163,6 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 							</div>
 						</div>
 					</div>
-					<div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
-						<div className="self-stretch flex flex-col items-start justify-start gap-[20px]">
-
-							<div className="self-stretch flex flex-col items-center justify-center text-mediumblue-100">
-								<div className="self-stretch rounded-lg overflow-hidden flex flex-row items-center justify-start">
-									<div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
-										<div className="self-stretch flex flex-row py-0 pr-7 pl-0 items-center justify-between">
-											<div className="relative leading-[20px] font-semibold">
-												210 000€ • 3 apports spécifiés
-											</div>
-											<img
-												className="relative w-3.5 h-[8.4px]"
-												alt=""
-												src="/icon3.svg"
-											/>
-										</div>
-										<div className="self-stretch flex flex-col items-center justify-start text-black1">
-											<div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
-												<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
-													<div className="self-stretch relative leading-[20px] font-semibold">{`Formule bio-synthétique humanoïde `}</div>
-													<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-														Prix recherché : 40 000,00€
-													</div>
-												</div>
-											</div>
-											<div className="self-stretch flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-gray-100 border-b-[2px] border-l-[2px]">
-												<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
-													<div className="self-stretch relative leading-[20px] font-semibold">
-														Traitement immunothérapie
-													</div>
-													<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-														Prix recherché : 60 000,00€
-													</div>
-												</div>
-												<img
-													className="relative rounded-[6.91px] w-[38.27px] h-[38px]"
-													alt=""
-													src="/bouton2.svg"
-												/>
-											</div>
-											<div className="self-stretch rounded-t-none rounded-b-lg flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-gray-100 border-b-[2px] border-l-[2px]">
-												<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
-													<div className="self-stretch relative leading-[20px] font-semibold">
-														Laboratoire de type Cancéropôle
-													</div>
-													<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-														Prix recherché : 110 000,00€
-													</div>
-												</div>
-												<img
-													className="relative rounded-[6.91px] w-[38.27px] h-[38px]"
-													alt=""
-													src="/bouton2.svg"
-												/>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
-							<div className="relative leading-[20px] font-semibold">
-								Contribuer
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		)
