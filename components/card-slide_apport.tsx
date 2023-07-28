@@ -14,7 +14,7 @@ export default function SlideApport({ showMenu, node, ...props }: SlideApportAll
 	return (
 		<>
 			{showMenu && (
-				<div className="self-stretch flex flex-col items-center justify-start text-black1 pb-5 ml-4 mr-4">
+				<div className="self-stretch flex flex-col items-center justify-start text-black1 pb-5 ">
 					<div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
 						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
 							<div className="self-stretch relative leading-[20px] font-semibold">
