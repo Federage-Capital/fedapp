@@ -196,7 +196,6 @@ export default function AlluserlistPage
 											.filter(results_projets => results_projets.type.includes("group--federage"))
 											.map((filterNode) => (
 												<div key={filterNode.id}>
-													{nodes.type}
 													<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
 												</div>
 											))}
