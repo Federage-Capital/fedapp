@@ -46,7 +46,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 												.map((filterUser, index) => (
 													<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
 														{filterUser.user_picture && (
-															<Link href={`/group/federage/${filterUser.label.replace(/è/g, 'e').replaceAll(' ', '-')}`} passHref>
+															<Link href={`/group/federage/${filterUser.label.replace(/è/g, 'e').replaceAll(' ', '-').replaceAll('\/', '-')}`} passHref>
 																<Image
 																	src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
 																	alt={filterUser.uid}
