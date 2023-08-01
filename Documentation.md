@@ -77,6 +77,8 @@ const { data: useringroup, error: useringroupError } = useSWR(
 );
 ```
 
+# Composant BoxProjectList
+
 le `useringroup` qui correspond a un apelle d'API qui permet de récupérer l'image d'un membre d'un groupe de projet,
 qui est utilisé dans le `composant BoxProjectList` à la ligne 42-60 si l'utilisateur est connecté, puis de la ligne 130-148 si l'utilisateur n'est pas connecté.
 
