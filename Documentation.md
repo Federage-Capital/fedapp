@@ -82,7 +82,7 @@ const { data: useringroup, error: useringroupError } = useSWR(
 le `useringroup` qui correspond a un apelle d'API qui permet de récupérer l'image d'un membre d'un groupe de projet,
 qui est utilisé dans le `composant BoxProjectList` à la ligne 42-60 si l'utilisateur est connecté, puis de la ligne 130-148 si l'utilisateur n'est pas connecté.
 
-### Composant BoxProjectList
+## Composant BoxProjectList
 
 ```tsx
 {
@@ -135,7 +135,7 @@ Il est utilisé dans le composant `BoxProjectList` à la l.86 et l.174
 Le composant `CalculApport` prends comme paramètre un `node` et une `key`.
 la clef correspond à l'identifiant du projet.
 
-# Composant SlideApport
+## Composant SlideApport
 
 Le composant `SlideApport` vient du fichier `card-slide_apport.tsx` qui est appelé dans le composant `BoxProjectList` à la ligne 108 et 196.
 
