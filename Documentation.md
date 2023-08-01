@@ -6,6 +6,8 @@ Ce composant est appelé dans le composant `user-profile` et n'affiche que les p
 
 Le composant SlideApport se trouve dans le fichier `card-slide_apport.tsx`.
 
+# Direction du composant `SlideApport`
+
 Le composant `SlideApport` est utilisé dans le composant `BoxProjectList`, qui est situé dans le fichier `box-project-alluserlist.tsx` et est appelé dans le fichier `alluserlist.tsx` à la ligne 199 dans une boucle `map`.
 
 ```tsx
