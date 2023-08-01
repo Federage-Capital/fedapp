@@ -81,6 +81,13 @@ qui est utilisé dans le `composant BoxProjectList` à la ligne 42-60 si l'utili
 			</div>
 		))}
 ```
+La variable temporaire `filterUser` contient la données de useringroup, ce qui permet d'afficher tous les données nécessaire pour l'affichage de l'image de profil d'un membre d'un groupe de projet.
+
+la fonction `filter` permet de filtrer les données de l'API pour ne récupérer que les membres qui appartiennent à un projet.
+
+la fonction `slice` permet de limiter le nombre d'image de profil à 5.
+
+La variable `index` est initialisé à 0, et est incrémenté de 1 à chaque boucle, ce qui permet de ne pas afficher l'image de profil du premier membre du groupe de projet.
 
 Le Composant `CalculApport` qui permet d'avoir le nombre de contribution d'un projet et le nombre de contributeur d'un projet.
 Il est utilisé dans le composant `BoxProjectList` à la l.86 et l.174
@@ -120,8 +127,6 @@ Le node.id correspond à l'identifiant du projet.
 
 Les données de L'API sont utiliser à la ligne 40 jusqu'a la ligne 58.
 
-Le filtre est appliqué sur le gid d'id du type de groupe puis le mapping qui s'applique pour afficher les données.
-
 ```tsx
 {!userApport?.length ? (
 	<p>
@@ -143,3 +148,5 @@ Le filtre est appliqué sur le gid d'id du type de groupe puis le mapping qui s'
 	</div>
 )}
 ```
+
+Le filtre est appliqué sur le gid d'id du type de groupe puis la variable temporaire du map `userInApport` qui contient les données de `l'userApport`.
