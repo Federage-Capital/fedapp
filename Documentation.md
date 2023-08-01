@@ -144,6 +144,8 @@ Le composant `SlideApport` qui est appelé dans le composant `BoxProjectList` à
 le composant prend 2 paramètre, showMenu et node,
 showMenu correspond a un boolean qui est initialisé dans BoxProjectList :
 
+showMenu est un booléen qui va permettre d'afficher ou non le composant `SlideApport`.
+
 ```tsx
 const [showMenu, setShowMenu] = React.useState<boolean>(false);
 ```
