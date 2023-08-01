@@ -51,6 +51,8 @@ const params = {
 
 Le composant `BoxProjectList` prends commme paramètre un `node, useringroup et un status`.
 
+Le paramètre `status` permet de gérer quand un utilisateur est connecté ou non.
+
 ```tsx
 <BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
 ```
