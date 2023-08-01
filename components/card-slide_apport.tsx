@@ -8,18 +8,33 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function SlideApport({ showMenu, node }: SlideApportAllUserListProps) {
 
-	const { data: userApport, error: userApportError } = useSWR(() => `https://fed.septembre.io/jsonapi/group_content/federage-group_node-financement` + '/' + node.id, fetcher)
-
+	const { data: userApport, error: userApportError } = useSWR(() => `https://fed.septembre.io/jsonapi/group_content/federage-group_node-financement` + '/' + node.id, fetcher);
 
 	if (userApportError) return <div>Failed to load</div>;
 
 	return (
 		<>
+			{userApport}
+			{/* {userApport
+				.map((userInApport) => (
+					<div key={userInApport.id}>
+						{userInApport}
+					</div>
+				))
+			} */}
 			{showMenu && (
 				<div className="self-stretch flex flex-col items-center justify-start text-black1 pb-5 ">
 					<div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
 						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
 							<div className="self-stretch relative leading-[20px] font-semibold">
+								{/* {Array.isArray(userApport.data) &&
+									userApport.data
+										.map((userInApport) => (
+											<div key={userInApport.id}>
+												{userInApport}
+											</div>
+										))
+								} */}
 								{!userApport?.length ? (
 									<p>
 										Aucun résultat.
