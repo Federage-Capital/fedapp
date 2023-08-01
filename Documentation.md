@@ -133,7 +133,7 @@ la clef correspond à l'identifiant du projet.
 
 # Composant SlideApport
 
-Le composant `SlideApport` qui est appelé dans le composant `BoxProjectList` à la ligne 108 et 196.
+Le composant `SlideApport` vient du fichier `card-slide_apport.tsx` qui est appelé dans le composant `BoxProjectList` à la ligne 108 et 196.
 
 ```tsx
 {
