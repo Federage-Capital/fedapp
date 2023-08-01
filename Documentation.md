@@ -1,20 +1,22 @@
-# Le composant box-project_user.tsx qui est appeler dans le composant user-profile, n'affiche que les projets publier et non les drafts
+# Le composant `box-project_user.tsx`
 
-# Erreur du composant SlideApport :
-Le composant SlideApport se trouve dans le fichier card-slide_apport.tsx.
+Ce composant est appelé dans le composant `user-profile` et n'affiche que les projets publiés, pas les brouillons.
 
-Le composant SlideApport est utilisé dans le composant BoxProjectList, qui est situé dans le fichier
-box-project-alluserlist.tsx et est appelé dans le fichier alluserlist.tsx à la ligne 199 dans une boucle map.
+# Erreur du composant `SlideApport`
 
-////////////////////////////////
+Le composant SlideApport se trouve dans le fichier `card-slide_apport.tsx`.
+
+Le composant `SlideApport` est utilisé dans le composant `BoxProjectList`, qui est situé dans le fichier `box-project-alluserlist.tsx` et est appelé dans le fichier `alluserlist.tsx` à la ligne 199 dans une boucle `map`.
+
+```jsx
 {results
-		.filter(results_projets => results_projets.type.includes("group--federage"))
-		.map((filterNode) => (
+	.filter(results_projets => results_projets.type.includes("group--federage"))
+	.map((filterNode) => (
 		<div key={filterNode.id}>
 			<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
 		</div>
 ))}
-////////////////////////////////
+```
 
 Le results qui est une constante qui contient les données de l'API du default_index qui est crée dans le composant alluserlist.tsx à la ligne 265.
 
