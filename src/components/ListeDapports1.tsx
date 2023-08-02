@@ -1,7 +1,7 @@
 import { FunctionComponent, useCallback } from "react";
 
 const ListeDapports1: FunctionComponent = () => {
-  const onFrameContainer15Click = useCallback(() => {
+  const onFrameContainer1Click = useCallback(() => {
     // Please sync "₣ - AjouterUnAppo" to the project
   }, []);
 
@@ -9,7 +9,7 @@ const ListeDapports1: FunctionComponent = () => {
     <div className="self-stretch flex flex-col items-center justify-start text-left text-base text-black1 font-text-2xl-leading-8-font-bold">
       <div
         className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between cursor-pointer border-[2px] border-solid border-gray-100"
-        onClick={onFrameContainer15Click}
+        onClick={onFrameContainer1Click}
       >
         <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
           <div className="self-stretch relative leading-[20px] font-semibold">{`Formule bio-synthétique humanoïde `}</div>
@@ -38,7 +38,7 @@ const ListeDapports1: FunctionComponent = () => {
           <img
             className="relative w-[5.75px] h-[9.58px]"
             alt=""
-            src="/icon1.svg"
+            src="/icon11.svg"
           />
         </div>
       </div>
@@ -55,7 +55,7 @@ const ListeDapports1: FunctionComponent = () => {
           <img
             className="relative w-[5.75px] h-[9.58px]"
             alt=""
-            src="/icon1.svg"
+            src="/icon11.svg"
           />
         </div>
       </div>
