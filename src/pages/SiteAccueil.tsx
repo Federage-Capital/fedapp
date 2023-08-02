@@ -101,7 +101,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-[8.99px] h-[16.26px]"
                         alt=""
-                        src="/icon311.svg"
+                        src="/icon3111.svg"
                       />
                     </div>
                   </div>
@@ -131,7 +131,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-[8.99px] h-[16.26px]"
                         alt=""
-                        src="/icon311.svg"
+                        src="/icon3111.svg"
                       />
                     </div>
                   </div>
@@ -158,7 +158,7 @@ const MobileAccueil: FunctionComponent = () => {
                       <img
                         className="relative w-[8.99px] h-[16.26px]"
                         alt=""
-                        src="/icon311.svg"
+                        src="/icon3111.svg"
                       />
                     </div>
                   </div>
