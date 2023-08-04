@@ -37,7 +37,7 @@ const Principal: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0"
                   alt=""
-                  src="/chart-bar.svg"
+                  src="/chart-bar3.svg"
                 />
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0"
@@ -52,7 +52,7 @@ const Principal: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/document-add.svg"
+                        src="/document-add4.svg"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Projets
@@ -66,7 +66,7 @@ const Principal: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/document-text.svg"
+                        src="/document-text1.svg"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Contrats
@@ -80,7 +80,7 @@ const Principal: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/pencil-alt.svg"
+                        src="/pencil-alt4.svg"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Brouillon
@@ -124,7 +124,7 @@ const Principal: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-2.svg"
+            src="/component-21.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -140,7 +140,7 @@ const Principal: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-5.svg"
+            src="/component-52.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>

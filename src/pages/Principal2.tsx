@@ -52,7 +52,7 @@ const Principal2: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/document-add3.svg"
+                        src="/document-add31.svg"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Projets
@@ -66,7 +66,7 @@ const Principal2: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/document-text.svg"
+                        src="/document-text1.svg"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Contrats
@@ -116,7 +116,7 @@ const Principal2: FunctionComponent = () => {
                     <img
                       className="relative rounded-6xs w-[42px] h-[42px] object-cover"
                       alt=""
-                      src="/rectangle-4155@2x.png"
+                      src="/rectangle-41551@2x.png"
                     />
                   </div>
                   <div className="self-stretch flex flex-row items-center justify-start gap-[8px] text-[11.21px] text-mediumblue-100">
@@ -271,7 +271,7 @@ const Principal2: FunctionComponent = () => {
                     <img
                       className="relative rounded-6xs w-[42px] h-[42px] object-cover"
                       alt=""
-                      src="/rectangle-41551@2x.png"
+                      src="/rectangle-415511@2x.png"
                     />
                   </div>
                   <div className="self-stretch flex flex-row items-center justify-start gap-[8px] text-[11.21px] text-mediumblue-100">

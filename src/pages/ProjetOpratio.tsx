@@ -31,7 +31,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
             <img
               className="relative w-5 h-5 overflow-hidden shrink-0"
               alt=""
-              src="/dots-vertical1.svg"
+              src="/dots-vertical11.svg"
             />
           </div>
         </div>
@@ -60,7 +60,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <div className="relative leading-[20.03px] font-semibold">
                 Lire plus
               </div>
-              <img className="relative w-2.5 h-1.5" alt="" src="/icon31.svg" />
+              <img className="relative w-2.5 h-1.5" alt="" src="/icon311.svg" />
             </div>
           </div>
           <div className="self-stretch flex flex-row items-center justify-between text-xs text-gray-900">
@@ -242,7 +242,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-1112.svg"
+            src="/component-11121.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -258,7 +258,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-13.svg"
+            src="/component-131.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

@@ -1,6 +1,6 @@
 import { FunctionComponent, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import ApportTatVide from "../components/ApportTatVide";
+import ApportTatVide1 from "../components/ApportTatVide1";
 
 const MobileServiceProjetOpratio1: FunctionComponent = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
             <img
               className="relative w-5 h-5 overflow-hidden shrink-0"
               alt=""
-              src="/dots-vertical1.svg"
+              src="/dots-vertical11.svg"
             />
           </div>
         </div>
@@ -71,7 +71,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
               <div className="relative leading-[20.03px] font-semibold">
                 Lire plus
               </div>
-              <img className="relative w-2.5 h-1.5" alt="" src="/icon31.svg" />
+              <img className="relative w-2.5 h-1.5" alt="" src="/icon311.svg" />
             </div>
           </div>
           <div className="self-stretch flex flex-row items-center justify-between text-xs text-gray-900">
@@ -99,7 +99,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
               <img
                 className="relative w-3 h-[12.86px]"
                 alt=""
-                src="/icon.svg"
+                src="/icon7.svg"
               />
               <div className="relative leading-[20px] font-medium">Admin</div>
             </div>
@@ -108,23 +108,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
       </div>
       <div className="self-stretch bg-gray-50 flex flex-row pt-6 px-4 pb-12 items-start justify-start text-sm text-white">
         <div className="flex-1 flex flex-col items-start justify-start gap-[20px]">
-          <ApportTatVide
-            apportTatVidePosition="unset"
-            apportTatVideWidth="unset"
-            apportTatVideAlignSelf="stretch"
-            freepikCharacterInject245="/freepikcharacterinject2451.svg"
-            frameDivAlignSelf="stretch"
-            enregistrerUnPremierWidth="unset"
-            enregistrerUnPremierAlignSelf="stretch"
-            ajoutezVotreParticipationWidth="unset"
-            ajoutezVotreParticipationAlignSelf="stretch"
-            ajoutezVotreParticipation="Décrivez votre participation dans l'avancement du projet."
-            buttonWidth="unset"
-            buttonAlignSelf="stretch"
-            textWidth="unset"
-            textFlexShrink="unset"
-            textFlex="1"
-          />
+          <ApportTatVide1 />
           <div className="self-stretch flex flex-col items-start justify-start">
             <div className="self-stretch rounded-lg bg-white flex flex-col py-4 pr-4 pl-[17px] items-start justify-start gap-[20px] border-[2px] border-solid border-gray-200">
               <div className="self-stretch flex flex-row items-start justify-between">
@@ -182,7 +166,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-21.svg"
+            src="/component-211.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -190,7 +174,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-1.svg"
+            src="/component-132.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -198,7 +182,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-5.svg"
+            src="/component-521.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
@@ -206,7 +190,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-22.svg"
+            src="/component-221.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

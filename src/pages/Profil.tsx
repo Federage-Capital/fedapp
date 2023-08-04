@@ -125,7 +125,7 @@ const Profil: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-111.svg"
+            src="/component-1112.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
