@@ -28,7 +28,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -94,13 +94,13 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
                   Novembre
                 </div>
-                <img className="relative w-6 h-6" alt="" src="/icon6.svg" />
+                <img className="relative w-6 h-6" alt="" src="/icon61.svg" />
               </div>
               <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start">
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
                   2022
                 </div>
-                <img className="relative w-6 h-6" alt="" src="/icon5.svg" />
+                <img className="relative w-6 h-6" alt="" src="/icon51.svg" />
               </div>
             </div>
             <div className="self-stretch flex flex-row py-[5px] px-0 items-start justify-start text-smi text-gray-400">

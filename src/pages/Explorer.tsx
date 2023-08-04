@@ -1,10 +1,20 @@
-import { FunctionComponent } from "react";
-import BoutonIcon from "../components/BoutonIcon";
+import { FunctionComponent, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import ListeDapports1 from "../components/ListeDapports1";
 
 const Explorer: FunctionComponent = () => {
+  const navigate = useNavigate();
+
+  const onContainer1Click = useCallback(() => {
+    navigate("/-explorermembre");
+  }, [navigate]);
+
   return (
     <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-base text-gray-900 font-text-2xl-leading-8-font-bold">
-      <div className="self-stretch flex flex-col items-center justify-start">
+      <div
+        className="self-stretch flex flex-col items-center justify-start cursor-pointer"
+        onClick={onContainer1Click}
+      >
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
@@ -44,6 +54,18 @@ const Explorer: FunctionComponent = () => {
                 </div>
               </div>
             </div>
+            <div className="self-stretch flex flex-row items-center justify-start gap-[28px] text-center text-[11.28px] text-dimgray">
+              <div className="rounded-lg bg-white w-[53px] flex flex-col py-1.5 px-[15px] box-border items-center justify-center text-mediumblue-200">
+                <b className="relative leading-[18.8px]">Projets</b>
+              </div>
+              <b className="relative leading-[18.8px] inline-block w-[53px] shrink-0">
+                Membres
+              </b>
+              <b className="relative leading-[18.8px] hidden w-[53px] shrink-0">
+                Demandes
+              </b>
+              <b className="relative leading-[18.8px] inline-block w-[53px] shrink-0" />
+            </div>
           </div>
           <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
             <div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
@@ -53,7 +75,7 @@ const Explorer: FunctionComponent = () => {
                     <img
                       className="absolute top-[-2px] left-[58px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar1@2x.png"
+                      src="/avatar11@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[38px] rounded-xl w-7 h-7 overflow-hidden object-cover"
@@ -100,7 +122,7 @@ const Explorer: FunctionComponent = () => {
                       <img
                         className="relative w-3.5 h-[8.4px]"
                         alt=""
-                        src="/icon2.svg"
+                        src="/icon22.svg"
                       />
                     </div>
                   </div>
@@ -136,7 +158,7 @@ const Explorer: FunctionComponent = () => {
                     <img
                       className="absolute top-[-2px] left-[-2px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar@2x.png"
+                      src="/avatar7@2x.png"
                     />
                   </div>
                   <div className="rounded-10xs bg-indigo-50" />
@@ -168,50 +190,10 @@ const Explorer: FunctionComponent = () => {
                       <img
                         className="relative w-3.5 h-[8.4px]"
                         alt=""
-                        src="/icon3.svg"
+                        src="/icon31.svg"
                       />
                     </div>
-                    <div className="self-stretch flex flex-col items-center justify-start text-black1">
-                      <div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
-                        <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
-                          <div className="self-stretch relative leading-[20px] font-semibold">{`Formule bio-synthétique humanoïde `}</div>
-                          <div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-                            Prix recherché : 40 000,00€
-                          </div>
-                        </div>
-                        <BoutonIcon />
-                      </div>
-                      <div className="self-stretch flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-gray-100 border-b-[2px] border-l-[2px]">
-                        <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
-                          <div className="self-stretch relative leading-[20px] font-semibold">
-                            Traitement immunothérapie
-                          </div>
-                          <div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-                            Prix recherché : 60 000,00€
-                          </div>
-                        </div>
-                        <img
-                          className="relative rounded-[6.91px] w-[38.27px] h-[38px]"
-                          alt=""
-                          src="/bouton2.svg"
-                        />
-                      </div>
-                      <div className="self-stretch rounded-t-none rounded-b-lg flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-gray-100 border-b-[2px] border-l-[2px]">
-                        <div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
-                          <div className="self-stretch relative leading-[20px] font-semibold">
-                            Laboratoire de type Cancéropôle
-                          </div>
-                          <div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-                            Prix recherché : 110 000,00€
-                          </div>
-                        </div>
-                        <img
-                          className="relative rounded-[6.91px] w-[38.27px] h-[38px]"
-                          alt=""
-                          src="/bouton2.svg"
-                        />
-                      </div>
-                    </div>
+                    <ListeDapports1 />
                   </div>
                 </div>
               </div>
@@ -228,7 +210,7 @@ const Explorer: FunctionComponent = () => {
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar2@2x.png"
+                  src="/avatar21@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">

@@ -28,7 +28,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -103,7 +103,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
                 <span>.</span>
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-gainsboro flex flex-row py-[15px] px-4 items-start justify-between text-gray-500 border-[2px] border-solid border-darkgray-100 sm:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+            <div className="self-stretch rounded-lg bg-gainsboro-100 flex flex-row py-[15px] px-4 items-start justify-between text-gray-500 border-[2px] border-solid border-darkgray-100 sm:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
               <div className="w-[282px] flex flex-col items-start justify-start gap-[4px]">
                 <div className="relative leading-[20px] font-semibold">
                   Mode investisseur
@@ -114,7 +114,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
                 </div>
               </div>
               <div className="rounded-lg w-4 h-5 flex flex-row items-center justify-center">
-                <div className="relative rounded-lg bg-gainsboro box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
+                <div className="relative rounded-lg bg-gainsboro-100 box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ const MobileServiceProjet21: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -88,7 +88,7 @@ const MobileServiceProjet21: FunctionComponent = () => {
                 <img
                   className="relative w-2.5 h-1.5"
                   alt=""
-                  src="/icon31.svg"
+                  src="/icon311.svg"
                 />
               </div>
               <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center">
@@ -128,7 +128,7 @@ const MobileServiceProjet21: FunctionComponent = () => {
                 <img
                   className="relative w-2.5 h-1.5"
                   alt=""
-                  src="/icon31.svg"
+                  src="/icon311.svg"
                 />
               </div>
               <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-[18px] items-center justify-center text-center">

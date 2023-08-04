@@ -28,7 +28,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Nouvel apport</b>
           </div>
@@ -86,7 +86,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
                   <img
                     className="relative w-[9.6px] h-[7.47px]"
                     alt=""
-                    src="/icon111.svg"
+                    src="/icon1112.svg"
                   />
                 </div>
               </div>

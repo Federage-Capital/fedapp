@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 
-const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
+const MobileServiceAjouterUnAppo: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
+    <div className="relative w-full flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -28,363 +28,138 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon21.svg" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
-            <b className="flex-1 relative leading-[24px]">Créer un projet</b>
+            <b className="flex-1 relative leading-[24px]">Nouvel apport</b>
           </div>
           <div className="rounded-3xs flex flex-row py-0.5 px-2.5 items-center justify-center text-right text-xs">
             <div className="relative leading-[16px] font-medium">
-              Étape 1 sur 2
+              Étape 2 sur 2
             </div>
           </div>
         </div>
         <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
           <div className="self-stretch relative leading-[20px] font-semibold">
-            Ajouter un apport
+            Valider l’apport
           </div>
           <div className="self-stretch relative text-base leading-[20px] font-medium text-dimgray">
-            Veuillez fournir des informations pour enregistrer votre
-            participation au projet.
+            Veuillez vérifier les informations saisies pour transmettre votre
+            proposition.
           </div>
         </div>
       </div>
-      <div className="self-stretch flex-1 bg-gray-50 flex flex-col py-6 px-4 items-center justify-start gap-[20px] text-sm">
-        <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-          <b className="relative leading-[20px]">Intitulé de l’apport</b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-200">
-            <div className="flex-1 relative leading-[24px]">{`Formule bio-synthétique humanoïde `}</div>
-          </div>
-        </div>
-        <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-          <b className="relative leading-[20px]">Descriptif de l’apport</b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-200">
-            <div className="flex-1 relative leading-[24px]">
-              Solution pour le développement de nutriments actifs agissant
-              directement sur les cellules potentiellement cancérigènes.
+      <div className="self-stretch bg-gray-50 flex flex-col py-6 px-4 items-start justify-start gap-[20px] text-xl text-gray-900">
+        <div className="self-stretch rounded-lg bg-white flex flex-col py-[22px] px-4 items-center justify-start gap-[24px] border-[2px] border-solid border-gray-100">
+          <div className="self-stretch flex flex-row items-start justify-center gap-[42px]">
+            <div className="flex-1 relative leading-[26px] font-semibold">
+              Solution de développement de nutriments actifs
+            </div>
+            <div className="rounded-lg bg-gray-100 w-[44.09px] h-11 flex flex-row p-1.5 box-border items-center justify-center">
+              <img className="relative w-3 h-3" alt="" src="/icon8.svg" />
             </div>
           </div>
-        </div>
-        <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
-          <b className="self-stretch relative leading-[20px]">
-            Montant de l’apport
-          </b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
-            <div className="flex-1 flex flex-row items-center justify-start gap-[8px]">
-              <div className="relative leading-[24px]">€</div>
-              <div className="flex-1 relative leading-[24px]">15 000,00</div>
+          <div className="self-stretch flex flex-col items-start justify-start gap-[21px] text-base">
+            <div className="w-[130px] flex flex-col items-start justify-start gap-[19px]">
+              <div className="self-stretch h-[47px] flex flex-col items-start justify-start gap-[7px]">
+                <div className="self-stretch relative leading-[20px] font-medium">
+                  Prix proposé
+                </div>
+                <div className="self-stretch relative leading-[20px] font-medium text-dimgray">
+                  3 285,00€
+                </div>
+              </div>
+              <div className="self-stretch h-[47px] flex flex-col items-start justify-start gap-[7px]">
+                <div className="self-stretch relative leading-[20px] font-medium">
+                  Délai de livraison
+                </div>
+                <div className="self-stretch relative leading-[20px] font-medium text-dimgray">
+                  30 mai 2023
+                </div>
+              </div>
             </div>
-            <div className="relative leading-[24px] font-medium text-dimgray">
-              EUR
+            <div className="self-stretch rounded-lg bg-white flex flex-col py-[15px] px-[17px] items-center justify-center text-mediumblue-100 border-[2px] border-solid border-mediumblue-100">
+              <div className="relative w-[280px] h-5">
+                <div className="absolute top-[0px] left-[0px] leading-[20px] font-semibold">
+                  Mes informations sont exactes
+                </div>
+                <div className="absolute top-[2px] left-[264px] rounded bg-mediumblue-100 flex flex-col py-[5.333333492279053px] px-[4.266666889190674px] items-start justify-start border-[2px] border-solid border-mediumblue-100">
+                  <img
+                    className="relative w-[9.6px] h-[7.47px]"
+                    alt=""
+                    src="/icon1112.svg"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
-          <b className="self-stretch relative leading-[20px]">Type d’apport</b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
-            <div className="flex-1 flex flex-row items-center justify-start">
-              <div className="flex-1 relative leading-[24px]">Industrie</div>
+        <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-center gap-[10px]">
+          <div className="self-stretch flex flex-row items-start justify-between">
+            <div className="flex-1 flex flex-col items-start justify-start gap-[10px]">
+              <div className="self-stretch relative leading-[20px] font-semibold">
+                Commentaire
+              </div>
+              <div className="self-stretch relative text-sm leading-[16px] font-medium text-gray-500">
+                Apportez des précisions et améliorez la transparence du projet
+                pour l’ensemble des membres.
+              </div>
             </div>
+          </div>
+          <div className="self-stretch rounded-lg flex flex-col items-start justify-start text-base">
+            <div className="self-stretch rounded-lg bg-gray-100 overflow-hidden flex flex-row p-2 items-center justify-start">
+              <div className="flex-1 rounded-lg bg-white flex flex-col p-2 items-start justify-center gap-[2px]">
+                <div className="relative leading-[24px] font-semibold">
+                  Lisa Martel
+                </div>
+                <div className="self-stretch relative text-sm leading-[20px] font-medium text-gray-500">
+                  Bonjour, je peux intégrer le projet dès que possible, à
+                  hauteur de 2 jours par semaine et sur une durée de 2 mois.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-lg w-[168px] flex flex-row items-center justify-start gap-[6px] text-xs text-mediumseagreen">
             <img
-              className="relative w-5 h-5 overflow-hidden shrink-0"
+              className="flex-1 relative max-w-full overflow-hidden h-[19px]"
               alt=""
-              src="/chevron-down1.svg"
+              src="/check-circle11.svg"
             />
+            <b className="relative leading-[20px]">Commentaire enregistré</b>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
-          <b className="self-stretch relative leading-[20px]">
-            Devis ou pièce-jointe
-          </b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
-            <div className="flex-1 flex flex-row items-start justify-start gap-[8px]">
-              <img
-                className="relative w-5 h-5 overflow-hidden shrink-0"
-                alt=""
-                src="/paper-clip.svg"
-              />
-              <div className="flex-1 relative leading-[20px]">
-                SALCC.org_devis
-              </div>
-            </div>
-            <div className="flex flex-row items-start justify-start gap-[8px] text-sm text-mediumblue-100">
-              <div className="rounded-md bg-white overflow-hidden flex flex-row items-center justify-start">
-                <div className="relative leading-[20px] font-medium">
-                  Modifier
-                </div>
-              </div>
-              <div className="relative leading-[20px] font-medium text-gray-300">
-                |
-              </div>
-              <div className="flex-1 rounded-md bg-white overflow-hidden flex flex-row items-center justify-start">
-                <div className="relative leading-[20px] font-medium">
-                  Supprimer
-                </div>
-              </div>
-            </div>
+        <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[26px]">
+          <div className="relative leading-[20px] font-semibold">
+            Ressources
           </div>
-        </div>
-        <div className="self-stretch flex flex-col items-center justify-start">
-          <div className="self-stretch flex flex-col pt-0 px-0 pb-2.5 items-start justify-start">
-            <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <b className="relative leading-[20px]">Durée du projet</b>
-              <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-3 items-center justify-start gap-[8px] text-base text-mediumblue-100 border-[2px] border-solid border-gray-200">
+          <div className="w-[237px] flex flex-col items-start justify-start gap-[16px] text-base text-mediumblue-100">
+            <div className="self-stretch flex flex-col items-start justify-center">
+              <div className="flex flex-row items-start justify-start gap-[6px]">
+                <div className="relative leading-[20px] font-semibold">
+                  Devis de l’apport
+                </div>
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0"
+                  className="relative w-[18px] h-[18px]"
                   alt=""
-                  src="/calendar2.svg"
+                  src="/vector.svg"
                 />
-                <div className="relative leading-[24px] font-medium">
-                  Saisir une date
-                </div>
+              </div>
+              <div className="self-stretch relative text-xs leading-[20px] font-medium text-dimgray">
+                polere_modele_conception_21_03_23.pdf
               </div>
             </div>
-          </div>
-          <div className="self-stretch rounded-3xs bg-white shadow-[0px_0px_0.5px_rgba(66,_71,_76,_0.32),_0px_4px_8px_rgba(66,_71,_76,_0.05),_0px_4px_40px_#eee] flex flex-col p-[15px] items-start justify-start gap-[10px] text-center text-mini text-black1">
-            <div className="self-stretch h-11 flex flex-row items-start justify-start gap-[15px] text-left text-base">
-              <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start">
-                <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
-                  Novembre
+            <div className="w-[174px] flex flex-col items-start justify-center">
+              <div className="self-stretch flex flex-row items-start justify-start gap-[6px]">
+                <div className="relative leading-[20px] font-semibold">
+                  Cahier des charges
                 </div>
-                <img className="relative w-6 h-6" alt="" src="/icon6.svg" />
-              </div>
-              <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start">
-                <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
-                  2022
-                </div>
-                <img className="relative w-6 h-6" alt="" src="/icon5.svg" />
-              </div>
-            </div>
-            <div className="self-stretch flex flex-row py-[5px] px-0 items-start justify-start text-smi text-gray-400">
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                Lu
-              </div>
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                ma
-              </div>
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                Me
-              </div>
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                Je
-              </div>
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                Ve
-              </div>
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                sa
-              </div>
-              <div className="flex-1 relative tracking-[-0.08px] leading-[18px] capitalize font-semibold">
-                Di
-              </div>
-            </div>
-            <div className="self-stretch flex flex-col items-start justify-start">
-              <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8 text-black">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
-                    31
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8 text-black">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
-                    31
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    1
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    2
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    3
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    4
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    5
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    6
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    7
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    8
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    9
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    10
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    11
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    12
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    13
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    14
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    15
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    16
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    17
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    18
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    19
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    20
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    21
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8 text-white">
-                  <div className="absolute top-[calc(50%_-_16px)] left-[calc(50%_-_16.43px)] rounded-2xl bg-mediumblue-100 w-8 h-8" />
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-semibold flex items-center justify-center">
-                    22
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    23
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    24
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    25
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    26
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    27
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    28
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    29
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] flex items-center justify-center">
-                    30
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8 text-black">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
-                    31
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8 text-black">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
-                    30
-                  </div>
-                </div>
-                <div className="flex-1 relative h-8 text-black">
-                  <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
-                    31
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="self-stretch h-11 hidden flex-row items-start justify-start gap-[15px] text-gray-6001">
-              <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start border-[1px] border-solid border-gray-200">
                 <img
-                  className="relative w-6 h-6 hidden"
+                  className="relative w-[18px] h-[18px]"
                   alt=""
-                  src="/iconly.svg"
+                  src="/vector.svg"
                 />
-                <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-medium">
-                  Annuler
-                </div>
               </div>
-              <div className="self-stretch flex-1 rounded-lg bg-mediumblue-100 flex flex-row py-2 px-[11px] items-center justify-start text-white">
-                <img
-                  className="relative w-6 h-6 hidden"
-                  alt=""
-                  src="/iconly1.svg"
-                />
-                <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-medium">
-                  Valider
-                </div>
+              <div className="self-stretch relative text-xs leading-[20px] font-medium text-dimgray">
+                cahier_charges_19_03_23.pdf
               </div>
             </div>
           </div>
@@ -405,7 +180,7 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
             <div className="self-stretch bg-gray-200" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
-                Créer un projet
+                Valider
               </div>
             </div>
           </div>
@@ -415,4 +190,4 @@ const MobileServiceAjouterUnAppo1: FunctionComponent = () => {
   );
 };
 
-export default MobileServiceAjouterUnAppo1;
+export default MobileServiceAjouterUnAppo;

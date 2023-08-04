@@ -82,7 +82,7 @@ const Partenaires: FunctionComponent = () => {
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/dots-vertical.svg"
+                  src="/dots-vertical2.svg"
                 />
               </div>
             </div>
@@ -106,7 +106,7 @@ const Partenaires: FunctionComponent = () => {
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/dots-vertical.svg"
+                  src="/dots-vertical2.svg"
                 />
               </div>
             </div>
@@ -130,7 +130,7 @@ const Partenaires: FunctionComponent = () => {
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/dots-vertical.svg"
+                  src="/dots-vertical2.svg"
                 />
               </div>
             </div>
@@ -150,7 +150,7 @@ const Partenaires: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-112.svg"
+            src="/component-1121.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -166,7 +166,7 @@ const Partenaires: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-13.svg"
+            src="/component-131.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

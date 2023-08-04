@@ -52,7 +52,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
                 <img
                   className="relative w-4 h-4 overflow-hidden shrink-0"
                   alt=""
-                  src="/external-link.svg"
+                  src="/external-link2.svg"
                 />
               </div>
             </div>
@@ -61,7 +61,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
             <img
               className="relative w-5 h-5 overflow-hidden shrink-0"
               alt=""
-              src="/dots-vertical1.svg"
+              src="/dots-vertical11.svg"
             />
           </div>
         </div>
@@ -77,7 +77,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
               <div className="relative leading-[20.03px] font-semibold">
                 Lire plus
               </div>
-              <img className="relative w-2.5 h-1.5" alt="" src="/icon31.svg" />
+              <img className="relative w-2.5 h-1.5" alt="" src="/icon311.svg" />
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
                       <img
                         className="absolute top-[-2px] left-[-2px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                         alt=""
-                        src="/avatar7@2x.png"
+                        src="/avatar71@2x.png"
                       />
                     </div>
                     <div className="rounded-10xs bg-indigo-50" />
@@ -147,7 +147,7 @@ const MobileExplorerMembre: FunctionComponent = () => {
                         <img
                           className="relative w-3.5 h-[8.4px]"
                           alt=""
-                          src="/icon11.svg"
+                          src="/icon111.svg"
                         />
                       </div>
                     </div>
