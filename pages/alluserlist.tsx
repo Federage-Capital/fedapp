@@ -38,7 +38,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const params = {
 	fields: {
-		"group--federage": "label,field_description",
+		"group--federage": "label,field_description,path",
 		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 	},
 	filter: {

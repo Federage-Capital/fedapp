@@ -23,9 +23,7 @@ export function getParams(
       .addInclude([
         "field_media_image.field_media_image",
         "uid.user_picture",
-        "field_tags",
           "field_statut",
-        "field_objet_du_financement",
         "field_choisir_une_categorie",
         "field_document_s_annexe_s_.field_media_document"
       ])
@@ -40,14 +38,11 @@ export function getParams(
                     "sticky",
                     "field_document_s_annexe_s_",
         "uid",
-        "field_tags",
               "field_statut",
         "field_type_de_financement",
-        "field_objet_du_financement",
         "field_estimation_du_prix",
         "field_date_de_livraison",
         "field_choisir_une_categorie",
-        "field_objet_du_financement",
 
       ])
       .addFields("user--user", ["display_name", "user_picture"])

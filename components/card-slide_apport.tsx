@@ -8,34 +8,36 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function SlideApport({ showMenu, node }: SlideApportAllUserListProps) {
 
-	const { data: userApport, error: userApportError } = useSWR(() => `https://fed.septembre.io/jsonapi/group_content/federage-group_node-financement` + '/' + node.id, fetcher);
+	const { data: userApport, error: userApportError } = useSWR(() => `https://fed.septembre.io/groupfederagewithoutcountersorprice/` + node.id, fetcher);
 
 	if (userApportError) return <div>Failed to load</div>;
 
 	return (
 		<>
-			{userApport}
-			{/* {userApport
-				.map((userInApport) => (
-					<div key={userInApport.id}>
-						{userInApport}
-					</div>
-				))
-			} */}
+
+
+
 			{showMenu && (
 				<div className="self-stretch flex flex-col items-center justify-start text-black1 pb-5 ">
+				12
+				{userApport?.length ? (
+
+										 <>
+
+											 {userApport.map((userInApport,index) => (
 					<div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
 						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
 							<div className="self-stretch relative leading-[20px] font-semibold">
-								{/* {Array.isArray(userApport.data) &&
-									userApport.data
-										.map((userInApport) => (
-											<div key={userInApport.id}>
-												{userInApport}
-											</div>
-										))
-								} */}
-								{!userApport?.length ? (
+
+															 <div key={userInApport.id}>
+								 								{userInApport.title}
+								 								<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
+								 									Prix recherché : 	{userInApport.field_estimation_du_prix}
+								 								</div>
+
+								 							</div>
+
+								{/* 		{!userApport?.length ? (
 									<p>
 										Aucun résultat.
 									</p>
@@ -53,10 +55,11 @@ export default function SlideApport({ showMenu, node }: SlideApportAllUserListPr
 											))
 										}
 									</div>
-								)}
+								)}*/}
 							</div>
 						</div>
-						<Link href={`/group/federage/${node.label.replace(/è/g, 'e').replaceAll(' ', '-')}`} passHref>
+
+						<Link href=	{userInApport.view_node} passHref>
 							<button>
 								<svg width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<rect x="0.797363" width="38.2027" height="38" rx="8.10667" fill="#F3F4F6" />
@@ -65,6 +68,17 @@ export default function SlideApport({ showMenu, node }: SlideApportAllUserListPr
 							</button>
 						</Link>
 					</div>
+				))}
+
+			</>
+		) : (
+			<p className="text-2xl cadre text-center p-20 mb-10">
+
+
+				<p>   Vide</p>
+
+			</p>
+		)}
 					{/* <div className="self-stretch rounded-t-none rounded-b-lg flex flex-row p-4 items-center justify-between border-r-[2px] border-solid border-gray-100 border-b-[2px] border-l-[2px]">
 						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
 							<div className="self-stretch relative leading-[20px] font-semibold">
