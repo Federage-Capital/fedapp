@@ -18,7 +18,9 @@ import { BoxResultNameSearch } from "components/box-searchbar";
 import { useSession } from "next-auth/react"
 import { drupal } from "lib/drupal"
 import { BoxResearch } from "components/box-research";
+import { DrupalJsonApiParams } from "drupal-jsonapi-params"
 
+import { getParams } from "lib/get-params"
 
 import { usePaginatedSearch } from "../hooks/use-paginated-search"
 
@@ -49,12 +51,20 @@ const params = {
 }
 
 
+const params2 = {
+
+
+	include: "user_picture",
+}
+
+
+
 
 
 
 
 export default function AlluserlistPage
-	({ menus, blocks, users, nodes, logouri, catentreprise, result_users,
+	({ menus, blocks, users, nodes, nodes2, logouri, catentreprise, result_users,
 		facets: initialFacets,
 	}: AlluserlistPageProps) {
 	const { t } = useTranslation()
@@ -153,13 +163,20 @@ export default function AlluserlistPage
 								</div>
 							) : null}
 							<div className={openTab === 2 ? "block" : "hidden"}>
-								{!results.length ? (
+
+
+
+
+
+
+
+								{!nodes2.length ? (
 									<p className="text-sm" data-cy="search-no-results">
 										Aucun résultat.
 									</p>
 								) : (
 									<div className="md:grid-cols-1">
-										{results
+										{nodes2
 											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
@@ -273,16 +290,17 @@ export async function getStaticProps(
 
 
 	const result_users = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
-		"default_index",
+		"user_index",
 		context,
 		{
 			deserialize: false,
-			params: {
-				"filter[type]": "user--user",
-
-			},
+			params2,
 		}
 	)
+
+
+
+
 
 
 	const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
