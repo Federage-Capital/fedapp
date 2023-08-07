@@ -548,22 +548,22 @@ export default function AccountsPage({
 
 
 
-                    <li className="text-gray-900 cursor-default select-none p-4 " id="listbox-option-0" role="option">
-                      <button className="modal-toggle" onClick={toggleUserDataForm}>
+                    <span className="text-gray-900 cursor-default select-none p-4 " >
+                      <button className="modal-toggle" onClick={toggleUserDataForm} >
                         <u>Edit profile</u>
                       </button>
 
-
-                    </li>
-                    <li className="text-gray-900 cursor-default select-none p-4" id="listbox-option-0" role="option">
+                    </span>
+                    <span className="text-gray-900 cursor-default select-none p-4" >
                       <button
                         className="modal-toggle text-underline mr-4"
                         onClick={togglePasswordForm}
+
                       >
                         <u>Edit password</u>
                       </button>
 
-                    </li>
+                    </span>
 
                     <p>
                       <br /><br /><br />

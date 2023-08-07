@@ -1,0 +1,95 @@
+import React from "react";
+
+class ImageInputAsync extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedFile: null,
+      fileInputKey: Date.now(),
+      message: ""
+    };
+    this.handleClear = this.handleClear.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+
+  onChangeHandler = event => {
+    this.setState({
+      selectedFile: event.target.files
+    });
+  };
+
+  onClickHandler = () => {
+    if (this.state.selectedFile === null) {
+      this.setState({
+        message: "Please select File"
+      });
+      return;
+    }
+    //axios POST req code to send file to server
+    {
+      /**
+         const data = new FormData()
+    data = this.state.selectedFile[0]
+      axios.post("http://localhost:8080/api/uploadFile/", data)
+               .then(res => {
+             if (res.status == 200) {
+           // upload success
+             }
+               })
+               .catch(err => {
+                  //message upload failed
+               })
+    */
+    }
+//after upload to server processed
+
+    this.setState({
+      selectedFile: null,
+      fileInputKey: Date.now(),
+      message: "File Uploaded"
+    });
+  };
+
+  handleClear() {
+    this.setState({
+      selectedFile: null,
+      fileInputKey: Date.now(),
+      message: ""
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          type="file"
+          key={this.state.fileInputKey}
+          class="form-control"
+          onChange={this.onChangeHandler}
+        />
+        <button
+          type="button"
+          class="btn btn-success btn-block"
+          onClick={this.onClickHandler}
+        >
+          Upload
+        </button>
+        <div
+          type="button"
+          value="Clear"
+          data-test="clear"
+          onClick={this.handleClear}
+        >
+          {" "}
+          Clear{" "}
+        </div>
+
+        <br />
+        <label>{this.state.message}</label>
+      </div>
+    );
+  }
+}
+
+export default ImageInputAsync;

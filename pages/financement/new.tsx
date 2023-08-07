@@ -1,21 +1,26 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from "next"
 import { useTranslation } from "next-i18next"
+import { getSession, useSession, signOut } from "next-auth/react";
+
 import { useRouter } from "next/router"
 
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormFinancement } from "components/form--financement"
+import { drupal } from "lib/drupal"
 
-interface NewArticlesPageProps extends LayoutProps {}
+interface NewFinancementPageProps extends LayoutProps {}
 
-export default function NewArticlesPage({
+export default function NewFinancementPagePage({
   menus,
   blocks,
+    categorieprj,
 }: NewFinancementPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
-
+  const { data } = useSession();
+  const { status } = useSession()
   return (
     <Layout meta={{ title: t("new-financement") }} menus={menus} blocks={blocks}>
     <div className="newformfin">
@@ -40,6 +45,8 @@ export default function NewArticlesPage({
       <div className="col-span-2 text-sm text-slate-400 font-semibold">
       <button type="button" onClick={() => router.back()}>
     Click here to go back
+
+    
   </button>
   </div>
   <div className="col-span-8 ">
@@ -61,18 +68,41 @@ export default function NewArticlesPage({
     </p>
       <div className=" bg-slate-50  pb-10">
 
-        <FormFinancement className="max-w-2xl mx-auto mt-10 p-2 " />
+        <FormFinancement className="max-w-2xl mx-auto mt-10 p-2" categorieprj={categorieprj} />
       </div>
     </Layout>
   )
 }
 
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<NewArticlesPageProps>> {
+export async function getServerSideProps(
+  context: GetServerSidePropsContext
+): Promise<GetServerSidePropsResult<NewFinancementPageProps>> {
+
+  const session = await getSession({ ctx: context });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/register",
+        permanent: false,
+      },
+    };
+  }
+
+  const categorieprj = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
+    "taxonomy_term--categorie",
+    context,
+    {
+      params: {
+        "fields[taxonomy_term--categorie]": "id,name",
+                sort: "-name",
+      },
+    }
+  )
+
   return {
     props: {
       ...(await getGlobalElements(context)),
+        categorieprj,
     },
   }
 }

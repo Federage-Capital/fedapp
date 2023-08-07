@@ -22,7 +22,7 @@ export function PageHeader({
           children ? "justify-between" : "justify-center"
         )}
       >
-        <h1 className=" max-w-4xl text-2xl text-center md:text-5md lg:text-4xl">
+        <h1 className=" max-w-4xl text-2xl font-semibold text-left md:text-5md lg:text-7xl">
           {heading}
         </h1>
         {children}

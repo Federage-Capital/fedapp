@@ -1,21 +1,27 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from "next"
 import { useTranslation } from "next-i18next"
+import { getSession, useSession, signOut } from "next-auth/react";
+
+import { useRouter } from "next/router"
+import { DrupalJsonApiParams } from "drupal-jsonapi-params"
 
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
 import { FormFinancementedit } from "components/form--financementdit"
-import { useState, useEffect } from "react";
 import { Folder } from "public/foldersvg"
+import { drupal } from "lib/drupal"
 
-interface EditArticlesPageProps extends LayoutProps {}
+interface EditFinancementPageProps extends LayoutProps {}
 
-export default function EditArticlesPage({
+export default function EditFinancementPage({
   menus,
   blocks,
-  articles,
+  categorieprj,
+  gid,
+  fin,
 
-}: EditArticlesPageProps) {
+}: EditFinancementPageProps) {
   const { t } = useTranslation()
 
 
@@ -31,8 +37,15 @@ export default function EditArticlesPage({
 
       />
       <div className="container pb-10">
+      {fin
+      .map((fintoedit) => (
+        <span key={fintoedit.id}>
 
-        <FormFinancementedit className="max-w-2xl mx-auto" />
+        <FormFinancementedit className="max-w-2xl mx-auto mt-10 p-2" key={gid} categorieprj={categorieprj}  node={fintoedit}/>
+
+
+        </span>
+        ))}
       </div>
 
 
@@ -40,12 +53,76 @@ export default function EditArticlesPage({
   )
 }
 
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<EditArticlesPageProps>> {
+
+
+export async function getServerSideProps(
+  context: GetServerSidePropsContext,
+): Promise<GetServerSidePropsResult<NewFinancementPageProps>> {
+
+
+
+  const session = await getSession({ ctx: context });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/register",
+        permanent: false,
+      },
+    };
+  }
+
+  const gid = context.query.gid // Get ID from slug `/book/1`
+     // If routing to `/book/1?name=some-book`
+     console.log(context.query) // Outputs: `{ id: '1', name: 'some-book' }`
+  // Fetch all articles sorted by the user.
+  const fin = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+    "node--financement",
+    context,
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["field_document_s_annexe_s_.field_media_document", "uid.user_picture", "field_choisir_une_categorie"])
+        .addFields("node--financement", [
+          "title",
+          "path",
+          "langcode",
+          "content_translation_source",
+          "body",
+          "field_document_s_annexe_s_",
+          "field_estimation_du_prix",
+          "status",
+          "created",
+          "field_choisir_une_categorie",
+          "uid",
+          "revision_log",
+          "body",
+        ])
+        .addFilter("id", gid)
+
+        .addFields("media--document", ["field_media_document"])
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
+        .addSort("created", "DESC")
+        .getQueryObject(),
+      withAuth: session.accessToken,
+    }
+  );
+
+  const categorieprj = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
+    "taxonomy_term--categorie",
+    context,
+    {
+      params: {
+        "fields[taxonomy_term--categorie]": "id,name",
+                sort: "-name",
+      },
+    }
+  )
+
   return {
     props: {
       ...(await getGlobalElements(context)),
+        categorieprj,
+        gid,
+        fin,
     },
   }
 }

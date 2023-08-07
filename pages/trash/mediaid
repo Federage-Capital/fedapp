@@ -1,0 +1,3 @@
+const mediaid = node.field_document_s_annexe_s_?.map((number) =>
+   <li>{number.field_media_document.id}</li>
+ );

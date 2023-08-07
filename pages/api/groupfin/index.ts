@@ -66,20 +66,7 @@ export default async function handler(
 
     // 2. Create the media--image resource from the file--file.
 
-    const taxonomy_term2 = await drupal.createResource<DrupalMedia>(
-      "taxonomy_term--categorie",
-      {
-        data: {
-          attributes: {
-            name: fields.field_categorie,
-          },
-
-        },
-      },
-      {
-        withAuth: session.accessToken,
-      }
-    )
+  
     // Create the node--article resource with the media--image relationship.
     const projetfederage = await drupal.createResource<DrupalNode>(
       "group--federage",

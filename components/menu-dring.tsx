@@ -135,13 +135,13 @@ export function MenuDring() {
 
             <Menu.Item>
               {({ active }) => (
-                <button
+                <div
                   className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 text-md')}
 
                   onClick={() => signOut()}
                 >
                   {t("Déconnexion")}
-                </button>
+                </div>
               )}
             </Menu.Item>
           </Menu.Items>

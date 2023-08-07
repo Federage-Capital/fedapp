@@ -8,6 +8,7 @@ import {
   JsonApiSearchApiResponse,
   DrupalSearchApiFacet,
 } from "next-drupal";
+import useSWR from 'swr'
 import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
 import { useRouter } from "next/router"
@@ -19,6 +20,9 @@ import { BoxUserList } from "components/box-alluserlist"
 import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
 
 
+const fetcher = (url) => fetch(url).then((r) => r.json());
+
+
 const params = {
   fields: {
     "file--file": "uri",
@@ -26,23 +30,25 @@ const params = {
   filter: {
 
   },
-  include: "user_picture,field_type_de_structure,roles",
-
 
 }
 
 
+
 export default function AlluserlistPage
-  ({ menus, blocks, users, nodes,
+  ({ menus, blocks, users, nodes, icone,
     facets: initialFacets,
   }: AlluserlistPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
 
 
+  const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
 
   const [status, setStatus] = React.useState<"error" | "success" | "loading">()
   const [results, setResults] = React.useState<DrupalNode[]>(nodes)
+  const [results_project, setResults_project] = React.useState<DrupalNode[]>(nodes)
+
   const [facets, setFacets] =
     React.useState<DrupalSearchApiFacet[]>(initialFacets)
 
@@ -80,6 +86,8 @@ export default function AlluserlistPage
       setFacets(json.meta.facets)
     }
   }
+
+
 
 
 
@@ -130,13 +138,20 @@ export default function AlluserlistPage
               Aucun résultat.
             </p>
           ) : (
+            <>
+
             <div className="md:grid-cols-1">
               {results.map((node) => (
                 <div key={node.id}>
+{node.path?.alias}
                   <BoxUserList key={node.id} node={node} />
                 </div>
               ))}
             </div>
+
+
+
+            </>
           )}
         </div>
       </Layout>
@@ -163,12 +178,14 @@ export async function getStaticProps(
 
 
 
+
   return {
     props: {
       ...(await getGlobalElements(context)),
 
       nodes: deserialize(results) as DrupalNode[],
       facets: results.meta.facets,
+
     },
     revalidate: 5,
 

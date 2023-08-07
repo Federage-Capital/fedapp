@@ -3,164 +3,124 @@ import classNames from "classnames"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import { Folder } from "./foldersvg"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useSWR from 'swr'
 import { absoluteURL, formatDate } from "lib/utils"
+import { DatePicker } from "components/datepickercomp"
+import { Dialog, Transition } from '@headlessui/react'
 
-import {
-  format,
-  subMonths,
-  addMonths,
-  subYears,
-  addYears,
-  isEqual,
-  getDaysInMonth,
-  getDay
-} from "date-fns";
+import { ImageInputAsync } from "components/imageinputasync"
+
+
 interface FormFinancementeditProps extends React.HTMLProps<HTMLFormElement> {}
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
 
-export function FormFinancementedit({ className, node, ...props }: FormFinancementeditProps) {
+export function FormFinancementedit({ className, node, fin, categorieprj, ...props }: FormFinancementeditProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
   const query = router.query;
 
-  const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const [dayCount, setDayCount] = useState<Array<number>>([]);
-  const [blankDays, setBlankDays] = useState<Array<number>>([]);
-  const [showDatepicker, setShowDatepicker] = useState(false);
-  const [datepickerHeaderDate, setDatepickerHeaderDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState (new Date());
-  const [type, setType] = useState("date");
+  const mediaid = node.field_document_s_annexe_s_?.map((number,index) =>
+     <li key={index}>{number.field_media_document.uri.url}</li>
+   );
 
-  const decrement = () => {
-    switch (type) {
-      case "date":
-        setDatepickerHeaderDate((prev) => subMonths(prev, 1));
-        break;
-      case "month":
-        setDatepickerHeaderDate((prev) => subYears(prev, 1));
-        break;
-      case "year":
-        setDatepickerHeaderDate((prev) => subMonths(prev, 1));
-        break;
+
+   const [file, setFile] = useState()
+
+   function handleChange(event) {
+     setFile(event.target.files[0])
+   }
+
+     const ref = useRef();
+
+       const reset = () => {
+         ref.current.value = "";
+       };
+
+
+
+  const { data: revision, error: revisionError } = useSWR(() =>`https://fed.septembre.io/revision_history/`+ query.gid, fetcher)
+
+  if (revisionError) return <div>Failed to load revision</div>
+  if (!revision) return <div>Loading financement ...</div>
+
+  const submitHandler = (e) => {
+    const { id } = e.nativeEvent.submitter;
+
+    switch (id) {
+      case "submit1":
+        return handlesubmit_task1(e);
+
+      case "submit2":
+        return handlesubmit_task2(e);
+
+      default:
+      // ignore
     }
   };
 
-  const increment = () => {
-    switch (type) {
-      case "date":
-        setDatepickerHeaderDate((prev) => addMonths(prev, 1));
-        break;
-      case "month":
-        setDatepickerHeaderDate((prev) => addYears(prev, 1));
-        break;
-      case "year":
-        setDatepickerHeaderDate((prev) => subMonths(prev, 1));
-        break;
-    }
-  };
-
-  const isToday = (date: number) =>
-    isEqual(
-      new Date(selectedDate.getFullYear(), selectedDate.getMonth(), date),
-      selectedDate
-    );
-
-  const setDateValue = (date: number) => () => {
-    setSelectedDate(
-      new Date(
-        datepickerHeaderDate.getFullYear(),
-        datepickerHeaderDate.getMonth(),
-        date
-      )
-    );
-    setShowDatepicker(false);
-  };
-
-  const getDayCount = (date: Date) => {
-    let daysInMonth = getDaysInMonth(date);
-
-    // find where to start calendar day of week
-    let dayOfWeek = getDay(new Date(date.getFullYear(), date.getMonth(), 1));
-    let blankdaysArray = [];
-    for (let i = 1; i <= dayOfWeek; i++) {
-      blankdaysArray.push(i);
-    }
-
-    let daysArray = [];
-    for (let i = 1; i <= daysInMonth; i++) {
-      daysArray.push(i);
-    }
-
-    setBlankDays(blankdaysArray);
-    setDayCount(daysArray);
-  };
-
-  const isSelectedMonth = (month: number) =>
-    isEqual(
-      new Date(selectedDate.getFullYear(), month, selectedDate.getDate()),
-      selectedDate
-    );
-
-  const setMonthValue = (month: number) => () => {
-    setDatepickerHeaderDate(
-      new Date(
-        datepickerHeaderDate.getFullYear(),
-        month,
-        datepickerHeaderDate.getDate()
-      )
-    );
-    setType("date");
-  };
-
-  const toggleDatepicker = () => setShowDatepicker((prev) => !prev);
-
-  const showMonthPicker = () => setType("month");
-
-  const showYearPicker = () => setType("date");
-
-  useEffect(() => {
-    getDayCount(datepickerHeaderDate);
-  }, [datepickerHeaderDate]);
-
-  const { data: financement, error: financementError } = useSWR(() =>`https://fed.septembre.io/pj_node_financement_rest/`+ query.gid, fetcher)
-
-  if (financementError) return <div>Failed to load 23</div>
-  if (!financement) return <div>Loading financement ...</div>
 
 
-  const onSubmit = async (event) => {
-    event.preventDefault()
-    const data = new FormData(event.target)
+    const handlesubmit_task1 = async (event) => {
+      event.preventDefault()
+      const data = new FormData(event.target)
 
-    setFormStatus({ status: "fetching" })
 
-    const response = await fetch(`/api/financements/${query.gid}`, {
-      method: "PUT",
-      body: data,
-    })
 
-    if (!response.ok) {
-      const errors = await response.json()
+      setFormStatus({ status: "fetching" })
 
-      return setFormStatus({
-        status: "error",
-        message: errors?.map((error) => error.detail),
+      const response = await fetch(`/api/financementsedit/${node.id}`, {
+        method: "PATCH",
+        body:  data,
       })
+
+      if (!response.ok) {
+        const errors = await response.json()
+
+        return setFormStatus({
+          status: "error",
+          message: errors?.map((error) => error.detail),
+        })
+      }
+
+      router.push("/account")
     }
 
-    router.push("/account")
-  }
+
+    function handlesubmit_task2(event) {
+      event.preventDefault();
+      const url = 'http://fed.septembre.io/uploadFile ';
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('fileName', file.name);
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+      const response =  fetch(`https://fed.septembre.io/user/register?_format=json`, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+      })
+
+      console.log("handler 2", formData);
+    
+    }
+
+
 
   return (
 
     <form
       className={classNames("grid gap-4", className)}
-      onSubmit={onSubmit}
+      onSubmit={submitHandler}
       {...props}
     >
     <div className="inline-block text-center text-sm text-slate-500"> En tant qu’initiateur, vous fixez les objectifs de l’opération.</div>
@@ -185,26 +145,35 @@ export function FormFinancementedit({ className, node, ...props }: FormFinanceme
         </div>
       )}
 
-{node}
+  !!!!!!!!!!!!!      {node.id}
 
         <div className="grid gap-2">
 
           <label htmlFor="title" className="font-semibold text-text">
             {t("title")} <span className="text-sm text-red-500">*</span>
           </label>
-{financement.titre}
 
+============ Print revision --------
+          {revision
+          .map((print_revision) => (
+            <span key={print_revision.id} value={print_revision.id}>
+
+                  {print_revision.title}
+        {print_revision.title.revision_log}
+            </span>
+            ))}
+!============ Print revision --------
 
 
           <input
             id="title"
             name="title"
             maxLength={255}
-            defaultValue={financement.title}
 
 
+defaulvalue={node.title}
 
-            required
+
             className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
           />
         </div>
@@ -215,50 +184,98 @@ export function FormFinancementedit({ className, node, ...props }: FormFinanceme
     {t("Type de financement")} <span className="text-sm text-red-500">*</span>
     </label>
             <div className="relative">
-              <select
-              id="field_choisir_une_categorie"
-              name="field_choisir_une_categorie"
-              className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-            >
-            <option value="29876849-c910-4ee3-8453-51dbe9d55bf2">Numéraire</option>
-              <option value="e49e869f-22d7-4edd-9017-f134106ff86d">Apport en industrie</option>
-                <option value="9c801cd0-a804-43e4-ba22-092ccc2ae711">Nature</option>
-              </select>
+            <select
+            id="field_choisir_une_categorie"
+            name="field_choisir_une_categorie"
+            className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+          >
+          {categorieprj
+          .map((cat) => (
+            <option key={cat.id} value={cat.id} defaultValue={cat.id}>
+
+                  {cat.name}
+
+            </option>
+            ))}
+            </select>
 
             </div>
           </div>
+
                 <div className="grid gap-2">
+
                   <label htmlFor="body" className="font-semibold text-text">
                     {t("description")} <span className="text-sm text-red-500">*</span>
                   </label>
                   <textarea
                     id="body"
                     name="body"
-                    defaultValue={financement.body}
+                    defaultValue={node.body.value}
 
 
 
                     className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
                   ></textarea>
                 </div>
+                <textarea
+                  id="langcode"
+                  name="langcode"
+                  defaultValue={node.langcode}
 
-                      <div className="grid gap-2 hidden">
-                        <label htmlFor="gid" className="font-semibold text-text">
-                          {t("gid")} <span className="text-sm text-red-500">*</span>
+
+
+                  className="hidden"
+                ></textarea>
+
+
+
+
+
+
+
+                      <div className="grid gap-2">
+                        <label htmlFor="revision_log" className="font-semibold text-text">
+                          {t("revision_log")} <span className="text-sm text-red-500">*</span>
                         </label>
 
-                        <textarea
-                          id="gid"
-                          name="gid"
-                          value={query.gid}
-                          className="hidden"
-                        ></textarea>
+                        <input
+                          id="revision_log"
+                          name="revision_log"
+                          maxLength={255}
+                          defaultValue={node.revision_log}
+
+                          className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+                        />
                       </div>
 
+{mediaid}
 
 
+<div className="App">
+    <form key="2" onSubmit={handlesubmit_task2}>
+      <h1>React File Upload</h1>
+      <input type="file" onChange={handleChange}/>
 
 
+<button
+      name="submit2"
+      variant="contained"
+      color="primary"
+      type="submit"
+      onClick={handlesubmit_task2}
+    >
+      task 2
+    </button>
+    </form>
+</div>
+
+button replace
+<input
+type="file"
+id="document"
+  name="document"
+  ref={ref} />
+     <button onClick={reset}>reset</button>
 
 
                       <div className="grid gap-2">
@@ -270,205 +287,18 @@ export function FormFinancementedit({ className, node, ...props }: FormFinanceme
                           id="document"
                           name="document"
 
-                          className="px-2 py-3 bg-white border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
+                          className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
                         />
+
                       </div>
 
 
                             <div className="grid gap-2">
-                            <div className="antialiased sans-serif">
-                              <div>
-                                <div className="container mx-auto px-4 py-2 md:py-10">
-                                  <div className="mb-5 w-64">
-                                    <label
-                                      htmlFor="datepicker"
-                                      className="font-bold mb-1 text-gray-700 block"
-                                    >
-                                      Date de livraison
+                            <DatePicker />
 
-                                    </label>
-                                    <div className="relative">
-                                      <input type="hidden" name="noname" />
-                                      <input
-                                        type="text"
-                                        id="field_date_de_livraison"
-                                        name="field_date_de_livraison"
-                                        readOnly
-                                        className="cursor-pointer w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-
-                                        defaultValue={format(selectedDate, "yyyy-MM-dd'T'15:44:33+00:00")}
-                                        onClick={toggleDatepicker}
-                                      />
-                                      <div
-                                        className="cursor-pointer absolute top-0 right-0 px-3 py-2"
-                                        onClick={toggleDatepicker}
-                                      >
-                                        <svg
-                                          className="h-6 w-6 text-gray-400"
-                                          fill="none"
-                                          viewBox="0 0 24 24"
-                                          stroke="currentColor"
-                                        >
-                                          <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                          />
-                                        </svg>
-                                      </div>
-                                      {showDatepicker && (
-                                        <div
-                                          className="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0"
-                                          style={{ width: "17rem" }}
-                                        >
-                                          <div className="flex justify-between items-center mb-2">
-                                            <div>
-                                              <button
-                                                type="button"
-                                                className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full"
-                                                onClick={decrement}
-                                              >
-                                                <svg
-                                                  className="h-6 w-6 text-gray-500 inline-flex"
-                                                  fill="none"
-                                                  viewBox="0 0 24 24"
-                                                  stroke="currentColor"
-                                                >
-                                                  <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M15 19l-7-7 7-7"
-                                                  />
-                                                </svg>
-                                              </button>
-                                            </div>
-                                            {type === "date" && (
-                                              <div
-                                                onClick={showMonthPicker}
-                                                className="flex-grow p-1 text-lg font-bold text-gray-800 cursor-pointer hover:bg-gray-200 rounded-lg"
-                                              >
-                                                <p className="text-center">
-                                                  {format(datepickerHeaderDate, "MMMM")}
-                                                </p>
-                                              </div>
-                                            )}
-                                            <div
-                                              onClick={showYearPicker}
-                                              className="flex-grow p-1 text-lg font-bold text-gray-800 cursor-pointer hover:bg-gray-200 rounded-lg"
-                                            >
-                                              <p className="text-center">
-                                                {format(datepickerHeaderDate, "yyyy")}
-                                              </p>
-                                            </div>
-                                            <div>
-                                              <button
-                                                type="button"
-                                                className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full"
-                                                onClick={increment}
-                                              >
-                                                <svg
-                                                  className="h-6 w-6 text-gray-500 inline-flex"
-                                                  fill="none"
-                                                  viewBox="0 0 24 24"
-                                                  stroke="currentColor"
-                                                >
-                                                  <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M9 5l7 7-7 7"
-                                                  />
-                                                </svg>
-                                              </button>
-                                            </div>
-                                          </div>
-                                          {type === "date" && (
-                                            <>
-                                              <div className="flex flex-wrap mb-3 -mx-1">
-                                                {DAYS.map((day, i) => (
-                                                  <div
-                                                    key={i}
-                                                    style={{ width: "14.26%" }}
-                                                    className="px-1"
-                                                  >
-                                                    <div className="text-gray-800 font-medium text-center text-xs">
-                                                      {day}
-                                                    </div>
-                                                  </div>
-                                                ))}
-                                              </div>
-                                              <div className="flex flex-wrap -mx-1">
-                                                {blankDays.map((_, i) => (
-                                                  <div
-                                                    key={i}
-                                                    style={{ width: "14.26%" }}
-                                                    className="text-center border p-1 border-transparent text-sm"
-                                                  ></div>
-                                                ))}
-                                                {dayCount.map((d, i) => (
-                                                  <div
-                                                    key={i}
-                                                    style={{ width: "14.26%" }}
-                                                    className="px-1 mb-1"
-                                                  >
-                                                    <div
-                                                      onClick={setDateValue(d)}
-                                                      className={`cursor-pointer text-center text-sm leading-none rounded-full leading-loose transition ease-in-out duration-100 ${
-                                                        isToday(d)
-                                                          ? "bg-blue-500 text-white"
-                                                          : "text-gray-700 hover:bg-blue-200"
-                                                      }`}
-                                                    >
-                                                      {d}
-                                                    </div>
-                                                  </div>
-                                                ))}
-                                              </div>
-                                            </>
-                                          )}
-                                          {type === "month" && (
-                                            <div className="flex flex-wrap -mx-1">
-                                              {Array(12)
-                                                .fill(null)
-                                                .map((_, i) => (
-                                                  <div
-                                                    key={i}
-                                                    onClick={setMonthValue(i)}
-                                                    style={{ width: "25%" }}
-                                                  >
-                                                    <div
-                                                      className={`cursor-pointer p-5 font-semibold text-center text-sm rounded-lg hover:bg-gray-200 ${
-                                                        isSelectedMonth(i)
-                                                          ? "bg-blue-500 text-white"
-                                                          : "text-gray-700 hover:bg-blue-200"
-                                                      }`}
-                                                    >
-                                                      {format(
-                                                        new Date(
-                                                          datepickerHeaderDate.getFullYear(),
-                                                          i,
-                                                          datepickerHeaderDate.getDate()
-                                                        ),
-                                                        "MMM"
-                                                      )}
-                                                    </div>
-                                                  </div>
-                                                ))}
-                                            </div>
-                                          )}{" "}
-
-                                        </div>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
 
                             </div>
-    {financement.id}
+
                             <div className="grid gap-2">
                               <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
                                 {t("field_estimation_du_prix")} <span className="text-sm text-red-500">*</span>
@@ -478,7 +308,7 @@ export function FormFinancementedit({ className, node, ...props }: FormFinanceme
                                 id="field_estimation_du_prix"
                                 name="field_estimation_du_prix"
                                 maxLength={255}
-                                defaultValue={financement.field_estimation_du_prix}
+                                defaultValue={node.field_estimation_du_prix}
 
                                 className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
                               />
@@ -501,8 +331,14 @@ export function FormFinancementedit({ className, node, ...props }: FormFinanceme
       <div>
 
 
+      <button id="submit1" variant="contained" color="primary" type="submit">
+        task 1
+      </button>
 
 
+      <button id="submit2" variant="contained" color="primary" type="submit">
+        task 2
+      </button>
         <input
           type="submit"
           className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
