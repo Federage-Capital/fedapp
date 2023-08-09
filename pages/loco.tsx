@@ -383,40 +383,7 @@ const Principal2: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-row py-5 px-[30px] items-center justify-between text-center text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px] text-mediumblue-100">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
-            alt=""
-            src="/component-22.svg"
-          />
-          <div className="relative leading-[16px] font-medium">Accueil</div>
-        </div>
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
-            alt=""
-            src="/component-14.svg"
-          />
-          <div className="relative leading-[16px] font-medium">Messagerie</div>
-        </div>
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
-            alt=""
-            src="/component-53.svg"
-          />
-          <div className="relative leading-[16px] font-medium">Projets</div>
-        </div>
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
-            alt=""
-            src="/component-111.svg"
-          />
-          <div className="relative leading-[16px] font-medium">Compte</div>
-        </div>
-      </div>
+  
     </div>
   );
 };
