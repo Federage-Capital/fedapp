@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Moment from 'react-moment';
-import 'moment-timezone';
 import moment from "react-moment";
 
 export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
