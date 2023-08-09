@@ -1,6 +1,8 @@
-import moment from "moment";
 
-
+import React from 'react';
+import Moment from 'react-moment';
+import 'moment-timezone';
+import moment from "react-moment";
 
 export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
 
@@ -39,7 +41,7 @@ export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
 												 <b className="relative leading-[20px]"> {preapp.field_date_de_livraison}</b><br/>
 
 
-												         
+
 											 </div>
 										 </div>
 										 <div className="self-stretch flex flex-row items-center justify-start text-xl text-gray-900">
