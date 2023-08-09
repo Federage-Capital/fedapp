@@ -46,7 +46,7 @@ export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
                                                  className="text-3xl font-bold"
                                                />
 
-  ===  {node.body.value} ===
+  ===  {node.body?.value} ===
 Publié par :
 <span
   dangerouslySetInnerHTML={{ __html: node.uid.display_name }}
@@ -62,7 +62,7 @@ Publié par :
 
 
   <button  class=" bg-blue-300 text-xs hover:bg-blue-400 text-blue-700  py-2 px-4  hover:border-blue-500 rounded">
-      {node.field_statut.name}
+      {node.field_statut?.name}
 
   </button>
 </div>

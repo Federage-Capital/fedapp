@@ -10,7 +10,7 @@ export default function CalculApport({ node, ...props }: CalculApportProps) {
 	const { data: calcvalues, error: calcvaluesError } = useSWR(() => `https://fed.septembre.io/rest_explor_project_in_group/` + node.id, fetcher);
 
 	if (calcvaluesError) return <div>Failed to load</div>;
-	if (!calcvalues || !Array.isArray(calcvalues)) return <div>Pas d'apports</div>;
+	if (!calcvalues || !Array.isArray(calcvalues)) return <div>Pas d&lsquo;apports</div>;
 
 	return (
 		<div>

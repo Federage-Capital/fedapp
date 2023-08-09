@@ -25,17 +25,17 @@ export default function SlideApport({ showMenu, node }: SlideApportAllUserListPr
 										 <>
 
 											 {userApport.map((userInApport,index) => (
-					<div className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
+					<div key={userInApport.id} className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
 						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
 							<div className="self-stretch relative leading-[20px] font-semibold">
 
-															 <div key={userInApport.id}>
+
 								 								{userInApport.title}
 								 								<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
 								 									Prix recherché : 	{userInApport.field_estimation_du_prix}
 								 								</div>
 
-								 							</div>
+								 			
 
 								{/* 		{!userApport?.length ? (
 									<p>

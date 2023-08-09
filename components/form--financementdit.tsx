@@ -23,9 +23,6 @@ export function FormFinancementedit({ className, node, fin, categorieprj, ...pro
   const router = useRouter()
   const query = router.query;
 
-  const mediaid = node.field_document_s_annexe_s_?.map((number,index) =>
-     <li key={index}>{number.field_media_document.uri.url}</li>
-   );
 
 
    const [file, setFile] = useState()
@@ -111,7 +108,7 @@ export function FormFinancementedit({ className, node, fin, categorieprj, ...pro
       })
 
       console.log("handler 2", formData);
-    
+
     }
 
 
@@ -248,7 +245,19 @@ defaulvalue={node.title}
                         />
                       </div>
 
-{mediaid}
+
+                      {node.field_document_s_annexe_s_?.length ? (
+                                             <>
+                                       {node.field_document_s_annexe_s_.map((media,index) => (
+                                   <li key={index}>{media.field_document_s_annexe_s_.uri.url}</li>
+                                               ))}
+                                             </>
+                                           ) : (
+                                             <>
+
+                                             </>
+                                           )}
+
 
 
 <div className="App">
