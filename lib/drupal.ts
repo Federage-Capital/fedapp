@@ -9,7 +9,7 @@ export const drupal = new DrupalClient(
       clientId: process.env.DRUPAL_CLIENT_ID,
       clientSecret: process.env.DRUPAL_CLIENT_SECRET,
       username: process.env.DRUPAL_USERNAME,
-            password: process.env.DRUPAL_PASSWORD,
+      password: process.env.DRUPAL_PASSWORD,
 
     },
 

@@ -120,7 +120,7 @@ style={{objectFit:"cover"}}
                 </div>
               )}
 
-
+{user.id}
 
            {financementsacceptedansgroupe
            	.filter(valide => valide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))

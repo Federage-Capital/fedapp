@@ -1,193 +1,337 @@
 import * as React from "react";
-import Link from "next/link";
 import Image from "next/image"
 import {
-  DrupalNode,
-  getSearchIndexFromContext,
-  deserialize,
-  JsonApiSearchApiResponse,
-  DrupalSearchApiFacet,
+	DrupalNode,
+	getSearchIndexFromContext,
+	deserialize,
+	JsonApiSearchApiResponse,
+	DrupalTaxonomyTerm,
 } from "next-drupal";
-import useSWR from 'swr'
 import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
 import { useRouter } from "next/router"
 import { getGlobalElements } from "lib/get-global-elements"
-import { Layout, LayoutProps } from "components/layout"
-import { PageHeader } from "components/page-header"
-import { DrupalJsonApiParams } from "drupal-jsonapi-params";
+import { Layout } from "components/layout"
 import { BoxUserList } from "components/box-alluserlist"
-import { BarsArrowUpIcon, UsersIcon } from '@heroicons/react/20/solid'
+import { BoxProjectList } from "components/box-project-alluserlist";
+import { BoxResultNameSearch } from "components/box-searchbar";
+import { useSession } from "next-auth/react"
+import { drupal } from "lib/drupal"
+import { BoxResearch } from "components/box-research";
+import { DrupalJsonApiParams } from "drupal-jsonapi-params"
+
+import { getParams } from "lib/get-params"
+
+import { usePaginatedSearch } from "../hooks/use-paginated-search"
+
+function formatDate(input: string): string {
+	const date = new Date(input)
+	return date.toLocaleDateString("en-US", {
+		month: "long",
+		day: "numeric",
+		year: "numeric",
+	})
+}
+
+import useSWR from 'swr'
 
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
-
 const params = {
-  fields: {
-    "file--file": "uri",
-  },
-  filter: {
+	fields: {
+		"group--federage": "label,field_description,path",
+		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
+	},
+	filter: {
 
-  },
+	},
 
+	include: "",
 }
+
+
+const params2 = {
+
+
+	include: "user_picture",
+}
+
+
+
+
 
 
 
 export default function AlluserlistPage
-  ({ menus, blocks, users, nodes, icone,
-    facets: initialFacets,
-  }: AlluserlistPageProps) {
-  const { t } = useTranslation()
-  const router = useRouter()
+	({ menus, blocks, users, nodes, nodes2, logouri, catentreprise, result_users,
+		facets: initialFacets,
+	}: AlluserlistPageProps) {
+	const { t } = useTranslation()
+	const router = useRouter()
+
+	const { data: session, status } = useSession()
 
 
-  const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
+	const { data: useringroup, error: useringroupError } = useSWR(() => `https://fed.septembre.io/explorer-user-in-group`, fetcher)
+	const colored = "bg-white fedblueblue";
 
-  const [status, setStatus] = React.useState<"error" | "success" | "loading">()
-  const [results, setResults] = React.useState<DrupalNode[]>(nodes)
-  const [results_project, setResults_project] = React.useState<DrupalNode[]>(nodes)
+	const [state, setStatus] = React.useState<"error" | "success" | "loading">()
+	const [results, setResults] = React.useState<DrupalNode[]>(nodes)
+	const [openTab, setOpenTab] = React.useState(1);
+	const [facets, setFacets] =
+		React.useState<DrupalSearchApiFacet[]>(initialFacets)
 
-  const [facets, setFacets] =
-    React.useState<DrupalSearchApiFacet[]>(initialFacets)
+	const { data, hasNextPage, isFetching, fetchNextPage, isError } =
+		usePaginatedSearch()
 
-  async function handleSubmit(event) {
-    event.preventDefault()
+	function onSubmit(event) {
+		event.preventDefault()
 
-    for (const filter of ["fulltext", "name", "field_status"]) {
-      if (event.target[filter]?.value != "") {
-        params["filter"][filter] = event.target[filter]?.value
-      }
-    }
-
-
-    setStatus("loading")
-    const response = await fetch("/api/search/default_index", {
-      method: "POST",
-      body: JSON.stringify({
-        deserialize: false,
-        params,
-      }),
-    })
-
-    if (!response.ok) {
-      return setStatus("error")
-    }
-
-    setStatus("success")
-
-    const json = await response.json()
-    const results = deserialize(json) as DrupalNode[]
-
-    setResults(results)
-
-    if (results?.length) {
-      setFacets(json.meta.facets)
-    }
-  }
+		router.push({
+			pathname: "/alluserlist",
+			query: `keywords=${event.target.keywords.value}`,
+		})
+	}
 
 
-
-
-
-  return (
-    <div className="bg-slate-100">
-      <Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
-        <div className="px-6">
-          <h1 className="max-w-4xl mb-1 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
-
-          <p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets à la fois.</p>
-
-          <form onSubmit={handleSubmit} className="space-y-2 mb-4">
-            <div className="flex xs:hidden items-start w-100">
-              <input
-                type="search"
-                placeholder="Rechercher un membre"
-                name="fulltext"
-                className="d-inline-flex content-start flex-auto  px-3 py-2 mr-1 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
-              />
-              <div className="grid gap-4 py-4 md:grid-cols-1">
-              </div>
-              <div className="flex">
-                <button
-                  type="submit"
-                  data-cy="btn-submit"
-                  className="hidden sm:block justify-center content-end w-fit px-3 py-2 sm:text-sm d-inline-block font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
-                >
-                  {status === "Chargement" ? "Attendez..." : "Recherche"}
-                </button>
-              </div>
-            </div>
-            <button
-              type="submit"
-              data-cy="btn-submit"
-              className="hiddedesk xs:block w-full justify-center  px-3 py-2 sm:text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black"
-            >
-              {status === "Chargement" ? "Attendez..." : "Recherche"}
-            </button>
-          </form>
-          <div className="pb-10" />
-          {status === "error" ? (
-            <div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-              Une erreur s&#39;est produite. Veuillez réessayer.
-            </div>
-          ) : null}
-          {!results.length ? (
-            <p className="text-sm" data-cy="search-no-results">
-              Aucun résultat.
-            </p>
-          ) : (
-            <>
-
-            <div className="md:grid-cols-1">
-              {results.map((node) => (
-                <div key={node.id}>
-{node.path?.alias}
-                  <BoxUserList key={node.id} node={node} />
-                </div>
-              ))}
-            </div>
+	return (
+		<div className="bg-slate-100">
+			<Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
+				<div className="px-6">
+					<h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
+					<p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets.</p>
+					<form onSubmit={onSubmit} className="mb-4">
+						<div className="items-center gap-4 sm:grid sm:grid-cols-7">
+							<input
+								type="search"
+								placeholder="Rechercher un projet ou un membre"
+								name="keywords"
+								required
+								className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+							/>
+							<button
+								type="submit"
+								data-cy="btn-submit"
+								className="flex justify-center w-full px-4 py-2 mt-4 text-sm font-medium text-white bg-black border border-transparent rounded-md shadow-sm sm:col-span-2 sm:mt-0 hover:bg-black"
+							>
+								{isFetching ? "Recherche en cours" : "Recherche"}
+							</button>
+						</div>
+					</form>
+					{isError ? (
+						<div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+							An error occured. Please try again.
+						</div>
+					) : null}
+					{!data?.pages?.length ? (
+						<div className="text-sm" data-cy="search-no-results">
+							<ul className="flex pt-3">
+								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+									<a
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? colored : "text-" + "bg-white")}
+										onClick={e => {
+											e.preventDefault();
+											setOpenTab(1);
+										}}
+										data-toggle="tab"
+										href="#link1"
+										role="tablist"
+									>
+										Projets
+									</a>
+								</li>
+								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+									<a
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? colored : "text-" + "bg-white")}
+										onClick={e => {
+											e.preventDefault();
+											setOpenTab(2);
+										}}
+										data-toggle="tab"
+										href="#link1"
+										role="tablist"
+									>
+										Membres
+									</a>
+								</li>
+							</ul>
+							<div className="pb-10" />
+							{state === "error" ? (
+								<div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
+									Une erreur s&#39;est produite. Veuillez réessayer.
+								</div>
+							) : null}
+							<div className={openTab === 2 ? "block" : "hidden"}>
 
 
 
-            </>
-          )}
-        </div>
-      </Layout>
 
-    </div >
 
-  )
+
+
+								{!nodes2.length ? (
+									<p className="text-sm" data-cy="search-no-results">
+										Aucun résultat.
+									</p>
+								) : (
+									<div className="md:grid-cols-1">
+										{nodes2
+											.filter((results_users) => results_users.type.includes("user--user"))
+											.map((node) => (
+												<div key={node.id}>
+													{node.user_picture ? (
+														<div className="text-sm" data-cy="search-no-results">
+															{logouri
+																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
+																.map((itemlogo) => (
+																	<div key={itemlogo.id}>
+																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catentreprise={catentreprise} />
+																	</div>
+																))}
+														</div>
+													) : (
+														<div>
+															<div className="text-sm" data-cy="search-no-results">
+																<BoxUserList key={node.id} node={node} results={results} catentreprise={catentreprise} />
+															</div>
+														</div>
+													)}
+												</div>
+											))}
+									</div>
+								)}
+							</div>
+							<div className={openTab === 1 ? "block" : "hidden"}>
+								{!results.length ? (
+									<p className="text-sm" data-cy="search-no-results">
+										Aucun résultat.
+									</p>
+								) : (
+									<div className="md:grid-cols-1">
+										{results
+											.filter(results_projets => results_projets.type.includes("group--federage"))
+											.map((filterNode) => (
+												<div key={filterNode.id}>
+
+													<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
+												</div>
+											))}
+									</div>
+								)}
+							</div>
+						</div>
+					) : (
+						<div className="pt-4">
+							<h3 className="mt-0" data-cy="search-results">
+								{data?.pages[0]?.total} résultat(s).
+							</h3>
+							{data?.pages.map((page, index) => (
+								<div key={index}>
+									{page.items?.map((node) => (
+										<div key={node.id}>
+											<BoxResearch key={node.id} node={node} logouri={logouri} useringroup={useringroup} results={results} status={status} catentreprise={catentreprise} />
+											{node.type === "group--federage" &&
+												results
+													.filter(results_projets => results_projets.type.includes("group--federage"))
+													.slice(0, 1)
+													.map((filterNode) => (
+														<div key={filterNode.id}>
+
+
+															< BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
+														</div>
+													))
+											}
+										</div>
+									))}
+								</div>
+							))}
+							{hasNextPage && (
+								<button
+									onClick={() => fetchNextPage()}
+									disabled={isFetching}
+									className="flex justify-center px-4 py-2 mt-4 text-sm font-medium text-black bg-slate-200 border border-slate-200 rounded-md shadow-sm sm:col-span-2 sm:mt-0"
+								>
+									{isFetching ? "Loading..." : "Show more"}
+								</button>
+							)}
+						</div>
+					)
+					}
+				</div >
+			</Layout >
+		</div >
+	)
 }
 
 export async function getStaticProps(
-  context
+	context
 ): Promise<GetStaticPropsResult<AccountPageProps>> {
 
-  const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
-    "default_index",
-    context,
-    {
-      deserialize: false,
-      params,
-    }
-  )
+
+	const catentreprise = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
+		"taxonomy_term--categorie_d_entreprise",
+		context,
+		{
+			params: {
+				"fields[taxonomy_term--categorie_d_entreprise]": "id,name",
+				sort: "-name",
+			},
+		}
+	)
+
+
+	const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
+		"default_index",
+		context,
+		{
+			deserialize: false,
+			params,
+		}
+	)
+
+
+	const result_users = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
+		"user_index",
+		context,
+		{
+			deserialize: false,
+			params2,
+		}
+	)
 
 
 
 
 
 
-  return {
-    props: {
-      ...(await getGlobalElements(context)),
+	const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
+		"file--file",
+		context,
+		{
+			params: {
+				"fields[file--file]": "id,uri",
 
-      nodes: deserialize(results) as DrupalNode[],
-      facets: results.meta.facets,
 
-    },
-    revalidate: 5,
+				sort: "-created",
+			},
+		}
+	)
 
-  };
+	return {
+		props: {
+			...(await getGlobalElements(context)),
+			catentreprise,
+
+			nodes: deserialize(results) as DrupalNode[],
+			nodes2: deserialize(result_users) as DrupalNode[],
+
+			facets: results.meta.facets,
+			logouri,
+
+		},
+		revalidate: 5,
+
+	};
 }

@@ -7,7 +7,7 @@ export function ImageInputAsync() {
 
   function handleChange(event) {
     setFile(event.target.files[0])
-  }
+
 
 
 
@@ -39,15 +39,6 @@ export function ImageInputAsync() {
 
       return setStatus("error")
     }
-
-
-
-
-
-
-
-
-
 
 
 

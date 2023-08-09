@@ -8,7 +8,7 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormPreFinancementEdit } from "components/form--preinfancement-edit"
+import { FormPreFinancementEdit } from "components/form--prefinancement-edit"
 import { Folder } from "public/foldersvg"
 import { drupal } from "lib/drupal"
 
@@ -17,7 +17,7 @@ interface EditFinancementPageProps extends LayoutProps {}
 export default function EditFinancementPage({
   menus,
   blocks,
-editcontent,
+categorieprj,
 gid,
 }: EditFinancementPageProps) {
   const { t } = useTranslation()
@@ -38,15 +38,7 @@ gid,
 {gid}
 
 
-{editcontent
-.map((cat) => (
-  <span key={cat.id} value={cat.id}>
-
-        {cat}
-
-  </span>
-  ))}
-        <FormPreFinancementEdit className="max-w-2xl mx-auto" />
+        <FormPreFinancementEdit className="max-w-2xl mx-auto" categorieprj={categorieprj}/>
       </div>
 
 
@@ -66,32 +58,21 @@ export async function getServerSideProps(
        console.log(context.query) // Outputs: `{ id: '1', name: 'some-book' }`
     // Fetch all articles sorted by the user.puts: `{ id: '1', name: 'some-book' }`
 
-  const editcontent = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-    "groupe--federage",
-        context,
-    {
-      params: new DrupalJsonApiParams()
-      .addFilter("gid.id", gid)
 
-
-    .addSort("created", "DESC")
-
-
-        .getQueryObject(),
-
-
-
-    },
+    const categorieprj = await drupal.getResourceCollectionFromContext<DrupalTaxonomyTerm>(
+      "taxonomy_term--categorie",
+      context,
       {
-        withAuth: session.accessToken,
+        params: {
+          "fields[taxonomy_term--categorie]": "id,name",
+                  sort: "-name",
+        },
       }
-
-  )
-
+    )
   return {
     props: {
       ...(await getGlobalElements(context)),
-      editcontent,
+categorieprj,
       gid,
     },
   }

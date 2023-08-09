@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 import { DatePicker } from "components/datepickercomp"
 
-
+import useSWR from 'swr'
 interface FormPreFinancementEditProps extends React.HTMLProps<HTMLFormElement> {}
 
 interface FormStatus {
@@ -13,12 +13,14 @@ interface FormStatus {
   message?: string | string[]
 }
 
+const fetcher = (url) => fetch(url).then((res) => res.json());
 export function FormPreFinancementEdit({ className, categorieprj, ...props }: FormPreFinancementEditProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
 
    const query = router.query;
+   const { data: preapports, preapportsErro } = useSWR(() => `https://fed.septembre.io/preapports-du-groupe-rest` + `/` + query.gid, fetcher)
 
 
 
@@ -103,11 +105,11 @@ Veuillez vérifier les informations saisies pour transmettre votre proposition.
    </label>
             <div className="relative">
 
-  ws
+      {query.gid}
 
             </div>
           </div>
-
+{preapports.content}
 
           <div className="grid gap-2">
             <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
@@ -117,23 +119,35 @@ Veuillez vérifier les informations saisies pour transmettre votre proposition.
               id="field_estimation_du_prix"
               name="field_estimation_du_prix"
               maxLength={255}
-
+defaultValue={preapports}
               className="px-2 py-3 rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
             />
           </div>
-
           <div className="grid gap-2">
-            <label htmlFor="document" className="font-semibold text-text">
-              {t("Devis ou facture proforma")} <span className="text-sm text-red-500">*</span>
-            </label>
-            <input
-              type="file"
-              id="document"
-              name="document"
-              required
-              className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
-            />
-          </div>
+                <label className="font-semibold text-text" htmlFor="grid-state">
+      {t("Type d’apport")} <span className="text-sm text-red-500">*</span>
+
+       </label>
+                <div className="relative">
+                  <select
+                  id="field_choisir_une_categorie"
+                  name="field_choisir_une_categorie"
+                  className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+                >
+                {categorieprj
+                .map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+
+                        {cat.name}
+
+                  </option>
+                  ))}
+                  </select>
+
+                </div>
+              </div>
+
+
 
       <div className="grid gap-2 hidden">
         <label htmlFor="gid" className="font-semibold text-text">
