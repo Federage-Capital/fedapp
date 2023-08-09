@@ -208,7 +208,8 @@ export function FormPreapport({ className, categorieprj, ...props }: FormPreappo
               className="px-2 py-3 rounded-md border w-96 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
             >
 
-            {query.gid}
+
+
             {categorieprj
             .map((cat) => (
               <option key={cat.id} value={cat.id}>
