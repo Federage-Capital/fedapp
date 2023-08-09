@@ -1,16 +1,9 @@
 
 import React from 'react';
-import Moment from 'react-moment';
-import moment from "react-moment";
 
 export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
 
 
-
-	const currentDate = moment();
-	const future = moment('2024-03-02 10:03:02');
-	const timeLeft = moment(future.diff(currentDate)).format("MMMM Do YYYY, h:mm:ss a");
-	const current_time = moment().format("MMMM Do YYYY, h:mm:ss a")
 
 
 	return (
