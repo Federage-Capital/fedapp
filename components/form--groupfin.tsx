@@ -93,35 +93,19 @@ export function FormGroupfin({ className, categorieprj, ...props }: FormGroupfin
 
 
       <div className="grid gap-2">
+      <label htmlFor="descritption" className="font-medium text-sm">
+        {t("Date de début du projet")} <span className="text-sm text-red-500">*</span>
+      </label>
 
+              <DatePicker />
 
       </div>
-      <div className="grid gap-2">
-            <label className="blofont-semibold text-text" htmlFor="grid-state">
-  {t("categorie")} <span className="text-sm text-red-500">*</span>
-   </label>
-            <div className="relative">
-              <select
-              id="field_categorie"
-              name="field_categorie"
-              className="px-2 py-3 rounded-md border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-            >
-            {categorieprj
-            .map((cat) => (
-              <option key={cat.id} value={cat.id}>
-
-                    {cat.name}
-
-              </option>
-              ))}              </select>
-
-            </div>
-          </div>
 
 
 
 
-                    <DatePicker />
+
+        
 
 
 

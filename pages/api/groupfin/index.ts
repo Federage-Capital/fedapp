@@ -9,7 +9,6 @@ import { drupal } from "lib/drupal"
 type FormBodyFields = {
   label: string
   description: string
-  field_categorie: string
   field_date_de_livraison: date
 }
 
@@ -52,7 +51,6 @@ export default async function handler(
           label: fields.label,
           field_description: fields.field_description[0],
           field_date_de_livraison: fields.field_date_de_livraison,
-          field_categorie: fields["field_categorie"][0],
 
         })
       })
@@ -66,7 +64,7 @@ export default async function handler(
 
     // 2. Create the media--image resource from the file--file.
 
-  
+
     // Create the node--article resource with the media--image relationship.
     const projetfederage = await drupal.createResource<DrupalNode>(
       "group--federage",
@@ -80,25 +78,15 @@ export default async function handler(
                 format: "basic_html",
               },
           },
-          relationships:{
-            field_categorie: {
-              data: {
-              type: "taxonomy_term--categorie",
-              id: fields.field_categorie,
-                    },
-                            },
-                          },
+
 
         },
       },
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-        .addInclude([
-          "field_categorie",
-        ])
+
           .addFields("group--projets_federage", ["label"])
-          .addFields("taxonomy_term--categorie", ["name"])
           .getQueryObject(),
       }
     )

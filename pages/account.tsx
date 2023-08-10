@@ -4,6 +4,8 @@ import { DrupalNode, DrupalUser } from "next-drupal";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image"
+import _ from 'lodash'
+
 import { absoluteURL,formatDate } from "lib/utils"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { getSession, useSession, signOut } from "next-auth/react";
@@ -15,6 +17,8 @@ import { PageHeader } from "components/page-header";
 import { NextApiRequest, NextApiResponse } from "next"
 
 import classNames from "classnames"
+
+import { NodeGroupRow } from "components/node--group--row"
 
 import { BoxProjetsEncours } from "components/box-groupes-encours"
 import { BoxProjetsOffre } from "components/box-projets-offre"
@@ -41,27 +45,20 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function AccountsPage({
   user,
-  node,
   menus,
-
-
   financementsdansgr,
   financementsacceptedansgroupe,
-
   ...props
 }: AccountPageProps) {
 
 
 
 
-  const { t } = useTranslation();
-  const { data } = useSession();
-  const router = useRouter();
+    const router = useRouter();
 
 
 
 
-  const { status } = useSession()
   const [openTab, setOpenTab] = React.useState(1);
   const [shouldFetch, setShouldFetch] = useState(false)
 
@@ -72,16 +69,22 @@ export default function AccountsPage({
   const { data: propositions, error: propositionsError } = useSWR(() => `https://fed.septembre.io/propositions_nested` + `/` + user[0].id, fetcher)
 
 
+  const { data, status } = useSession()
+  const { t } = useTranslation()
+  const regroupement = _.groupBy(financementsacceptedansgroupe, 'gid.id')
 
+  if (status === "loading") {
+    return null
+  }
 
-
-
-
-
-
-
-
-
+  if (status === "unauthenticated") {
+    return (
+      <Link href="/login" passHref>
+        <a className="text-text hover:underline">{t("login")}</a>
+      </Link>
+    )
+  }
+  if (status === "authenticated") {
   return (
     <Layout
       menus={menus}
@@ -236,11 +239,77 @@ style={{objectFit:"cover"}}
 
 
                   <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <BoxProjetsEncours key={user[0].id}
-                  financementsdansgr={financementsdansgr}
-                  financementsacceptedansgroupe={financementsacceptedansgroupe}
-                  />
-                  </div>
+
+                        {_.map(regroupement,(value, key) => (
+                        			<>
+                              <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
+
+                              <div className="flex-shrink-0">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" strokeDasharray="5 5" />
+                                </svg>
+                              </div>
+
+                              <div className="min-w-0 flex-1">
+                              {key?.length ? (
+                              			<>
+                              {financementsdansgr.filter(titredugroupe => titredugroupe.id.includes(key)).map(filteredtitredugroupe => {
+                              					return (
+                              								 <div key={filteredtitredugroupe.id} className="relative flex items-center ">
+                              								{filteredtitredugroupe.label}<br />
+                                              <p className="font-semibold">admin :{filteredtitredugroupe.uid.display_name}</p>
+
+
+                                              <div className="flex-shrink-2">
+                                              <h2>    <NodeGroupRow key={filteredtitredugroupe.id} node={filteredtitredugroupe} />
+
+                                            		<Link href={filteredtitredugroupe.path.alias} passHref>
+
+                                            			<a>
+                                            				<svg
+                                            					viewBox="0 0 24 24"
+                                            					fill="none"
+                                            					stroke="currentColor"
+                                            					strokeWidth="2"
+                                            					strokeLinecap="round"
+                                            					strokeLinejoin="round"
+                                            					className="w-4 h-4 ml-2"
+                                            				>
+                                            					<path d="M5 12h14M12 5l7 7-7 7" />
+                                            				</svg>
+
+                                            			</a>
+                                            		</Link>
+                                            	</h2>
+                                              </div>
+                              								 </div>
+                                             )
+                              				})}
+                              			</>
+                              		) : (
+                              			< >
+                              NAaN
+                              			</>
+                              		)}
+
+
+                                  	{value.slice(0,1).map((e) => (
+                          <BoxProjetsEncours value={value} key={e.id} />
+                  	))}
+
+                                <br/>
+                                </div>
+                                </div>
+
+                        			</>
+                        		))}
+
+
+
+
+
+</div>
 
 
                   <div className={openTab === 2 ? "block" : "hidden"} id="link2">
@@ -270,7 +339,7 @@ style={{objectFit:"cover"}}
 
     </Layout>
   );
-}
+}  }
 
 export async function getServerSideProps(
   context: GetServerSidePropsContext
@@ -294,11 +363,10 @@ export async function getServerSideProps(
     "group--federage",
     {
       params: new DrupalJsonApiParams()
-        .addInclude(["uid", "group_type", "revision_user"])
-        .addFields("group_content--federage-group_node-financement", ["id", "type", "meta"])
-        .addFields("group_type--group_type", ["id", "type", "meta"])
+        .addInclude(["uid"])
 
-        .addFields("user--user", ["display_name", "user_picture"])
+        .addFields("user--user", ["display_name"])
+        .addFields("group--federage", ["uid", "path", "label"])
 
         .addSort("created", "DESC")
         .getQueryObject(),
@@ -313,10 +381,11 @@ export async function getServerSideProps(
     "group_content--federage-group_node-financement",
     {
       params: new DrupalJsonApiParams()
-        .addInclude(["uid", "group_content_type", "gid", "entity_id"])
-        .addFields("entity_id", ["title"])
-
-
+        .addInclude(["uid", "gid", "entity_id"])
+        .addFields("entity_id", ["title","field_statut","field_estimation_du_prix"])
+        .addFields("gid", ["id"])
+        .addFields("uid", ["meta"])
+        .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
         .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
         .addSort("created", "DESC")

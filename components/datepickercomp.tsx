@@ -113,17 +113,12 @@ export  function DatePicker() {
   }, [datepickerHeaderDate]);
 
   return (
-    <div className=" flex items-center justify-center  ">
+    <div className=" flex items-center justify-left  ">
       <div className="antialiased sans-serif">
         <div>
-          <div className="container mx-auto px-4 py-2 md:py-10">
+          <div className="container mx-auto py-2 ">
             <div className="mb-5 w-64">
-              <label
-                htmlFor="datepicker"
-                className="font-bold mb-1 text-gray-700 block"
-              >
-                Select Date
-              </label>
+
               <div className="relative">
                 <input type="hidden" name="date" />
                 <input
