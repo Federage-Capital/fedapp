@@ -1,3 +1,14 @@
+body{
+  /* text-base/leading-6/font-medium */
+
+  font-family: 'Inter', Sans-Serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  background-color:#FFF;
+   }
 
    #nprogress .bar {
      background: black;
