@@ -29,7 +29,6 @@ interface ResourcePageProps extends LayoutProps, PageProps {
 
 export default function ResourcePage({
   resource,
-  additionalContent,
   menus,
 }: ResourcePageProps) {
   if (!resource) return null
@@ -122,19 +121,7 @@ export async function getStaticProps(
   }
 
   // Fetch additional content for pages.
-  let additionalContent: PageProps["additionalContent"] = {}
 
-  if (resource.type === "node--article") {
-    // Fetch featured articles.
-    additionalContent["featuredArticles"] =
-      await drupal.getResourceCollectionFromContext("node--article", context, {
-        params: getParams("node--article")
-          .addFilter("id", resource.id, "<>")
-          .addPageLimit(3)
-          .addSort("created", "DESC")
-          .getQueryObject(),
-      })
-  }
 
 
 
@@ -143,7 +130,7 @@ export async function getStaticProps(
     props: {
       ...(await getGlobalElements(context)),
       resource,
-      additionalContent,
+
     },
     revalidate: 5,
 
