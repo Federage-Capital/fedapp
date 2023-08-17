@@ -161,7 +161,7 @@ export default async function handler(
     )
 
 
-    const group = await await drupal.createResource<DrupalNode>(
+    const group =  await drupal.createResource<DrupalNode>(
       "group_content--federage-group_node-financement",
       {
         data: {
@@ -172,6 +172,8 @@ export default async function handler(
             changed: article.changed,
 
             default_langcode: true
+
+
           },
           relationships: {
             gid: {
@@ -182,22 +184,25 @@ export default async function handler(
                     },
 
   },
+
+
             entity_id: {
               data: {
                 type: "node--financement",
                 id: article.id,
-                meta: {
-                    drupal_internal__target_id: article.drupal_internal__nid
-                },
+
               },
-            },
+            }
+
+
+
+
           },
         },
       },
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-          .addFields("node--financement", ["title"], ["body"])
           .getQueryObject(),
       }
     )
