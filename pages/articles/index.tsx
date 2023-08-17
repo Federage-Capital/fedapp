@@ -210,7 +210,7 @@ const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
     params:{
 
            sort: "-changed",
-  
+
       }
   }
 )
@@ -226,5 +226,6 @@ const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
        nodes: deserialize(results) as DrupalNode[],
        facets: results.meta.facets,
      },
+     		revalidate: 5,
    };
  }
