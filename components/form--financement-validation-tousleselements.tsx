@@ -14,7 +14,7 @@ interface FormStatus {
   message?: string | string[]
 }
 
-export function FormFinancementValidation({ className, categorieprj, node, groupe, ...props }: FormFinancementValidationProps) {
+export function FormFinancementValidation({ className, categorieprj, node, ...props }: FormFinancementValidationProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
@@ -29,12 +29,10 @@ export function FormFinancementValidation({ className, categorieprj, node, group
 
     setFormStatus({ status: "fetching" })
 
-    const response = await fetch(`/api/validation/${node.entity_id.id}`, {
-      method: "PATCH",
+    const response = await fetch("/api/financements", {
+      method: "POST",
       body: data,
     })
-
-
 
     if (!response.ok) {
       const errors = await response.json()
@@ -45,11 +43,8 @@ export function FormFinancementValidation({ className, categorieprj, node, group
       })
     }
 
-    router.push("/" + groupe.path.alias)
-
+    router.push("/financement/validation")
   }
-
-
 
   return (
     <form
@@ -84,16 +79,26 @@ Veuillez vérifier les informations saisies pour transmettre votre proposition.
         <label htmlFor="title" className="font-semibold text-text">
           {t("Nom de l’apport")} <span className="text-sm text-red-500">*</span>
         </label>
-
-  {node.entity_id.title}
+        <input
+          id="title"
+          name="title"
+            defaultValue={node.label}
+          maxLength={255}
+          required
+          className="px-2 py-3 rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+        />
       </div>
 
       <div className="grid gap-2">
         <label htmlFor="body" className="font-semibold text-text">
           {t("Objet de l’apport")} <span className="text-sm text-red-500">*</span>
         </label>
-  {node.entity_id.body.value}
-
+        <textarea
+          id="body"
+          name="body"
+            defaultValue={node.entity_id.body.value}
+          className="h-48 px-2 py-3 rounded-md border border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        ></textarea>
       </div>
 
       <div className="grid gap-2">
@@ -104,8 +109,26 @@ Veuillez vérifier les informations saisies pour transmettre votre proposition.
    </label>
 
 
+               {node.entity_id.field_choisir_une_categorie.name}
+            <div className="relative">
+              <select
+              id="field_choisir_une_categorie"
+              name="field_choisir_une_categorie"
+              className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+            >
 
-                           {node.entity_id.field_choisir_une_categorie.name}
+
+            {categorieprj
+            .map((cat) => (
+              <option key={cat.id} value={cat.id}>
+
+                    {cat.name}
+
+              </option>
+              ))}
+              </select>
+
+            </div>
           </div>
 
 
@@ -114,18 +137,17 @@ Veuillez vérifier les informations saisies pour transmettre votre proposition.
               {t("Montant de l’apport")} <span className="text-sm text-red-500">*</span>
             </label>
                {node.entity_id.field_estimation_du_prix}
+            <input
+              id="field_estimation_du_prix"
+              name="field_estimation_du_prix"
+              maxLength={255}
 
+              className="px-2 py-3 rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+            />
           </div>
+Commentaire
 
-          <div className="grid gap-2">
-            <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
-              {t("commentaire")} <span className="text-sm text-red-500">*</span>
-            </label>
-                   {node.entity_id.revision_log}
-
-          </div>
-
-
+       {node.entity_id.revision_log}
 
           <div className="grid gap-2">
             <label htmlFor="document" className="font-semibold text-text">
@@ -139,19 +161,27 @@ Veuillez vérifier les informations saisies pour transmettre votre proposition.
 
 
 
+
+                                       <p>
                                        <div className=" text-xl font-bold">Ressources</div>
 
 Devis de l&apos;apport :<br/>
 
 {absoluteURL(doc.field_media_document.uri.url)}
 
-
-
+</p>
 
                                            </div>
 
                                                                  ))}
 
+            <input
+              type="file"
+              id="document"
+              name="document"
+              required
+              className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
+            />
           </div>
 
       <div className="grid gap-2 hidden">
@@ -167,8 +197,8 @@ Devis de l&apos;apport :<br/>
         ></textarea>
       </div>
       <div className="grid gap-2">
+      <DatePicker />
 
- {node.entity_id.field_date_de_livraison}
 
       </div>
 
@@ -180,34 +210,20 @@ Toute saisie réévalue l&apos;apport. Les données financières doivent être v
 </p>
 
 
-<div className="grid gap-2">
-  <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
-    {t("Validez-vous ces informations")} <span className="text-sm text-red-500">*</span>
-  </label>
 
-            <input
-              id="promote"
-              aria-describedby="candidates-description"
-              name="promote"
-              type="checkbox"
-              defaultValue='1'
-              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-            />
-
-</div>
 
 
 
       <div>
 
       <div className="block  w-100 text-right">
-      <button onClick={() => router.back()} className="bg-white hover:bg-blue-500 text-black font-semibold hover:text-white py-2 px-4  hover:border-transparent rounded">
+      <button onClick={() => router.back()} class="bg-white hover:bg-blue-500 text-black font-semibold hover:text-white py-2 px-4  hover:border-transparent rounded">
         Annuler
       </button>
 
         <input
           type="submit"
-          className="ml-10 bg-blue-300 hover:bg-blue-400 text-blue-700 font-bold py-2 px-4  hover:border-blue-500 rounded"
+          class="ml-10 bg-blue-300 hover:bg-blue-400 text-blue-700 font-bold py-2 px-4  hover:border-blue-500 rounded"
           value={
             formStatus?.status === "fetching"
               ? t("please-wait")

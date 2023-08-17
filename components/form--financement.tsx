@@ -42,8 +42,9 @@ export function FormFinancement({ className, categorieprj, ...props }: FormFinan
       })
     }
 
-    router.push("/financement/validation")
+    router.push("/financement/validation" + '?gid=' + query.gid)
   }
+
 
   return (
     <form
@@ -143,7 +144,21 @@ export function FormFinancement({ className, categorieprj, ...props }: FormFinan
               className="px-2 py-3 rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
             />
           </div>
+          <div className="grid gap-2">
+            <label htmlFor="field_estimation_du_prix" className="hidden font-semibold text-text">
+              {t("Validez-vous ces informations")} <span className="text-sm text-red-500">*</span>
+            </label>
 
+                      <input
+                        id="promote"
+                        aria-describedby="promote"
+                        name="promote"
+                        type="checkbox"
+                        className="hidden"
+                        value="false"
+                      />
+
+          </div>
           <div className="grid gap-2">
             <label htmlFor="document" className="font-semibold text-text">
               {t("Devis ou facture proforma")} <span className="text-sm text-red-500">*</span>
