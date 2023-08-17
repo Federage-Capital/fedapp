@@ -6,9 +6,10 @@ export default async function handler(
 ) {
   let slug = request.query.slug as string
   const secret = request.query.secret as string
+  const path = slug.replace(/\/?$/, "/")
 
   // Validate secret.
-  if (secret !== process.env.DRUPAL_PREVIEW_SECRET) {
+  if (secret !== process.env.DRUPAL_REVALIDATE_SECRET) {
     return response.status(401).json({ message: "Invalid secret." })
   }
 
@@ -18,7 +19,8 @@ export default async function handler(
   }
 
   try {
-    await response.revalidate(slug)
+    await response.revalidate(path)
+
 
     return response.json({})
   } catch (error) {

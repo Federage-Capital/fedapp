@@ -14,6 +14,7 @@ type FormBodyFields = {
   field_estimation_du_prix: string
   field_date_de_livraison: date
   field_choisir_une_categorie: string
+  revision_log: string
 }
 
 export const config = {
@@ -57,7 +58,7 @@ export default async function handler(
           document: files["document"][0],
           gid: fields.gid[0],
           field_estimation_du_prix: fields.field_estimation_du_prix[0],
-          field_date_de_livraison: fields.field_date_de_livraison,
+          field_date_de_livraison: fields.field_date_de_livraison[0],
           field_choisir_une_categorie: fields["field_choisir_une_categorie"][0],
           revision_log: fields.revision_log[0],
         })
@@ -152,11 +153,8 @@ export default async function handler(
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
-        .addInclude([
-          "field_choisir_une_categorie",
-        ])
+
           .addFields("node--financement", ["title"])
-          .addFields("taxonomy_term--categorie", ["name"])
 
           .getQueryObject(),
       }

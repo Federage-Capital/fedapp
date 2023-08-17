@@ -95,6 +95,18 @@ export function FormFinancement({ className, categorieprj, ...props }: FormFinan
         ></textarea>
       </div>
 
+
+      <div className="grid gap-2">
+        <label htmlFor="revision" className="font-semibold text-text">
+          {t("Commentaire obligatoire")} <span className="text-sm text-red-500">*</span>
+        </label>
+        <textarea
+          id="revision_log"
+          name="revision_log"
+          className="h-48 px-2 py-3 rounded-md border border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+        ></textarea>
+      </div>
+
       <div className="grid gap-2">
             <label className="font-semibold text-text" htmlFor="grid-state">
   {t("Type d’apport")} <span className="text-sm text-red-500">*</span>
