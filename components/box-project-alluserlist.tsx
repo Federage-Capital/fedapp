@@ -45,8 +45,10 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 												.slice(0, 5)
 												.map((filterUser, index) => (
 													<div key={filterUser.id} className={`relative ${index != 0 ? '-ml-2' : ''}`}>
+
 														{filterUser.user_picture && (
-															<Link href={`/group/federage/${filterUser.label.replace(/è/g, 'e').replaceAll(' ', '-').replaceAll('\/', '-')}`} passHref>
+															<Link href={filterUser.name} passHref>
+															<a>
 																<Image
 																	src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${filterUser.user_picture}`}
 																	alt={filterUser.uid}
@@ -54,6 +56,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 																	height={30}
 																	className="h-8 w-8 rounded-full"
 																/>
+																</a>
 															</Link>
 														)}
 													</div>
@@ -63,7 +66,12 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 								</div>
 								<div className="self-stretch flex flex-row items-center justify-start">
 									<div className="flex-1 relative leading-[20px] font-semibold">
+
+									<Link href={node.path.alias} passHref>
+									<a>
 										{node.label}
+</a>
+									</Link>
 									</div>
 								</div>
 							</div>

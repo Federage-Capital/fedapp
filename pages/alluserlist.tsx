@@ -47,12 +47,15 @@ const params = {
 
 	},
 
-	include: "",
+
 }
 
 
 const params2 = {
+	fields: {
 
+		"file--file": "",
+	},
 
 	include: "user_picture",
 }
@@ -180,8 +183,14 @@ export default function AlluserlistPage
 											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
+												<BoxUserList key={node.id} node={node} itemlogo={logouri} results={results} catentreprise={catentreprise} />
+
+
+
 													{node.user_picture ? (
 														<div className="text-sm" data-cy="search-no-results">
+
+
 															{logouri
 																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
 																.map((itemlogo) => (

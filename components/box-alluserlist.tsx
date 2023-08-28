@@ -9,6 +9,8 @@ export function BoxUserList({ node, itemlogo, results, catentreprise }: BoxAllus
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
 					<div className="flex">
+
+
 						{itemlogo?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5"
 								style={{ cursor: "pointer" }}>

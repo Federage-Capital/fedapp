@@ -19,7 +19,7 @@ export default function SlideApport({ showMenu, node }: SlideApportAllUserListPr
 
 			{showMenu && (
 				<div className="self-stretch flex flex-col items-center justify-start text-black1 pb-5 ">
-				12
+
 				{userApport?.length ? (
 
 										 <>
@@ -35,7 +35,7 @@ export default function SlideApport({ showMenu, node }: SlideApportAllUserListPr
 								 									Prix recherché : 	{userInApport.field_estimation_du_prix}
 								 								</div>
 
-								 			
+
 
 								{/* 		{!userApport?.length ? (
 									<p>
@@ -72,7 +72,7 @@ export default function SlideApport({ showMenu, node }: SlideApportAllUserListPr
 
 			</>
 		) : (
-			<p className="text-2xl cadre text-center p-20 mb-10">
+			<p className="text-2xl w-full cadre text-center p-20 mb-10">
 
 
 				<p>   Vide</p>

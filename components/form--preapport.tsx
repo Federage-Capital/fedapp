@@ -11,6 +11,8 @@ import { BaxActualPreapports } from "components/box-actual-preapports"
 import { useForm, useFieldArray } from "react-hook-form";
 import useSWR from 'swr'
 
+
+
 interface FormPreapportProps extends React.HTMLProps<HTMLFormElement> {}
 
 interface FormStatus {
@@ -28,7 +30,7 @@ export function FormPreapport({ className, categorieprj, ...props }: FormPreappo
 
    const query = router.query;
 
-  const { data: preapports, preapportsErro } = useSWR(() => `https://fed.septembre.io/preapports-du-groupe-rest` + `/` + query.gid, fetcher)
+  const { data: preapports, error:preapportsError } = useSWR(() => `https://fed.septembre.io/preapports-du-groupe-rest` + `/` + query.gid, fetcher)
 
   const colored = "bg-white fedblueblue";
 
@@ -79,8 +81,14 @@ export function FormPreapport({ className, categorieprj, ...props }: FormPreappo
 <>
     <div class="grow w-full">
 
+    {preapports.map((cat) => (
+    						 <div key={cat.id} value={cat.id}>
 
-<BaxActualPreapports preapports={preapports}/>
+         <BaxActualPreapports preapports={cat} query={query.gid}/>
+
+
+    						 </div>
+    						 ))}
 
 
 
@@ -112,7 +120,7 @@ export function FormPreapport({ className, categorieprj, ...props }: FormPreappo
 
 
 
-
+{query.gid}
 
 
 

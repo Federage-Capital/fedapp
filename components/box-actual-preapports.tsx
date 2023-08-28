@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
 
 export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
 
@@ -9,6 +11,8 @@ export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
 	return (
 
 <>
+
+{query.gid}
 		{preapports?.length ? (
 
 					 <>
@@ -77,6 +81,9 @@ export function BaxActualPreapports({ preapports }: BaxActualPreapportsProps) {
 
 
 			 Vide
+	{query.gid}
+
+
 
 					 </div>
 				 )}
