@@ -38,29 +38,19 @@ import useSWR from 'swr'
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
+
+
+
 const params = {
 	fields: {
 		"group--federage": "label,field_description,path",
 		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 	},
-	filter: {
 
-	},
+
 
 
 }
-
-
-const params2 = {
-	fields: {
-
-		"file--file": "",
-	},
-
-	include: "user_picture",
-}
-
-
 
 
 
@@ -172,40 +162,23 @@ export default function AlluserlistPage
 
 
 
-
 								{!nodes2.length ? (
 									<p className="text-sm" data-cy="search-no-results">
 										Aucun résultat.
 									</p>
 								) : (
 									<div className="md:grid-cols-1">
+
+
+
 										{nodes2
-											.filter((results_users) => results_users.type.includes("user--user"))
 											.map((node) => (
 												<div key={node.id}>
-												<BoxUserList key={node.id} node={node} itemlogo={logouri} results={results} catentreprise={catentreprise} />
+
+												<BoxUserList key={node.id} node={node} logouri={logouri} results={results} catentreprise={catentreprise} />
 
 
 
-													{node.user_picture ? (
-														<div className="text-sm" data-cy="search-no-results">
-
-
-															{logouri
-																.filter((results_logo) => results_logo.id.includes(node.user_picture.id))
-																.map((itemlogo) => (
-																	<div key={itemlogo.id}>
-																		<BoxUserList key={node.id} node={node} itemlogo={itemlogo} results={results} catentreprise={catentreprise} />
-																	</div>
-																))}
-														</div>
-													) : (
-														<div>
-															<div className="text-sm" data-cy="search-no-results">
-																<BoxUserList key={node.id} node={node} results={results} catentreprise={catentreprise} />
-															</div>
-														</div>
-													)}
 												</div>
 											))}
 									</div>
@@ -306,7 +279,14 @@ export async function getStaticProps(
 		context,
 		{
 			deserialize: false,
-			params2,
+
+       params: new DrupalJsonApiParams()
+         .addInclude([ "user_picture"])
+
+         .addFields("file--file", ["uri", "resourceIdObjMeta"])
+         .getQueryObject(),
+
+
 		}
 	)
 
@@ -315,18 +295,7 @@ export async function getStaticProps(
 
 
 
-	const logouri = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
-		"file--file",
-		context,
-		{
-			params: {
-				"fields[file--file]": "id,uri",
 
-
-				sort: "-created",
-			},
-		}
-	)
 
 	return {
 		props: {
@@ -337,7 +306,7 @@ export async function getStaticProps(
 			nodes2: deserialize(result_users) as DrupalNode[],
 
 			facets: results.meta.facets,
-			logouri,
+
 
 		},
 		revalidate: 5,

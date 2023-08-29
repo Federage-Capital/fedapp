@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 
-export function BoxUserList({ node, itemlogo, results, catentreprise }: BoxAlluserlistProps) {
+export function BoxUserList({ node,  results, catentreprise, ...props }: BoxUserListProps) {
 	return (
 		<>
 			<div className="pb-4">
@@ -11,12 +11,11 @@ export function BoxUserList({ node, itemlogo, results, catentreprise }: BoxAllus
 					<div className="flex">
 
 
-						{itemlogo?.uri && (
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5"
 								style={{ cursor: "pointer" }}>
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
 									<Image
-										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${itemlogo.uri.url}`}
+										src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture.uri.url}`}
 										width={16}
 										height={16}
 										layout="responsive"
@@ -25,7 +24,7 @@ export function BoxUserList({ node, itemlogo, results, catentreprise }: BoxAllus
 									/>
 								</Link>
 							</div>
-						)}
+
 						<div className="ml-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2 pt-5">
 							{node.field_nom_affiche >= 0 ? (
 								<Link href={node.display_name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
