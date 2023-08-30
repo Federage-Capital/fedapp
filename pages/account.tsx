@@ -21,6 +21,7 @@ import classNames from "classnames"
 import { NodeGroupRow } from "components/node--group--row"
 
 import { BoxProjetsEncours } from "components/box-groupes-encours"
+import { BoxParticipationsEncours } from "components/box-participations-encours"
 import { BoxProjetsOffre } from "components/box-projets-offre"
 import { BoxTransactions } from "components/box-tableau-transactions"
 
@@ -48,6 +49,7 @@ export default function AccountsPage({
   menus,
   financementsdansgr,
   financementsacceptedansgroupe,
+  memberships,
   ...props
 }: AccountPageProps) {
 
@@ -72,6 +74,8 @@ export default function AccountsPage({
   const { data, status } = useSession()
   const { t } = useTranslation()
   const regroupement = _.groupBy(financementsacceptedansgroupe, 'gid.id')
+  const regrmesparticipations = _.groupBy(memberships, 'gid.id')
+
 
   if (status === "loading") {
     return null
@@ -102,6 +106,7 @@ export default function AccountsPage({
             <div className="grid grid-cols-4 gap-4">
 
 
+
               {user[0].user_picture ? (
                 <Image
                   src={absoluteURL(user[0].user_picture.uri.url)}
@@ -123,7 +128,7 @@ style={{objectFit:"cover"}}
                 </div>
               )}
 
-{user.id}
+      {user[0].display_name}
 
            {financementsacceptedansgroupe
            	.filter(valide => valide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
@@ -240,71 +245,87 @@ style={{objectFit:"cover"}}
 
                   <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
+                  {_.map(regrmesparticipations,(value, key) => (
+                                    <>
+                                    <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
 
-            {_.map(regroupement,(value, key) => (
-                        			<>
-                              <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
+                                    <div className="flex-shrink-0">
+                                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" strokeDasharray="5 5" />
+                                      </svg>
+                                    </div>
 
-                              <div className="flex-shrink-0">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" strokeDasharray="5 5" />
-                                </svg>
-                              </div>
+                                    <div className="min-w-0 flex-1">
 
-                              <div className="min-w-0 flex-1">
-                              {key?.length ? (
-                              			<>
-                              {financementsdansgr.filter(titredugroupe => titredugroupe.id.includes(key)).map(filteredtitredugroupe => {
-                              					return (
-                              								 <div key={filteredtitredugroupe.id} className="relative flex items-center ">
-                              								{filteredtitredugroupe.label}<br />
-                                              <p className="font-semibold">admin :{filteredtitredugroupe.uid.display_name}</p>
-
-
-                                              <div className="flex-shrink-2">
-                                              <h2>    <NodeGroupRow key={filteredtitredugroupe.id} node={filteredtitredugroupe} />
-
-                                            		<Link href={filteredtitredugroupe.path.alias} passHref>
-
-                                            			<a>
-                                            				<svg
-                                            					viewBox="0 0 24 24"
-                                            					fill="none"
-                                            					stroke="currentColor"
-                                            					strokeWidth="2"
-                                            					strokeLinecap="round"
-                                            					strokeLinejoin="round"
-                                            					className="w-4 h-4 ml-2"
-                                            				>
-                                            					<path d="M5 12h14M12 5l7 7-7 7" />
-                                            				</svg>
-
-                                            			</a>
-                                            		</Link>
-                                            	</h2>
-                                              </div>
-                              								 </div>
-                                             )
-                              				})}
-                              			</>
-                              		) : (
-                              			< >
-                              NAaN
-                              			</>
-                              		)}
+                                    {key?.length ? (
+                                          <>
+                                    {financementsdansgr.filter(titredugroupe => titredugroupe.id.includes(key)).map(filteredtitredugroupe => {
+                                              return (
+                                                     <div key={filteredtitredugroupe.id} className="relative flex items-center ">
+                                                    {filteredtitredugroupe.label}<br />
+                                                    <p className="font-semibold">admin :{filteredtitredugroupe.uid.display_name}</p>
 
 
-                                  	{value.slice(0,1).map((e) => (
-                          <BoxProjetsEncours value={value} key={e.id} />
-                  	))}
+                                                    <div className="flex-shrink-2">
+                                                    <h2>    <NodeGroupRow key={filteredtitredugroupe.id} node={filteredtitredugroupe} />
 
-                                <br/>
-                                </div>
-                                </div>
+                                                      <Link href={filteredtitredugroupe.path.alias} passHref>
 
-                        			</>
-                        		))}
+                                                        <a>
+                                                          <svg
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth="2"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            className="w-4 h-4 ml-2"
+                                                          >
+                                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                                          </svg>
+
+                                                        </a>
+                                                      </Link>
+                                                    </h2>
+                                                    </div>
+                                                     </div>
+                                                   )
+                                            })}
+                                          </>
+                                        ) : (
+                                          < >
+                                    NAaN
+                                          </>
+                                        )}
+
+
+
+Non validés:
+
+{financementsacceptedansgroupe
+.filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('6e6f83ed-b882-4b24-9a1b-897ab1f2e37c'))
+.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
+}
+<br/>
+Montants validés:
+{financementsacceptedansgroupe
+.filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
+.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
+}
+
+
+
+
+
+                                      <br/>
+                                      </div>
+                                      </div>
+
+                                    </>
+                                  ))}
+
+
 
 
 
@@ -383,10 +404,29 @@ export async function getServerSideProps(
     {
       params: new DrupalJsonApiParams()
         .addInclude(["uid", "gid", "entity_id"])
-        .addFields("entity_id", ["title","field_statut","field_estimation_du_prix"])
+        .addFields("entity_id", ["field_estimation_du_prix"])
         .addFields("gid", ["id"])
         .addFields("uid", ["meta"])
         .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
+
+        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
+
+  const memberships = await drupal.getResourceCollection(
+    "group_content--federage-group_membership",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid","gid"])
+
+        .addFields("uid", ["drupal_internal__uid, display_name"])
         .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
         .addSort("created", "DESC")
@@ -431,6 +471,7 @@ export async function getServerSideProps(
       financementsdansgr,
       user,
       financementsacceptedansgroupe,
+      memberships,
     },
   };
 }
