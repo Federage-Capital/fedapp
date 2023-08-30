@@ -308,11 +308,29 @@ Non validés:
 .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
 }
 <br/>
+Mes apports non validés :
+
+                  {financementsacceptedansgroupe
+                  .filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('6e6f83ed-b882-4b24-9a1b-897ab1f2e37c') && nonvalide.uid.id.includes(user[0].id))
+                  .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
+                  }
+
+
+
+<br/>
 Montants validés:
 {financementsacceptedansgroupe
 .filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
 .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
 }
+<br/>
+Mes apports validés :
+
+                  {financementsacceptedansgroupe
+                  .filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05') && nonvalide.uid.id.includes(user[0].id))
+                  .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
+                  }
+
 
 
 
