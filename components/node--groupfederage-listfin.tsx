@@ -59,10 +59,10 @@ const { t } = useTranslation()
                                                                    <summary className="text-lg">
                                                           Détails de l’offre
                                                                    </summary>
-                                                                   <p className="mt-8  text-sm text-gray-500">
+                                                                   <span className="mt-8  text-sm text-gray-500">
                                                                    {node.body}
-                                                                  
-                                                                   </p>
+
+                                                                   </span>
                                                                </details>
 
 

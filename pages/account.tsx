@@ -240,7 +240,8 @@ style={{objectFit:"cover"}}
 
                   <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
-                        {_.map(regroupement,(value, key) => (
+
+            {_.map(regroupement,(value, key) => (
                         			<>
                               <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
 

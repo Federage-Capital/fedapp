@@ -24,32 +24,22 @@ interface FormMembreProps extends React.HTMLProps<HTMLFormElement> {
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export function FormMembre({ nodes, group, listedef, className, ...props }: FormMembreProps) {
+export function FormMembre({ nodes, group,  className, ...props }: FormMembreProps) {
+  const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
+      const { t } = useTranslation()
   const router = useRouter()
   const query = router.query;
-  const { t } = useTranslation()
+
+  const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/users_in_group/'+ query.gid, fetcher)
+  const newNumbers = usersingroup && usersingroup .map( number => number.uid);                      // newNumbers will be equal to ['4', '6', '8', '10']
+  const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ newNumbers, fetcher)
+
+  if ( error3, error4) return <div>Failed to load</div>
+  if (!usersnotin, !usersingroup) return <div>Loading...</div>
 
 
 
 
-
-     const { data: users, error2 } = useSWR('https://fed.septembre.io/nest_user_in/'+ query.gid, fetcher)
-
-
-                           const newNumbers = users && users.map( number => number.uid);
-                           // newNumbers will be equal to ['4', '6', '8', '10']
-
-
-     const { data: usersnotin, error3 } = useSWR('https://fed.septembre.io/user_not_in_2'+ `/`+ newNumbers, fetcher)
-
-     const { data: usersingroup, error4 } = useSWR('https://fed.septembre.io/users_in_group/'+ query.gid, fetcher)
-
-
-  const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
-
-
-       if (error2, error3, error4) return <div>Failed to load</div>
-       if (!users, !usersnotin, !usersingroup) return <div>Loading...</div>
 
 
   const onSubmit = async (event) => {
@@ -63,9 +53,13 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
       body: data,
     })
 
+
     if (!response.ok) {
       const errors = await response.json()
-
+      return setFormStatus({
+        status: "error",
+        message: errors.message,
+      })
 
     }
 
@@ -116,12 +110,13 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
              {usersnotin?.length ? (
 
-  <p>
+  <>
 
              {usersnotin.map((usernotin) => (
-            <div key={usernotin.id} className="divide-y divide-gray-200">
+            <div key={usernotin.uid} className="divide-y divide-gray-200">
               <div className="relative flex items-start py-4">
                 <div className="min-w-0 flex-1 text-sm">
+
 
                 {usernotin.user_picture && (
 
@@ -136,10 +131,10 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                     />
 
                 )}
-                  <label htmlFor="comments" className="font-medium text-gray-700">
+                  <span className="font-medium text-gray-700">
             {usernotin.name}
 
-                  </label>
+                  </span>
 
 
 
@@ -151,11 +146,12 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
 
 
                 <div className="ml-3 flex h-5 items-center">
+
                   <input
-                  id="select_users"
+                  id={usernotin.uuid}
                   name="select_users"
-                    aria-describedby="comments-description"
-                    value={usernotin.uuid}
+                    aria-describedby="select_users"
+                    defaultValue={usernotin.uuid}
                     type="radio"
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
@@ -166,16 +162,16 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
             </div>
               ))}
 
-</p>
+</>
 ) : (
-  <p className="text-2xl cadre text-center p-20 mb-10">
+  <span className="text-2xl cadre text-center p-20 mb-10">
     <p className="inline-block">  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13 17H25H13ZM19 11V23V11ZM1 25V5C1 3.93913 1.42143 2.92172 2.17157 2.17157C2.92172 1.42143 3.93913 1 5 1H17L21 5H33C34.0609 5 35.0783 5.42143 35.8284 6.17157C36.5786 6.92172 37 7.93913 37 9V25C37 26.0609 36.5786 27.0783 35.8284 27.8284C35.0783 28.5786 34.0609 29 33 29H5C3.93913 29 2.92172 28.5786 2.17157 27.8284C1.42143 27.0783 1 26.0609 1 25Z" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </svg></p>
 
         <p>   Ajouter un financement</p>
 
-  </p>
+  </span>
 )}
 
 
@@ -189,7 +185,7 @@ export function FormMembre({ nodes, group, listedef, className, ...props }: Form
                                          <textarea
                                            id="gid"
                                            name="gid"
-                                           value={query.gid}
+                                           defaultValue={query.gid}
                                            maxLength={255}
                                            className="hidden"
                                          ></textarea>
@@ -217,7 +213,7 @@ PARTICIPANTS AU GROUPE
                                           <Link href={`user/${userin.uid}`}>
                                           <a className="grid grid-cols-4 gap-4">
 
-                                            <label htmlFor="comments" className="font-medium text-gray-700">
+                                            <span  className="font-medium text-gray-700">
                                             {userin.user_picture && (
 
 
@@ -231,17 +227,12 @@ PARTICIPANTS AU GROUPE
                                                 />
 
                                             )}
-                                            {userin.name}
-                                            </label>
-                                            <p id="comments-description" className="text-gray-500">
-                                              {userin.group_roles}
 
+                                            </span>
 
-
-                                            </p>
 </a>
 </Link>
-
+{userin.name}
                                           </div>
 
 

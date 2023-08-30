@@ -8,7 +8,6 @@ import { drupal } from "lib/drupal"
 
 type FormBodyFields = {
   select_users: string
-  group_roles: string
   gid: string
 
 }
@@ -55,64 +54,61 @@ export default async function handler(
       })
     })
 
-    // To create the node--article resource, we need to create the referenced entities first.
-
-    // 1. Create file--file resource from the image.
-    // createMediaFileResource is a helper to create file binaries for media.
-    // See https://www.drupal.org/node/3024331.
 
 
 
 
     // Create the node--article resource with the media--image relationship.
-
-
-    const group = await await drupal.createResource<DrupalNode>(
+    const article = await drupal.createResource<DrupalNode>(
       "group_content--federage-group_membership",
       {
         data: {
-          type: "group_content--federage-group_membership",
+          attributes: {
+            title: fields.title,
+            body: {
+              value: fields.body,
+              format: "basic_html",
+            },
+          },
           relationships: {
-                      gid: {
-                data:
-                         {
-                           type: "group--federage",
-                           id: fields.gid,
-                         }
-                      },
-                      uid: {
-                  data: {
-                      type: "user--user",
-                      id: fields.select_users,
+            gid: {
+              data:
+               {
+                 type: "group--federage",
+                 id: fields.gid,
+               }
+            },
+            uid: {
+        data: {
+            type: "user--user",
+            id: fields.select_users,
 
-                      }
-                  },
-                      entity_id: {
-                                          data: {
-                                              type: "user--user",
-                                              id: fields.select_users,
-
-                                              }
-                                          },
-                      group_roles: {
-                    data: [
-                        {
-                            type: "group_role--group_role",
-                            id: "c1a07b8f-d277-4f79-8c28-d577ea7ad979",
-
-                        }
-                    ]
+            }
+        },
+        entity_id: {
+            data:
+            {
+              type: "user--user",
+              id: fields.select_users
+            }
                     }
+                  },
+                  group_type: {
+                  data: {
+                      type: "group_type--group_type",
+                      id: "25744af9-3e45-462e-b389-cd16df5dfd16",
+                  
+                  },
           },
         },
       },
       {
         withAuth: session.accessToken,
         params: new DrupalJsonApiParams()
+          .addFields("node--article", ["title"])
           .getQueryObject(),
       }
     )
-
 
     // The article has been created.
     // Return the article resource.
