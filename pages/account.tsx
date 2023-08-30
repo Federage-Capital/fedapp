@@ -110,11 +110,11 @@ export default function AccountsPage({
               {user[0].user_picture ? (
                 <Image
                   src={absoluteURL(user[0].user_picture.uri.url)}
-style={{objectFit:"cover"}}
                   alt={user[0].user_picture.resourceIdObjMeta.alt || "Image"}
                   title={user[0].user_picture.resourceIdObjMeta.title}
                   width={130}
                   height={130}
+                  priority={true}
                   className='rounded-lg shadow-sm ml-3  object-cover h-48 w-96'
                 />
               ) : (
@@ -353,7 +353,7 @@ Mes apports validés :
 
 
                   <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <BoxProjetsOffre key={user[0].id} user={user}
+                  <BoxProjetsOffre key={financementsdansgr.id} user={user}
                   propositions={propositions}
                   financementsdansgr={financementsdansgr}
                   />
