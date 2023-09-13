@@ -9,8 +9,7 @@ export function BoxUserList({ node,  results, catentreprise, ...props }: BoxUser
 			<div className="pb-4">
 				<div className="bg-white rounded-lg">
 					<div className="flex">
-
-
+					{node.user_picture &&
 							<div className="overflow-hidden h-10 w-10 rounded-full ml-5 mt-5"
 								style={{ cursor: "pointer" }}>
 								<Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
@@ -24,6 +23,7 @@ export function BoxUserList({ node,  results, catentreprise, ...props }: BoxUser
 									/>
 								</Link>
 							</div>
+										}
 
 						<div className="ml-3 grid xs:grid-cols-1 sm:grid-rows-2 sm:grid-flow-col gap-2 pt-5">
 							{node.field_nom_affiche >= 0 ? (
