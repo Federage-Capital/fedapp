@@ -19,6 +19,13 @@ export function FormAddfinancement({ className, categorieprj, assogroup, ...prop
   const router = useRouter()
   const [gid, setGid] = useState('');
 
+  const handleSubmit = (event) => {
+      event.preventDefault();
+
+      setGid('');
+
+    };
+
    const query = router.query;
 
 
@@ -43,7 +50,7 @@ export function FormAddfinancement({ className, categorieprj, assogroup, ...prop
       })
     }
 
-    router.push("/financement/validation?gid=" + query.gid)
+    router.push("/evolutionfin/validation?gid=" + gid)
   }
 
 
@@ -141,7 +148,10 @@ export function FormAddfinancement({ className, categorieprj, assogroup, ...prop
                   id="gid"
                   name="gid"
                   className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
-                >
+                  onChange={(event) =>
+                      setGid(event.target.value)
+                    }
+                      >
                 {assogroup
                 .map((group) => (
                   <option key={group.gid.id} value={group.gid.id}>
@@ -232,6 +242,8 @@ Toute saisie réévalue l&apos;apport. Les données financières doivent être v
               ? t("please-wait")
               : t("Suivant")
           }
+
+
         />
         </div>
       </div>

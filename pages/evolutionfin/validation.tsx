@@ -8,7 +8,7 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormFinancementValidation } from "components/form--financement-validation"
+import { FormNewFinancementValidation } from "components/form--newfinancement-validation.tsx"
 import { drupal } from "lib/drupal"
 
 interface NewFinancementPageProps extends LayoutProps {}
@@ -82,11 +82,11 @@ export default function NewFinancementPagePage({
 
 
 
+{grouppath.path.alias}
 
 
 
-
-              <FormFinancementValidation className="max-w-2xl mx-auto mt-10 p-2" categorieprj={categorieprj} node={finn} groupe={grouppath} />
+              <FormNewFinancementValidation className="max-w-2xl mx-auto mt-10 p-2" categorieprj={categorieprj} node={finn} groupe={grouppath} />
               </div>
 
                                     ))}

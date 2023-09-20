@@ -7,14 +7,14 @@ import { DatePicker } from "components/datepickercomp"
 
 import { absoluteURL, formatDate } from "lib/utils"
 
-interface FormFinancementValidationProps extends React.HTMLProps<HTMLFormElement> {}
+interface FormNewFinancementValidationProps extends React.HTMLProps<HTMLFormElement> {}
 
 interface FormStatus {
   status: "success" | "error" | "fetching"
   message?: string | string[]
 }
 
-export function FormFinancementValidation({ className, categorieprj, node, groupe, ...props }: FormFinancementValidationProps) {
+export function FormNewFinancementValidation({ className, categorieprj, node, groupe, ...props }: FormNewFinancementValidationProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
@@ -45,7 +45,7 @@ export function FormFinancementValidation({ className, categorieprj, node, group
       })
     }
 
-    router.push(`/membre/new?gid=${encodeURIComponent(node.id)}`)
+    router.push(`/membreaddfin/new?gid=${encodeURIComponent(node.id)}`)
 
   }
 

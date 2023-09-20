@@ -24,7 +24,7 @@ export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
 
   const { t } = useTranslation()
 
-  const { data: revisionhistory, error } = useSWR('https://fed.septembre.io/revisionhistory/'+ node.id,  fetcher)
+  const { data: revisionhistory, error } = useSWR('https://fed.septembre.io/revision_history/'+ node.id,  fetcher)
 
 
 
@@ -54,14 +54,14 @@ Publié par :
 />
 
 
-<div class="card shadow-md p-5">
+<div className="card shadow-md p-5">
 
-<div class="grid grid-cols-12 gap-4 pb-10">
+<div className="grid grid-cols-12 gap-4 pb-10">
   <div className="col-span-10 text-xl font-bold">Détail de l&apos;apport</div>
   <div className="col-span-2 text-right">
 
 
-  <button  class=" bg-blue-300 text-xs hover:bg-blue-400 text-blue-700  py-2 px-4  hover:border-blue-500 rounded">
+  <button  className=" bg-blue-300 text-xs hover:bg-blue-400 text-blue-700  py-2 px-4  hover:border-blue-500 rounded">
       {node.field_statut?.name}
 
   </button>
@@ -73,35 +73,33 @@ Publié par :
 </div>
 
 
-<p className="text-base ">Prix négocié</p>
-<p className="text-base font-medium text-slate-500 pb-5">{node.field_estimation_du_prix}€</p>
+<span className="text-base ">Prix négocié</span>
+<span className="text-base font-medium text-slate-500 pb-5">{node.field_estimation_du_prix}€</span>
 
-<p className="text-base ">Délai de livraison</p>
-<p className="text-base font-medium text-slate-500 pb-5">{formatDate(node.field_date_de_livraison)}</p>
+<span className="text-base ">Délai de livraison</span>
+<span className="text-base font-medium text-slate-500 pb-5">{formatDate(node.field_date_de_livraison)}</span>
 
 <a
   href={`/financement/edit?gid=${encodeURIComponent(node.id)}`}
 
 >
 
-  <button class="fedblue text-white w-full rounded p-1">Modifier</button>
+  <button className="fedblue text-white w-full rounded p-1">Modifier</button>
 </a>
 </div>
-<div class="card shadow-md p-5">
+<div className="card shadow-md p-5">
 
   {revisionhistory?.length ? (
 
-  <p>
+  <span>
 
       {revisionhistory.map((rev) => (
 
-      <div key={rev.id} class="grid grid-cols-12 gap-4">
+      <div key={rev.vid} className="grid grid-cols-12 gap-4">
 
 
 
-
-
-<div className="col-span-1 text-xs text-slate-400">icone</div>
+<div className="col-span-1 text-xs text-slate-400">icone </div>
 <div className="col-span-10"><span className="font-semibold">{rev.revision_log} revison logs</span>
 
 <br/><span className="text-xs text-slate-400">{rev.changed}</span></div>
@@ -114,14 +112,14 @@ Publié par :
 
 
 
-  </p>
+  </span>
                                                 ) : (
-  <p>   Participer à la conversation</p>
+  <span>   Participer à la conversation</span>
                                                 )}
 
 </div>
 
-<div class="card shadow-md p-5">
+<div className="card shadow-md p-5">
 
                                                 {node.field_document_s_annexe_s_.map((doc) => (
 
@@ -131,14 +129,14 @@ Publié par :
 
 
 
-                                            <p>
+                                            <span>
                                             <div className=" text-xl font-bold">Ressources</div>
 
 Devis de l&apos;apport :<br/>
 
 {absoluteURL(doc.field_media_document.uri.url)}
 
- </p>
+ </span>
 
                                                 </div>
 
