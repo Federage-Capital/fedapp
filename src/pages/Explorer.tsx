@@ -18,21 +18,21 @@ const Explorer: FunctionComponent = () => {
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
-              className="relative w-[154.89px] h-8"
+              className="relative w-[154.89px] h-8 object-cover"
               alt=""
-              src="/a304a9a1adfc477d9233fbc4749af052.svg"
+              src="/a304a9a1adfc477d9233fbc4749af052.png"
             />
             <div className="rounded-3xs-5 overflow-hidden flex flex-row items-center justify-center">
               <img
-                className="relative w-9 h-9 overflow-hidden shrink-0"
+                className="relative w-9 h-9 overflow-hidden shrink-0 object-cover"
                 alt=""
-                src="/menu.svg"
+                src="/menu.png"
               />
             </div>
           </div>
         </div>
         <div className="self-stretch overflow-y-auto flex flex-col pt-6 px-4 pb-12 items-start justify-start gap-[22px]">
-          <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black1">
+          <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black2">
             <div className="self-stretch flex flex-col items-start justify-center gap-[10px]">
               <div className="self-stretch relative leading-[20px] font-semibold">
                 Explorer
@@ -42,12 +42,12 @@ const Explorer: FunctionComponent = () => {
                 offre d’apport et intégrer plusieurs projets.
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-base text-darkgray-200 border-[2px] border-solid border-gray-200">
+            <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-base text-darkgray-200 border-[2px] border-solid border-gray-2001">
               <div className="flex-1 flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px]">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0"
+                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/search.svg"
+                  src="/search.png"
                 />
                 <div className="relative leading-[24px] font-medium">
                   Rechercher un projet
@@ -120,9 +120,9 @@ const Explorer: FunctionComponent = () => {
                         167 00€ • 4 apports spécifiés
                       </div>
                       <img
-                        className="relative w-3.5 h-[8.4px]"
+                        className="relative w-3.5 h-[8.4px] object-cover"
                         alt=""
-                        src="/icon22.svg"
+                        src="/icon22.png"
                       />
                     </div>
                   </div>
@@ -188,9 +188,9 @@ const Explorer: FunctionComponent = () => {
                         210 000€ • 3 apports spécifiés
                       </div>
                       <img
-                        className="relative w-3.5 h-[8.4px]"
+                        className="relative w-3.5 h-[8.4px] object-cover"
                         alt=""
-                        src="/icon31.svg"
+                        src="/icon31.png"
                       />
                     </div>
                     <ListeDapports1 />
@@ -219,9 +219,9 @@ const Explorer: FunctionComponent = () => {
                     </b>
                     <div className="flex flex-row py-0 px-0.5 items-center justify-center">
                       <img
-                        className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+                        className="relative w-[18px] h-[18px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/shield-check1.svg"
+                        src="/shield-check1.png"
                       />
                     </div>
                   </div>
@@ -242,9 +242,9 @@ const Explorer: FunctionComponent = () => {
                   <div className="flex flex-row items-center justify-start">
                     <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
                       <img
-                        className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+                        className="relative w-[18px] h-[18px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/globe-alt1.svg"
+                        src="/globe-alt1.png"
                       />
                       <div className="relative leading-[20px] font-medium">
                         Entreprise
@@ -263,9 +263,9 @@ const Explorer: FunctionComponent = () => {
                     Tout afficher
                   </div>
                   <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/chevron-down.svg"
+                    src="/chevron-down.png"
                   />
                 </div>
               </div>
@@ -275,31 +275,31 @@ const Explorer: FunctionComponent = () => {
         <div className="self-stretch bg-white flex flex-col items-center justify-start text-center text-white">
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
-              <div className="self-stretch relative bg-gray-200 h-px" />
-              <div className="self-stretch bg-black1 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch relative bg-gray-2001 h-px" />
+              <div className="self-stretch bg-black2 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>
                 <div className="self-stretch flex flex-row items-center justify-center gap-[32px]">
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon1.svg"
+                      src="/footerssocial-icon1.png"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon2.svg"
+                      src="/footerssocial-icon2.png"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/mail1.svg"
+                      src="/mail1.png"
                     />
                   </div>
                 </div>

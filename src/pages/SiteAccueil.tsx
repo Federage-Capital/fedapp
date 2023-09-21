@@ -12,18 +12,18 @@ const MobileAccueil: FunctionComponent = () => {
     <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch overflow-y-auto shrink-0 flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-y-auto shrink-0 flex flex-col items-center justify-start z-[2]">
-          <div className="self-stretch bg-black1 h-7 z-[1]" />
+          <div className="self-stretch bg-black2 h-7 z-[1]" />
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
-              className="relative w-[154.89px] h-8"
+              className="relative w-[154.89px] h-8 object-cover"
               alt=""
-              src="/a304a9a1adfc477d9233fbc4749af052.svg"
+              src="/a304a9a1adfc477d9233fbc4749af052.png"
             />
             <div className="rounded-3xs-5 overflow-hidden flex flex-row items-center justify-center">
               <img
-                className="relative w-9 h-9 overflow-hidden shrink-0"
+                className="relative w-9 h-9 overflow-hidden shrink-0 object-cover"
                 alt=""
-                src="/menu.svg"
+                src="/menu.png"
               />
             </div>
           </div>
@@ -43,9 +43,9 @@ const MobileAccueil: FunctionComponent = () => {
                       La version 0.1.0 est déployée
                     </div>
                     <img
-                      className="relative w-5 h-5 overflow-hidden shrink-0"
+                      className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/chevron-right.svg"
+                      src="/chevron-right.png"
                     />
                   </div>
                 </div>
@@ -61,7 +61,7 @@ const MobileAccueil: FunctionComponent = () => {
                 Inscrivez-vous pour rejoindre la liste d'attente 🚀
               </div>
               <div className="self-stretch flex flex-col items-start justify-start text-gray-500">
-                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row p-[13px] items-center justify-start border-[2px] border-solid border-gray-200">
+                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row p-[13px] items-center justify-start border-[2px] border-solid border-gray-2001">
                   <div className="flex-1 relative leading-[24px]">
                     mon@entreprise.com
                   </div>
@@ -78,14 +78,14 @@ const MobileAccueil: FunctionComponent = () => {
                 Sections
               </div>
               <div className="self-stretch flex flex-col items-start justify-start text-base text-gray-900">
-                <div className="self-stretch relative rounded-6xl bg-gray-200 h-0.5" />
+                <div className="self-stretch relative rounded-6xl bg-gray-2001 h-0.5" />
                 <div className="self-stretch flex flex-col items-start justify-center">
                   <div className="self-stretch flex flex-row py-6 px-0 items-center justify-start gap-[16px]">
                     <div className="rounded-lg bg-indigo-50 flex flex-row p-3 items-center justify-center">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0"
+                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/cash3.svg"
+                        src="/cash3.png"
                       />
                     </div>
                     <div className="flex-1 flex flex-col items-start justify-start">
@@ -99,14 +99,14 @@ const MobileAccueil: FunctionComponent = () => {
                     </div>
                     <div className="self-stretch flex flex-row items-center justify-center">
                       <img
-                        className="relative w-[8.99px] h-[16.26px]"
+                        className="relative w-[8.99px] h-[16.26px] object-cover"
                         alt=""
-                        src="/icon3111.svg"
+                        src="/icon3111.png"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="self-stretch relative rounded-6xl bg-gray-200 h-0.5" />
+                <div className="self-stretch relative rounded-6xl bg-gray-2001 h-0.5" />
                 <div className="self-stretch flex flex-col items-start justify-center">
                   <div
                     className="self-stretch flex flex-row py-6 px-0 items-center justify-start gap-[16px] cursor-pointer"
@@ -114,9 +114,9 @@ const MobileAccueil: FunctionComponent = () => {
                   >
                     <div className="rounded-[9.14px] bg-indigo-50 flex flex-row p-[13.714284896850586px] items-center justify-center">
                       <img
-                        className="relative w-[20.57px] h-[20.57px] overflow-hidden shrink-0"
+                        className="relative w-[20.57px] h-[20.57px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/users2.svg"
+                        src="/users2.png"
                       />
                     </div>
                     <div className="flex-1 flex flex-col items-start justify-start">
@@ -129,21 +129,21 @@ const MobileAccueil: FunctionComponent = () => {
                     </div>
                     <div className="self-stretch flex flex-row items-center justify-center">
                       <img
-                        className="relative w-[8.99px] h-[16.26px]"
+                        className="relative w-[8.99px] h-[16.26px] object-cover"
                         alt=""
-                        src="/icon3111.svg"
+                        src="/icon3111.png"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="self-stretch relative rounded-6xl bg-gray-200 h-0.5" />
+                <div className="self-stretch relative rounded-6xl bg-gray-2001 h-0.5" />
                 <div className="self-stretch flex flex-col items-start justify-center">
                   <div className="self-stretch flex flex-row py-6 px-0 items-center justify-start gap-[16px]">
                     <div className="rounded-lg bg-indigo-50 flex flex-row p-3 items-center justify-center">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0"
+                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/academic-cap.svg"
+                        src="/academic-cap.png"
                       />
                     </div>
                     <div className="flex-1 flex flex-col items-start justify-start">
@@ -156,21 +156,21 @@ const MobileAccueil: FunctionComponent = () => {
                     </div>
                     <div className="self-stretch flex flex-row items-center justify-center">
                       <img
-                        className="relative w-[8.99px] h-[16.26px]"
+                        className="relative w-[8.99px] h-[16.26px] object-cover"
                         alt=""
-                        src="/icon3111.svg"
+                        src="/icon3111.png"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="self-stretch relative rounded-6xl bg-gray-200 h-0.5" />
+                <div className="self-stretch relative rounded-6xl bg-gray-2001 h-0.5" />
                 <div className="self-stretch flex flex-col items-start justify-center">
                   <div className="self-stretch flex flex-row py-6 px-0 items-center justify-start gap-[16px]">
                     <div className="rounded-lg bg-indigo-50 w-12 h-12 flex flex-row items-center justify-center">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0"
+                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/bookmark-alt.svg"
+                        src="/bookmark-alt.png"
                       />
                     </div>
                     <div className="flex-1 flex flex-col items-start justify-start">
@@ -183,14 +183,14 @@ const MobileAccueil: FunctionComponent = () => {
                     </div>
                     <div className="self-stretch flex flex-row items-center justify-center">
                       <img
-                        className="relative w-3 h-3"
+                        className="relative w-3 h-3 object-cover"
                         alt=""
-                        src="/icon411.svg"
+                        src="/icon411.png"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="self-stretch relative bg-gray-200 h-px" />
+                <div className="self-stretch relative bg-gray-2001 h-px" />
               </div>
             </div>
           </div>
@@ -198,31 +198,31 @@ const MobileAccueil: FunctionComponent = () => {
         <div className="self-stretch bg-white overflow-y-auto shrink-0 flex flex-col items-center justify-start z-[0] text-center text-base text-white">
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
-              <div className="self-stretch relative bg-gray-200 h-px" />
-              <div className="self-stretch bg-black1 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch relative bg-gray-2001 h-px" />
+              <div className="self-stretch bg-black2 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>
                 <div className="self-stretch flex flex-row items-center justify-center gap-[32px]">
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon1.svg"
+                      src="/footerssocial-icon1.png"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon2.svg"
+                      src="/footerssocial-icon2.png"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/mail1.svg"
+                      src="/mail1.png"
                     />
                   </div>
                 </div>

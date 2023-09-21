@@ -17,9 +17,9 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -28,7 +28,11 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+              <img
+                className="relative w-1.5 h-2.5 object-cover"
+                alt=""
+                src="/icon211.png"
+              />
             </div>
             <b className="flex-1 relative leading-[24px]">Nouvel apport</b>
           </div>
@@ -38,7 +42,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Valider l’apport
           </div>
@@ -55,7 +59,11 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
               Solution de développement de nutriments actifs
             </div>
             <div className="rounded-lg bg-gray-100 w-[44.09px] h-11 flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-3 h-3" alt="" src="/icon8.svg" />
+              <img
+                className="relative w-3 h-3 object-cover"
+                alt=""
+                src="/icon8.svg"
+              />
             </div>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[21px] text-base">
@@ -84,9 +92,9 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
                 </div>
                 <div className="absolute top-[2px] left-[264px] rounded bg-mediumblue-100 flex flex-col py-[5.333333492279053px] px-[4.266666889190674px] items-start justify-start border-[2px] border-solid border-mediumblue-100">
                   <img
-                    className="relative w-[9.6px] h-[7.47px]"
+                    className="relative w-[9.6px] h-[7.47px] object-cover"
                     alt=""
-                    src="/icon1112.svg"
+                    src="/icon1112.png"
                   />
                 </div>
               </div>
@@ -120,9 +128,9 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
           </div>
           <div className="rounded-lg w-[168px] flex flex-row items-center justify-start gap-[6px] text-xs text-mediumseagreen">
             <img
-              className="flex-1 relative max-w-full overflow-hidden h-[19px]"
+              className="flex-1 relative max-w-full overflow-hidden h-[19px] object-cover"
               alt=""
-              src="/check-circle11.svg"
+              src="/check-circle11.png"
             />
             <b className="relative leading-[20px]">Commentaire enregistré</b>
           </div>
@@ -138,7 +146,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
                   Devis de l’apport
                 </div>
                 <img
-                  className="relative w-[18px] h-[18px]"
+                  className="relative w-[18px] h-[18px] object-cover"
                   alt=""
                   src="/vector.svg"
                 />
@@ -153,7 +161,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
                   Cahier des charges
                 </div>
                 <img
-                  className="relative w-[18px] h-[18px]"
+                  className="relative w-[18px] h-[18px] object-cover"
                   alt=""
                   src="/vector.svg"
                 />
@@ -166,9 +174,9 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
         </div>
         <div className="self-stretch flex flex-row py-0 px-4 items-center justify-start gap-[8px] text-base text-dimgray">
           <img
-            className="relative w-5 h-5 overflow-hidden shrink-0"
+            className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/exclamation.svg"
+            src="/exclamation1.png"
           />
           <b className="flex-1 relative leading-[24px]">
             Chaque apport valorise le projet. Les données financières doivent
@@ -177,7 +185,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
         </div>
         <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-base text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
-            <div className="self-stretch bg-gray-200" />
+            <div className="self-stretch bg-gray-2001" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Valider

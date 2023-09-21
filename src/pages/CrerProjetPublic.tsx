@@ -17,9 +17,9 @@ const MobileServiceProjet22: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -28,7 +28,11 @@ const MobileServiceProjet22: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+              <img
+                className="relative w-1.5 h-2.5 object-cover"
+                alt=""
+                src="/icon211.png"
+              />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -38,7 +42,7 @@ const MobileServiceProjet22: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Demander des apports
           </div>
@@ -89,7 +93,7 @@ const MobileServiceProjet22: FunctionComponent = () => {
                   <div className="relative leading-[20px] font-semibold">
                     Titre de l’apport
                   </div>
-                  <div className="self-stretch rounded-lg bg-white flex flex-row py-2.5 px-3 items-center justify-center text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                  <div className="self-stretch rounded-lg bg-white flex flex-row py-2.5 px-3 items-center justify-center text-base text-gray-900 border-[2px] border-solid border-gray-2001">
                     <div className="flex-1 relative leading-[24px]">{`Formule bio-synthétique humanoïde `}</div>
                   </div>
                 </div>
@@ -97,16 +101,16 @@ const MobileServiceProjet22: FunctionComponent = () => {
                   <div className="relative leading-[20px] font-semibold">
                     Type d’apport
                   </div>
-                  <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                  <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-2001">
                     <div className="flex-1 flex flex-row items-center justify-start">
                       <div className="flex-1 relative leading-[24px]">
                         Industrie
                       </div>
                     </div>
                     <img
-                      className="relative w-5 h-5 overflow-hidden shrink-0"
+                      className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/chevron-down2.svg"
+                      src="/chevron-down2.png"
                     />
                   </div>
                 </div>
@@ -126,9 +130,9 @@ const MobileServiceProjet22: FunctionComponent = () => {
                 </div>
                 <div className="rounded-md bg-gray-100 flex flex-row p-1.5 items-center justify-center">
                   <img
-                    className="relative w-3.5 h-3.5 overflow-hidden shrink-0"
+                    className="relative w-3.5 h-3.5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/plus111.svg"
+                    src="/plus111.png"
                   />
                 </div>
               </div>
@@ -137,7 +141,7 @@ const MobileServiceProjet22: FunctionComponent = () => {
         </div>
         <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
-            <div className="self-stretch bg-gray-200" />
+            <div className="self-stretch bg-gray-2001" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Créer un projet

@@ -17,9 +17,9 @@ const MobileExplorerMembre: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -38,9 +38,9 @@ const MobileExplorerMembre: FunctionComponent = () => {
                   <b className="relative leading-[32px]">Open Food Facts</b>
                   <div className="flex-1 flex flex-row py-0 px-0.5 items-center justify-center">
                     <img
-                      className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+                      className="relative w-[18px] h-[18px] overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/shield-check1.svg"
+                      src="/shield-check1.png"
                     />
                   </div>
                 </div>
@@ -50,18 +50,18 @@ const MobileExplorerMembre: FunctionComponent = () => {
                   Site officiel
                 </div>
                 <img
-                  className="relative w-4 h-4 overflow-hidden shrink-0"
+                  className="relative w-4 h-4 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/external-link2.svg"
+                  src="/external-link2.png"
                 />
               </div>
             </div>
           </div>
           <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
             <img
-              className="relative w-5 h-5 overflow-hidden shrink-0"
+              className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/dots-vertical11.svg"
+              src="/dots-vertical11.png"
             />
           </div>
         </div>
@@ -77,7 +77,11 @@ const MobileExplorerMembre: FunctionComponent = () => {
               <div className="relative leading-[20.03px] font-semibold">
                 Lire plus
               </div>
-              <img className="relative w-2.5 h-1.5" alt="" src="/icon311.svg" />
+              <img
+                className="relative w-2.5 h-1.5 object-cover"
+                alt=""
+                src="/icon311.png"
+              />
             </div>
           </div>
         </div>
@@ -145,9 +149,9 @@ const MobileExplorerMembre: FunctionComponent = () => {
                           210 000€ • 4 apports recherchés
                         </div>
                         <img
-                          className="relative w-3.5 h-[8.4px]"
+                          className="relative w-3.5 h-[8.4px] object-cover"
                           alt=""
-                          src="/icon111.svg"
+                          src="/icon111.png"
                         />
                       </div>
                     </div>

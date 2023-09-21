@@ -2,11 +2,11 @@ import { FunctionComponent } from "react";
 
 const ApportTatVide: FunctionComponent = () => {
   return (
-    <div className="relative rounded-lg bg-white box-border w-[358px] flex flex-col py-[25px] px-[26px] items-center justify-start gap-[20px] text-center text-lg text-gray-900 font-text-2xl-leading-8-font-bold border-[2px] border-solid border-gray-200">
+    <div className="rounded-lg bg-white box-border w-[358px] flex flex-col py-[25px] px-[26px] items-center justify-start gap-[20px] text-center text-lg text-gray-900 font-text-2xl-leading-8-font-bold border-[2px] border-solid border-gray-2001">
       <img
-        className="relative w-[57.35px] h-[160.93px]"
+        className="relative w-[57.35px] h-[160.93px] object-cover"
         alt=""
-        src="/freepikcharacterinject245.svg"
+        src="/freepikcharacterinject245.png"
       />
       <div className="flex flex-col items-center justify-center gap-[10px]">
         <div className="relative leading-[20px] font-semibold inline-block w-[258px]">

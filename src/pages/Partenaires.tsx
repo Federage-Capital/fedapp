@@ -17,9 +17,9 @@ const Partenaires: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -27,9 +27,9 @@ const Partenaires: FunctionComponent = () => {
       <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[30px] text-mediumblue-100">
         <div className="w-52 flex flex-row items-start justify-start gap-[6px]">
           <img
-            className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+            className="relative w-[18px] h-[18px] overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/users1.svg"
+            src="/users1.png"
           />
           <div className="relative leading-[20px] font-semibold">
             Partenaires
@@ -40,9 +40,9 @@ const Partenaires: FunctionComponent = () => {
         </div>
         <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[46px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center gap-[8px] text-white">
           <img
-            className="relative w-5 h-5 overflow-hidden shrink-0"
+            className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/plus.svg"
+            src="/plus.png"
           />
           <div className="relative leading-[20px] font-semibold">
             Inviter un membre
@@ -50,12 +50,12 @@ const Partenaires: FunctionComponent = () => {
         </div>
       </div>
       <div className="self-stretch flex flex-col py-9 px-4 items-start justify-start text-darkgray-200">
-        <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start border-[2px] border-solid border-gray-200">
+        <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start border-[2px] border-solid border-gray-2001">
           <div className="flex-1 flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px]">
             <img
-              className="relative w-5 h-5 overflow-hidden shrink-0"
+              className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/search.svg"
+              src="/search.png"
             />
             <div className="flex-1 relative leading-[24px] font-medium">
               Recherche
@@ -80,9 +80,9 @@ const Partenaires: FunctionComponent = () => {
               </div>
               <div className="rounded-3xs w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0"
+                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/dots-vertical2.svg"
+                  src="/dots-vertical2.png"
                 />
               </div>
             </div>
@@ -104,9 +104,9 @@ const Partenaires: FunctionComponent = () => {
               </div>
               <div className="rounded-3xs w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0"
+                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/dots-vertical2.svg"
+                  src="/dots-vertical2.png"
                 />
               </div>
             </div>
@@ -128,9 +128,9 @@ const Partenaires: FunctionComponent = () => {
               </div>
               <div className="rounded-3xs w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0"
+                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/dots-vertical2.svg"
+                  src="/dots-vertical2.png"
                 />
               </div>
             </div>
@@ -140,33 +140,33 @@ const Partenaires: FunctionComponent = () => {
       <div className="self-stretch bg-white flex flex-row py-5 px-[30px] items-center justify-between text-center text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-222.svg"
+            src="/component-222.png"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-1121.svg"
+            src="/component-1121.png"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px] text-mediumblue-100">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-512.svg"
+            src="/component-512.png"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
         <div className="w-[46px] h-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-131.svg"
+            src="/component-131.png"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

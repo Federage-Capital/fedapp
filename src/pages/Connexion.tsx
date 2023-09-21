@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Connexion: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full h-[790px] flex flex-col py-16 px-4 box-border items-center justify-center text-center text-9xl text-black1 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-gray-50 w-full h-[790px] flex flex-col py-16 px-4 box-border items-center justify-center text-center text-9xl text-black2 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch overflow-y-auto flex flex-col pt-0 pb-16 pr-4 pl-0 items-start justify-start gap-[32px]">
         <div className="self-stretch flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-col items-center justify-start gap-[12px]">
@@ -20,8 +20,8 @@ const Connexion: FunctionComponent = () => {
           </div>
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-left text-base text-darkgray-200">
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-col items-start justify-start border-[2px] border-solid border-gray-200">
-            <div className="self-stretch rounded-t-md rounded-b-none bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start border-b-[2px] border-solid border-gray-200">
+          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-col items-start justify-start border-[2px] border-solid border-gray-2001">
+            <div className="self-stretch rounded-t-md rounded-b-none bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start border-b-[2px] border-solid border-gray-2001">
               <div className="relative leading-[24px]">Nom d’utilisateur</div>
             </div>
             <div className="self-stretch rounded-t-none rounded-b-md bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start">
@@ -31,9 +31,9 @@ const Connexion: FunctionComponent = () => {
           <div className="self-stretch flex flex-row items-center justify-between text-sm text-gray-900">
             <div className="flex flex-row items-center justify-start gap-[8px]">
               <img
-                className="relative rounded w-4 h-4 overflow-hidden shrink-0"
+                className="relative rounded w-4 h-4 overflow-hidden shrink-0 object-cover"
                 alt=""
-                src="/intrant-coche1.svg"
+                src="/intrant-coche1.png"
               />
               <div className="flex-1 relative leading-[20px] font-medium">
                 Resté connecté
@@ -50,9 +50,9 @@ const Connexion: FunctionComponent = () => {
               Connexion
             </div>
             <img
-              className="absolute top-[calc(50%_-_10px)] left-[12px] w-5 h-5 overflow-hidden"
+              className="absolute top-[calc(50%_-_10px)] left-[12px] w-5 h-5 overflow-hidden object-cover"
               alt=""
-              src="/lock-closed.svg"
+              src="/lock-closed.png"
             />
           </div>
         </div>

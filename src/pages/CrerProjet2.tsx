@@ -17,9 +17,9 @@ const MobileServiceProjet211: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -28,7 +28,11 @@ const MobileServiceProjet211: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+              <img
+                className="relative w-1.5 h-2.5 object-cover"
+                alt=""
+                src="/icon211.png"
+              />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -38,7 +42,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Choisir le financement
           </div>
@@ -58,7 +62,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
               Qui peut participer au projet ?
             </b>
             <div className="self-stretch relative h-[86px] text-gray-500">
-              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-white box-border border-[2px] border-solid border-gray-200" />
+              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-white box-border border-[2px] border-solid border-gray-2001" />
               <div className="absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center">
                 <div className="relative rounded-lg bg-white box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
               </div>
@@ -76,9 +80,9 @@ const MobileServiceProjet211: FunctionComponent = () => {
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-white box-border border-[2px] border-solid border-mediumblue-100" />
               <div className="absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center">
                 <img
-                  className="relative rounded-lg w-4 h-4 overflow-hidden shrink-0"
+                  className="relative rounded-lg w-4 h-4 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/form-fieldsradio-input.svg"
+                  src="/form-fieldsradio-input.png"
                 />
               </div>
               <div className="absolute h-[65.12%] w-[81.5%] top-[17.44%] right-[13.58%] bottom-[17.44%] left-[4.91%]">
@@ -121,7 +125,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
         </div>
         <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
-            <div className="self-stretch bg-gray-200" />
+            <div className="self-stretch bg-gray-2001" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Suivant

@@ -17,9 +17,9 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -28,7 +28,11 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+              <img
+                className="relative w-1.5 h-2.5 object-cover"
+                alt=""
+                src="/icon211.png"
+              />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
@@ -38,7 +42,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Démarrer un projet
           </div>
@@ -54,7 +58,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
       <div className="self-stretch flex-1 bg-gray-50 flex flex-col py-6 px-4 items-center justify-start gap-[20px] text-sm">
         <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
           <b className="relative leading-[20px]">Intitulé de l’apport</b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-200">
+          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-2001">
             <div className="flex-1 relative leading-[24px]">{`Formule bio-synthétique humanoïde `}</div>
           </div>
         </div>
@@ -62,7 +66,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
           <b className="self-stretch relative leading-[20px]">
             Montant de l’apport
           </b>
-          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
+          <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-2001">
             <div className="flex-1 flex flex-row items-center justify-start gap-[8px]">
               <div className="relative leading-[24px]">€</div>
               <div className="flex-1 relative leading-[24px]">15 000,00</div>
@@ -76,11 +80,11 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
           <div className="self-stretch flex flex-col pt-0 px-0 pb-2.5 items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
               <b className="relative leading-[20px]">Durée du projet</b>
-              <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-3 items-center justify-start gap-[8px] text-base text-mediumblue-100 border-[2px] border-solid border-gray-200">
+              <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-3 items-center justify-start gap-[8px] text-base text-mediumblue-100 border-[2px] border-solid border-gray-2001">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0"
+                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/calendar2.svg"
+                  src="/calendar2.png"
                 />
                 <div className="relative leading-[24px] font-medium">
                   Saisir une date
@@ -88,19 +92,27 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch rounded-3xs bg-white shadow-[0px_0px_0.5px_rgba(66,_71,_76,_0.32),_0px_4px_8px_rgba(66,_71,_76,_0.05),_0px_4px_40px_#eee] flex flex-col p-[15px] items-start justify-start gap-[10px] text-center text-mini text-black1">
+          <div className="self-stretch rounded-3xs bg-white shadow-[0px_0px_0.5px_rgba(66,_71,_76,_0.32),_0px_4px_8px_rgba(66,_71,_76,_0.05),_0px_4px_40px_#eee] flex flex-col p-[15px] items-start justify-start gap-[10px] text-center text-mini text-black2">
             <div className="self-stretch h-11 flex flex-row items-start justify-start gap-[15px] text-left text-base">
               <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start">
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
                   Novembre
                 </div>
-                <img className="relative w-6 h-6" alt="" src="/icon61.svg" />
+                <img
+                  className="relative w-6 h-6 object-cover"
+                  alt=""
+                  src="/icon61.png"
+                />
               </div>
               <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start">
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-semibold">
                   2022
                 </div>
-                <img className="relative w-6 h-6" alt="" src="/icon51.svg" />
+                <img
+                  className="relative w-6 h-6 object-cover"
+                  alt=""
+                  src="/icon51.png"
+                />
               </div>
             </div>
             <div className="self-stretch flex flex-row py-[5px] px-0 items-start justify-start text-smi text-gray-400">
@@ -128,12 +140,12 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
             </div>
             <div className="self-stretch flex flex-col items-start justify-start">
               <div className="self-stretch h-[50px] flex flex-row py-2.5 px-0 box-border items-start justify-start">
-                <div className="flex-1 relative h-8 text-black">
+                <div className="flex-1 relative h-8 text-black1">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black">
+                <div className="flex-1 relative h-8 text-black1">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
@@ -297,29 +309,29 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
                     30
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black">
+                <div className="flex-1 relative h-8 text-black1">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black">
+                <div className="flex-1 relative h-8 text-black1">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     30
                   </div>
                 </div>
-                <div className="flex-1 relative h-8 text-black">
+                <div className="flex-1 relative h-8 text-black1">
                   <div className="absolute w-[calc(100%_+_0.14px)] top-[calc(50%_-_12px)] left-[0px] tracking-[0.38px] leading-[24px] font-medium hidden items-center justify-center">
                     31
                   </div>
                 </div>
               </div>
             </div>
-            <div className="self-stretch h-11 hidden flex-row items-start justify-start gap-[15px] text-gray-6001">
+            <div className="self-stretch h-11 hidden flex-row items-start justify-start gap-[15px] text-gray-600">
               <div className="self-stretch flex-1 rounded-lg flex flex-row py-2 px-[11px] items-center justify-start border-[1px] border-solid border-gray-200">
                 <img
-                  className="relative w-6 h-6 hidden"
+                  className="relative w-6 h-6 object-cover hidden"
                   alt=""
-                  src="/iconly.svg"
+                  src="/iconly.png"
                 />
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-medium">
                   Annuler
@@ -327,9 +339,9 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
               </div>
               <div className="self-stretch flex-1 rounded-lg bg-mediumblue-100 flex flex-row py-2 px-[11px] items-center justify-start text-white">
                 <img
-                  className="relative w-6 h-6 hidden"
+                  className="relative w-6 h-6 object-cover hidden"
                   alt=""
-                  src="/iconly1.svg"
+                  src="/iconly1.png"
                 />
                 <div className="flex-1 relative tracking-[0.38px] leading-[24px] font-medium">
                   Valider
@@ -340,7 +352,7 @@ const MobileServiceCrerProjet: FunctionComponent = () => {
         </div>
         <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-base text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
-            <div className="self-stretch bg-gray-200" />
+            <div className="self-stretch bg-gray-2001" />
             <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Créer un projet

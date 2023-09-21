@@ -6,7 +6,7 @@ const Principal3: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black1 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black2 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between z-[0]">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -14,9 +14,9 @@ const Principal3: FunctionComponent = () => {
           </b>
         </div>
         <img
-          className="relative w-[66.66px] h-[11.34px]"
+          className="relative w-[66.66px] h-[11.34px] object-cover"
           alt=""
-          src="/group-7.svg"
+          src="/group-72.png"
         />
       </div>
       <div className="self-stretch bg-white flex flex-row items-start justify-start z-[1] text-left text-base text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
@@ -33,9 +33,9 @@ const Principal3: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -51,14 +51,14 @@ const Principal3: FunctionComponent = () => {
                   </div>
                 </div>
                 <img
-                  className="relative w-6 h-6 overflow-hidden shrink-0"
+                  className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/chart-bar2.svg"
+                  src="/chart-bar2.png"
                 />
                 <img
-                  className="relative w-6 h-6 overflow-hidden shrink-0"
+                  className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/star.svg"
+                  src="/star.png"
                 />
               </div>
               <div className="self-stretch overflow-hidden shrink-0 flex flex-row items-start justify-between text-sm text-dimgray">
@@ -66,9 +66,9 @@ const Principal3: FunctionComponent = () => {
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0"
+                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/document-add3.svg"
+                        src="/document-add3.png"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Projets
@@ -80,9 +80,9 @@ const Principal3: FunctionComponent = () => {
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0"
+                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/document-text3.svg"
+                        src="/document-text3.png"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Contrats
@@ -94,9 +94,9 @@ const Principal3: FunctionComponent = () => {
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0"
+                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/pencil-alt3.svg"
+                        src="/pencil-alt3.png"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Brouillon
@@ -128,9 +128,9 @@ const Principal3: FunctionComponent = () => {
                     Afficher le contrat
                   </div>
                   <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link1.svg"
+                    src="/external-link1.png"
                   />
                 </div>
               </div>
@@ -156,9 +156,9 @@ const Principal3: FunctionComponent = () => {
                     Afficher le contrat
                   </div>
                   <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link1.svg"
+                    src="/external-link1.png"
                   />
                 </div>
               </div>
@@ -184,9 +184,9 @@ const Principal3: FunctionComponent = () => {
                     Afficher le contrat
                   </div>
                   <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link1.svg"
+                    src="/external-link1.png"
                   />
                 </div>
               </div>
@@ -197,17 +197,17 @@ const Principal3: FunctionComponent = () => {
       <div className="self-stretch my-0 mx-[!important] absolute bottom-[0px] left-[calc(50%_-_195px)] bg-white flex flex-row py-5 px-[30px] items-center justify-between z-[3] text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px] text-mediumblue-100">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-2.svg"
+            src="/component-2.png"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-1121.svg"
+            src="/component-1121.png"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -216,17 +216,17 @@ const Principal3: FunctionComponent = () => {
           onClick={onFrameContainer17Click}
         >
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-5.svg"
+            src="/component-5.png"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
+            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-131.svg"
+            src="/component-131.png"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

@@ -6,7 +6,7 @@ const ListeDapports1: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="self-stretch flex flex-col items-center justify-start text-left text-base text-black1 font-text-2xl-leading-8-font-bold">
+    <div className="self-stretch flex flex-col items-center justify-start text-left text-base text-black2 font-text-2xl-leading-8-font-bold">
       <div
         className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between cursor-pointer border-[2px] border-solid border-gray-100"
         onClick={onFrameContainer1Click}
@@ -19,9 +19,9 @@ const ListeDapports1: FunctionComponent = () => {
         </div>
         <div className="rounded-[8.11px] bg-gray-100 flex flex-row py-[14.186664581298828px] px-[16.21333122253418px] items-start justify-start">
           <img
-            className="relative w-[5.78px] h-[9.63px]"
+            className="relative w-[5.78px] h-[9.63px] object-cover"
             alt=""
-            src="/icon6.svg"
+            src="/icon6.png"
           />
         </div>
       </div>
@@ -36,9 +36,9 @@ const ListeDapports1: FunctionComponent = () => {
         </div>
         <div className="rounded-[8.06px] bg-gray-100 flex flex-row py-[14.111400604248047px] px-[16.127315521240234px] items-start justify-start">
           <img
-            className="relative w-[5.75px] h-[9.58px]"
+            className="relative w-[5.75px] h-[9.58px] object-cover"
             alt=""
-            src="/icon11.svg"
+            src="/icon11.png"
           />
         </div>
       </div>
@@ -53,9 +53,9 @@ const ListeDapports1: FunctionComponent = () => {
         </div>
         <div className="rounded-[8.06px] bg-gray-100 flex flex-row py-[14.111400604248047px] px-[16.127315521240234px] items-start justify-start">
           <img
-            className="relative w-[5.75px] h-[9.58px]"
+            className="relative w-[5.75px] h-[9.58px] object-cover"
             alt=""
-            src="/icon11.svg"
+            src="/icon11.png"
           />
         </div>
       </div>

@@ -17,9 +17,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
           </div>
           <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0"
+              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell1.png"
             />
           </div>
         </div>
@@ -28,19 +28,23 @@ const MobileServiceModificationAp: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-start">
           <div className="flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-white w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+              <img
+                className="relative w-1.5 h-2.5 object-cover"
+                alt=""
+                src="/icon211.png"
+              />
             </div>
             <b className="relative leading-[24px]">Détails de l’apport</b>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black1">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
           <b className="self-stretch relative leading-[32px]">
             Solution de développement anti-cancérigène
           </b>
           <div className="self-stretch relative text-base leading-[24px] text-gray-500">
             <span className="font-medium">
               <span>Publié par</span>
-              <span className="text-black1">{` `}</span>
+              <span className="text-black2">{` `}</span>
             </span>
             <span className="font-semibold text-mediumblue-200">
               Sylvie DEPARDIEU
@@ -97,9 +101,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <div className="relative w-[201px] h-11">
                     <div className="absolute top-[0px] left-[0px] flex flex-row items-center justify-start gap-[10px]">
                       <img
-                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
+                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/check-circle4.svg"
+                        src="/check-circle4.png"
                       />
                       <div className="flex-1 relative leading-[20px] font-semibold">
                         Démarrage de l’apport
@@ -115,9 +119,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                     #18127
                   </div>
                   <img
-                    className="relative w-[10.56px] h-[11.11px]"
+                    className="relative w-[10.56px] h-[11.11px] object-cover"
                     alt=""
-                    src="/icon42.svg"
+                    src="/icon42.png"
                   />
                 </div>
               </div>
@@ -126,9 +130,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <div className="flex-1 relative h-11">
                     <div className="absolute top-[0px] left-[0px] flex flex-row items-center justify-start gap-[10px]">
                       <img
-                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
+                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/check-circle4.svg"
+                        src="/check-circle4.png"
                       />
                       <div className="flex-1 relative leading-[20px] font-semibold">
                         Modification du prix
@@ -146,9 +150,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                     #19271
                   </div>
                   <img
-                    className="relative w-[10.56px] h-[11.11px]"
+                    className="relative w-[10.56px] h-[11.11px] object-cover"
                     alt=""
-                    src="/icon42.svg"
+                    src="/icon42.png"
                   />
                 </div>
               </div>
@@ -157,9 +161,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <div className="flex-1 relative h-11">
                     <div className="absolute top-[0px] left-[0px] flex flex-row items-center justify-start gap-[10px]">
                       <img
-                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
+                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/check-circle2.svg"
+                        src="/check-circle2.png"
                       />
                       <div className="flex-1 relative leading-[20px] font-semibold">
                         Modification du délai
@@ -177,9 +181,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                     #26182
                   </div>
                   <img
-                    className="relative w-[10.56px] h-[11.11px]"
+                    className="relative w-[10.56px] h-[11.11px] object-cover"
                     alt=""
-                    src="/icon42.svg"
+                    src="/icon42.png"
                   />
                 </div>
               </div>
@@ -188,9 +192,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   <div className="flex-1 relative h-11">
                     <div className="absolute top-[0px] left-[0px] flex flex-row items-center justify-start gap-[10px]">
                       <img
-                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
+                        className="relative w-[19px] h-[19px] overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/check-circle11.svg"
+                        src="/check-circle11.png"
                       />
                       <div className="relative leading-[20px] font-semibold">
                         Executé
@@ -208,9 +212,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                     #26228
                   </div>
                   <img
-                    className="relative w-[10.56px] h-[11.11px]"
+                    className="relative w-[10.56px] h-[11.11px] object-cover"
                     alt=""
-                    src="/icon42.svg"
+                    src="/icon42.png"
                   />
                 </div>
               </div>
@@ -228,7 +232,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   Devis de l’apport
                 </div>
                 <img
-                  className="relative w-[18px] h-[18px]"
+                  className="relative w-[18px] h-[18px] object-cover"
                   alt=""
                   src="/vector.svg"
                 />
@@ -243,7 +247,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                   Cahier des charges
                 </div>
                 <img
-                  className="relative w-[18px] h-[18px]"
+                  className="relative w-[18px] h-[18px] object-cover"
                   alt=""
                   src="/vector.svg"
                 />
@@ -256,9 +260,9 @@ const MobileServiceModificationAp: FunctionComponent = () => {
         </div>
         <div className="self-stretch flex flex-row py-0 px-4 items-center justify-start gap-[8px] text-base text-dimgray">
           <img
-            className="relative w-5 h-5 overflow-hidden shrink-0"
+            className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/exclamation.svg"
+            src="/exclamation1.png"
           />
           <b className="flex-1 relative leading-[24px]">
             Chaque apport valorise le projet. Les données financières doivent

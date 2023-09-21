@@ -2,20 +2,20 @@ import { FunctionComponent } from "react";
 
 const Inscription: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-9xl text-black1 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-9xl text-black2 font-text-2xl-leading-8-font-bold">
       <div className="self-stretch flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
-              className="relative w-[154.89px] h-8"
+              className="relative w-[154.89px] h-8 object-cover"
               alt=""
-              src="/a304a9a1adfc477d9233fbc4749af052.svg"
+              src="/a304a9a1adfc477d9233fbc4749af052.png"
             />
             <div className="rounded-3xs-5 overflow-hidden flex flex-row items-center justify-center">
               <img
-                className="relative w-9 h-9 overflow-hidden shrink-0"
+                className="relative w-9 h-9 overflow-hidden shrink-0 object-cover"
                 alt=""
-                src="/menu.svg"
+                src="/menu.png"
               />
             </div>
           </div>
@@ -33,16 +33,16 @@ const Inscription: FunctionComponent = () => {
                 <b className="self-stretch relative leading-[20px]">
                   Type de structure
                 </b>
-                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px] text-base text-gray-900 border-[2px] border-solid border-gray-2001">
                   <div className="flex-1 flex flex-row items-center justify-start">
                     <div className="flex-1 relative leading-[24px]">
                       Entreprise
                     </div>
                   </div>
                   <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/chevron-down1.svg"
+                    src="/chevron-down1.png"
                   />
                 </div>
               </div>
@@ -50,7 +50,7 @@ const Inscription: FunctionComponent = () => {
                 <b className="relative leading-[20px]">
                   Nom ou dénomination sociale
                 </b>
-                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-2001">
                   <div className="flex-1 relative leading-[24px]">
                     Société Active de Lutte contre le Cancer
                   </div>
@@ -58,7 +58,7 @@ const Inscription: FunctionComponent = () => {
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
                 <b className="relative leading-[20px]">Adresse électronique</b>
-                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-200">
+                <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row py-[9px] px-[13px] items-center justify-start text-base text-gray-900 border-[2px] border-solid border-gray-2001">
                   <div className="flex-1 relative leading-[24px]">
                     lisa.martel@salcc.org
                   </div>
@@ -88,31 +88,31 @@ const Inscription: FunctionComponent = () => {
         <div className="self-stretch bg-white flex flex-col items-center justify-start text-center text-base text-white">
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
-              <div className="self-stretch relative bg-gray-200 h-px" />
-              <div className="self-stretch bg-black1 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch relative bg-gray-2001 h-px" />
+              <div className="self-stretch bg-black2 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>
                 <div className="self-stretch flex flex-row items-center justify-center gap-[32px]">
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon1.svg"
+                      src="/footerssocial-icon1.png"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon2.svg"
+                      src="/footerssocial-icon2.png"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
-                      className="relative w-6 h-6 overflow-hidden shrink-0"
+                      className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/mail1.svg"
+                      src="/mail1.png"
                     />
                   </div>
                 </div>
