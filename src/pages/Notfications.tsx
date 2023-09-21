@@ -103,7 +103,7 @@ const Notfications: FunctionComponent = () => {
                             <img
                               className="rounded-lg w-4 h-4 object-cover"
                               alt=""
-                              src="/avatar18@2x.png"
+                              src="/avatar181@2x.png"
                             />
                             <div className="relative leading-[20px] font-semibold">
                               Paul Grandcœur

@@ -74,22 +74,22 @@ const ExplorerProjets: FunctionComponent = () => {
                     <img
                       className="absolute top-[-2px] left-[58px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar11@2x.png"
+                      src="/avatar112@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[38px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar8@2x.png"
+                      src="/avatar82@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[18px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar9@2x.png"
+                      src="/avatar92@2x.png"
                     />
                     <img
                       className="absolute top-[-2px] left-[-2px] rounded-xl w-7 h-7 overflow-hidden object-cover"
                       alt=""
-                      src="/avatar10@2x.png"
+                      src="/avatar101@2x.png"
                     />
                   </div>
                   <div className="rounded-10xs bg-indigo-50" />

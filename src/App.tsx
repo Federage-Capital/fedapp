@@ -16,7 +16,6 @@ import Principal3 from "./pages/Principal3";
 import Principal from "./pages/Principal";
 import Principal2 from "./pages/Principal2";
 import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
-import Explorer from "./pages/Explorer";
 import Configuration from "./pages/Configuration";
 import Profil from "./pages/Profil1";
 import MobileAccueil from "./pages/SiteAccueil";
@@ -29,7 +28,6 @@ import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
 import MobileServiceModificationAp from "./pages/ModiApport";
 import MobileServiceCrerProjet from "./pages/CrerProjet";
 import Partenaires from "./pages/Partenaires";
-import MobileExplorerMembre from "./pages/ExplorerMembre";
 import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
 import MobileServiceProjet22 from "./pages/CrerProjetPublic";
@@ -103,10 +101,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileexplorer":
-        title = "";
-        metaDescription = "";
-        break;
       case "/-configuration":
         title = "";
         metaDescription = "";
@@ -152,10 +146,6 @@ function App() {
         metaDescription = "";
         break;
       case "/-partenaires":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-explorermembre":
         title = "";
         metaDescription = "";
         break;
@@ -217,7 +207,6 @@ function App() {
       <Route path="/-principal" element={<Principal />} />
       <Route path="/-principal-2" element={<Principal2 />} />
       <Route path="/-projetopratio" element={<MobileServiceProjetOpratio1 />} />
-      <Route path="/-mobileexplorer" element={<Explorer />} />
       <Route path="/-configuration" element={<Configuration />} />
       <Route path="/-profil1" element={<Profil />} />
       <Route path="/-mobileaccueil" element={<MobileAccueil />} />
@@ -251,7 +240,6 @@ function App() {
         element={<MobileServiceCrerProjet />}
       />
       <Route path="/-partenaires" element={<Partenaires />} />
-      <Route path="/-explorermembre" element={<MobileExplorerMembre />} />
       <Route path="/-connexion" element={<Connexion />} />
       <Route path="/-inscription" element={<Inscription />} />
       <Route path="/-crerprojetpublic" element={<MobileServiceProjet22 />} />

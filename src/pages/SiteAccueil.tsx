@@ -1,12 +1,9 @@
 import { FunctionComponent, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 
 const MobileAccueil: FunctionComponent = () => {
-  const navigate = useNavigate();
-
   const onFrameContainerClick = useCallback(() => {
-    navigate("/-mobileexplorer");
-  }, [navigate]);
+    // Please sync "₣ - Mobile/Explorer" to the project
+  }, []);
 
   return (
     <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-left text-xs text-mediumblue-200 font-text-2xl-leading-8-font-bold">

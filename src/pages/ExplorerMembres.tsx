@@ -136,7 +136,7 @@ const ExplorerMembres: FunctionComponent = () => {
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar15@2x.png"
+                  src="/avatar151@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -198,7 +198,7 @@ const ExplorerMembres: FunctionComponent = () => {
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar16@2x.png"
+                  src="/avatar161@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -262,7 +262,7 @@ const ExplorerMembres: FunctionComponent = () => {
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar17@2x.png"
+                  src="/avatar171@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -328,7 +328,7 @@ const ExplorerMembres: FunctionComponent = () => {
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0"
                     alt=""
-                    src="/chevron-down.png"
+                    src="/chevron-down.svg"
                   />
                 </div>
               </div>
