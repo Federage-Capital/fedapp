@@ -10,7 +10,7 @@ const Ouverture2: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full h-[844px] flex flex-col items-start justify-start cursor-pointer text-center text-mini text-black2 font-text-2xl-leading-8-font-bold"
+      className="relative w-full h-[844px] flex flex-col items-start justify-start cursor-pointer text-center text-mini text-black font-text-sm-leading-5-font-normal"
       onClick={onOuverture2ContainerClick}
     >
       <div className="self-stretch bg-gray-50 flex flex-row py-[9px] px-3.5 items-center justify-between">
@@ -22,7 +22,7 @@ const Ouverture2: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px]"
           alt=""
-          src="/group-71.svg"
+          src="/group-75.svg"
         />
       </div>
       <div className="self-stretch flex-1 bg-gray-50 overflow-hidden flex flex-col pt-[110px] px-5 pb-[60px] items-center justify-center gap-[16px] text-xl">
@@ -41,12 +41,12 @@ const Ouverture2: FunctionComponent = () => {
             <img className="relative w-3.5 h-3.5" alt="" src="/point.svg" />
           </div>
           <div className="w-[306px] h-[95px] flex flex-col items-center justify-start gap-[24px]">
-            <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[13px] px-[25px] items-center justify-center">
+            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[13px] px-[25px] items-center justify-center">
               <div className="flex-1 relative leading-[24px] font-semibold">
                 Suivant
               </div>
             </div>
-            <div className="[align-self:start] flex flex-row items-center justify-center h-[21px] ml-[59px] text-mediumblue-100">
+            <div className="[align-self:start] flex flex-row items-center justify-center h-[21px] ml-[59px] text-dimgray">
               <div className="flex-1 relative leading-[20.03px] font-semibold">
                 Passer
               </div>

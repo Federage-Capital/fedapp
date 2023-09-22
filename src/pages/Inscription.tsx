@@ -2,20 +2,20 @@ import { FunctionComponent } from "react";
 
 const Inscription: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-9xl text-black2 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col pt-6 px-0 pb-0 box-border items-center justify-start mix-blend-normal text-left text-9xl text-black font-text-sm-leading-5-font-normal">
       <div className="self-stretch flex flex-col items-center justify-start">
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
               className="relative w-[154.89px] h-8 object-cover"
               alt=""
-              src="/a304a9a1adfc477d9233fbc4749af052.png"
+              src="/a304a9a1adfc477d9233fbc4749af0521.png"
             />
             <div className="rounded-3xs-5 overflow-hidden flex flex-row items-center justify-center">
               <img
                 className="relative w-9 h-9 overflow-hidden shrink-0 object-cover"
                 alt=""
-                src="/menu.png"
+                src="/menu.svg"
               />
             </div>
           </div>
@@ -42,7 +42,7 @@ const Inscription: FunctionComponent = () => {
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/chevron-down1.png"
+                    src="/chevron-down11.png"
                   />
                 </div>
               </div>
@@ -89,7 +89,7 @@ const Inscription: FunctionComponent = () => {
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch relative bg-gray-2001 h-px" />
-              <div className="self-stretch bg-black2 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch bg-black flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>
@@ -98,21 +98,21 @@ const Inscription: FunctionComponent = () => {
                     <img
                       className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon1.png"
+                      src="/footerssocial-icon1.svg"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
                       className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/footerssocial-icon2.png"
+                      src="/footerssocial-icon2.svg"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-start">
                     <img
                       className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                       alt=""
-                      src="/mail1.png"
+                      src="/mail1.svg"
                     />
                   </div>
                 </div>

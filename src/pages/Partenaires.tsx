@@ -2,8 +2,20 @@ import { FunctionComponent } from "react";
 
 const Partenaires: FunctionComponent = () => {
   return (
-    <div className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
-      <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
+    <div className="relative bg-whitesmoke-200 w-full h-[844px] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-black font-text-sm-leading-5-font-normal">
+      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between z-[0] text-center text-mini">
+        <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
+          <b className="relative tracking-[-0.3px] inline-block w-[54px]">
+            21:41
+          </b>
+        </div>
+        <img
+          className="relative w-[66.66px] h-[11.34px]"
+          alt=""
+          src="/group-7.svg"
+        />
+      </div>
+      <div className="self-stretch bg-white flex flex-row items-start justify-start z-[1] text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
             className="rounded-xl w-10 h-10 object-cover"
@@ -15,54 +27,54 @@ const Partenaires: FunctionComponent = () => {
           <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
+          <div className="rounded-2xl bg-white overflow-hidden flex flex-row p-1 items-center justify-center">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+              className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/bell1.png"
+              src="/bell.svg"
             />
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[30px] text-mediumblue-100">
+      <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[30px] z-[2] text-mediumblue-100">
         <div className="w-52 flex flex-row items-start justify-start gap-[6px]">
           <img
-            className="relative w-[18px] h-[18px] overflow-hidden shrink-0 object-cover"
+            className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
             alt=""
-            src="/users1.png"
+            src="/users1.svg"
           />
           <div className="relative leading-[20px] font-semibold">
             Partenaires
           </div>
         </div>
         <div className="relative text-11xl leading-[24px] font-semibold text-gray-900 inline-block w-52">
-          18 partenaires
+          3 partenaires
         </div>
-        <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[46px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center gap-[8px] text-white">
+        <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[46px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center gap-[8px] text-white">
           <img
-            className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
+            className="relative w-5 h-5 overflow-hidden shrink-0"
             alt=""
-            src="/plus.png"
+            src="/plus1.svg"
           />
           <div className="relative leading-[20px] font-semibold">
             Inviter un membre
           </div>
         </div>
       </div>
-      <div className="self-stretch flex flex-col py-9 px-4 items-start justify-start text-darkgray-200">
-        <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start border-[2px] border-solid border-gray-2001">
+      <div className="self-stretch overflow-y-auto shrink-0 flex flex-col py-9 px-4 items-start justify-start z-[3] text-darkgray-200">
+        <div className="self-stretch rounded-lg bg-white overflow-hidden shrink-0 flex flex-row items-center justify-start border-[2px] border-solid border-gray-2001">
           <div className="flex-1 flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px]">
             <img
-              className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
+              className="relative w-5 h-5 overflow-hidden shrink-0"
               alt=""
-              src="/search.png"
+              src="/search.svg"
             />
             <div className="flex-1 relative leading-[24px] font-medium">
               Recherche
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col py-5 px-0 items-start justify-start gap-[12px] text-dimgray">
+        <div className="self-stretch flex flex-col py-5 px-0 items-start justify-start gap-[12px] text-gray-900">
           <div className="self-stretch rounded-lg bg-white flex flex-col py-0 px-4 items-start justify-start">
             <div className="self-stretch flex flex-row py-4 px-0 items-center justify-start gap-[16px]">
               <img
@@ -71,18 +83,18 @@ const Partenaires: FunctionComponent = () => {
                 src="/avatar211@2x.png"
               />
               <div className="flex-1 flex flex-col items-start justify-start">
-                <b className="self-stretch relative leading-[20px]">
+                <div className="self-stretch relative leading-[20px] font-semibold">
                   Léonard RENARD
-                </b>
-                <div className="self-stretch relative text-xs leading-[20px] font-medium">
+                </div>
+                <div className="self-stretch relative text-xs leading-[20px] font-medium text-dimgray">
                   Dernière activité : il y a 2 heures
                 </div>
               </div>
               <div className="rounded-3xs w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
+                  className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/dots-vertical2.png"
+                  src="/dots-vertical2.svg"
                 />
               </div>
             </div>
@@ -92,21 +104,21 @@ const Partenaires: FunctionComponent = () => {
               <img
                 className="rounded-4xl w-[46px] h-[46px] object-cover"
                 alt=""
-                src="/avatar211@2x.png"
+                src="/avatar9@2x.png"
               />
               <div className="flex-1 flex flex-col items-start justify-start">
-                <b className="self-stretch relative leading-[20px]">
-                  Léonard RENARD
-                </b>
-                <div className="self-stretch relative text-xs leading-[20px] font-medium">
-                  Dernière activité : il y a 2 heures
+                <div className="self-stretch relative leading-[20px] font-semibold">
+                  Capucine LEROY
+                </div>
+                <div className="self-stretch relative text-xs leading-[20px] font-medium text-dimgray">
+                  Dernière activité : il y a 3 heures
                 </div>
               </div>
               <div className="rounded-3xs w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
+                  className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/dots-vertical2.png"
+                  src="/dots-vertical2.svg"
                 />
               </div>
             </div>
@@ -116,57 +128,57 @@ const Partenaires: FunctionComponent = () => {
               <img
                 className="rounded-4xl w-[46px] h-[46px] object-cover"
                 alt=""
-                src="/avatar211@2x.png"
+                src="/avatar311@2x.png"
               />
               <div className="flex-1 flex flex-col items-start justify-start">
-                <b className="self-stretch relative leading-[20px]">
-                  Léonard RENARD
-                </b>
-                <div className="self-stretch relative text-xs leading-[20px] font-medium">
-                  Dernière activité : il y a 2 heures
+                <div className="self-stretch relative leading-[20px] font-semibold">
+                  Pauline MONFORT
+                </div>
+                <div className="self-stretch relative text-xs leading-[20px] font-medium text-dimgray">
+                  Dernière activité : il y a 1 jour
                 </div>
               </div>
               <div className="rounded-3xs w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
                 <img
-                  className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
+                  className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/dots-vertical2.png"
+                  src="/dots-vertical2.svg"
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-row py-5 px-[30px] items-center justify-between text-center text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
+      <div className="my-0 mx-[!important] absolute bottom-[1px] left-[0px] bg-white box-border w-[390px] flex flex-row py-5 px-[30px] items-center justify-between z-[4] text-center text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+            className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-222.png"
+            src="/component-222.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
-            alt=""
-            src="/component-1121.png"
-          />
-          <div className="relative leading-[16px] font-medium">Messagerie</div>
-        </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px] text-mediumblue-100">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+            className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-512.png"
+            src="/component-55.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
+        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
+          <img
+            className="relative w-6 h-6 overflow-hidden shrink-0"
+            alt=""
+            src="/component-12.svg"
+          />
+          <div className="relative leading-[16px] font-medium">Messagerie</div>
+        </div>
         <div className="w-[46px] h-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+            className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-131.png"
+            src="/component-131.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

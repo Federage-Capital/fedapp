@@ -2,8 +2,8 @@ import { FunctionComponent } from "react";
 
 const Profil: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
-      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between text-center text-mini text-black2">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-normal">
+      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between text-center text-mini text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
             21:41
@@ -12,7 +12,7 @@ const Profil: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px]"
           alt=""
-          src="/group-7.svg"
+          src="/group-72.svg"
         />
       </div>
       <div className="self-stretch bg-white overflow-y-auto flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
@@ -33,7 +33,7 @@ const Profil: FunctionComponent = () => {
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/bell1.png"
+              src="/bell1.svg"
             />
           </div>
         </div>
@@ -42,7 +42,7 @@ const Profil: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.png" />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Démarrer</b>
           </div>
@@ -52,7 +52,7 @@ const Profil: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Remplir votre profil
           </div>

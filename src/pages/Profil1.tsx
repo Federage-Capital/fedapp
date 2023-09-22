@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Profil: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -21,7 +21,7 @@ const Profil: FunctionComponent = () => {
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.png"
+              src="/bell1.svg"
             />
           </div>
         </div>
@@ -117,7 +117,7 @@ const Profil: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-23.png"
+            src="/component-23.svg"
           />
           <div className="relative leading-[16px] font-medium">Activité</div>
         </div>
@@ -125,7 +125,7 @@ const Profil: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-1112.png"
+            src="/component-1112.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -133,7 +133,7 @@ const Profil: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-511.png"
+            src="/component-511.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>

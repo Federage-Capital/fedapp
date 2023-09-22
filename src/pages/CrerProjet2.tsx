@@ -1,8 +1,30 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MobileServiceProjet211: FunctionComponent = () => {
+  const navigate = useNavigate();
+
+  const onCrerProjet2ContainerClick = useCallback(() => {
+    navigate("/-crerprojetpriv");
+  }, [navigate]);
+
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-2xl-leading-8-font-bold">
+    <div
+      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-gray-700 font-text-sm-leading-5-font-normal"
+      onClick={onCrerProjet2ContainerClick}
+    >
+      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between text-center text-mini text-black">
+        <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
+          <b className="relative tracking-[-0.3px] inline-block w-[54px]">
+            21:41
+          </b>
+        </div>
+        <img
+          className="relative w-[66.66px] h-[11.34px]"
+          alt=""
+          src="/group-71.svg"
+        />
+      </div>
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row p-4 items-center justify-start">
           <img
@@ -15,11 +37,11 @@ const MobileServiceProjet211: FunctionComponent = () => {
           <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
+          <div className="rounded-2xl bg-white overflow-hidden flex flex-row p-1 items-center justify-center">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+              className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/bell1.png"
+              src="/bell.svg"
             />
           </div>
         </div>
@@ -28,13 +50,11 @@ const MobileServiceProjet211: FunctionComponent = () => {
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
             <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img
-                className="relative w-1.5 h-2.5 object-cover"
-                alt=""
-                src="/icon211.png"
-              />
+              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
-            <b className="flex-1 relative leading-[24px]">Créer un projet</b>
+            <div className="flex-1 relative leading-[24px] font-semibold">
+              Créer un projet
+            </div>
           </div>
           <div className="rounded-3xs flex flex-row py-0.5 px-2.5 items-center justify-center text-right text-xs">
             <div className="relative leading-[16px] font-medium">
@@ -42,7 +62,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black2">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black">
           <div className="self-stretch relative leading-[20px] font-semibold">
             Choisir le financement
           </div>
@@ -61,12 +81,12 @@ const MobileServiceProjet211: FunctionComponent = () => {
             <b className="self-stretch relative leading-[20px]">
               Qui peut participer au projet ?
             </b>
-            <div className="self-stretch relative h-[86px] text-gray-500">
-              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-white box-border border-[2px] border-solid border-gray-2001" />
-              <div className="absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center">
+            <div className="self-stretch flex flex-col items-start justify-start relative gap-[10px] text-gray-500">
+              <div className="self-stretch relative rounded-lg bg-white box-border h-[86px] z-[0] border-[2px] border-solid border-gray-2001" />
+              <div className="my-0 mx-[!important] absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center z-[1]">
                 <div className="relative rounded-lg bg-white box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
               </div>
-              <div className="absolute h-[65.12%] w-[81.5%] top-[17.44%] right-[13.58%] bottom-[17.44%] left-[4.91%]">
+              <div className="absolute my-0 mx-[!important] h-[65.12%] w-[78.77%] top-[17.44%] right-[16.32%] bottom-[17.44%] left-[4.91%] z-[2]">
                 <div className="absolute top-[0%] left-[0%] leading-[20px] font-semibold">
                   Seulement les invités participent
                 </div>
@@ -76,16 +96,16 @@ const MobileServiceProjet211: FunctionComponent = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch relative h-[86px] text-mediumblue-100">
-              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-lg bg-white box-border border-[2px] border-solid border-mediumblue-100" />
-              <div className="absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center">
+            <div className="self-stretch flex flex-col items-start justify-start relative gap-[10px] text-mediumblue-100">
+              <div className="self-stretch relative rounded-lg bg-white box-border h-[86px] z-[0] border-[2px] border-solid border-mediumblue-100" />
+              <div className="my-0 mx-[!important] absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center z-[1]">
                 <img
-                  className="relative rounded-lg w-4 h-4 overflow-hidden shrink-0 object-cover"
+                  className="relative rounded-lg w-4 h-4 overflow-hidden shrink-0"
                   alt=""
-                  src="/form-fieldsradio-input.png"
+                  src="/form-fieldsradio-input.svg"
                 />
               </div>
-              <div className="absolute h-[65.12%] w-[81.5%] top-[17.44%] right-[13.58%] bottom-[17.44%] left-[4.91%]">
+              <div className="absolute my-0 mx-[!important] h-[65.12%] w-[78.77%] top-[17.44%] right-[16.32%] bottom-[17.44%] left-[4.91%] z-[2]">
                 <div className="absolute top-[0%] left-[0%] leading-[20px] font-semibold">
                   Tout le monde peut participer
                 </div>
@@ -126,7 +146,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
         <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
             <div className="self-stretch bg-gray-2001" />
-            <div className="self-stretch rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
+            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Suivant
               </div>

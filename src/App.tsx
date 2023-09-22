@@ -5,36 +5,39 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
-import Profil from "./pages/Profil";
-import Ouverture from "./pages/Ouverture";
+import Principal2 from "./pages/Principal2";
+import Principal1 from "./pages/Principal1";
+import ExplorerMembres from "./pages/ExplorerMembres";
+import ExplorerAnnonces from "./pages/ExplorerAnnonces";
+import Notfications from "./pages/Notfications";
+import Principal from "./pages/Principal";
 import Ouverture3 from "./pages/Ouverture3";
 import Ouverture2 from "./pages/Ouverture2";
 import Ouverture1 from "./pages/Ouverture1";
 import Ouverture4 from "./pages/Ouverture4";
+import Connexion from "./pages/Connexion";
+import Partenaires from "./pages/Partenaires";
+import MobileServiceModificationAp from "./pages/ModiApport";
+import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
+import MobileServiceAjouterUnAppo1 from "./pages/AjouterUnAppo2";
+import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
+import MobileServiceCrerProjet from "./pages/CrerProjet";
+import MobileServiceProjet2 from "./pages/CrerProjetPublic2";
+import MobileServiceProjet21 from "./pages/CrerProjetPublic3";
+import MobileServiceProjetPriv1 from "./pages/CrerProjetPriv";
+import MobileServiceProjet22 from "./pages/CrerProjetPublic";
+import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
+import MobileAccueil from "./pages/SiteAccueil";
+import Profil from "./pages/Profil";
 import AjouterUnAppo3 from "./pages/AjouterUnAppo3";
 import Principal3 from "./pages/Principal3";
-import Principal from "./pages/Principal";
-import Principal2 from "./pages/Principal2";
-import MobileServiceProjetOpratio1 from "./pages/ProjetOpratio2";
+import Principal21 from "./pages/Principal21";
 import Configuration from "./pages/Configuration";
 import Profil from "./pages/Profil1";
-import MobileAccueil from "./pages/SiteAccueil";
-import MobileServiceProjetPriv1 from "./pages/CrerProjetPriv";
-import MobileServiceProjet21 from "./pages/CrerProjetPublic3";
-import MobileServiceProjet2 from "./pages/CrerProjetPublic2";
-import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
-import MobileServiceAjouterUnAppo1 from "./pages/AjouterUnAppo2";
-import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
-import MobileServiceModificationAp from "./pages/ModiApport";
-import MobileServiceCrerProjet from "./pages/CrerProjet";
-import Partenaires from "./pages/Partenaires";
-import Connexion from "./pages/Connexion";
+import Connexion from "./pages/Connexion1";
 import Inscription from "./pages/Inscription";
-import MobileServiceProjet22 from "./pages/CrerProjetPublic";
-import ExplorerMembres from "./pages/ExplorerMembres";
-import ExplorerAnnonces from "./pages/ExplorerAnnonces";
+import Ouverture from "./pages/Ouverture";
 import ExplorerProjets from "./pages/ExplorerProjets";
-import Notfications from "./pages/Notfications";
 import { useEffect } from "react";
 
 function App() {
@@ -57,11 +60,27 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-profil":
+      case "/-principal-21":
         title = "";
         metaDescription = "";
         break;
-      case "/-ouverture":
+      case "/-principal-1":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-explorermembres":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-explorerannonces":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-notfications":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-principal":
         title = "";
         metaDescription = "";
         break;
@@ -81,15 +100,63 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-connexion":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-partenaires":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-modiapport":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-ajouterunappo-2":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-ajouterunappo":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-projetopratio2":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-crerprojet":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-crerprojet3":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-crerprojetpublic3":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-crerprojetpriv":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/ajoutapport":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-projetopratio":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-siteaccueil":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-profil":
+        title = "";
+        metaDescription = "";
+        break;
       case "/-ajouterunappo-3":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-principal-3":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-principal":
         title = "";
         metaDescription = "";
         break;
@@ -97,7 +164,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-projetopratio":
+      case "/-principal-22":
         title = "";
         metaDescription = "";
         break;
@@ -109,47 +176,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-mobileaccueil":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceprojet-priv-1":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceprojet2":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceprojet21":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceprojet-oprationel-2":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-ajouterunappo":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileserviceajouter-un-apport-2":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileservicemodification-apport":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-mobileservicecrer-projet":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-partenaires":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-connexion":
+      case "/-connexion1":
         title = "";
         metaDescription = "";
         break;
@@ -157,23 +184,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-crerprojetpublic":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-explorermembres":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-explorerannonces":
+      case "/-ouverture":
         title = "";
         metaDescription = "";
         break;
       case "/-explorerprojets":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-notfications":
         title = "";
         metaDescription = "";
         break;
@@ -196,57 +211,42 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjet211 />} />
-      <Route path="/-profil" element={<Profil />} />
-      <Route path="/-ouverture" element={<Ouverture />} />
+      <Route path="/-principal-21" element={<Principal2 />} />
+      <Route path="/-principal-1" element={<Principal1 />} />
+      <Route path="/-explorermembres" element={<ExplorerMembres />} />
+      <Route path="/-explorerannonces" element={<ExplorerAnnonces />} />
+      <Route path="/-notfications" element={<Notfications />} />
+      <Route path="/-principal" element={<Principal />} />
       <Route path="/-ouverture-3" element={<Ouverture3 />} />
       <Route path="/-ouverture-2" element={<Ouverture2 />} />
       <Route path="/-ouverture-1" element={<Ouverture1 />} />
       <Route path="/-ouverture-4" element={<Ouverture4 />} />
-      <Route path="/-ajouterunappo-3" element={<AjouterUnAppo3 />} />
-      <Route path="/-principal-3" element={<Principal3 />} />
-      <Route path="/-principal" element={<Principal />} />
-      <Route path="/-principal-2" element={<Principal2 />} />
-      <Route path="/-projetopratio" element={<MobileServiceProjetOpratio1 />} />
-      <Route path="/-configuration" element={<Configuration />} />
-      <Route path="/-profil1" element={<Profil />} />
-      <Route path="/-mobileaccueil" element={<MobileAccueil />} />
+      <Route path="/-connexion" element={<Connexion />} />
+      <Route path="/-partenaires" element={<Partenaires />} />
+      <Route path="/-modiapport" element={<MobileServiceModificationAp />} />
       <Route
-        path="/-mobileserviceprojet-priv-1"
-        element={<MobileServiceProjetPriv1 />}
-      />
-      <Route
-        path="/-mobileserviceprojet2"
-        element={<MobileServiceProjet21 />}
-      />
-      <Route
-        path="/-mobileserviceprojet21"
-        element={<MobileServiceProjet2 />}
-      />
-      <Route
-        path="/-mobileserviceprojet-oprationel-2"
-        element={<MobileServiceProjetOpratio />}
-      />
-      <Route path="/-ajouterunappo" element={<MobileServiceAjouterUnAppo1 />} />
-      <Route
-        path="/-mobileserviceajouter-un-apport-2"
+        path="/-ajouterunappo-2"
         element={<MobileServiceAjouterUnAppo />}
       />
-      <Route
-        path="/-mobileservicemodification-apport"
-        element={<MobileServiceModificationAp />}
-      />
-      <Route
-        path="/-mobileservicecrer-projet"
-        element={<MobileServiceCrerProjet />}
-      />
-      <Route path="/-partenaires" element={<Partenaires />} />
-      <Route path="/-connexion" element={<Connexion />} />
+      <Route path="/-ajouterunappo" element={<MobileServiceAjouterUnAppo1 />} />
+      <Route path="/-projetopratio2" element={<MobileServiceProjetOpratio />} />
+      <Route path="/-crerprojet" element={<MobileServiceCrerProjet />} />
+      <Route path="/-crerprojet3" element={<MobileServiceProjet2 />} />
+      <Route path="/-crerprojetpublic3" element={<MobileServiceProjet21 />} />
+      <Route path="/-crerprojetpriv" element={<MobileServiceProjetPriv1 />} />
+      <Route path="/ajoutapport" element={<MobileServiceProjet22 />} />
+      <Route path="/-projetopratio" element={<MobileServiceProjetOpratio1 />} />
+      <Route path="/-siteaccueil" element={<MobileAccueil />} />
+      <Route path="/-profil" element={<Profil />} />
+      <Route path="/-ajouterunappo-3" element={<AjouterUnAppo3 />} />
+      <Route path="/-principal-2" element={<Principal3 />} />
+      <Route path="/-principal-22" element={<Principal21 />} />
+      <Route path="/-configuration" element={<Configuration />} />
+      <Route path="/-profil1" element={<Profil />} />
+      <Route path="/-connexion1" element={<Connexion />} />
       <Route path="/-inscription" element={<Inscription />} />
-      <Route path="/-crerprojetpublic" element={<MobileServiceProjet22 />} />
-      <Route path="/-explorermembres" element={<ExplorerMembres />} />
-      <Route path="/-explorerannonces" element={<ExplorerAnnonces />} />
+      <Route path="/-ouverture" element={<Ouverture />} />
       <Route path="/-explorerprojets" element={<ExplorerProjets />} />
-      <Route path="/-notfications" element={<Notfications />} />
     </Routes>
   );
 }

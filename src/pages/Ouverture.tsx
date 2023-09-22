@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Ouverture: FunctionComponent = () => {
   return (
-    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-center text-mini text-black2 font-text-2xl-leading-8-font-bold">
+    <div className="relative w-full h-[844px] flex flex-col items-start justify-start text-center text-mini text-black font-text-sm-leading-5-font-normal">
       <div className="self-stretch bg-gray-50 flex flex-row py-[9px] px-3.5 items-center justify-between">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">

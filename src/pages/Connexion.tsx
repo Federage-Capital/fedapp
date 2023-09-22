@@ -2,13 +2,13 @@ import { FunctionComponent } from "react";
 
 const Connexion: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full h-[790px] flex flex-col py-16 px-4 box-border items-center justify-center text-center text-9xl text-black2 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-gray-50 w-full h-[790px] flex flex-col py-16 px-4 box-border items-center justify-center text-center text-9xl text-black font-text-sm-leading-5-font-normal">
       <div className="self-stretch overflow-y-auto flex flex-col pt-0 pb-16 pr-4 pl-0 items-start justify-start gap-[32px]">
         <div className="self-stretch flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-col items-center justify-start gap-[12px]">
-            <div className="self-stretch relative leading-[20px] font-semibold">
+            <b className="self-stretch relative leading-[20px]">
               Accéder à Federage
-            </div>
+            </b>
             <div className="self-stretch flex flex-row items-start justify-center text-base text-gray-500">
               <div className="flex-1 relative leading-[24px]">
                 <span className="font-medium">{`Connectez-vous à Federage. Jamais inscrit ? `}</span>
@@ -31,9 +31,9 @@ const Connexion: FunctionComponent = () => {
           <div className="self-stretch flex flex-row items-center justify-between text-sm text-gray-900">
             <div className="flex flex-row items-center justify-start gap-[8px]">
               <img
-                className="relative rounded w-4 h-4 overflow-hidden shrink-0 object-cover"
+                className="relative rounded w-4 h-4 overflow-hidden shrink-0"
                 alt=""
-                src="/intrant-coche1.png"
+                src="/intrant-coche1.svg"
               />
               <div className="flex-1 relative leading-[20px] font-medium">
                 Resté connecté
@@ -45,14 +45,14 @@ const Connexion: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch relative rounded-lg bg-mediumblue-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[50px] overflow-hidden shrink-0 text-white">
+          <div className="self-stretch relative rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[50px] overflow-hidden shrink-0 text-white">
             <div className="absolute top-[calc(50%_-_10px)] left-[calc(50%_-_36px)] leading-[20px] font-medium">
               Connexion
             </div>
             <img
-              className="absolute top-[calc(50%_-_10px)] left-[12px] w-5 h-5 overflow-hidden object-cover"
+              className="absolute top-[calc(50%_-_10px)] left-[12px] w-5 h-5 overflow-hidden"
               alt=""
-              src="/lock-closed.png"
+              src="/lock-closed.svg"
             />
           </div>
         </div>

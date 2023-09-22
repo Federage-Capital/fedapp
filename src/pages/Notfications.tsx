@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Notfications: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full h-[844px] flex flex-col items-center justify-start text-center text-mini text-black2 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-white w-full h-[844px] flex flex-col items-center justify-start text-center text-mini text-black font-text-sm-leading-5-font-normal">
       <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between z-[0]">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -31,7 +31,7 @@ const Notfications: FunctionComponent = () => {
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/bell1.png"
+              src="/bell1.svg"
             />
           </div>
         </div>
@@ -93,7 +93,7 @@ const Notfications: FunctionComponent = () => {
                               1h
                             </div>
                           </div>
-                          <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black2">
+                          <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black">
                             <div className="relative leading-[20px] font-semibold">
                               Traduction du site en anglais
                             </div>
@@ -128,7 +128,7 @@ const Notfications: FunctionComponent = () => {
                             17h
                           </div>
                         </div>
-                        <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black2">
+                        <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black">
                           <div className="relative leading-[20px] font-semibold">{`Offre de 2 298€ pour le 31 août 2023  `}</div>
                           <div className="relative rounded-[50%] bg-mediumblue-100 w-3 h-3" />
                         </div>
@@ -170,7 +170,7 @@ const Notfications: FunctionComponent = () => {
                               3 jours
                             </div>
                           </div>
-                          <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black2">
+                          <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black">
                             <i className="relative leading-[20px] font-semibold">
                               « Réajusté compte tenu des surplus... »
                             </i>
@@ -206,7 +206,7 @@ const Notfications: FunctionComponent = () => {
                               6 jours
                             </div>
                           </div>
-                          <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black2">
+                          <div className="w-[305px] flex flex-row py-0 pr-[3px] pl-0 box-border items-center justify-between text-black">
                             <div className="relative leading-[20px] font-semibold">{`Offre de 3 789€ pour le 28 sep. 2023  `}</div>
                             <div className="relative rounded-[50%] bg-mediumblue-100 w-3 h-3" />
                           </div>
@@ -235,7 +235,7 @@ const Notfications: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-2.png"
+            src="/component-2.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -243,15 +243,7 @@ const Notfications: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-13.svg"
-          />
-          <div className="relative leading-[16px] font-medium">Messagerie</div>
-        </div>
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0"
-            alt=""
-            src="/component-54.svg"
+            src="/component-53.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
@@ -260,6 +252,14 @@ const Notfications: FunctionComponent = () => {
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
             src="/component-15.svg"
+          />
+          <div className="relative leading-[16px] font-medium">Messagerie</div>
+        </div>
+        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
+          <img
+            className="relative w-6 h-6 overflow-hidden shrink-0"
+            alt=""
+            src="/component-151.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

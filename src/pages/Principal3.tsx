@@ -6,7 +6,7 @@ const Principal3: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black2 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black font-text-sm-leading-5-font-normal">
       <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between z-[0]">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -16,7 +16,7 @@ const Principal3: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px] object-cover"
           alt=""
-          src="/group-72.png"
+          src="/group-721.png"
         />
       </div>
       <div className="self-stretch bg-white flex flex-row items-start justify-start z-[1] text-left text-base text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
@@ -35,7 +35,7 @@ const Principal3: FunctionComponent = () => {
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.png"
+              src="/bell1.svg"
             />
           </div>
         </div>
@@ -53,7 +53,7 @@ const Principal3: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/chart-bar2.png"
+                  src="/chart-bar2.svg"
                 />
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
@@ -68,7 +68,7 @@ const Principal3: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/document-add3.png"
+                        src="/document-add31.png"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Projets
@@ -96,7 +96,7 @@ const Principal3: FunctionComponent = () => {
                       <img
                         className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                         alt=""
-                        src="/pencil-alt3.png"
+                        src="/pencil-alt31.png"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Brouillon
@@ -120,7 +120,7 @@ const Principal3: FunctionComponent = () => {
                   <img
                     className="relative rounded-6xs w-[42px] h-[42px] object-cover"
                     alt=""
-                    src="/rectangle-41551@2x.png"
+                    src="/rectangle-415511@2x.png"
                   />
                 </div>
                 <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-3.5 items-center justify-center gap-[8px] text-sm text-dimgray">
@@ -130,7 +130,7 @@ const Principal3: FunctionComponent = () => {
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link1.png"
+                    src="/external-link11.png"
                   />
                 </div>
               </div>
@@ -158,7 +158,7 @@ const Principal3: FunctionComponent = () => {
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link1.png"
+                    src="/external-link11.png"
                   />
                 </div>
               </div>
@@ -186,7 +186,7 @@ const Principal3: FunctionComponent = () => {
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link1.png"
+                    src="/external-link11.png"
                   />
                 </div>
               </div>
@@ -199,7 +199,7 @@ const Principal3: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-2.png"
+            src="/component-2.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -218,7 +218,7 @@ const Principal3: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-5.png"
+            src="/component-57.png"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
@@ -226,7 +226,7 @@ const Principal3: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-131.png"
+            src="/component-131.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

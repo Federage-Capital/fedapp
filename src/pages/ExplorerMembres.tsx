@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const ExplorerMembres: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-start mix-blend-normal text-center text-mini text-black2 font-text-2xl-leading-8-font-bold">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-start mix-blend-normal text-center text-mini text-black font-text-sm-leading-5-font-normal">
       <div className="self-stretch bg-gray-50 flex flex-row py-[9px] px-3.5 items-center justify-between">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -19,28 +19,28 @@ const ExplorerMembres: FunctionComponent = () => {
         <div className="self-stretch h-[98px] overflow-hidden shrink-0 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-row pt-[30px] px-4 pb-0 items-center justify-between z-[0]">
             <img
-              className="relative w-[154.89px] h-8"
+              className="relative w-[174.81px] h-9"
               alt=""
-              src="/a304a9a1adfc477d9233fbc4749af052.png"
+              src="/logoidentitcomposants.svg"
             />
             <div className="rounded-3xs-5 overflow-hidden flex flex-row items-center justify-center">
               <img
                 className="relative w-9 h-9 overflow-hidden shrink-0"
                 alt=""
-                src="/menu.png"
+                src="/menu.svg"
               />
             </div>
           </div>
         </div>
         <div className="self-stretch overflow-y-auto flex flex-col pt-6 px-4 pb-12 items-start justify-start gap-[22px]">
-          <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-left text-9xl text-black2">
+          <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-left text-9xl text-black">
             <div className="self-stretch flex flex-col items-start justify-center gap-[10px]">
               <div className="self-stretch relative leading-[20px] font-semibold">
                 Explorer
               </div>
               <div className="self-stretch relative text-base leading-[20px] font-medium text-dimgray">
-                Vous pouvez répondre à une annonce, proposer un apport à un
-                projet et contacter directement les membres.
+                Vous pouvez consulter les annonces, répondre à une demande
+                d’apport et contacter les membres du réseau.
               </div>
             </div>
             <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-base text-darkgray-200 border-[2px] border-solid border-gray-2001">
@@ -48,7 +48,7 @@ const ExplorerMembres: FunctionComponent = () => {
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
-                  src="/search.png"
+                  src="/search.svg"
                 />
                 <div className="relative leading-[24px] font-medium">
                   Rechercher des opportunités
@@ -68,11 +68,11 @@ const ExplorerMembres: FunctionComponent = () => {
           </div>
           <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <div className="self-stretch flex flex-row items-center justify-center gap-[12px]">
+              <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar14@2x.png"
+                  src="/avatar1@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -83,13 +83,20 @@ const ExplorerMembres: FunctionComponent = () => {
                       <img
                         className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                         alt=""
-                        src="/shield-check1.png"
+                        src="/shield-check1.svg"
                       />
                     </div>
                   </div>
                   <b className="flex-1 relative text-xs leading-[32px] flex text-dimgray text-left items-center w-48 mt-[-11px]">
                     app.federage.com/bimfinance
                   </b>
+                </div>
+                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/dots-vertical11.svg"
+                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -99,7 +106,7 @@ const ExplorerMembres: FunctionComponent = () => {
                     industrielles développant des innovations de rupture.
                   </div>
                 </div>
-                <div className="flex flex-row items-start justify-start gap-[20px] text-xs text-dimgray">
+                <div className="w-[197px] flex flex-row items-center justify-between text-xs text-dimgray">
                   <div className="flex flex-row items-center justify-start">
                     <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
                       <img
@@ -112,19 +119,15 @@ const ExplorerMembres: FunctionComponent = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-start">
-                    <div className="flex flex-row items-center justify-start">
-                      <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
-                        <img
-                          className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
-                          alt=""
-                          src="/globe-alt.svg"
-                        />
-                        <div className="relative leading-[20px] font-medium">
-                          Site internet
-                        </div>
-                      </div>
+                  <div className="flex flex-row items-center justify-center gap-[4px]">
+                    <div className="relative leading-[24px] font-medium">
+                      Site officiel
                     </div>
+                    <img
+                      className="relative w-4 h-4 overflow-hidden shrink-0"
+                      alt=""
+                      src="/external-link1.svg"
+                    />
                   </div>
                 </div>
               </div>
@@ -132,11 +135,11 @@ const ExplorerMembres: FunctionComponent = () => {
           </div>
           <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <div className="self-stretch flex flex-row items-center justify-center gap-[12px]">
+              <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar151@2x.png"
+                  src="/avatar6@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -145,13 +148,20 @@ const ExplorerMembres: FunctionComponent = () => {
                       <img
                         className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                         alt=""
-                        src="/shield-check1.png"
+                        src="/shield-check1.svg"
                       />
                     </div>
                   </div>
                   <b className="flex-1 relative text-xs leading-[32px] flex text-dimgray text-left items-center w-48 mt-[-11px]">
                     app.federage.com/321founded
                   </b>
+                </div>
+                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/dots-vertical11.svg"
+                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -161,7 +171,7 @@ const ExplorerMembres: FunctionComponent = () => {
                     Europe avec une exécution entrepreneuriale unique.
                   </div>
                 </div>
-                <div className="flex flex-row items-start justify-start gap-[20px] text-xs text-dimgray">
+                <div className="w-[197px] flex flex-row items-center justify-between text-xs text-dimgray">
                   <div className="flex flex-row items-center justify-start">
                     <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
                       <img
@@ -174,19 +184,15 @@ const ExplorerMembres: FunctionComponent = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-start">
-                    <div className="flex flex-row items-center justify-start">
-                      <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
-                        <img
-                          className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
-                          alt=""
-                          src="/globe-alt2.svg"
-                        />
-                        <div className="relative leading-[20px] font-medium">
-                          Site internet
-                        </div>
-                      </div>
+                  <div className="flex flex-row items-center justify-center gap-[4px]">
+                    <div className="relative leading-[24px] font-medium">
+                      Site officiel
                     </div>
+                    <img
+                      className="relative w-4 h-4 overflow-hidden shrink-0"
+                      alt=""
+                      src="/external-link1.svg"
+                    />
                   </div>
                 </div>
               </div>
@@ -194,11 +200,11 @@ const ExplorerMembres: FunctionComponent = () => {
           </div>
           <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <div className="self-stretch flex flex-row items-center justify-center gap-[12px]">
+              <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar161@2x.png"
+                  src="/avatar7@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -209,13 +215,20 @@ const ExplorerMembres: FunctionComponent = () => {
                       <img
                         className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                         alt=""
-                        src="/shield-check1.png"
+                        src="/shield-check1.svg"
                       />
                     </div>
                   </div>
                   <b className="relative text-xs leading-[32px] inline-block text-dimgray text-left mt-[-11px]">
                     app.federage.com/openfoodfacts
                   </b>
+                </div>
+                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/dots-vertical11.svg"
+                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -225,7 +238,7 @@ const ExplorerMembres: FunctionComponent = () => {
                     sur les produits alimentaires qui sont commercialisés...
                   </div>
                 </div>
-                <div className="flex flex-row items-start justify-start gap-[20px] text-xs text-dimgray">
+                <div className="w-[197px] flex flex-row items-center justify-between text-xs text-dimgray">
                   <div className="flex flex-row items-center justify-start">
                     <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
                       <img
@@ -238,19 +251,15 @@ const ExplorerMembres: FunctionComponent = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-start">
-                    <div className="flex flex-row items-center justify-start">
-                      <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
-                        <img
-                          className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
-                          alt=""
-                          src="/globe-alt3.svg"
-                        />
-                        <div className="relative leading-[20px] font-medium">
-                          Site internet
-                        </div>
-                      </div>
+                  <div className="flex flex-row items-center justify-center gap-[4px]">
+                    <div className="relative leading-[24px] font-medium">
+                      Site officiel
                     </div>
+                    <img
+                      className="relative w-4 h-4 overflow-hidden shrink-0"
+                      alt=""
+                      src="/external-link1.svg"
+                    />
                   </div>
                 </div>
               </div>
@@ -258,11 +267,11 @@ const ExplorerMembres: FunctionComponent = () => {
           </div>
           <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start">
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <div className="self-stretch flex flex-row items-center justify-center gap-[12px]">
+              <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
                   className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
                   alt=""
-                  src="/avatar171@2x.png"
+                  src="/avatar8@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -271,13 +280,20 @@ const ExplorerMembres: FunctionComponent = () => {
                       <img
                         className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                         alt=""
-                        src="/shield-check1.png"
+                        src="/shield-check1.svg"
                       />
                     </div>
                   </div>
                   <b className="relative text-xs leading-[32px] inline-block text-dimgray text-left mt-[-11px]">
                     app.federage.com/coopcycle
                   </b>
+                </div>
+                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/dots-vertical11.svg"
+                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -287,7 +303,7 @@ const ExplorerMembres: FunctionComponent = () => {
                     démocratiquement et orientée mutualisation des services.
                   </div>
                 </div>
-                <div className="flex flex-row items-start justify-start gap-[20px] text-xs text-dimgray">
+                <div className="w-[197px] flex flex-row items-center justify-between text-xs text-dimgray">
                   <div className="flex flex-row items-center justify-start">
                     <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
                       <img
@@ -300,25 +316,21 @@ const ExplorerMembres: FunctionComponent = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-start">
-                    <div className="flex flex-row items-center justify-start">
-                      <div className="flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
-                        <img
-                          className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
-                          alt=""
-                          src="/globe-alt.svg"
-                        />
-                        <div className="relative leading-[20px] font-medium">
-                          Site internet
-                        </div>
-                      </div>
+                  <div className="flex flex-row items-center justify-center gap-[4px]">
+                    <div className="relative leading-[24px] font-medium">
+                      Site officiel
                     </div>
+                    <img
+                      className="relative w-4 h-4 overflow-hidden shrink-0"
+                      alt=""
+                      src="/external-link1.svg"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-center text-left text-sm text-darkslategray">
+          <div className="self-stretch flex flex-col items-start justify-center text-left text-sm text-darkslategray-100">
             <div className="w-[143px] flex flex-col items-start justify-start">
               <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start">
                 <div className="self-stretch rounded-md bg-white h-[46px] overflow-hidden shrink-0 flex flex-row py-2 px-3.5 box-border items-center justify-center gap-[8px]">
@@ -339,7 +351,7 @@ const ExplorerMembres: FunctionComponent = () => {
           <div className="self-stretch bg-white flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch relative bg-gray-2001 h-px" />
-              <div className="self-stretch bg-black2 flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
+              <div className="self-stretch bg-black flex flex-col py-12 px-0 items-center justify-start gap-[24px]">
                 <div className="relative leading-[24px] font-medium flex items-center justify-center w-[298px]">
                   FEDERAGE SAS • SIREN n°828743369 • Paris • 2023
                 </div>
