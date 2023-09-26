@@ -10,39 +10,39 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full h-[888px] overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-dimgray font-text-sm-leading-5-font-normal"
+      className="relative w-full h-[888px] overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-dimgray font-text-sm-leading-5-font-medium"
       onClick={onCrerProjetPrivContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
-        <div className="flex flex-row p-4 items-center justify-start">
+        <div className="flex flex-row items-center justify-start p-4">
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
             src="/avatar111@2x.png"
           />
         </div>
-        <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
-          <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
+        <div className="flex-1 h-[72px] flex flex-row items-center justify-start py-0 pr-4 pl-0 box-border gap-[16px]">
+          <div className="self-stretch flex-1 flex flex-row items-center justify-start py-[9px] px-0">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
+          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row items-center justify-center p-1 border-[1px] border-solid border-mediumblue-100">
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/bell1.svg"
+              src="/bell11.svg"
             />
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[32px]">
+      <div className="self-stretch bg-white flex flex-col items-start justify-start py-5 px-4 gap-[32px]">
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
-            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
+            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row items-center justify-center p-1.5 box-border">
               <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <b className="flex-1 relative leading-[24px]">Créer un projet</b>
           </div>
-          <div className="rounded-3xs flex flex-row py-0.5 px-2.5 items-center justify-center text-right text-xs">
+          <div className="rounded-3xs flex flex-row items-center justify-center py-0.5 px-2.5 text-right text-xs">
             <div className="relative leading-[16px] font-medium">
               Étape 3 sur 3
             </div>
@@ -59,11 +59,11 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-gray-50 flex flex-col py-6 px-4 items-center justify-start gap-[48px]">
+      <div className="self-stretch bg-gray-50 flex flex-col items-center justify-start py-6 px-4 gap-[48px]">
         <div className="self-stretch flex flex-col items-start justify-start">
           <div className="self-stretch flex flex-col items-start justify-start gap-[22px]">
-            <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-darkgray-200 border-[2px] border-solid border-gray-2001">
-              <div className="flex-1 flex flex-row py-[9px] px-[13px] items-center justify-start gap-[8px]">
+            <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-row items-center justify-start text-darkgray-200 border-[2px] border-solid border-gray-200">
+              <div className="flex-1 flex flex-row items-center justify-start py-[9px] px-[13px] gap-[8px]">
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
                   alt=""
@@ -74,8 +74,8 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-0 px-4 items-start justify-start">
-              <div className="self-stretch flex flex-row py-4 px-0 items-center justify-start gap-[16px]">
+            <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-0 px-4">
+              <div className="self-stretch flex flex-row items-center justify-start py-4 px-0 gap-[16px]">
                 <img
                   className="rounded-4xl w-[46px] h-[46px] object-cover"
                   alt=""
@@ -96,8 +96,8 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 />
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-0 px-4 items-start justify-start">
-              <div className="self-stretch flex flex-row py-4 px-0 items-center justify-start gap-[16px]">
+            <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-0 px-4">
+              <div className="self-stretch flex flex-row items-center justify-start py-4 px-0 gap-[16px]">
                 <img
                   className="rounded-4xl w-[46px] h-[46px] object-cover"
                   alt=""
@@ -118,12 +118,12 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 />
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-0 px-4 items-start justify-start">
-              <div className="self-stretch flex flex-row py-4 px-0 items-center justify-start gap-[16px]">
+            <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-0 px-4">
+              <div className="self-stretch flex flex-row items-center justify-start py-4 px-0 gap-[16px]">
                 <img
                   className="rounded-4xl w-[46px] h-[46px] object-cover"
                   alt=""
-                  src="/avatar41@2x.png"
+                  src="/avatar411@2x.png"
                 />
                 <div className="flex-1 flex flex-col items-start justify-start">
                   <b className="self-stretch relative leading-[20px]">
@@ -140,8 +140,8 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
                 />
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-0 px-4 items-start justify-start">
-              <div className="self-stretch flex flex-row py-4 px-0 items-center justify-start gap-[16px]">
+            <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-0 px-4">
+              <div className="self-stretch flex flex-row items-center justify-start py-4 px-0 gap-[16px]">
                 <img
                   className="rounded-4xl w-[46px] h-[46px] object-cover"
                   alt=""
@@ -164,10 +164,10 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-white">
+        <div className="self-stretch flex flex-col items-center justify-start pt-0 px-0 pb-6 text-center text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
-            <div className="self-stretch bg-gray-2001" />
-            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
+            <div className="self-stretch bg-gray-200" />
+            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row items-center justify-center py-4 px-[18px]">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Créer le projet
               </div>

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const ApportTatVide: FunctionComponent = () => {
   return (
-    <div className="rounded-lg bg-white box-border w-[358px] flex flex-col py-[25px] px-[26px] items-center justify-start gap-[20px] text-center text-lg text-gray-900 font-text-sm-leading-5-font-normal border-[2px] border-solid border-gray-2001">
+    <div className="rounded-lg bg-white box-border w-[358px] flex flex-col items-center justify-start py-[25px] px-[26px] gap-[20px] text-center text-lg text-gray-900 font-text-sm-leading-5-font-medium border-[2px] border-solid border-gray-200">
       <img
         className="relative w-[57.35px] h-[160.93px]"
         alt=""
@@ -18,7 +18,7 @@ const ApportTatVide: FunctionComponent = () => {
           <span className="text-mediumblue-100">Lisez notre guide.</span>
         </div>
       </div>
-      <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] w-[296px] overflow-hidden flex flex-row py-[13px] px-[25px] box-border items-center justify-center text-base text-white">
+      <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] w-[296px] overflow-hidden flex flex-row items-center justify-center py-[13px] px-[25px] box-border text-base text-white">
         <div className="relative leading-[24px] font-semibold inline-block w-[137px] shrink-0">
           Ajouter un apport
         </div>

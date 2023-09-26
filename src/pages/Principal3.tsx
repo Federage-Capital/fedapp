@@ -1,13 +1,13 @@
 import { FunctionComponent, useCallback } from "react";
 
-const Principal3: FunctionComponent = () => {
+const Principal31: FunctionComponent = () => {
   const onFrameContainer17Click = useCallback(() => {
     // Please sync "₣ - Explorer 2" to the project
   }, []);
 
   return (
-    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black font-text-sm-leading-5-font-normal">
-      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between z-[0]">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black font-text-sm-leading-5-font-medium">
+      <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0]">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
             21:41
@@ -16,32 +16,32 @@ const Principal3: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px] object-cover"
           alt=""
-          src="/group-721.png"
+          src="/group-7211.png"
         />
       </div>
       <div className="self-stretch bg-white flex flex-row items-start justify-start z-[1] text-left text-base text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
-        <div className="flex flex-row p-4 items-center justify-start">
+        <div className="flex flex-row items-center justify-start p-4">
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
             src="/avatar111@2x.png"
           />
         </div>
-        <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
-          <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
+        <div className="flex-1 h-[72px] flex flex-row items-center justify-start py-0 pr-4 pl-0 box-border gap-[16px]">
+          <div className="self-stretch flex-1 flex flex-row items-center justify-start py-[9px] px-0">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row p-1 items-center justify-center border-[1px] border-solid border-mediumblue-100">
+          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row items-center justify-center p-1 border-[1px] border-solid border-mediumblue-100">
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
               alt=""
-              src="/bell1.svg"
+              src="/bell11.svg"
             />
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-whitesmoke-200 h-[734px] overflow-y-auto shrink-0 flex flex-col pt-8 px-4 pb-12 box-border items-start justify-start z-[2] text-left text-9xl">
-        <div className="self-stretch overflow-hidden shrink-0 flex flex-col pt-0 px-0 pb-[72px] items-start justify-start">
+      <div className="self-stretch bg-whitesmoke-200 h-[734px] overflow-y-auto shrink-0 flex flex-col items-start justify-start pt-8 px-4 pb-12 box-border z-[2] text-left text-9xl">
+        <div className="self-stretch overflow-hidden shrink-0 flex flex-col items-start justify-start pt-0 px-0 pb-[72px]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
             <div className="self-stretch overflow-y-auto flex flex-col items-center justify-start gap-[24px]">
               <div className="self-stretch flex flex-row items-center justify-center gap-[24px]">
@@ -58,11 +58,11 @@ const Principal3: FunctionComponent = () => {
                 <img
                   className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
                   alt=""
-                  src="/star.png"
+                  src="/star.svg"
                 />
               </div>
               <div className="self-stretch overflow-hidden shrink-0 flex flex-row items-start justify-between text-sm text-dimgray">
-                <div className="flex-1 rounded-lg h-[39.96px] flex flex-col py-3 px-4 box-border items-center justify-center">
+                <div className="flex-1 rounded-lg h-[39.96px] flex flex-col items-center justify-center py-3 px-4 box-border">
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
@@ -76,7 +76,7 @@ const Principal3: FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 rounded-lg bg-white flex flex-col py-3 px-4 items-center justify-center text-mediumblue-100">
+                <div className="flex-1 rounded-lg bg-white flex flex-col items-center justify-center py-3 px-4 text-mediumblue-100">
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
@@ -90,7 +90,7 @@ const Principal3: FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 rounded-lg flex flex-col py-3 px-4 items-center justify-center">
+                <div className="flex-1 rounded-lg flex flex-col items-center justify-center py-3 px-4">
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
@@ -107,7 +107,7 @@ const Principal3: FunctionComponent = () => {
               </div>
             </div>
             <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-base">
-              <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px]">
                 <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
                   <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
                     <div className="self-stretch relative leading-[20px] font-semibold">
@@ -123,18 +123,18 @@ const Principal3: FunctionComponent = () => {
                     src="/rectangle-415511@2x.png"
                   />
                 </div>
-                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-3.5 items-center justify-center gap-[8px] text-sm text-dimgray">
+                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-center py-2.5 px-3.5 gap-[8px] text-sm text-dimgray">
                   <div className="relative leading-[20px] font-semibold">
                     Afficher le contrat
                   </div>
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link11.png"
+                    src="/external-link11.svg"
                   />
                 </div>
               </div>
-              <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px]">
                 <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
                   <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
                     <div className="self-stretch relative leading-[20px] font-semibold">
@@ -151,18 +151,18 @@ const Principal3: FunctionComponent = () => {
                     src="/rectangle-41552@2x.png"
                   />
                 </div>
-                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-3.5 items-center justify-center gap-[8px] text-sm text-dimgray">
+                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-center py-2.5 px-3.5 gap-[8px] text-sm text-dimgray">
                   <div className="relative leading-[20px] font-semibold">
                     Afficher le contrat
                   </div>
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link11.png"
+                    src="/external-link11.svg"
                   />
                 </div>
               </div>
-              <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px]">
                 <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
                   <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
                     <div className="self-stretch relative leading-[20px] font-semibold">
@@ -179,14 +179,14 @@ const Principal3: FunctionComponent = () => {
                     src="/rectangle-41553@2x.png"
                   />
                 </div>
-                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-2.5 px-3.5 items-center justify-center gap-[8px] text-sm text-dimgray">
+                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-center py-2.5 px-3.5 gap-[8px] text-sm text-dimgray">
                   <div className="relative leading-[20px] font-semibold">
                     Afficher le contrat
                   </div>
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/external-link11.png"
+                    src="/external-link11.svg"
                   />
                 </div>
               </div>
@@ -194,12 +194,12 @@ const Principal3: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch my-0 mx-[!important] absolute bottom-[0px] left-[calc(50%_-_195px)] bg-white flex flex-row py-5 px-[30px] items-center justify-between z-[3] text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
+      <div className="self-stretch my-0 mx-[!important] absolute bottom-[0px] left-[calc(50%_-_195px)] bg-white flex flex-row items-center justify-between py-5 px-[30px] z-[3] text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px] text-mediumblue-100">
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-2.svg"
+            src="/component-211.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -218,7 +218,7 @@ const Principal3: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-57.png"
+            src="/component-571.png"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
@@ -235,4 +235,4 @@ const Principal3: FunctionComponent = () => {
   );
 };
 
-export default Principal3;
+export default Principal31;

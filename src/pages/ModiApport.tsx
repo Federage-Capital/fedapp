@@ -10,10 +10,10 @@ const MobileServiceModificationAp: FunctionComponent = () => {
 
   return (
     <div
-      className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-gray-900 font-text-sm-leading-5-font-normal"
+      className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-sm-leading-5-font-medium"
       onClick={onModiApportContainerClick}
     >
-      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between text-center text-mini text-black">
+      <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 text-center text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
             21:41
@@ -22,22 +22,22 @@ const MobileServiceModificationAp: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px]"
           alt=""
-          src="/group-7.svg"
+          src="/group-73.svg"
         />
       </div>
-      <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
-        <div className="flex flex-row p-4 items-center justify-start">
+      <div className="self-stretch bg-white flex flex-row items-start justify-start text-base text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
+        <div className="flex flex-row items-center justify-start p-4">
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
             src="/avatar111@2x.png"
           />
         </div>
-        <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
-          <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
+        <div className="flex-1 h-[72px] flex flex-row items-center justify-start py-0 pr-4 pl-0 box-border gap-[16px]">
+          <div className="self-stretch flex-1 flex flex-row items-center justify-start py-[9px] px-0">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-white overflow-hidden flex flex-row p-1 items-center justify-center">
+          <div className="rounded-2xl bg-white overflow-hidden flex flex-row items-center justify-center p-1">
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
@@ -46,20 +46,21 @@ const MobileServiceModificationAp: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch flex flex-col py-5 px-4 items-start justify-start gap-[32px] text-dimgray">
-        <div className="self-stretch flex flex-row items-center justify-start">
-          <div className="flex flex-row items-center justify-start gap-[11px]">
-            <div className="rounded-lg bg-white w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
-              <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
-            </div>
-            <div className="relative leading-[24px] font-semibold">
-              Détails de l’apport
+      <div className="self-stretch bg-whitesmoke-200 flex flex-col items-start justify-start py-5 px-4 gap-[32px] text-[9.83px] text-darkgray-200">
+        <div className="self-stretch flex flex-row items-center justify-start gap-[11px]">
+          <div className="rounded-lg bg-white w-[38px] h-[38px] flex flex-row items-center justify-center p-1.5 box-border gap-[6px]">
+            <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
+            <div className="relative leading-[14.05px] font-semibold hidden">
+              Site web
             </div>
           </div>
+          <div className="flex-1 relative text-base leading-[20px] font-semibold text-gray-500 overflow-hidden text-ellipsis whitespace-nowrap">
+            Solution de nutriments actifs anti-cancérigène
+          </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-9xl text-black">
+        <div className="self-stretch flex flex-col items-start justify-center gap-[10px] text-5xl text-black">
           <b className="self-stretch relative leading-[32px]">
-            Solution de développement anti-cancérigène
+            Nouvelle formule magique nutritionnelle
           </b>
           <div className="self-stretch relative text-base leading-[24px] text-gray-500">
             <span className="font-medium">
@@ -72,15 +73,15 @@ const MobileServiceModificationAp: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch flex flex-col pt-0 px-4 pb-6 items-start justify-start gap-[20px] text-xl">
-        <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-col p-4 items-start justify-start">
+      <div className="self-stretch flex flex-col items-start justify-start pt-0 px-4 pb-6 gap-[20px] text-lg">
+        <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-col items-start justify-start p-4">
           <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
             <div className="self-stretch flex flex-col items-start justify-start gap-[13px]">
               <div className="self-stretch flex flex-row items-start justify-between">
                 <div className="relative leading-[20px] font-semibold flex items-end w-[225px] shrink-0">
                   Statut de l’apport
                 </div>
-                <div className="rounded-10xs bg-gray-100 flex flex-row py-0 px-1.5 items-start justify-start text-3xs text-dimgray">
+                <div className="rounded-10xs bg-gray-100 flex flex-row items-start justify-start py-0 px-1.5 text-3xs text-dimgray">
                   <b className="relative leading-[20px]">En attente</b>
                 </div>
               </div>
@@ -103,19 +104,19 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[46px] overflow-hidden shrink-0 flex flex-row py-[9px] px-[17px] box-border items-center justify-center text-sm text-white">
+            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[46px] overflow-hidden shrink-0 flex flex-row items-center justify-center py-[9px] px-[17px] box-border text-sm text-white">
               <div className="relative leading-[20px] font-semibold">
                 Modifier l’apport
               </div>
             </div>
           </div>
         </div>
-        <div className="self-stretch rounded-lg bg-white flex flex-row p-4 items-start justify-start">
-          <div className="flex-1 flex flex-col py-0 pr-0 pl-0.5 items-start justify-start gap-[31px]">
+        <div className="self-stretch rounded-lg bg-white flex flex-row items-start justify-start p-4">
+          <div className="flex-1 flex flex-col items-start justify-start py-0 pr-0 pl-0.5 gap-[20px]">
             <div className="self-stretch relative leading-[20px] font-semibold">
               Historique de l’apport
             </div>
-            <div className="self-stretch flex flex-col items-center justify-start gap-[38px] text-base">
+            <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-base">
               <div className="self-stretch flex flex-row items-start justify-between">
                 <div className="flex flex-row items-start justify-between">
                   <div className="relative w-[201px] h-11">
@@ -241,7 +242,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
+        <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px]">
           <div className="relative leading-[20px] font-semibold">
             Ressources
           </div>
@@ -249,7 +250,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
             <div className="self-stretch flex flex-col items-start justify-center">
               <div className="flex flex-row items-start justify-start gap-[6px]">
                 <div className="relative leading-[20px] font-semibold">
-                  Devis de l’apport
+                  Icône à intégrer
                 </div>
                 <img
                   className="relative w-[18px] h-[18px]"
@@ -258,10 +259,10 @@ const MobileServiceModificationAp: FunctionComponent = () => {
                 />
               </div>
               <div className="self-stretch relative text-xs leading-[20px] font-medium text-dimgray">
-                polere_modele_conception_21_03_23.pdf
+                icône_eng.svg
               </div>
             </div>
-            <div className="w-[174px] flex flex-col items-start justify-center">
+            <div className="w-[174px] hidden flex-col items-start justify-center">
               <div className="self-stretch flex flex-row items-start justify-start gap-[6px]">
                 <div className="relative leading-[20px] font-semibold">
                   Cahier des charges
@@ -278,7 +279,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch rounded-lg bg-white flex flex-row py-3 px-4 items-center justify-start gap-[8px] text-base text-dimgray">
+        <div className="self-stretch rounded-lg bg-white flex flex-row items-center justify-start py-3 px-4 gap-[8px] text-base text-dimgray">
           <img
             className="relative w-5 h-5 overflow-hidden shrink-0"
             alt=""
@@ -290,7 +291,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-row py-5 px-[30px] items-center justify-between text-center text-3xs border-t-[2px] border-solid border-whitesmoke-300">
+      <div className="self-stretch bg-white flex flex-row items-center justify-between py-5 px-[30px] text-center text-3xs border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
@@ -305,7 +306,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
             alt=""
             src="/component-55.svg"
           />
-          <div className="relative leading-[16px] font-medium">Projets</div>
+          <div className="relative leading-[16px] font-medium">Explorer</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img

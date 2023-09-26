@@ -11,10 +11,10 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
 
   return (
     <div
-      className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-sm-leading-5-font-normal"
+      className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-sm-leading-5-font-medium"
       onClick={onProjetOpratioContainerClick}
     >
-      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between z-[0] text-center text-black">
+      <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-center text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
             21:41
@@ -23,22 +23,22 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px]"
           alt=""
-          src="/group-7.svg"
+          src="/group-73.svg"
         />
       </div>
       <div className="self-stretch bg-white flex flex-row items-start justify-start z-[1] text-base text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
-        <div className="flex flex-row p-4 items-center justify-start">
+        <div className="flex flex-row items-center justify-start p-4">
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
             src="/avatar111@2x.png"
           />
         </div>
-        <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
-          <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
+        <div className="flex-1 h-[72px] flex flex-row items-center justify-start py-0 pr-4 pl-0 box-border gap-[16px]">
+          <div className="self-stretch flex-1 flex flex-row items-center justify-start py-[9px] px-0">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-white overflow-hidden flex flex-row p-1 items-center justify-center">
+          <div className="rounded-2xl bg-white overflow-hidden flex flex-row items-center justify-center p-1">
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
@@ -47,7 +47,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-col py-[22px] px-4 items-center justify-start gap-[24px] z-[2] text-5xl">
+      <div className="self-stretch bg-white flex flex-col items-center justify-start py-[22px] px-4 gap-[24px] z-[2] text-5xl">
         <div className="self-stretch flex flex-row items-start justify-center gap-[42px]">
           <b className="flex-1 relative leading-[32px]">
             Solution de nutriments actifs anti-cancérigène
@@ -86,7 +86,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
             </div>
           </div>
           <div className="self-stretch flex flex-row items-center justify-between text-xs text-gray-900">
-            <div className="flex-1 flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
+            <div className="flex-1 flex flex-row items-center justify-start py-0 px-0.5 gap-[6px]">
               <img
                 className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                 alt=""
@@ -96,41 +96,41 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
                 Sep. 2023
               </div>
             </div>
-            <div className="flex-1 flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
+            <div className="flex-1 flex flex-row items-center justify-start py-0 px-0.5 gap-[6px]">
               <img
                 className="relative w-5 h-5 overflow-hidden shrink-0"
                 alt=""
-                src="/cash2.svg"
+                src="/cash21.svg"
               />
               <div className="relative leading-[20px] font-medium">
                 Capital ouvert
               </div>
             </div>
-            <div className="flex-1 flex flex-row py-0 px-0.5 items-center justify-start gap-[6px]">
+            <div className="flex-1 flex flex-row items-center justify-start py-0 px-0.5 gap-[6px]">
               <img
                 className="relative w-3 h-[12.86px]"
                 alt=""
-                src="/icon7.svg"
+                src="/icon71.svg"
               />
               <div className="relative leading-[20px] font-medium">Admin</div>
             </div>
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-gray-50 flex flex-row pt-6 px-4 pb-12 items-start justify-start z-[3] text-sm text-white">
+      <div className="self-stretch bg-gray-50 flex flex-row items-start justify-start pt-6 px-4 pb-12 z-[3] text-sm text-white">
         <div className="flex-1 flex flex-col items-start justify-start gap-[20px]">
           <ApportTatVide1 />
           <div className="self-stretch flex flex-col items-start justify-start">
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-4 pr-4 pl-[17px] items-start justify-start gap-[20px] border-[2px] border-solid border-gray-2001">
+            <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-4 pr-4 pl-[17px] gap-[20px] border-[2px] border-solid border-gray-200">
               <div className="self-stretch flex flex-row items-start justify-between">
-                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row p-2.5 box-border items-center justify-center">
+                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row items-center justify-center p-2.5 box-border">
                   <img
                     className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                     alt=""
-                    src="/user-group1.svg"
+                    src="/user-group12.svg"
                   />
                 </div>
-                <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[9px] px-[17px] items-center justify-between">
+                <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-between py-[9px] px-[17px]">
                   <div className="relative leading-[20px] font-semibold">
                     Inviter un membre
                   </div>
@@ -145,16 +145,16 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
             </div>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start">
-            <div className="self-stretch rounded-lg bg-white flex flex-col py-4 pr-4 pl-[17px] items-start justify-start gap-[20px] border-[2px] border-solid border-gray-2001">
+            <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-4 pr-4 pl-[17px] gap-[20px] border-[2px] border-solid border-gray-200">
               <div className="self-stretch flex flex-row items-start justify-between">
-                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row p-2.5 box-border items-center justify-center">
+                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row items-center justify-center p-2.5 box-border">
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0"
                     alt=""
-                    src="/cash21.svg"
+                    src="/cash211.svg"
                   />
                 </div>
-                <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row py-[9px] px-[17px] items-center justify-between">
+                <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-between py-[9px] px-[17px]">
                   <div className="relative leading-[20px] font-semibold">
                     Visualiser le capital
                   </div>
@@ -172,12 +172,12 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="my-0 mx-[!important] absolute bottom-[0px] left-[calc(50%_-_195px)] bg-white box-border w-[390px] flex flex-row py-5 px-[30px] items-center justify-between z-[4] text-center text-3xs border-t-[2px] border-solid border-whitesmoke-300">
+      <div className="my-0 mx-[!important] absolute bottom-[0px] left-[calc(50%_-_195px)] bg-white box-border w-[390px] flex flex-row items-center justify-between py-5 px-[30px] z-[4] text-center text-3xs border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-22.svg"
+            src="/component-221.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -185,7 +185,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-56.svg"
+            src="/component-561.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
@@ -193,7 +193,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-17.svg"
+            src="/component-171.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -201,7 +201,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-221.svg"
+            src="/component-2211.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

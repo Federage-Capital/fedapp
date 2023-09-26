@@ -10,10 +10,10 @@ const MobileServiceProjet211: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-gray-700 font-text-sm-leading-5-font-normal"
+      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-gray-700 font-text-sm-leading-5-font-medium"
       onClick={onCrerProjet2ContainerClick}
     >
-      <div className="self-stretch bg-white flex flex-row py-[9px] px-3.5 items-center justify-between text-center text-mini text-black">
+      <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 text-center text-mini text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
             21:41
@@ -26,18 +26,18 @@ const MobileServiceProjet211: FunctionComponent = () => {
         />
       </div>
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
-        <div className="flex flex-row p-4 items-center justify-start">
+        <div className="flex flex-row items-center justify-start p-4">
           <img
             className="rounded-xl w-10 h-10 object-cover"
             alt=""
             src="/avatar111@2x.png"
           />
         </div>
-        <div className="flex-1 h-[72px] flex flex-row py-0 pr-4 pl-0 box-border items-center justify-start gap-[16px]">
-          <div className="self-stretch flex-1 flex flex-row py-[9px] px-0 items-center justify-start">
+        <div className="flex-1 h-[72px] flex flex-row items-center justify-start py-0 pr-4 pl-0 box-border gap-[16px]">
+          <div className="self-stretch flex-1 flex flex-row items-center justify-start py-[9px] px-0">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-white overflow-hidden flex flex-row p-1 items-center justify-center">
+          <div className="rounded-2xl bg-white overflow-hidden flex flex-row items-center justify-center p-1">
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
@@ -46,17 +46,17 @@ const MobileServiceProjet211: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-col py-5 px-4 items-start justify-start gap-[32px] text-dimgray">
+      <div className="self-stretch bg-white flex flex-col items-start justify-start py-5 px-4 gap-[32px] text-dimgray">
         <div className="self-stretch flex flex-row items-center justify-between">
           <div className="w-[167px] flex flex-row items-center justify-start gap-[11px]">
-            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row p-1.5 box-border items-center justify-center">
+            <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row items-center justify-center p-1.5 box-border">
               <img className="relative w-1.5 h-2.5" alt="" src="/icon211.svg" />
             </div>
             <div className="flex-1 relative leading-[24px] font-semibold">
               Créer un projet
             </div>
           </div>
-          <div className="rounded-3xs flex flex-row py-0.5 px-2.5 items-center justify-center text-right text-xs">
+          <div className="rounded-3xs flex flex-row items-center justify-center py-0.5 px-2.5 text-right text-xs">
             <div className="relative leading-[16px] font-medium">
               Étape 2 sur 3
             </div>
@@ -75,14 +75,14 @@ const MobileServiceProjet211: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-gray-50 flex flex-col pt-6 px-4 pb-0 items-center justify-start gap-[48px]">
+      <div className="self-stretch bg-gray-50 flex flex-col items-center justify-start pt-6 px-4 pb-0 gap-[48px]">
         <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
             <b className="self-stretch relative leading-[20px]">
               Qui peut participer au projet ?
             </b>
             <div className="self-stretch flex flex-col items-start justify-start relative gap-[10px] text-gray-500">
-              <div className="self-stretch relative rounded-lg bg-white box-border h-[86px] z-[0] border-[2px] border-solid border-gray-2001" />
+              <div className="self-stretch relative rounded-lg bg-white box-border h-[86px] z-[0] border-[2px] border-solid border-gray-200" />
               <div className="my-0 mx-[!important] absolute h-[23.26%] w-[4.62%] top-[19.77%] right-[5.2%] bottom-[56.98%] left-[90.17%] rounded-lg flex flex-row items-center justify-center z-[1]">
                 <div className="relative rounded-lg bg-white box-border w-4 h-4 overflow-hidden shrink-0 border-[2px] border-solid border-gray-500" />
               </div>
@@ -127,7 +127,7 @@ const MobileServiceProjet211: FunctionComponent = () => {
                 <span>.</span>
               </div>
             </div>
-            <div className="self-stretch rounded-lg bg-gainsboro-100 flex flex-row py-[15px] px-4 items-start justify-between text-gray-500 border-[2px] border-solid border-darkgray-100 sm:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+            <div className="self-stretch rounded-lg bg-gainsboro-100 flex flex-row items-start justify-between py-[15px] px-4 text-gray-500 border-[2px] border-solid border-darkgray-100 sm:shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
               <div className="w-[282px] flex flex-col items-start justify-start gap-[4px]">
                 <div className="relative leading-[20px] font-semibold">
                   Mode investisseur
@@ -143,10 +143,10 @@ const MobileServiceProjet211: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch flex flex-col pt-0 px-0 pb-6 items-center justify-start text-center text-white">
+        <div className="self-stretch flex flex-col items-center justify-start pt-0 px-0 pb-6 text-center text-white">
           <div className="self-stretch flex flex-col items-center justify-center gap-[24px]">
-            <div className="self-stretch bg-gray-2001" />
-            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row py-4 px-[18px] items-center justify-center">
+            <div className="self-stretch bg-gray-200" />
+            <div className="self-stretch rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] flex flex-row items-center justify-center py-4 px-[18px]">
               <div className="flex-1 relative leading-[20px] font-semibold">
                 Suivant
               </div>

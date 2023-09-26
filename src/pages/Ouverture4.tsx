@@ -10,10 +10,10 @@ const Ouverture4: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full h-[844px] flex flex-col items-start justify-start cursor-pointer text-center text-mini text-black font-text-sm-leading-5-font-normal"
+      className="relative w-full h-[844px] flex flex-col items-start justify-start cursor-pointer text-center text-mini text-black font-text-sm-leading-5-font-medium"
       onClick={onOuverture4ContainerClick}
     >
-      <div className="self-stretch bg-gray-50 flex flex-row py-[9px] px-3.5 items-center justify-between">
+      <div className="self-stretch bg-gray-50 flex flex-row items-center justify-between py-[9px] px-3.5">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
             21:41
@@ -46,7 +46,7 @@ const Ouverture4: FunctionComponent = () => {
                 <span className="text-gray-900">.</span>
               </div>
             </div>
-            <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] w-[285px] overflow-hidden flex flex-row py-[13px] px-[25px] box-border items-center justify-center text-white">
+            <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] w-[285px] overflow-hidden flex flex-row items-center justify-center py-[13px] px-[25px] box-border text-white">
               <div className="flex-1 relative leading-[24px] font-semibold">
                 Accepter
               </div>
