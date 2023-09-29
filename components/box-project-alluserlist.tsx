@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from "next/router"
 import SlideApport from "./card-slide_apport";
+import CalculApport from "./calcul-apport";
 
 import { useTranslation } from "next-i18next"
 

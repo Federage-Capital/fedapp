@@ -7,6 +7,7 @@ import {
 	JsonApiSearchApiResponse,
 	DrupalTaxonomyTerm,
 } from "next-drupal";
+
 import { useTranslation } from "next-i18next"
 import { GetStaticPropsResult } from "next"
 import { useRouter } from "next/router"
@@ -15,25 +16,19 @@ import { Layout } from "components/layout"
 import { BoxUserList } from "components/box-alluserlist"
 import { BoxProjectList } from "components/box-project-alluserlist";
 import { BoxAnnonceList } from "components/box-annonce-explorer";
-
+import Link from 'next/link'
 import { BoxResultNameSearch } from "components/box-searchbar";
 import { useSession } from "next-auth/react"
 import { drupal } from "lib/drupal"
 import { BoxResearch } from "components/box-research";
 import { DrupalJsonApiParams } from "drupal-jsonapi-params"
+import { absoluteURL,formatDate } from "lib/utils"
 
 import { getParams } from "lib/get-params"
 
 import { usePaginatedSearch } from "../hooks/use-paginated-search"
 
-function formatDate(input: string): string {
-	const date = new Date(input)
-	return date.toLocaleDateString("en-US", {
-		month: "long",
-		day: "numeric",
-		year: "numeric",
-	})
-}
+
 
 import useSWR from 'swr'
 
@@ -48,7 +43,8 @@ const params = {
 		"group--federage": "label,field_description,path",
 		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 	},
-
+	filter: {},
+include: "entity_id"
 
 
 
@@ -60,7 +56,6 @@ const params = {
 
 export default function AlluserlistPage
 	({ menus, blocks, users, nodes, nodes2, logouri, catentreprise, result_users,
-		facets: initialFacets,
 	}: AlluserlistPageProps) {
 	const { t } = useTranslation()
 	const router = useRouter()
@@ -74,8 +69,7 @@ export default function AlluserlistPage
 	const [state, setStatus] = React.useState<"error" | "success" | "loading">()
 	const [results, setResults] = React.useState<DrupalNode[]>(nodes)
 	const [openTab, setOpenTab] = React.useState(1);
-	const [facets, setFacets] =
-		React.useState<DrupalSearchApiFacet[]>(initialFacets)
+
 
 	const { data, hasNextPage, isFetching, fetchNextPage, isError } =
 		usePaginatedSearch()
@@ -123,12 +117,26 @@ export default function AlluserlistPage
 					{!data?.pages?.length ? (
 						<div className="text-sm" data-cy="search-no-results">
 							<ul className="flex pt-3">
+							<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+								<a
+									className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? colored : "text-" + "bg-white")}
+									onClick={e => {
+										e.preventDefault();
+										setOpenTab(1);
+									}}
+									data-toggle="tab"
+									href="#link1"
+									role="tablist"
+								>
+									Annonces
+								</a>
+							</li>
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
 									<a
-										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 1 ? colored : "text-" + "bg-white")}
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? colored : "text-" + "bg-white")}
 										onClick={e => {
 											e.preventDefault();
-											setOpenTab(1);
+											setOpenTab(2);
 										}}
 										data-toggle="tab"
 										href="#link1"
@@ -139,10 +147,10 @@ export default function AlluserlistPage
 								</li>
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
 									<a
-										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? colored : "text-" + "bg-white")}
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 3 ? colored : "text-" + "bg-white")}
 										onClick={e => {
 											e.preventDefault();
-											setOpenTab(2);
+											setOpenTab(3);
 										}}
 										data-toggle="tab"
 										href="#link1"
@@ -151,20 +159,7 @@ export default function AlluserlistPage
 										Entreprises
 									</a>
 								</li>
-								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-									<a
-										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? colored : "text-" + "bg-white")}
-										onClick={e => {
-											e.preventDefault();
-											setOpenTab(2);
-										}}
-										data-toggle="tab"
-										href="#link1"
-										role="tablist"
-									>
-										Annonces
-									</a>
-								</li>
+
 							</ul>
 							<div className="pb-5" />
 							{state === "error" ? (
@@ -172,7 +167,49 @@ export default function AlluserlistPage
 									Une erreur s&#39;est produite. Veuillez réessayer.
 								</div>
 							) : null}
+							<div className={openTab === 1 ? "block" : "hidden"}>
+								{!results.length ? (
+									<p className="text-sm" data-cy="search-no-results">
+										Aucun résultat.
+									</p>
+								) : (
+									<div>
+
+
+											{results
+												.filter(results_projets => results_projets.type.includes("group_content--federage-group_node-financement") && results_projets.entity_id.field_statut.id.includes("6e6f83ed-b882-4b24-9a1b-897ab1f2e37c"))
+
+												.map((filterNode) => (
+													<div key={filterNode.id}>
+
+
+													<BoxAnnonceList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
+
+
+													</div>
+												))}
+									</div>
+								)}
+							</div>
 							<div className={openTab === 2 ? "block" : "hidden"}>
+								{!results.length ? (
+									<p className="text-sm" data-cy="search-no-results">
+										Aucun résultat.
+									</p>
+								) : (
+									<div>
+									{results
+										.filter(results_projets => results_projets.type.includes("group--federage"))
+										.map((filterNode) => (
+											<div key={filterNode.id}>
+
+													<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
+											</div>
+										))}
+									</div>
+								)}
+							</div>
+							<div className={openTab === 3 ? "block" : "hidden"}>
 
 							<div className="pb-5" />
 
@@ -202,36 +239,8 @@ export default function AlluserlistPage
 									</div>
 								)}
 							</div>
-							<div className={openTab === 1 ? "block" : "hidden"}>
-								{!results.length ? (
-									<p className="text-sm" data-cy="search-no-results">
-										Aucun résultat.
-									</p>
-								) : (
-									<div>
-										{results
-											.filter(results_projets => results_projets.type.includes("group--federage"))
-											.map((filterNode) => (
-												<div key={filterNode.id}>
-												{filterNode.label}
 
 
-
-												</div>
-											))}
-
-											{results
-												.map((filterNode) => (
-													<div key={filterNode.id}>
-													{filterNode.type}
-
-
-
-													</div>
-												))}
-									</div>
-								)}
-							</div>
 						</div>
 					) : (
 						<div className="pt-4">
@@ -334,7 +343,6 @@ export async function getStaticProps(
 			nodes: deserialize(results) as DrupalNode[],
 			nodes2: deserialize(result_users) as DrupalNode[],
 
-			facets: results.meta.facets,
 
 
 		},

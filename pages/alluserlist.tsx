@@ -58,7 +58,7 @@ const params = {
 
 export default function AlluserlistPage
 	({ menus, blocks, users, nodes, nodes2, logouri, catentreprise, result_users,
-		facets: initialFacets,
+
 	}: AlluserlistPageProps) {
 	const { t } = useTranslation()
 	const router = useRouter()
@@ -72,8 +72,7 @@ export default function AlluserlistPage
 	const [state, setStatus] = React.useState<"error" | "success" | "loading">()
 	const [results, setResults] = React.useState<DrupalNode[]>(nodes)
 	const [openTab, setOpenTab] = React.useState(1);
-	const [facets, setFacets] =
-		React.useState<DrupalSearchApiFacet[]>(initialFacets)
+
 
 	const { data, hasNextPage, isFetching, fetchNextPage, isError } =
 		usePaginatedSearch()
@@ -320,7 +319,7 @@ export async function getStaticProps(
 			nodes: deserialize(results) as DrupalNode[],
 			nodes2: deserialize(result_users) as DrupalNode[],
 
-			facets: results.meta.facets,
+
 
 
 		},
