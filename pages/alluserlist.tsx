@@ -91,7 +91,7 @@ export default function AlluserlistPage
 	return (
 		<div className="bg-slate-100">
 			<Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
-				<div className="px-6">
+				<div>
 					<h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 					<p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets.</p>
 					<form onSubmit={onSubmit} className="mb-4">
@@ -131,7 +131,7 @@ export default function AlluserlistPage
 										href="#link1"
 										role="tablist"
 									>
-										Projets
+										Annonces
 									</a>
 								</li>
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
@@ -145,11 +145,25 @@ export default function AlluserlistPage
 										href="#link1"
 										role="tablist"
 									>
-										Membres
+										Entreprises
+									</a>
+								</li>
+								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+									<a
+										className={"text-xs font-bold px-2 py-3 rounded-md leading-normal " + (openTab === 2 ? colored : "text-" + "bg-white")}
+										onClick={e => {
+											e.preventDefault();
+											setOpenTab(2);
+										}}
+										data-toggle="tab"
+										href="#link1"
+										role="tablist"
+									>
+										Secteurs ????
 									</a>
 								</li>
 							</ul>
-							<div className="pb-10" />
+							<div className="pb-5" />
 							{state === "error" ? (
 								<div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
 									Une erreur s&#39;est produite. Veuillez réessayer.
@@ -157,6 +171,7 @@ export default function AlluserlistPage
 							) : null}
 							<div className={openTab === 2 ? "block" : "hidden"}>
 
+							<div className="pb-5" />
 
 
 
@@ -167,7 +182,7 @@ export default function AlluserlistPage
 										Aucun résultat.
 									</p>
 								) : (
-									<div className="md:grid-cols-1">
+									<div>
 
 
 
@@ -190,7 +205,7 @@ export default function AlluserlistPage
 										Aucun résultat.
 									</p>
 								) : (
-									<div className="md:grid-cols-1">
+									<div>
 										{results
 											.filter(results_projets => results_projets.type.includes("group--federage"))
 											.map((filterNode) => (

@@ -25,6 +25,8 @@ import { BoxParticipationsEncours } from "components/box-participations-encours"
 import { BoxProjetsOffre } from "components/box-projets-offre"
 import { BoxTransactions } from "components/box-tableau-transactions"
 
+import { BoxProjetAccount } from "components/box-projet--account"
+
 import { useState } from "react";
 
 import useSWR from 'swr'
@@ -50,6 +52,8 @@ export default function AccountsPage({
   financementsdansgr,
   financementsacceptedansgroupe,
   memberships,
+  groupe,
+  tousfinancementsacceptedugroupe,
   ...props
 }: AccountPageProps) {
 
@@ -160,13 +164,20 @@ export default function AccountsPage({
               <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
                 nouvelle action dans 1 projet
 
-                {user.id
-                }
+                {user.id}
 
               </a>
             </Link>
           </p>
         </div>
+
+
+
+
+<BoxProjetAccount node={groupe} financements={tousfinancementsacceptedugroupe} membres={memberships} user={user} />
+
+
+
 
         <div className="flex flex-wrap">
           <div className="w-full">
@@ -409,6 +420,23 @@ export async function getServerSideProps(
     .addInclude(["uid.user_picture"])
     .addSort("created", "ASC")
 
+    const groupe = await drupal.getResourceCollection(
+      "group--federage",
+      {
+        params: new DrupalJsonApiParams()
+          .addInclude(["uid"])
+
+          .addFields("user--user", ["display_name"])
+          .addFields("group--federage", ["uid", "path", "label"])
+
+          .addSort("created", "DESC")
+          .getQueryObject(),
+
+        withAuth: session.accessToken,
+
+      }
+
+    )
   const financementsdansgr = await drupal.getResourceCollection(
     "group--federage",
     {
@@ -427,6 +455,25 @@ export async function getServerSideProps(
 
   )
 
+  const tousfinancementsacceptedugroupe = await drupal.getResourceCollection(
+    "group_content--federage-group_node-financement",
+    {
+      params: new DrupalJsonApiParams()
+        .addInclude(["uid", "gid", "entity_id"])
+        .addFields("entity_id", ["field_estimation_du_prix"])
+        .addFields("gid", ["id"])
+        .addFields("uid", ["meta"])
+        .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
+
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
   const financementsacceptedansgroupe = await drupal.getResourceCollection(
     "group_content--federage-group_node-financement",
     {
@@ -499,7 +546,9 @@ export async function getServerSideProps(
       financementsdansgr,
       user,
       financementsacceptedansgroupe,
+      tousfinancementsacceptedugroupe,
       memberships,
+      groupe,
     },
   };
 }
