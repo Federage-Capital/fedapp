@@ -1,9 +1,21 @@
 import { FunctionComponent } from "react";
 
-const Principal211: FunctionComponent = () => {
+const Principal21: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-medium">
-      <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-center text-mini text-black font-text-xs-leading-4-font-normal">
+      <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0]">
+        <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
+          <b className="relative tracking-[-0.3px] inline-block w-[54px]">
+            21:41
+          </b>
+        </div>
+        <img
+          className="relative w-[66.66px] h-[11.34px]"
+          alt=""
+          src="/group-73.svg"
+        />
+      </div>
+      <div className="self-stretch bg-white flex flex-row items-start justify-start z-[1] text-left text-base text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row items-center justify-start p-4">
           <img
             className="rounded-xl w-10 h-10 object-cover"
@@ -15,44 +27,46 @@ const Principal211: FunctionComponent = () => {
           <div className="self-stretch flex-1 flex flex-row items-center justify-start py-[9px] px-0">
             <b className="flex-1 relative leading-[24px]">William BALDIÈRE</b>
           </div>
-          <div className="rounded-2xl bg-mediumblue-100 shadow-[0px_0px_0px_2px_#012bdd,_0px_0px_0px_4px_#fff] overflow-hidden flex flex-row items-center justify-center p-1 border-[1px] border-solid border-mediumblue-100">
+          <div className="rounded-2xl bg-white overflow-hidden flex flex-row items-center justify-center p-1">
             <img
-              className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+              className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/bell11.svg"
+              src="/bell.svg"
             />
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-whitesmoke-200 flex flex-col items-start justify-start pt-8 px-4 pb-12 text-9xl text-black">
-        <div className="self-stretch flex flex-col items-start justify-start">
+      <div className="self-stretch bg-whitesmoke-200 h-[734px] overflow-y-auto shrink-0 flex flex-col items-start justify-start pt-8 px-4 pb-12 box-border z-[2] text-left text-9xl">
+        <div className="self-stretch flex flex-col items-start justify-start pt-0 px-0 pb-[72px]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
             <div className="self-stretch overflow-y-auto flex flex-col items-center justify-start gap-[24px]">
               <div className="self-stretch flex flex-row items-center justify-center gap-[24px]">
-                <div className="self-stretch flex-1 overflow-hidden flex flex-col items-start justify-center">
-                  <div className="relative leading-[20px] font-semibold inline-block w-[105px]">
-                    Activité
+                <div className="self-stretch flex-1 flex flex-col items-start justify-center">
+                  <div className="relative leading-[20px] font-semibold">
+                    Bonjour 👋
                   </div>
                 </div>
                 <img
-                  className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+                  className="relative w-6 h-6 overflow-hidden shrink-0"
                   alt=""
                   src="/chart-bar2.svg"
                 />
-                <img
-                  className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
-                  alt=""
-                  src="/star.svg"
-                />
+                <div className="rounded-xl bg-mediumblue-100 overflow-hidden flex flex-row items-center justify-center p-[3px]">
+                  <img
+                    className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+                    alt=""
+                    src="/plus-sm.svg"
+                  />
+                </div>
               </div>
               <div className="self-stretch flex flex-row items-start justify-between text-sm text-dimgray">
-                <div className="flex-1 rounded-lg bg-white h-[39.96px] flex flex-col items-center justify-center py-3 px-4 box-border text-mediumblue-100">
+                <div className="flex-1 rounded-lg h-[39.96px] flex flex-col items-center justify-center py-3 px-4 box-border">
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center gap-[6px]">
                       <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+                        className="relative w-6 h-6 overflow-hidden shrink-0"
                         alt=""
-                        src="/document-add311.png"
+                        src="/document-add3.svg"
                       />
                       <div className="relative leading-[20.03px] font-semibold">
                         Projets
@@ -60,359 +74,146 @@ const Principal211: FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 rounded-lg flex flex-col items-center justify-center py-3 px-4">
+                <div className="flex-1 rounded-lg bg-white flex flex-col items-center justify-center py-3 px-4 text-mediumblue-100">
                   <div className="h-[15.96px] flex flex-col items-center justify-center">
-                    <div className="flex flex-row items-center justify-center gap-[6px]">
-                      <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
-                        alt=""
-                        src="/document-text11.svg"
-                      />
-                      <div className="relative leading-[20.03px] font-semibold">
-                        Contrats
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-1 rounded-lg flex flex-col items-center justify-center py-3 px-4">
-                  <div className="h-[15.96px] flex flex-col items-center justify-center">
-                    <div className="flex flex-row items-center justify-center gap-[6px]">
-                      <img
-                        className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
-                        alt=""
-                        src="/pencil-alt31.png"
-                      />
-                      <div className="relative leading-[20.03px] font-semibold">
-                        Brouillon
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="flex flex-row items-center justify-center gap-[6px]">
+                        <img
+                          className="relative w-6 h-6 overflow-hidden shrink-0"
+                          alt=""
+                          src="/pencil-alt3.svg"
+                        />
+                        <div className="relative leading-[20.03px] font-semibold">
+                          Apports
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-13xl">
-              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-5 px-4 gap-[24px] border-[2px] border-solid border-whitesmoke-400">
-                <div className="self-stretch flex flex-col items-center justify-start gap-[18px]">
-                  <div className="self-stretch flex flex-row items-start justify-between">
-                    <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
-                      <div className="w-[197px] flex flex-row items-center justify-between">
-                        <div className="relative leading-[20.03px] font-semibold">
-                          <span>0,</span>
-                          <span className="text-darkgray-300">00</span>
-                          <span>€</span>
-                        </div>
-                        <div className="rounded-45xl bg-gray-100 flex flex-row items-start justify-start py-[8.960001945495605px] px-[10.240002632141113px] [transform:_rotate(90deg)] [transform-origin:0_0]">
-                          <img
-                            className="relative w-[6.08px] h-[3.65px] object-cover"
-                            alt=""
-                            src="/icon12.svg"
-                          />
-                        </div>
-                      </div>
-                      <div className="self-stretch relative text-sm leading-[20px] font-medium">
-                        Solution de nutriments actifs anti-cancérigènes.
-                      </div>
-                    </div>
-                    <img
-                      className="relative rounded-6xs w-[42px] h-[42px] object-cover"
-                      alt=""
-                      src="/rectangle-415511@2x.png"
-                    />
-                  </div>
-                  <div className="self-stretch flex flex-row items-center justify-start gap-[8px] text-[11.21px] text-mediumblue-100">
-                    <div className="flex-1 rounded-[6.41px] bg-lavender overflow-hidden flex flex-col items-center justify-center p-3">
-                      <div className="h-[12.78px] flex flex-col items-center justify-center">
-                        <div className="flex flex-row items-center justify-center gap-[4.8px]">
-                          <img
-                            className="relative w-[19.22px] h-[19.22px] overflow-hidden shrink-0 object-cover"
-                            alt=""
-                            src="/sparkles21.png"
-                          />
-                          <div className="relative leading-[16.04px] font-semibold">
-                            Nouvel apport
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex-1 rounded-[6.41px] bg-lavender overflow-hidden flex flex-row items-center justify-center p-3">
-                      <div className="h-[12.78px] flex flex-col items-center justify-center">
-                        <div className="flex flex-row items-center justify-center gap-[4.8px]">
-                          <img
-                            className="relative w-[19.2px] h-[19.2px] overflow-hidden shrink-0 object-cover"
-                            alt=""
-                            src="/user-add2.svg"
-                          />
-                          <div className="relative leading-[16.04px] font-semibold">
-                            Inviter
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex-1 rounded-[8.64px] bg-lavender h-9 flex flex-row items-center justify-center p-3 box-border">
-                      <img
-                        className="relative w-[21.6px] h-[21.6px] overflow-hidden shrink-0 object-cover"
-                        alt=""
-                        src="/dots-vertical3.svg"
-                      />
+            <div className="self-stretch flex flex-col items-start justify-start gap-[16px] text-base">
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4">
+                <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
+                    <div className="self-stretch relative leading-[20px] font-semibold">{`Traduction du site en anglais `}</div>
+                    <div className="self-stretch relative leading-[20px] font-semibold text-mediumblue-100">
+                      2 partenaires • 2 apports
                     </div>
                   </div>
-                </div>
-                <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-sm">
-                  <div className="self-stretch flex flex-row items-start justify-between">
-                    <div className="relative leading-[20.03px] font-semibold">
-                      Transactions
-                    </div>
-                    <div className="relative leading-[20.03px] font-semibold text-mediumblue-100">
-                      Tout voir
-                    </div>
-                  </div>
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[12px] text-base">
-                    <div className="self-stretch rounded-lg flex flex-row items-center justify-start gap-[16px] opacity-[0.5]">
-                      <img
-                        className="rounded-xl w-10 h-10 object-cover"
-                        alt=""
-                        src="/avatar101@2x.png"
-                      />
-                      <div className="flex-1 flex flex-row items-center justify-between">
-                        <div className="w-[134px] flex flex-col items-start justify-start">
-                          <div className="self-stretch relative leading-[24px] font-semibold">
-                            Formule magique
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[24px] font-semibold text-darkgray-300 mt-[-2px]">
-                            Aujourd’hui, 07h58
-                          </div>
-                        </div>
-                        <div className="self-stretch flex-1 flex flex-col items-end justify-center text-right text-mediumblue-100">
-                          <div className="relative leading-[20px] font-semibold">
-                            15 000,00€
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[20px] font-semibold text-silver">
-                            En attente
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-row items-center justify-start gap-[16px]">
-                      <img
-                        className="rounded-xl w-10 h-10 object-cover"
-                        alt=""
-                        src="/avatar112@2x.png"
-                      />
-                      <div className="flex-1 flex flex-row items-center justify-between">
-                        <div className="w-32 flex flex-col items-start justify-start">
-                          <div className="self-stretch relative leading-[24px] font-semibold">
-                            Dév. commercial
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[24px] font-semibold text-darkgray-300 mt-[-2px]">
-                            Hier, 19h23
-                          </div>
-                        </div>
-                        <div className="self-stretch flex-1 flex flex-col items-end justify-center text-right text-mediumblue-100">
-                          <div className="relative leading-[20px] font-semibold">
-                            2 000,00€
-                          </div>
-                          <div className="self-stretch relative text-sm [text-decoration:line-through] leading-[20px] font-semibold text-silver">
-                            1 500,00€
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-row items-center justify-start gap-[16px]">
-                      <img
-                        className="rounded-xl w-10 h-10 object-cover"
-                        alt=""
-                        src="/avatar213@2x.png"
-                      />
-                      <div className="flex-1 flex flex-row items-center justify-between">
-                        <div className="w-[140px] flex flex-col items-start justify-start">
-                          <div className="self-stretch relative leading-[24px] font-semibold">
-                            Condition. produit
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[24px] font-semibold text-darkgray-300 mt-[-2px]">
-                            Avant-hier, 07h58
-                          </div>
-                        </div>
-                        <div className="self-stretch flex-1 flex flex-col items-end justify-center text-right text-mediumblue-100">
-                          <div className="relative leading-[20px] font-semibold">
-                            9 000,00€
-                          </div>
-                          <div className="self-stretch relative text-sm [text-decoration:line-through] leading-[20px] font-semibold text-silver">
-                            8 500,00€
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    className="relative rounded-6xs w-[42px] h-[42px] object-cover"
+                    alt=""
+                    src="/rectangle-415512@2x.png"
+                  />
                 </div>
               </div>
-              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-5 px-4 gap-[24px] border-[2px] border-solid border-whitesmoke-400">
-                <div className="self-stretch flex flex-col items-center justify-start gap-[18px]">
-                  <div className="self-stretch flex flex-row items-start justify-between">
-                    <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
-                      <div className="w-[197px] flex flex-row items-center justify-between">
-                        <div className="relative leading-[20.03px] font-semibold">
-                          <span>4820,</span>
-                          <span className="text-darkgray-300">00</span>
-                          <span>€</span>
-                        </div>
-                        <div className="rounded-45xl bg-gray-100 flex flex-row items-start justify-start py-[8.960001945495605px] px-[10.240002632141113px] [transform:_rotate(90deg)] [transform-origin:0_0]">
-                          <img
-                            className="relative w-[6.08px] h-[3.65px] object-cover"
-                            alt=""
-                            src="/icon111.png"
-                          />
-                        </div>
-                      </div>
-                      <div className="self-stretch relative text-sm leading-[20px] font-medium">
-                        Développement d’un site de voyages premium par
-                        abonnements.
-                      </div>
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4">
+                <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
+                    <div className="self-stretch relative leading-[20px] font-semibold">
+                      Identité graphique et kit de communication
                     </div>
-                    <img
-                      className="relative rounded-6xs w-[42px] h-[42px] object-cover"
-                      alt=""
-                      src="/rectangle-4155111@2x.png"
-                    />
-                  </div>
-                  <div className="self-stretch flex flex-row items-center justify-start gap-[8px] text-[11.21px] text-mediumblue-100">
-                    <div className="flex-1 rounded-[6.41px] bg-lavender overflow-hidden flex flex-col items-center justify-center p-3">
-                      <div className="h-[12.78px] flex flex-col items-center justify-center">
-                        <div className="flex flex-row items-center justify-center gap-[4.8px]">
-                          <img
-                            className="relative w-[19.22px] h-[19.22px] overflow-hidden shrink-0 object-cover"
-                            alt=""
-                            src="/sparkles111.png"
-                          />
-                          <div className="relative leading-[16.04px] font-semibold">
-                            Nouvel apport
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex-1 rounded-[6.41px] bg-lavender overflow-hidden flex flex-row items-center justify-center p-3">
-                      <div className="h-[12.78px] flex flex-col items-center justify-center">
-                        <div className="flex flex-row items-center justify-center gap-[4.8px]">
-                          <img
-                            className="relative w-[19.2px] h-[19.2px] overflow-hidden shrink-0 object-cover"
-                            alt=""
-                            src="/user-add11.png"
-                          />
-                          <div className="relative leading-[16.04px] font-semibold">
-                            Inviter
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex-1 rounded-[8.64px] bg-lavender h-9 overflow-hidden flex flex-row items-center justify-center p-3 box-border">
-                      <img
-                        className="relative w-[21.6px] h-[21.6px] overflow-hidden shrink-0 object-cover"
-                        alt=""
-                        src="/dots-vertical12.png"
-                      />
+                    <div className="self-stretch relative leading-[20px] font-semibold text-mediumblue-100">
+                      3 partenaires • 3 apports
                     </div>
                   </div>
+                  <img
+                    className="relative rounded-6xs w-[42px] h-[42px] object-cover"
+                    alt=""
+                    src="/rectangle-415512@2x.png"
+                  />
                 </div>
-                <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-sm">
-                  <div className="self-stretch flex flex-row items-start justify-between">
-                    <div className="relative leading-[20.03px] font-semibold">
-                      Transactions
+              </div>
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px]">
+                <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
+                    <div className="self-stretch relative leading-[20px] font-semibold">
+                      Feuille de route produits
                     </div>
-                    <div className="relative leading-[20.03px] font-semibold text-mediumblue-100">
-                      Tout voir
-                    </div>
-                  </div>
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[12px] text-base">
-                    <div className="self-stretch rounded-lg flex flex-row items-center justify-start gap-[16px] opacity-[0.5]">
-                      <div className="rounded-[133.33px] bg-gainsboro-200 flex flex-row items-start justify-start p-2.5">
-                        <img
-                          className="relative w-[22.22px] h-[22.22px] object-cover"
-                          alt=""
-                          src="/icon21.png"
-                        />
-                      </div>
-                      <div className="flex-1 flex flex-row items-center justify-between">
-                        <div className="flex flex-col items-start justify-start">
-                          <div className="relative leading-[24px] font-semibold inline-block w-[150px]">
-                            Cahier des charges
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[24px] font-semibold text-darkgray-300 mt-[-2px]">
-                            Aujourd’hui, 07h58
-                          </div>
-                        </div>
-                        <div className="self-stretch flex-1 flex flex-col items-end justify-center text-right text-mediumblue-100">
-                          <div className="relative leading-[20px] font-semibold">
-                            1 000,00€
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[20px] font-semibold text-silver">
-                            En attente
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-row items-center justify-start gap-[16px]">
-                      <div className="flex flex-row items-start justify-center pt-[2.5px] px-0 pb-0">
-                        <img
-                          className="rounded-6xl w-10 h-10 object-cover"
-                          alt=""
-                          src="/avatar312@2x.png"
-                        />
-                      </div>
-                      <div className="flex-1 flex flex-row items-center justify-between">
-                        <div className="w-32 flex flex-col items-start justify-start">
-                          <div className="self-stretch relative leading-[24px] font-semibold">
-                            Design UI/UX
-                          </div>
-                          <div className="self-stretch relative text-sm leading-[24px] font-semibold text-darkgray-300 mt-[-2px]">
-                            Hier, 19h23
-                          </div>
-                        </div>
-                        <div className="self-stretch flex-1 flex flex-col items-end justify-center text-right text-mediumblue-100">
-                          <div className="relative leading-[20px] font-semibold">
-                            24 déc. 23
-                          </div>
-                          <div className="self-stretch relative text-sm [text-decoration:line-through] leading-[20px] font-semibold text-silver">
-                            30 oct. 23
-                          </div>
-                        </div>
-                      </div>
+                    <div className="self-stretch relative leading-[20px] font-semibold text-mediumblue-100">
+                      5 partenaires • 6 apports
                     </div>
                   </div>
+                  <img
+                    className="relative rounded-6xs w-[42px] h-[42px] object-cover"
+                    alt=""
+                    src="/rectangle-41552@2x.png"
+                  />
+                </div>
+                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden hidden flex-row items-center justify-between py-2.5 px-3.5 text-sm text-dimgray">
+                  <div className="relative leading-[20px] font-semibold">
+                    Afficher le contrat
+                  </div>
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/external-link2.svg"
+                  />
+                </div>
+              </div>
+              <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px]">
+                <div className="self-stretch flex flex-row items-start justify-start gap-[20px]">
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[8px]">
+                    <div className="self-stretch relative leading-[20px] font-semibold">
+                      Ajout de nouvelles sources juridiques (conventions
+                      collectives et règlements UE)
+                    </div>
+                    <div className="self-stretch relative leading-[20px] font-semibold text-mediumblue-100">
+                      3 partenaires • 3 apports
+                    </div>
+                  </div>
+                  <img
+                    className="relative rounded-6xs w-[42px] h-[42px] object-cover"
+                    alt=""
+                    src="/rectangle-41553@2x.png"
+                  />
+                </div>
+                <div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden hidden flex-row items-center justify-between py-2.5 px-3.5 text-sm text-dimgray">
+                  <div className="relative leading-[20px] font-semibold">
+                    Afficher le contrat
+                  </div>
+                  <img
+                    className="relative w-5 h-5 overflow-hidden shrink-0"
+                    alt=""
+                    src="/external-link2.svg"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="self-stretch bg-white flex flex-row items-center justify-between py-5 px-[30px] text-center text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
+      <div className="self-stretch my-0 mx-[!important] absolute bottom-[0px] left-[calc(50%_-_195px)] bg-white flex flex-row items-center justify-between py-5 px-[30px] z-[3] text-3xs text-gray-900 border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px] text-mediumblue-100">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+            className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-223.png"
+            src="/component-2111.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+            className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-1411.png"
-          />
-          <div className="relative leading-[16px] font-medium">Messagerie</div>
-        </div>
-        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
-          <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
-            alt=""
-            src="/component-5311.png"
+            src="/component-512.svg"
           />
           <div className="relative leading-[16px] font-medium">Projets</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
-            className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
+            className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-11111.png"
+            src="/component-121.svg"
+          />
+          <div className="relative leading-[16px] font-medium">Messagerie</div>
+        </div>
+        <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
+          <img
+            className="relative w-6 h-6 overflow-hidden shrink-0"
+            alt=""
+            src="/component-131.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>
@@ -421,4 +222,4 @@ const Principal211: FunctionComponent = () => {
   );
 };
 
-export default Principal211;
+export default Principal21;

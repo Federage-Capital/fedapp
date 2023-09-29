@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const VoirApportPublic: FunctionComponent = () => {
   return (
-    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-center text-3xs text-gray-900 font-text-sm-leading-5-font-medium">
+    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-center text-3xs text-gray-900 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-mini text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -191,7 +191,7 @@ const VoirApportPublic: FunctionComponent = () => {
                   <img
                     className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
                     alt=""
-                    src="/check-circle10.svg"
+                    src="/check-circle2.svg"
                   />
                   <div className="relative leading-[20px] font-semibold">
                     Démarrage de l’apport
@@ -249,17 +249,6 @@ const VoirApportPublic: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="self-stretch rounded-lg bg-white flex flex-row items-center justify-start p-4 gap-[8px] text-base text-dimgray">
-          <img
-            className="relative w-5 h-5 overflow-hidden shrink-0"
-            alt=""
-            src="/exclamation.svg"
-          />
-          <div className="flex-1 relative leading-[20px] font-medium">
-            Chaque apport valorise le projet. Les données financières doivent
-            être validées entre partenaires.
-          </div>
-        </div>
       </div>
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-5 px-[30px] z-[4] border-t-[2px] border-solid border-whitesmoke-300">
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
@@ -282,7 +271,7 @@ const VoirApportPublic: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-111.svg"
+            src="/component-14.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>
@@ -290,7 +279,7 @@ const VoirApportPublic: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-1.svg"
+            src="/component-11.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

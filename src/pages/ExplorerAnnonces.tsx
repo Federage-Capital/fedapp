@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const ExplorerAnnonces: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-start mix-blend-normal text-center text-mini text-black font-text-sm-leading-5-font-medium">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-start mix-blend-normal text-center text-mini text-black font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-gray-50 flex flex-row items-center justify-between py-[9px] px-3.5">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -179,7 +179,7 @@ const ExplorerAnnonces: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-center text-sm text-darkslategray-100">
+          <div className="self-stretch flex flex-col items-start justify-center text-sm text-darkslategray">
             <div className="w-[143px] flex flex-col items-start justify-start">
               <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start">
                 <div className="self-stretch rounded-md bg-white h-[46px] overflow-hidden shrink-0 flex flex-row items-center justify-center py-2 px-3.5 box-border gap-[8px]">

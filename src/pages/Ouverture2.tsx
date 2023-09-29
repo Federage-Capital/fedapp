@@ -10,7 +10,7 @@ const Ouverture2: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full h-[844px] flex flex-col items-start justify-start cursor-pointer text-center text-mini text-black font-text-sm-leading-5-font-medium"
+      className="relative w-full h-[844px] flex flex-col items-start justify-start cursor-pointer text-center text-mini text-black font-text-xs-leading-4-font-normal"
       onClick={onOuverture2ContainerClick}
     >
       <div className="self-stretch bg-gray-50 flex flex-row items-center justify-between py-[9px] px-3.5">

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Partenaires: FunctionComponent = () => {
   return (
-    <div className="relative bg-whitesmoke-200 w-full h-[844px] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-black font-text-sm-leading-5-font-medium">
+    <div className="relative bg-whitesmoke-200 w-full h-[844px] overflow-y-auto flex flex-col items-start justify-start text-left text-base text-black font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-center text-mini">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -170,7 +170,7 @@ const Partenaires: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-12.svg"
+            src="/component-121.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>

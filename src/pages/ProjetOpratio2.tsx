@@ -11,7 +11,7 @@ const MobileServiceProjetOpratio1: FunctionComponent = () => {
 
   return (
     <div
-      className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-sm-leading-5-font-medium"
+      className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-xs-leading-4-font-normal"
       onClick={onProjetOpratioContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-center text-black">

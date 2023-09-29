@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Profil: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-medium">
+    <div className="relative bg-white w-full flex flex-col items-center justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row items-center justify-start p-4">
           <img
@@ -49,7 +49,7 @@ const Profil: FunctionComponent = () => {
             <img
               className="rounded-5xl w-12 h-12 object-cover"
               alt=""
-              src="/avatar13@2x.png"
+              src="/avatar131@2x.png"
             />
             <div className="rounded-lg bg-white overflow-hidden flex flex-row items-center justify-center py-[9px] px-[13px] border-[1px] border-solid border-gray-300">
               <div className="relative leading-[16px] font-semibold">
@@ -141,7 +141,7 @@ const Profil: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0 object-cover"
             alt=""
-            src="/component-121.svg"
+            src="/component-1211.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

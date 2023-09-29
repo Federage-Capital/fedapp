@@ -2,8 +2,8 @@ import { FunctionComponent } from "react";
 
 const Connexion: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full h-[790px] flex flex-col py-16 px-4 box-border items-center justify-center text-center text-9xl text-black font-text-sm-leading-5-font-normal">
-      <div className="self-stretch overflow-y-auto flex flex-col pt-0 pb-16 pr-4 pl-0 items-start justify-start gap-[32px]">
+    <div className="relative bg-gray-50 w-full h-[790px] flex flex-col items-center justify-center py-16 px-4 box-border text-center text-9xl text-black font-text-xs-leading-4-font-normal">
+      <div className="self-stretch overflow-y-auto flex flex-col items-start justify-start pt-0 pb-16 pr-4 pl-0 gap-[32px]">
         <div className="self-stretch flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-col items-center justify-start gap-[12px]">
             <b className="self-stretch relative leading-[20px]">

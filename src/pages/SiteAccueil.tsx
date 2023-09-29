@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const MobileAccueil: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-center text-mini text-black font-text-sm-leading-5-font-medium">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-center mix-blend-normal text-center text-mini text-black font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-gray-50 flex flex-row items-center justify-center py-[9px] px-3.5 gap-[234px]">
         <div className="relative w-[54px] h-[21px]">
           <b className="absolute w-full top-[calc(50%_-_5.17px)] left-[0px] tracking-[-0.3px] inline-block">

@@ -10,7 +10,7 @@ const MobileServiceAjouterUnAppo: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-black font-text-sm-leading-5-font-medium"
+      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-black font-text-xs-leading-4-font-normal"
       onClick={onAjouterUnAppo2ContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 text-center text-mini">

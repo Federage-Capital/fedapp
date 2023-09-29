@@ -10,7 +10,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
 
   return (
     <div
-      className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-sm-leading-5-font-medium"
+      className="relative bg-whitesmoke-200 w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-xs-leading-4-font-normal"
       onClick={onModiApportContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 text-center text-black">
@@ -312,7 +312,7 @@ const MobileServiceModificationAp: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-12.svg"
+            src="/component-121.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>

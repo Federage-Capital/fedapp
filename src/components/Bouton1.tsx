@@ -6,7 +6,7 @@ const Bouton: FunctionComponent = () => {
       <img
         className="relative w-[5.7px] h-[9.5px] object-cover"
         alt=""
-        src="/icon121.png"
+        src="/icon1211.png"
       />
     </div>
   );

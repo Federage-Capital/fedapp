@@ -10,7 +10,7 @@ const ValiderApport: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full h-[844px] overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-center text-base text-gray-900 font-text-sm-leading-5-font-medium"
+      className="relative w-full h-[844px] overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-center text-base text-gray-900 font-text-xs-leading-4-font-normal"
       onClick={onValiderApportContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-mini text-black">
@@ -227,7 +227,7 @@ const ValiderApport: FunctionComponent = () => {
                 <img
                   className="relative w-[11.11px] h-[11.11px]"
                   alt=""
-                  src="/icon2.svg"
+                  src="/icon21.svg"
                 />
               </div>
             </div>
@@ -276,7 +276,7 @@ const ValiderApport: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-2.svg"
+            src="/component-211.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>
@@ -300,7 +300,7 @@ const ValiderApport: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-21.svg"
+            src="/component-214.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>
@@ -334,7 +334,7 @@ const ValiderApport: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-121.svg"
+            src="/component-1211.svg"
           />
           <div className="relative leading-[16px] font-medium">Compte</div>
         </div>

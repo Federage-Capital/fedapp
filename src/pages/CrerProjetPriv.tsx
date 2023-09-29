@@ -10,7 +10,7 @@ const MobileServiceProjetPriv1: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full h-[888px] overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-dimgray font-text-sm-leading-5-font-medium"
+      className="relative w-full h-[888px] overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-base text-dimgray font-text-xs-leading-4-font-normal"
       onClick={onCrerProjetPrivContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-start justify-start text-gray-700 border-b-[2px] border-solid border-whitesmoke-400">

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const VoirApport2: FunctionComponent = () => {
   return (
-    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-center text-3xs text-gray-900 font-text-sm-leading-5-font-medium">
+    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-center text-3xs text-gray-900 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-gray-50 flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-mini text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -28,7 +28,7 @@ const VoirApport2: FunctionComponent = () => {
               Développement de l’application web Federage
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-center justify-start text-5xl text-gray-900">
+          <div className="self-stretch flex flex-col items-center justify-start gap-[18px] text-5xl text-gray-900">
             <div className="self-stretch flex flex-col items-start justify-center gap-[19px]">
               <b className="self-stretch relative leading-[32px]">
                 Traduction du site et de l’application en anglais
@@ -43,10 +43,18 @@ const VoirApport2: FunctionComponent = () => {
                 </span>
               </div>
             </div>
+            <div className="self-stretch rounded-lg bg-white h-[46px] overflow-hidden shrink-0 flex flex-row items-center justify-center py-3 px-5 box-border text-sm text-gray-700">
+              <div className="flex flex-row items-center justify-center gap-[8px]">
+                <div className="relative leading-[20.03px] font-semibold">
+                  Afficher plus
+                </div>
+                <img className="relative w-2.5 h-1.5" alt="" src="/icon6.svg" />
+              </div>
+            </div>
           </div>
         </div>
         <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-lg text-gray-900">
-          <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-5 px-0 gap-[12px]">
+          <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-5 px-0 gap-[12px] border-[1px] border-solid border-whitesmoke-800">
             <div className="flex flex-row items-start justify-between py-0 px-3.5">
               <div className="relative leading-[24px] font-semibold">
                 Détails de l’apport
@@ -210,7 +218,7 @@ const VoirApport2: FunctionComponent = () => {
                         <img
                           className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
                           alt=""
-                          src="/check-circle6.svg"
+                          src="/check-circle7.svg"
                         />
                         <div className="flex-1 relative leading-[20px] font-semibold">
                           Démarrage de l’apport
@@ -270,7 +278,7 @@ const VoirApport2: FunctionComponent = () => {
                         <img
                           className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
                           alt=""
-                          src="/check-circle8.svg"
+                          src="/check-circle.svg"
                         />
                         <div className="flex-1 relative leading-[20px] font-semibold">
                           Modification du délai

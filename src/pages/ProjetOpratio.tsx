@@ -10,7 +10,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
 
   return (
     <div
-      className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-sm-leading-5-font-medium"
+      className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-left text-mini text-gray-900 font-text-xs-leading-4-font-normal"
       onClick={onProjetOpratio2ContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 text-center text-black">
@@ -47,8 +47,10 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
         </div>
       </div>
       <div className="self-stretch bg-white flex flex-col items-center justify-start py-[22px] px-4 gap-[24px] text-5xl">
-        <div className="self-stretch h-[57px] flex flex-row items-start justify-center gap-[42px]">
-          <b className="flex-1 relative leading-[32px]">{`Développer un aliment anti-cancérigène `}</b>
+        <div className="self-stretch flex flex-row items-start justify-center gap-[42px]">
+          <b className="flex-1 relative leading-[32px]">
+            Solution de nutriments actifs anti-cancérigène
+          </b>
           <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
             <img
               className="relative w-5 h-5 overflow-hidden shrink-0"
@@ -70,9 +72,9 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
                   src="/link1.svg"
                 />
               </div>
-              <div className="self-stretch relative text-sm leading-[20px] font-medium text-gray-500">
-                Développez un aliment anti-cancérigène innovant, sûr et
-                délicieux. Recherche un procédé agro-alimen...
+              <div className="self-stretch relative leading-[20px] font-medium text-gray-500">
+                Recherche un procédé agro-alimentaire pour expérimenter des
+                solutions nutritionnelles médicales.
               </div>
             </div>
             <div className="flex flex-row items-center justify-center gap-[8px] text-sm">
@@ -82,12 +84,12 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img className="relative w-2.5 h-1.5" alt="" src="/icon311.svg" />
             </div>
           </div>
-          <div className="self-stretch flex flex-row items-center justify-between text-xs text-gray-900">
+          <div className="self-stretch flex flex-row items-center justify-between text-xs text-dimgray">
             <div className="flex-1 flex flex-row items-center justify-start py-0 px-0.5 gap-[6px]">
               <img
                 className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                 alt=""
-                src="/calendar11.svg"
+                src="/calendar1.svg"
               />
               <div className="relative leading-[20px] font-medium">
                 Sep. 2023
@@ -97,7 +99,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img
                 className="relative w-5 h-5 overflow-hidden shrink-0"
                 alt=""
-                src="/cash21.svg"
+                src="/cash4.svg"
               />
               <div className="relative leading-[20px] font-medium">
                 Capital ouvert
@@ -107,7 +109,7 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               <img
                 className="relative w-3 h-[12.86px]"
                 alt=""
-                src="/icon71.svg"
+                src="/icon1.svg"
               />
               <div className="relative leading-[20px] font-medium">Admin</div>
             </div>
@@ -119,14 +121,14 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <div className="self-stretch flex flex-col items-start justify-start">
             <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-4 pr-4 pl-[17px] gap-[20px] border-[2px] border-solid border-gray-200">
               <div className="self-stretch flex flex-row items-start justify-between">
-                <div className="rounded-lg bg-indigo-50 flex flex-row items-center justify-center p-2.5">
+                <div className="rounded-lg bg-gray-100 flex flex-row items-center justify-center p-2.5">
                   <img
                     className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                     alt=""
-                    src="/sparkles4.svg"
+                    src="/sparkles.svg"
                   />
                 </div>
-                <div className="rounded-lg bg-darkslategray-200 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-between py-[9px] px-[17px]">
+                <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-between py-[9px] px-[17px]">
                   <div className="relative leading-[20px] font-semibold">
                     Ajouter un apport
                   </div>
@@ -140,45 +142,54 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px] text-3xs text-chocolate">
+          <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start p-4 gap-[20px] text-3xs text-mediumblue-200">
             <div className="self-stretch flex flex-col items-center justify-start gap-[22px]">
               <div className="self-stretch flex flex-row items-center justify-between">
-                <div className="rounded-10xs bg-papayawhip flex flex-row items-center justify-start py-0 px-1">
-                  <b className="relative leading-[20px]">En cours</b>
-                </div>
-                <div className="flex flex-row items-center justify-start gap-[5px] text-dimgray">
+                <div className="flex flex-row items-center justify-start">
                   <img
-                    className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
+                    className="rounded-xl w-7 h-7 overflow-hidden shrink-0 object-cover"
                     alt=""
-                    src="/clock.svg"
+                    src="/avatar@2x.png"
                   />
-                  <b className="relative leading-[20px]">31 jours restants</b>
+                  <img
+                    className="rounded-xl w-7 h-7 overflow-hidden shrink-0 object-cover"
+                    alt=""
+                    src="/avatar1@2x.png"
+                  />
+                  <img
+                    className="rounded-xl w-7 h-7 overflow-hidden shrink-0 object-cover"
+                    alt=""
+                    src="/avatar2@2x.png"
+                  />
+                </div>
+                <div className="rounded-10xs bg-lavender flex flex-row items-center justify-start py-0 px-1">
+                  <b className="relative leading-[20px]">En cours</b>
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[24px] text-xl text-gray-900">
                 <div className="self-stretch h-10 flex flex-row items-center justify-start">
                   <div className="flex-1 relative leading-[26px] font-semibold">
-                    Solution de développement de nutriments actifs
+                    Nouvelle formule magique nutritionnelle
                   </div>
                 </div>
-                <div className="self-stretch relative text-base leading-[20px] font-semibold text-dimgray">{`3 190,00€ • 19 mai 2023 `}</div>
+                <div className="self-stretch relative text-base leading-[20px] font-semibold text-dimgray">{`690,00€ • 19 septembre 2023 `}</div>
               </div>
             </div>
             <div className="flex flex-row items-center justify-center text-sm text-dimgray">
               <div className="relative leading-[20.03px] font-semibold">
                 <span>{`Par `}</span>
-                <span className="text-mediumblue-100">Lisa MARTEL</span>
+                <span className="text-mediumblue-100">David MARTEL</span>
               </div>
             </div>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start">
             <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-4 pr-4 pl-[17px] gap-[20px] border-[2px] border-solid border-gray-200">
               <div className="self-stretch flex flex-row items-start justify-between">
-                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row items-center justify-center p-2.5 box-border">
+                <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row items-center justify-center p-2.5 box-border">
                   <img
                     className="relative w-[18px] h-[18px] overflow-hidden shrink-0"
                     alt=""
-                    src="/user-group11.svg"
+                    src="/user-group1.svg"
                   />
                 </div>
                 <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-between py-[9px] px-[17px]">
@@ -222,11 +233,11 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
           <div className="self-stretch flex flex-col items-start justify-start">
             <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start py-4 pr-4 pl-[17px] gap-[20px] border-[2px] border-solid border-gray-200">
               <div className="self-stretch flex flex-row items-start justify-between">
-                <div className="rounded-lg bg-indigo-50 w-[38px] h-[38px] flex flex-row items-center justify-center p-2.5 box-border">
+                <div className="rounded-lg bg-gray-100 w-[38px] h-[38px] flex flex-row items-center justify-center p-2.5 box-border">
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0"
                     alt=""
-                    src="/cash.svg"
+                    src="/cash3.svg"
                   />
                 </div>
                 <div className="rounded-lg bg-gray-900 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] overflow-hidden flex flex-row items-center justify-between py-[9px] px-[17px]">
@@ -262,13 +273,13 @@ const MobileServiceProjetOpratio: FunctionComponent = () => {
             alt=""
             src="/component-55.svg"
           />
-          <div className="relative leading-[16px] font-medium">Projets</div>
+          <div className="relative leading-[16px] font-medium">Explorer</div>
         </div>
         <div className="w-[46px] flex flex-col items-center justify-start gap-[4px]">
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-12.svg"
+            src="/component-121.svg"
           />
           <div className="relative leading-[16px] font-medium">Messagerie</div>
         </div>

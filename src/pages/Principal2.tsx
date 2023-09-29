@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Principal2: FunctionComponent = () => {
   return (
-    <div className="relative bg-whitesmoke-200 w-full h-[1360px] overflow-y-auto flex flex-col items-center justify-start text-left text-mini text-black font-text-sm-leading-5-font-medium">
+    <div className="relative bg-whitesmoke-200 w-full h-[1360px] overflow-y-auto flex flex-col items-center justify-start text-left text-mini text-black font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-whitesmoke-200 flex flex-row items-center justify-between py-[9px] px-3.5 text-center">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -316,6 +316,7 @@ const Principal2: FunctionComponent = () => {
                   <div className="self-stretch flex-1 relative leading-[20.03px] font-semibold flex items-center">
                     Suivre un apport
                   </div>
+
                 </div>
               </div>
               <div className="rounded-6xl bg-gray-100 overflow-hidden flex flex-row items-center justify-center py-[9px] pr-3.5 pl-[11px] gap-[8px] text-gray-900">
@@ -347,7 +348,9 @@ const Principal2: FunctionComponent = () => {
                       Essayer nos virements bancaires faciles et sécurisés en
                       quelques clics seulement !
                     </div>
+
                   </div>
+
                 </div>
                 <img
                   className="relative w-5 h-5 overflow-hidden shrink-0"
@@ -381,7 +384,7 @@ const Principal2: FunctionComponent = () => {
             <img
               className="relative w-6 h-6 overflow-hidden shrink-0"
               alt=""
-              src="/component-510.svg"
+              src="/component-5101.svg"
             />
             <div className="relative leading-[16px] font-medium">Explorer</div>
           </div>
@@ -404,6 +407,7 @@ const Principal2: FunctionComponent = () => {
             <div className="relative leading-[16px] font-medium">Compte</div>
           </div>
         </div>
+
       </div>
     </div>
   );

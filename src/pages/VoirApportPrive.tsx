@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const VoirApportPrive: FunctionComponent = () => {
   return (
-    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-center text-3xs text-gray-900 font-text-sm-leading-5-font-medium">
+    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-center text-3xs text-gray-900 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-mini text-black">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -130,7 +130,7 @@ const VoirApportPrive: FunctionComponent = () => {
                   <img
                     className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
                     alt=""
-                    src="/check-circle10.svg"
+                    src="/check-circle2.svg"
                   />
                   <div className="relative leading-[20px] font-semibold">
                     Démarrage de l’apport

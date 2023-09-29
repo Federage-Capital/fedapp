@@ -5,10 +5,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import MobileServiceProjet211 from "./pages/CrerProjet2";
-import ExplorerAnnonces from "./pages/ExplorerAnnonces";
-import Profil from "./pages/Profil";
-import MobileServiceModificationAp from "./pages/ModiApport";
-import ValiderApport from "./pages/ValiderApport";
 import VoirApport2 from "./pages/VoirApport2";
 import ProjetOpratio3 from "./pages/ProjetOpratio3";
 import VoirApportPrive from "./pages/VoirApportPrive";
@@ -19,9 +15,16 @@ import Principal3 from "./pages/Principal3";
 import Principal2 from "./pages/Principal2";
 import Principal1 from "./pages/Principal1";
 import VoirApportPublic2 from "./pages/VoirApportPublic2";
+import ExplorerMembres from "./pages/ExplorerMembres";
+import ExplorerProjets from "./pages/ExplorerProjets";
+import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
+import VoirApportx from "./pages/VoirApportx";
+import ExplorerAnnonces from "./pages/ExplorerAnnonces";
+import Profil from "./pages/Profil";
+import MobileServiceModificationAp from "./pages/ModiApport";
+import ValiderApport from "./pages/ValiderApport";
 import Principal21 from "./pages/Principal21";
 import Principal11 from "./pages/Principal11";
-import ExplorerMembres from "./pages/ExplorerMembres";
 import Notfications from "./pages/Notfications";
 import Principal from "./pages/Principal";
 import Ouverture3 from "./pages/Ouverture3";
@@ -32,7 +35,6 @@ import Connexion from "./pages/Connexion";
 import Partenaires from "./pages/Partenaires";
 import MobileServiceAjouterUnAppo from "./pages/AjouterUnAppo";
 import MobileServiceAjouterUnAppo1 from "./pages/AjouterUnAppo2";
-import MobileServiceProjetOpratio from "./pages/ProjetOpratio";
 import MobileServiceCrerProjet from "./pages/CrerProjet";
 import MobileServiceProjet2 from "./pages/CrerProjetPublic2";
 import MobileServiceProjet21 from "./pages/CrerProjetPublic3";
@@ -48,7 +50,6 @@ import Profil from "./pages/Profil1";
 import Connexion from "./pages/Connexion1";
 import Inscription from "./pages/Inscription";
 import Ouverture from "./pages/Ouverture";
-import ExplorerProjets from "./pages/ExplorerProjets";
 import { useEffect } from "react";
 
 function App() {
@@ -71,22 +72,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-explorerannonces":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-profil":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-modiapport":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-validerapport":
-        title = "";
-        metaDescription = "";
-        break;
       case "/-voirapport2":
         title = "";
         metaDescription = "";
@@ -99,7 +84,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-validerapport1":
+      case "/-validerapport":
         title = "";
         metaDescription = "";
         break;
@@ -127,15 +112,43 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-explorermembres":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-explorerprojets":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-projetopratio2":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-voirapportx":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-explorerannonces":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-profil":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-modiapport":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/-validerapport1":
+        title = "";
+        metaDescription = "";
+        break;
       case "/-principal-21":
         title = "";
         metaDescription = "";
         break;
       case "/-principal-1":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-explorermembres":
         title = "";
         metaDescription = "";
         break;
@@ -176,10 +189,6 @@ function App() {
         metaDescription = "";
         break;
       case "/-ajouterunappo":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/-projetopratio2":
         title = "";
         metaDescription = "";
         break;
@@ -243,10 +252,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-explorerprojets":
-        title = "";
-        metaDescription = "";
-        break;
     }
 
     if (title) {
@@ -266,23 +271,26 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MobileServiceProjet211 />} />
-      <Route path="/-explorerannonces" element={<ExplorerAnnonces />} />
-      <Route path="/-profil" element={<Profil />} />
-      <Route path="/-modiapport" element={<MobileServiceModificationAp />} />
-      <Route path="/-validerapport" element={<ValiderApport />} />
       <Route path="/-voirapport2" element={<VoirApport2 />} />
       <Route path="/-projetopratio3" element={<ProjetOpratio3 />} />
       <Route path="/-voirapportprive" element={<VoirApportPrive />} />
-      <Route path="/-validerapport1" element={<ValiderApport1 />} />
+      <Route path="/-validerapport" element={<ValiderApport1 />} />
       <Route path="/-voirapportpublic" element={<VoirApportPublic />} />
       <Route path="/-voirapportpublic1" element={<VoirApportPublic1 />} />
       <Route path="/-principal3" element={<Principal3 />} />
       <Route path="/-principal2" element={<Principal2 />} />
       <Route path="/-principal1" element={<Principal1 />} />
       <Route path="/-voirapportpublic2" element={<VoirApportPublic2 />} />
+      <Route path="/-explorermembres" element={<ExplorerMembres />} />
+      <Route path="/-explorerprojets" element={<ExplorerProjets />} />
+      <Route path="/-projetopratio2" element={<MobileServiceProjetOpratio />} />
+      <Route path="/-voirapportx" element={<VoirApportx />} />
+      <Route path="/-explorerannonces" element={<ExplorerAnnonces />} />
+      <Route path="/-profil" element={<Profil />} />
+      <Route path="/-modiapport" element={<MobileServiceModificationAp />} />
+      <Route path="/-validerapport1" element={<ValiderApport />} />
       <Route path="/-principal-21" element={<Principal21 />} />
       <Route path="/-principal-1" element={<Principal11 />} />
-      <Route path="/-explorermembres" element={<ExplorerMembres />} />
       <Route path="/-notfications" element={<Notfications />} />
       <Route path="/-principal" element={<Principal />} />
       <Route path="/-ouverture-3" element={<Ouverture3 />} />
@@ -296,7 +304,6 @@ function App() {
         element={<MobileServiceAjouterUnAppo />}
       />
       <Route path="/-ajouterunappo" element={<MobileServiceAjouterUnAppo1 />} />
-      <Route path="/-projetopratio2" element={<MobileServiceProjetOpratio />} />
       <Route path="/-crerprojet" element={<MobileServiceCrerProjet />} />
       <Route path="/-crerprojet3" element={<MobileServiceProjet2 />} />
       <Route path="/-crerprojetpublic3" element={<MobileServiceProjet21 />} />
@@ -312,7 +319,6 @@ function App() {
       <Route path="/-connexion1" element={<Connexion />} />
       <Route path="/-inscription" element={<Inscription />} />
       <Route path="/-ouverture" element={<Ouverture />} />
-      <Route path="/-explorerprojets" element={<ExplorerProjets />} />
     </Routes>
   );
 }

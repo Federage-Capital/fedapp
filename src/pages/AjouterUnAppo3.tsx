@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const AjouterUnAppo3: FunctionComponent = () => {
   return (
-    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-black font-text-sm-leading-5-font-medium">
+    <div className="relative w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-black font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 text-center text-mini">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">

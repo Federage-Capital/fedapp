@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Principal: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-sm-leading-5-font-medium">
+    <div className="relative bg-white w-full overflow-y-auto flex flex-col items-start justify-start text-left text-base text-gray-700 font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-white flex flex-row items-start justify-start border-b-[2px] border-solid border-whitesmoke-400">
         <div className="flex flex-row items-center justify-start p-4">
           <img
@@ -127,7 +127,7 @@ const Principal: FunctionComponent = () => {
           <img
             className="relative w-6 h-6 overflow-hidden shrink-0"
             alt=""
-            src="/component-2111.svg"
+            src="/component-21111.svg"
           />
           <div className="relative leading-[16px] font-medium">Accueil</div>
         </div>

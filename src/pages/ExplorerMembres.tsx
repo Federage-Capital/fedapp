@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const ExplorerMembres: FunctionComponent = () => {
   return (
-    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-start mix-blend-normal text-center text-mini text-black font-text-sm-leading-5-font-medium">
+    <div className="relative bg-gray-50 w-full overflow-y-auto flex flex-col items-center justify-start mix-blend-normal text-center text-mini text-black font-text-xs-leading-4-font-normal">
       <div className="self-stretch bg-gray-50 flex flex-row items-center justify-between py-[9px] px-3.5">
         <div className="w-[54px] h-[21px] flex flex-col items-center justify-end">
           <b className="relative tracking-[-0.3px] inline-block w-[54px]">
@@ -12,7 +12,7 @@ const ExplorerMembres: FunctionComponent = () => {
         <img
           className="relative w-[66.66px] h-[11.34px]"
           alt=""
-          src="/group-731.svg"
+          src="/group-7.svg"
         />
       </div>
       <div className="self-stretch flex flex-col items-center justify-start text-xl text-gray-900">
@@ -70,9 +70,9 @@ const ExplorerMembres: FunctionComponent = () => {
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
               <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
-                  className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
+                  className="rounded-[24.02px] w-[50px] h-[50px] object-cover opacity-[0.9]"
                   alt=""
-                  src="/avatar110@2x.png"
+                  src="/avatar3@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -90,13 +90,6 @@ const ExplorerMembres: FunctionComponent = () => {
                   <b className="flex-1 relative text-xs leading-[32px] flex text-dimgray text-left items-center w-48 mt-[-11px]">
                     app.federage.com/bimfinance
                   </b>
-                </div>
-                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
-                  <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
-                    alt=""
-                    src="/dots-vertical11.svg"
-                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -137,9 +130,9 @@ const ExplorerMembres: FunctionComponent = () => {
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
               <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
-                  className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
+                  className="rounded-[24.02px] w-[50px] h-[50px] object-cover opacity-[0.9]"
                   alt=""
-                  src="/avatar61@2x.png"
+                  src="/avatar13@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -155,13 +148,6 @@ const ExplorerMembres: FunctionComponent = () => {
                   <b className="flex-1 relative text-xs leading-[32px] flex text-dimgray text-left items-center w-48 mt-[-11px]">
                     app.federage.com/321founded
                   </b>
-                </div>
-                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
-                  <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
-                    alt=""
-                    src="/dots-vertical11.svg"
-                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -202,9 +188,9 @@ const ExplorerMembres: FunctionComponent = () => {
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
               <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
-                  className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
+                  className="rounded-[24.02px] w-[50px] h-[50px] object-cover opacity-[0.9]"
                   alt=""
-                  src="/avatar71@2x.png"
+                  src="/avatar28@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -222,13 +208,6 @@ const ExplorerMembres: FunctionComponent = () => {
                   <b className="relative text-xs leading-[32px] inline-block text-dimgray text-left mt-[-11px]">
                     app.federage.com/openfoodfacts
                   </b>
-                </div>
-                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
-                  <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
-                    alt=""
-                    src="/dots-vertical11.svg"
-                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -269,9 +248,9 @@ const ExplorerMembres: FunctionComponent = () => {
             <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
               <div className="self-stretch flex flex-row items-start justify-center gap-[12px]">
                 <img
-                  className="rounded-[24.02px] w-[52px] h-[52px] object-cover"
+                  className="rounded-[24.02px] w-[50px] h-[50px] object-cover opacity-[0.9]"
                   alt=""
-                  src="/avatar81@2x.png"
+                  src="/avatar29@2x.png"
                 />
                 <div className="flex-1 h-[53px] flex flex-col items-start justify-start">
                   <div className="flex flex-row items-center justify-center gap-[2px]">
@@ -287,13 +266,6 @@ const ExplorerMembres: FunctionComponent = () => {
                   <b className="relative text-xs leading-[32px] inline-block text-dimgray text-left mt-[-11px]">
                     app.federage.com/coopcycle
                   </b>
-                </div>
-                <div className="rounded-3xs bg-gray-100 w-[30px] h-[30px] overflow-hidden shrink-0 flex flex-row items-center justify-center">
-                  <img
-                    className="relative w-5 h-5 overflow-hidden shrink-0"
-                    alt=""
-                    src="/dots-vertical11.svg"
-                  />
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[20px] text-left text-base text-gray-500">
@@ -330,7 +302,7 @@ const ExplorerMembres: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-center text-left text-sm text-darkslategray-100">
+          <div className="self-stretch flex flex-col items-start justify-center text-left text-sm text-darkslategray">
             <div className="w-[143px] flex flex-col items-start justify-start">
               <div className="self-stretch rounded-lg bg-white flex flex-col items-start justify-start">
                 <div className="self-stretch rounded-md bg-white h-[46px] overflow-hidden shrink-0 flex flex-row items-center justify-center py-2 px-3.5 box-border gap-[8px]">
@@ -340,7 +312,7 @@ const ExplorerMembres: FunctionComponent = () => {
                   <img
                     className="relative w-5 h-5 overflow-hidden shrink-0"
                     alt=""
-                    src="/chevron-down.svg"
+                    src="/chevron-down4.svg"
                   />
                 </div>
               </div>

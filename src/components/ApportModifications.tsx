@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const ApportModifications: FunctionComponent = () => {
   return (
-    <div className="rounded-lg bg-white box-border w-[346px] overflow-hidden flex flex-col items-start justify-start p-[15px] text-left text-xl text-gray-900 font-text-sm-leading-5-font-medium border-[2px] border-solid border-gray-200">
+    <div className="rounded-lg bg-white box-border w-[346px] overflow-hidden flex flex-col items-start justify-start p-[15px] text-left text-xl text-gray-900 font-text-xs-leading-4-font-normal border-[2px] border-solid border-gray-200">
       <div className="self-stretch flex flex-col items-start justify-start gap-[24px]">
         <div className="self-stretch flex flex-col items-start justify-start gap-[13px]">
           <div className="self-stretch flex flex-row items-start justify-between py-3 px-0 sm:flex-row sm:gap-[0px] sm:items-center sm:justify-between">

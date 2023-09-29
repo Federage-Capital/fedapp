@@ -10,7 +10,7 @@ const ValiderApport1: FunctionComponent = () => {
 
   return (
     <div
-      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-center text-3xs text-gray-900 font-text-sm-leading-5-font-medium"
+      className="relative w-full overflow-y-auto flex flex-col items-start justify-start cursor-pointer text-center text-3xs text-gray-900 font-text-xs-leading-4-font-normal"
       onClick={onValiderApportContainerClick}
     >
       <div className="self-stretch bg-white flex flex-row items-center justify-between py-[9px] px-3.5 z-[0] text-mini text-black">
@@ -112,9 +112,9 @@ const ValiderApport1: FunctionComponent = () => {
                   </div>
                   <div className="self-stretch rounded-lg bg-white overflow-hidden flex flex-col items-start justify-start py-2.5 px-3 gap-[12px] text-base text-gray-900 border-[2px] border-solid border-gray-200">
                     <div className="self-stretch relative leading-[24px]">
-                      Ajustements de conception, tests utilisateurs,
-                      améliorations de la navigation et d'autres ajustements
-                      visant à rendre l'application plus conviviale.
+                      Mise en œuvre dans le code : chaînes de caractères
+                      traduites dans le code de l’application en utilisant des
+                      mécanismes web.
                     </div>
                     <div className="self-stretch flex flex-row items-center justify-between">
                       <img
@@ -208,7 +208,7 @@ const ValiderApport1: FunctionComponent = () => {
                     <img
                       className="relative w-[19px] h-[19px] overflow-hidden shrink-0"
                       alt=""
-                      src="/check-circle8.svg"
+                      src="/check-circle.svg"
                     />
                     <div className="flex-1 relative leading-[20px] font-semibold">
                       Démarrage de l’apport
