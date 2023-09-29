@@ -7,15 +7,15 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
 export default function SlideApport({  node }: SlideApportAllUserListProps) {
-
-	const { data: userApport, error: userApportError } = useSWR(() => `https://fed.septembre.io/groupfederagewithoutcountersorprice/` + node.id, fetcher);
-
-	if (userApportError) return <div>Failed to load</div>;
 	const [showMenu, setShowMenu] = React.useState<boolean>(false)
 
 	const changeState = () => {
 		setShowMenu(!showMenu);
 	}
+	const { data: userApport, error: userApportError } = useSWR(() => `https://fed.septembre.io/groupfederagewithoutcountersorprice/` + node.id, fetcher);
+
+	if (userApportError) return <div>Failed to load</div>;
+
 	return (
 		<>
 
