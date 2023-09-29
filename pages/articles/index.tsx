@@ -36,15 +36,14 @@ const params = {
 
 export default function AlluserlistPage
 ({ menus, blocks, users, nodes,
-  facets: initialFacets,
+
 }: AlluserlistPageProps) {
   const { t } = useTranslation()
   const router = useRouter()
 
   const [status, setStatus] = React.useState<"error" | "success" | "loading">()
   const [results, setResults] = React.useState<DrupalNode[]>(nodes)
-  const [facets, setFacets] =
-    React.useState<DrupalSearchApiFacet[]>(initialFacets)
+
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -76,9 +75,7 @@ export default function AlluserlistPage
 
     setResults(results)
 
-    if (results?.length) {
-      setFacets(json.meta.facets)
-    }
+
   }
 
 
@@ -224,7 +221,7 @@ const results = await getSearchIndexFromContext<JsonApiSearchApiResponse>(
        ...(await getGlobalElements(context)),
 
        nodes: deserialize(results) as DrupalNode[],
-       facets: results.meta.facets,
+
      },
      		revalidate: 5,
    };
