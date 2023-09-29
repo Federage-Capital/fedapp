@@ -14,6 +14,8 @@ import { getGlobalElements } from "lib/get-global-elements"
 import { Layout } from "components/layout"
 import { BoxUserList } from "components/box-alluserlist"
 import { BoxProjectList } from "components/box-project-alluserlist";
+import { BoxAnnonceList } from "components/box-annonce-explorer";
+
 import { BoxResultNameSearch } from "components/box-searchbar";
 import { useSession } from "next-auth/react"
 import { drupal } from "lib/drupal"
@@ -92,6 +94,7 @@ export default function AlluserlistPage
 		<div className="bg-slate-100">
 			<Layout meta={{ title: t("Explorer") }} menus={menus} blocks={blocks}>
 				<div>
+
 					<h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
 					<p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets.</p>
 					<form onSubmit={onSubmit} className="mb-4">
@@ -210,10 +213,22 @@ export default function AlluserlistPage
 											.filter(results_projets => results_projets.type.includes("group--federage"))
 											.map((filterNode) => (
 												<div key={filterNode.id}>
+												{filterNode.label}
 
-														<BoxProjectList key={filterNode.id} node={filterNode} useringroup={useringroup} status={status} />
+
+
 												</div>
 											))}
+
+											{results
+												.map((filterNode) => (
+													<div key={filterNode.id}>
+													{filterNode.type}
+
+
+
+													</div>
+												))}
 									</div>
 								)}
 							</div>
@@ -234,7 +249,6 @@ export default function AlluserlistPage
 													.slice(0, 1)
 													.map((filterNode) => (
 														<div key={filterNode.id}>
-
 
 															< BoxProjectList key={node.id} node={node} useringroup={useringroup} status={status} />
 														</div>
