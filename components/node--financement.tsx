@@ -19,6 +19,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export function NodeFinancement({ node, ...props }: NodeFinancementProps) {
   const router = useRouter()
+  const query = router.query;
   const { data: session, status } = useSession()
 
   const [showMenu, setShowMenu] = React.useState<boolean>(false)
@@ -128,7 +129,7 @@ Statut de l’apport
          <div className="self-stretch rounded-lg bg-indigo-600 text-white shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
           <div className="relative leading-[20px] font-semibold">
          <a
-           href={`/financement/edit?gid=${encodeURIComponent(node.id)}`}
+           href={`/financement/edit-annonce?gid=${encodeURIComponent(node.id)}&query=${encodeURIComponent(query.gid)}`}
 
          >
 
@@ -144,7 +145,7 @@ Statut de l’apport
          <div className="self-stretch rounded-lg bg-zinc-200  shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
           <div className="relative leading-[20px] font-semibold">
           <a
-            href={`/financement/edit?gid=${encodeURIComponent(node.id)}`}
+            href="/register"
 
           >
 

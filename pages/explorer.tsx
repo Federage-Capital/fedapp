@@ -44,7 +44,7 @@ const params = {
 		"user--user": "name,display_name,field_nom_affiche,field_description,field_type_de_structure,user_picture",
 	},
 	filter: {},
-include: "entity_id"
+include: "entity_id,gid"
 
 
 

@@ -12,12 +12,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ImageInputAsync } from "components/imageinputasync"
 
 
-interface FormFinancementeditProps extends React.HTMLProps<HTMLFormElement> {}
+interface FormAnnonceEditProps extends React.HTMLProps<HTMLFormElement> {}
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
 
-export function FormFinancementedit({ className, node, fin, categorieprj, ...props }: FormFinancementeditProps) {
+export function FormAnnonceEdit({ className, node, fin, categorieprj, groupe, ...props }: FormAnnonceEditProps) {
   const [formStatus, setFormStatus] = React.useState<FormStatus>(null)
   const { t } = useTranslation()
   const router = useRouter()
@@ -69,7 +69,7 @@ export function FormFinancementedit({ className, node, fin, categorieprj, ...pro
 
       setFormStatus({ status: "fetching" })
 
-      const response = await fetch(`/api/financementsedit/${node.id}`, {
+      const response = await fetch(`/api/annonce-edit/${node.id}`, {
         method: "PATCH",
         body:  data,
       })
@@ -142,7 +142,7 @@ export function FormFinancementedit({ className, node, fin, categorieprj, ...pro
         </div>
       )}
 
-  !!!!!!!!!!!!!      {query.gid}
+  !!!!!!!!!!!!!      {node.id}
 
         <div className="grid gap-2">
 
@@ -157,6 +157,8 @@ export function FormFinancementedit({ className, node, fin, categorieprj, ...pro
 
                   {print_revision.title}
         {print_revision.title.revision_log}
+        {print_revision.body_revision_id}
+
             </span>
             ))}
 !============ Print revision --------
@@ -168,7 +170,20 @@ export function FormFinancementedit({ className, node, fin, categorieprj, ...pro
             maxLength={255}
 
 
-defaultValue={node.title}
+            defaultValue={node.title}
+
+
+            className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+          />
+
+
+          <input
+            id="gid"
+            name="gid"
+            maxLength={255}
+
+
+            defaultValue={groupe}
 
 
             className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
@@ -185,10 +200,12 @@ defaultValue={node.title}
             id="field_choisir_une_categorie"
             name="field_choisir_une_categorie"
             className="px-2 py-3 rounded-md border w-full border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
+
           >
+
           {categorieprj
           .map((cat) => (
-            <option key={cat.id} value={cat.id} defaultValue={cat.id}>
+            <option key={cat.id} value={cat.id} defaultValue={cat.id}  >
 
                   {cat.name}
 
@@ -214,6 +231,29 @@ defaultValue={node.title}
                     className="h-48 px-2 py-3 border-2 border-gray focus:ring-0 focus:outline-dotted focus:outline-offset-2 focus:border-gray focus:outline-link"
                   ></textarea>
                 </div>
+
+                <div className="grid gap-2">
+                  <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
+                    {t("field_estimation_du_prix")} <span className="text-sm text-red-500">*</span>
+                  </label>
+
+                  <input
+                    id="field_estimation_du_prix"
+                    name="field_estimation_du_prix"
+                    maxLength={255}
+                    defaultValue={node.field_estimation_du_prix}
+
+                    className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
+                  />
+                </div>
+
+                <div className="grid gap-2">
+                <DatePicker />
+
+
+                </div>
+
+
                 <textarea
                   id="langcode"
                   name="langcode"
@@ -224,15 +264,7 @@ defaultValue={node.title}
                   className="hidden"
                 ></textarea>
 
-                <textarea
-                  id="gid"
-                  name="gid"
-                  defaultValue={query.gid}
 
-
-
-                  className="hidden"
-                ></textarea>
 
 
 
@@ -254,7 +286,7 @@ defaultValue={node.title}
                       </div>
 
 
-                      {node.field_document_s_annexe_s_.uri?.length ? (
+                      {node.field_document_s_annexe_s_?.length ? (
                                              <>
                                        {node.field_document_s_annexe_s_.map((media,index) => (
                                    <li key={index}>{media.field_document_s_annexe_s_.uri.url}</li>
@@ -310,26 +342,7 @@ id="document"
                       </div>
 
 
-                            <div className="grid gap-2">
-                            <DatePicker />
 
-
-                            </div>
-
-                            <div className="grid gap-2">
-                              <label htmlFor="field_estimation_du_prix" className="font-semibold text-text">
-                                {t("field_estimation_du_prix")} <span className="text-sm text-red-500">*</span>
-                              </label>
-
-                              <input
-                                id="field_estimation_du_prix"
-                                name="field_estimation_du_prix"
-                                maxLength={255}
-                                defaultValue={node.field_estimation_du_prix}
-
-                                className="px-2 py-3 border-2 border-gray focus:outline-dotted focus:outline-offset-2 focus:ring-0 focus:outline-link focus:border-gray"
-                              />
-                            </div>
 
 
 
@@ -358,7 +371,7 @@ id="document"
       </button>
         <input
           type="submit"
-          className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+          className="px-3 hidden fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
           disabled={formStatus?.status === "fetching"}
           value={
             formStatus?.status === "fetching" ? t("please-wait") : t("Modifier le financement")

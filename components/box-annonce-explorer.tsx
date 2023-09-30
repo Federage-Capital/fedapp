@@ -68,8 +68,9 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 
 	{node.entity_id.title}
 
-	</Link>
-
+	</Link><br/>
+	{node.gid?.label}<br/>
+	GID ?	{node.gid.id}
 	<p className="mt-6 text-zinc-600 font-normal text-sm "> {node.entity_id.field_estimation_du_prix}€ - {formatDate(node.entity_id.field_date_de_livraison)}</p>
 
 									</div>
@@ -135,9 +136,14 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 					           <>
 										 <div className="self-stretch rounded-lg bg-blue-600 text-white shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
  				 							<div className="relative leading-[20px] font-semibold">
- 				 					<Link href={node.entity_id.path.alias} passHref>
+ 				 					<Link href={`${node.entity_id.path.alias}?gid=${encodeURIComponent(node.gid.id)}`}
+
+
+
+									passHref>
  				 								Répondre
  				 					</Link>
+								
  				 							</div>
  				 						</div>
 					           </>
