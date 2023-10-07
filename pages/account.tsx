@@ -6,13 +6,12 @@ import Link from "next/link";
 import Image, { ImageProps } from "next/image"
 import _ from 'lodash'
 
-import { absoluteURL,formatDate } from "lib/utils"
+import { absoluteURL } from "lib/utils"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { getSession, useSession, signOut } from "next-auth/react";
 import { drupal } from "lib/drupal";
 import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
-import { PageHeader } from "components/page-header";
 
 
 import classNames from "classnames"

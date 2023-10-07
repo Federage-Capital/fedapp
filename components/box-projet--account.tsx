@@ -5,7 +5,7 @@ import _ from 'lodash'
 import { NodeGroupRow } from "components/node--group--row"
 
 
-export function BoxProjetAccount({ node, financements, membres, user, ...props }: BoxProjetAccountProps) {
+export function BoxProjetAccount({ node, financements, membres, user }: BoxProjetAccountProps) {
 	const regroupement = _.groupBy(financements, 'gid.id')
 	const regrmesparticipations = _.groupBy(membres, 'gid.id')
 	return (
