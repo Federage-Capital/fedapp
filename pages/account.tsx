@@ -4,7 +4,6 @@ import { DrupalNode, DrupalUser } from "next-drupal";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image"
-import _ from 'lodash'
 
 import { absoluteURL } from "lib/utils"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
@@ -69,8 +68,6 @@ export default function AccountsPage({
 
   const { data, status } = useSession()
   const { t } = useTranslation()
-  const regroupement = _.groupBy(financementsacceptedansgroupe, 'gid.id')
-  const regrmesparticipations = _.groupBy(memberships, 'gid.id')
 
 
   if (status === "loading") {

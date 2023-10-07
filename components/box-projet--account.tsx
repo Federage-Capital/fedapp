@@ -6,14 +6,13 @@ import { NodeGroupRow } from "components/node--group--row"
 
 
 export function BoxProjetAccount({ node, financements, membres, user }: BoxProjetAccountProps) {
-	const regroupement = _.groupBy(financements, 'gid.id')
 	const regrmesparticipations = _.groupBy(membres, 'gid.id')
 	return (
 		<>
-			<div className="pb-4">
+
 			{_.map(regrmesparticipations,(value, key) => (
 
-												<div key={key} className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
+												<div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
 
 
 
@@ -129,7 +128,7 @@ NAaN
 
 
 											))}
-			</div >
+
 		</>
 	);
 }
