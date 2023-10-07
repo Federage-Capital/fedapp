@@ -98,11 +98,12 @@ export function FormAnnonceEdit({ className, node, fin, categorieprj, groupe, ..
           'content-type': 'multipart/form-data',
         },
       };
-      const response =  fetch(`https://fed.septembre.io/user/register?_format=json`, {
+
+      const response =  fetch(`/api/uploadfile/${node.id}`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json',
+         'Content-Type': 'application/vnd.api+json',
         },
 
       })
@@ -269,7 +270,6 @@ export function FormAnnonceEdit({ className, node, fin, categorieprj, groupe, ..
 
 
 
-
                       <div className="grid gap-2">
                         <label htmlFor="revision_log" className="font-semibold text-text">
                           {t("revision_log")} <span className="text-sm text-red-500">*</span>
@@ -285,16 +285,40 @@ export function FormAnnonceEdit({ className, node, fin, categorieprj, groupe, ..
                         />
                       </div>
 
+                      <div className="grid gap-2">
+                        <label htmlFor="document" className="font-semibold text-text">
+                          {t("Devis ou facture proforma")} <span className="text-sm text-red-500"></span>
+                        </label>
+                        <input
+                          type="file"
+                          id="document"
+                          name="document"
+                          className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
+                        />
+
+                      </div>
+
 
                       {node.field_document_s_annexe_s_?.length ? (
                                              <>
                                        {node.field_document_s_annexe_s_.map((media,index) => (
-                                   <li key={index}>{media.field_document_s_annexe_s_.uri.url}</li>
+                                   <li key={index}>Le fichier présent{media.field_media_document.uri.url}</li>
                                                ))}
                                              </>
                                            ) : (
                                              <>
+                                             <div className="grid gap-2">
+                                               <label htmlFor="document" className="font-semibold text-text">
+                                                 {t("Devis ou facture proforma")} <span className="text-sm text-red-500"></span>
+                                               </label>
+                                               <input
+                                                 type="file"
+                                                 id="document"
+                                                 name="document"
+                                                 className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
+                                               />
 
+                                             </div>
                                              </>
                                            )}
 
@@ -322,24 +346,11 @@ button replace
 <input
 type="file"
 id="document"
-  name="document"
+name="document"
   ref={ref} />
      <button onClick={reset}>reset</button>
 
 
-                      <div className="grid gap-2">
-                        <label htmlFor="document" className="font-semibold text-text">
-                          {t("Devis ou facture proforma")} <span className="text-sm text-red-500"></span>
-                        </label>
-                        <input
-                          type="file"
-                          id="document"
-                          name="document"
-
-                          className="px-2 py-3 bg-white rounded-md border border-gray focus:outline-dotted focus:outline-offset-2 focus:outline-link focus:ring-0 focus:border-gray"
-                        />
-
-                      </div>
 
 
 

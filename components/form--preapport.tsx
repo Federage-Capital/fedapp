@@ -81,14 +81,6 @@ export function FormPreapport({ className, categorieprj, ...props }: FormPreappo
 <>
     <div class="grow w-full">
 
-    {preapports.map((cat) => (
-    						 <div key={cat.id} value={cat.id}>
-
-         <BaxActualPreapports preapports={cat} query={query.gid}/>
-
-
-    						 </div>
-    						 ))}
 
 
 

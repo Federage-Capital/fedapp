@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Link from "next/link"
 import { useTranslation } from "next-i18next"
-import { useSession, signOut } from "next-auth/react"
+import { getSession, useSession, signOut } from "next-auth/react";
 import { Menu, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 import classNames from "classnames"
@@ -25,9 +25,7 @@ export function MenuDring() {
     return classes.filter(Boolean).join(' ')
   }
 
-  const { data: actualuser, error: actualuserError } = useSWR(() => `https://fed.septembre.io/actualuser` + `/` + data.user.userId, fetcher)
-  const { data: danses, error: dansesError } = useSWR(() => `https://fed.septembre.io/danse-propositions-nested`, fetcher)
-  const { data: dansesAdduser, error: dansesAdduserError } = useSWR(() => `https://fed.septembre.io/danse_add_user_nested`, fetcher)
+  const { data: dansesAdduser, error: dansesAdduserError } = useSWR(() => `https://fed.septembre.io/danse-notifs-nested`, fetcher)
 
 
 
@@ -75,46 +73,24 @@ export function MenuDring() {
 
 
           <Menu.Items className="absolute right-0 z-10 mt-2 w-96 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            {danses?.length ? (
-
-              <>
-                Alerte nouvelles offres
-                {danses.map((danse) => (
-                  <div key={danse.id} className="divide-y divide-gray-200">
-
-                    # {danse.id} - {danse.plugin} - {danse.topic}<br />
-                    {danse.payload.entity.bundle}-{danse.payload.entity.id}<br />
-
-                    <div
-                      dangerouslySetInnerHTML={{ __html: danse.payload_export }}
-                      className="mt-6 text-xl leading-loose prose"
-                    />
-                  </div>
-                ))}
-
-              </>
-            ) : (
-              <p className="text-2xl cadre text-center p-20 mb-10">
 
 
-                <p>   Vide</p>
 
-              </p>
-            )}
+                Alertes - session.user.userId
 
 
 
             {dansesAdduser?.length ? (
 
               <>
-                Alerte Ajout à un groupe
+
                 {dansesAdduser.map((adduser) => (
                   <div key={adduser.id} className="divide-y divide-gray-200">
 
                     # {adduser.id} <br />
                     <br />
-                    {adduser.payload.form['#action']}
 
+{adduser.label}
                   </div>
                 ))}
 

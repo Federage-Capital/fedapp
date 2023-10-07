@@ -9,19 +9,17 @@ import _ from 'lodash'
 import { absoluteURL,formatDate } from "lib/utils"
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import { getSession, useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
 import { drupal } from "lib/drupal";
 import { getGlobalElements } from "lib/get-global-elements";
 import { Layout, LayoutProps } from "components/layout";
 import { PageHeader } from "components/page-header";
-import { NextApiRequest, NextApiResponse } from "next"
+
 
 import classNames from "classnames"
 
 import { NodeGroupRow } from "components/node--group--row"
 
-import { BoxProjetsEncours } from "components/box-groupes-encours"
-import { BoxParticipationsEncours } from "components/box-participations-encours"
+
 import { BoxProjetsOffre } from "components/box-projets-offre"
 import { BoxTransactions } from "components/box-tableau-transactions"
 
@@ -29,7 +27,6 @@ import { BoxProjetAccount } from "components/box-projet--account"
 
 import { useState } from "react";
 
-import useSWR from 'swr'
 
 
 
@@ -43,13 +40,11 @@ interface AccountPageProps extends LayoutProps {
 
 
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
 export default function AccountsPage({
   user,
   menus,
-  financementsdansgr,
   financementsacceptedansgroupe,
   memberships,
   groupe,
@@ -60,7 +55,6 @@ export default function AccountsPage({
 
 
 
-    const router = useRouter();
 
 
 
@@ -72,7 +66,6 @@ export default function AccountsPage({
 
 
 
-  const { data: propositions, error: propositionsError } = useSWR(() => `https://fed.septembre.io/propositions_nested` + `/` + user[0].id, fetcher)
 
 
   const { data, status } = useSession()
@@ -94,6 +87,8 @@ export default function AccountsPage({
   }
   if (status === "authenticated") {
   return (
+    <div className="bg-slate-100">
+
     <Layout
       menus={menus}
       meta={{
@@ -105,8 +100,8 @@ export default function AccountsPage({
 
       <div className="container" id="account">
 
-        <div className="title">
-          <div className="mb-4 py-3">
+        <div className="title mb-4 py-3">
+
             <div className="grid grid-cols-4 gap-4">
 
 
@@ -134,13 +129,14 @@ export default function AccountsPage({
 
       {user[0].display_name}
 
+
            {financementsacceptedansgroupe
            	.filter(valide => valide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
            	.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
             }
             </div>
 
-          </div>
+
 
 
         </div>
@@ -174,14 +170,9 @@ export default function AccountsPage({
 
 
 
-<BoxProjetAccount node={groupe} financements={tousfinancementsacceptedugroupe} membres={memberships} user={user} />
-
-
-
-
         <div className="flex flex-wrap">
           <div className="w-full">
-            <br />
+
             <span
               className="px-5 py-3 p-4 text-xl font-semibold"
             >  Opérations
@@ -266,104 +257,13 @@ export default function AccountsPage({
 
                   <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
-                  {_.map(regrmesparticipations,(value, key) => (
-                                    <>
-                                    <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400" key={key}>
-
-                                    <div className="flex-shrink-0">
-                                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17 21.0714H23M11 25.3571V14.6429C11 14.0745 11.2107 13.5295 11.5858 13.1276C11.9609 12.7258 12.4696 12.5 13 12.5H19L21 14.6429H27C27.5304 14.6429 28.0391 14.8686 28.4142 15.2705C28.7893 15.6723 29 16.2174 29 16.7857V25.3571C29 25.9255 28.7893 26.4705 28.4142 26.8724C28.0391 27.2742 27.5304 27.5 27 27.5H13C12.4696 27.5 11.9609 27.2742 11.5858 26.8724C11.2107 26.4705 11 25.9255 11 25.3571Z" stroke="#012BDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="18.75" stroke="#D1D5DB" strokeWidth="2.5" strokeDasharray="5 5" />
-                                      </svg>
-                                    </div>
-
-                                    <div className="min-w-0 flex-1">
-
-                                    {key?.length ? (
-                                          <>
-                                    {financementsdansgr.filter(titredugroupe => titredugroupe.id.includes(key)).map(filteredtitredugroupe => {
-                                              return (
-                                                     <div key={filteredtitredugroupe.id} className="relative flex items-center ">
-                                                    {filteredtitredugroupe.label}<br />
-                                                    <p className="font-semibold">admin :{filteredtitredugroupe.uid.display_name}</p>
-
-
-                                                    <div className="flex-shrink-2">
-                                                    <h2>    <NodeGroupRow key={filteredtitredugroupe.id} node={filteredtitredugroupe} />
-
-                                                      <Link href={filteredtitredugroupe.path.alias} passHref>
-
-                                                        <a>
-                                                          <svg
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            strokeWidth="2"
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            className="w-4 h-4 ml-2"
-                                                          >
-                                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                                          </svg>
-
-                                                        </a>
-                                                      </Link>
-                                                    </h2>
-                                                    </div>
-                                                     </div>
-                                                   )
-                                            })}
-                                          </>
-                                        ) : (
-                                          < >
-                                    NAaN
-                                          </>
-                                        )}
-
-
-
-Non validés:
-
-{financementsacceptedansgroupe
-.filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('6e6f83ed-b882-4b24-9a1b-897ab1f2e37c'))
-.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
-}
-<br/>
-Mes apports non validés :
-
-                  {financementsacceptedansgroupe
-                  .filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('6e6f83ed-b882-4b24-9a1b-897ab1f2e37c') && nonvalide.uid.id.includes(user[0].id))
-                  .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
-                  }
-
-
-
-<br/>
-Montants validés:
-{financementsacceptedansgroupe
-.filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
-.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
-}
-<br/>
-Mes apports validés :
-
-                  {financementsacceptedansgroupe
-                  .filter(nonvalide => nonvalide.gid.id.includes(key) && nonvalide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05') && nonvalide.uid.id.includes(user[0].id))
-                  .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
-                  }
 
 
 
 
 
 
-                                      <br/>
-                                      </div>
-                                      </div>
-
-                                    </>
-                                  ))}
-
+                  <BoxProjetAccount node={groupe} financements={tousfinancementsacceptedugroupe} membres={memberships} user={user} />
 
 
 
@@ -374,16 +274,15 @@ Mes apports validés :
 
 
                   <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <BoxProjetsOffre key={financementsdansgr.id} user={user}
-                  propositions={propositions}
-                  financementsdansgr={financementsdansgr}
+                  <BoxProjetsOffre key={groupe.id} user={user}
+                  propositions={groupe}
                   />
                   </div>
 
 
                   <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                   <BoxTransactions key={user[0].id} user={user}
-                  financementsdansgr={financementsdansgr}
+                  financementsdansgr={groupe}
                   />
                   </div>
 
@@ -399,6 +298,7 @@ Mes apports validés :
       </div>
 
     </Layout>
+    </div>
   );
 }  }
 
@@ -424,10 +324,11 @@ export async function getServerSideProps(
       "group--federage",
       {
         params: new DrupalJsonApiParams()
-          .addInclude(["uid"])
+          .addInclude(["uid, uid.user_picture"])
 
-          .addFields("user--user", ["display_name"])
+          .addFields("user--user", ["display_name, user_picture"])
           .addFields("group--federage", ["uid", "path", "label"])
+          .addFields("file--file", ["uri", "resourceIdObjMeta"])
 
           .addSort("created", "DESC")
           .getQueryObject(),
@@ -437,32 +338,15 @@ export async function getServerSideProps(
       }
 
     )
-  const financementsdansgr = await drupal.getResourceCollection(
-    "group--federage",
-    {
-      params: new DrupalJsonApiParams()
-        .addInclude(["uid"])
-
-        .addFields("user--user", ["display_name"])
-        .addFields("group--federage", ["uid", "path", "label"])
-
-        .addSort("created", "DESC")
-        .getQueryObject(),
-
-      withAuth: session.accessToken,
-
-    }
-
-  )
 
   const tousfinancementsacceptedugroupe = await drupal.getResourceCollection(
     "group_content--federage-group_node-financement",
     {
       params: new DrupalJsonApiParams()
         .addInclude(["uid", "gid", "entity_id"])
-        .addFields("entity_id", ["field_estimation_du_prix"])
-        .addFields("gid", ["id"])
-        .addFields("uid", ["meta"])
+        .addFields("node--financement", ["field_estimation_du_prix", "id", "field_statut","uid","title"])
+        .addFields("group--federage", ["id"])
+        .addFields("user--user", ["meta","display_name","id", "name"])
         .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
 
 
@@ -479,9 +363,9 @@ export async function getServerSideProps(
     {
       params: new DrupalJsonApiParams()
         .addInclude(["uid", "gid", "entity_id"])
-        .addFields("entity_id", ["field_estimation_du_prix"])
-        .addFields("gid", ["id"])
-        .addFields("uid", ["meta"])
+        .addFields("node--financement", ["field_estimation_du_prix","field_statut"])
+        .addFields("group--federage", ["id"])
+        .addFields("user--user", ["meta"])
         .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
 
         .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
@@ -499,10 +383,12 @@ export async function getServerSideProps(
     "group_content--federage-group_membership",
     {
       params: new DrupalJsonApiParams()
-        .addInclude(["uid","gid"])
+        .addInclude(["uid","gid", "uid.user_picture"])
 
-        .addFields("uid", ["drupal_internal__uid, display_name"])
-        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+        .addFields("user--user", ["drupal_internal__uid, display_name, user_picture"])
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
+          .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+
 
         .addSort("created", "DESC")
         .getQueryObject(),
@@ -543,7 +429,6 @@ export async function getServerSideProps(
   return {
     props: {
       ...(await getGlobalElements(context)),
-      financementsdansgr,
       user,
       financementsacceptedansgroupe,
       tousfinancementsacceptedugroupe,

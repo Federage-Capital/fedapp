@@ -39,7 +39,7 @@ export function getParams(
                     "sticky",
                     "field_document_s_annexe_s_",
         "uid",
-  "field_statut",
+        "field_statut",
         "field_type_de_financement",
         "field_estimation_du_prix",
         "field_date_de_livraison",
