@@ -15,7 +15,6 @@ import { Layout, LayoutProps } from "components/layout";
 
 import classNames from "classnames"
 
-import { NodeGroupRow } from "components/node--group--row"
 
 
 import { BoxProjetsOffre } from "components/box-projets-offre"
@@ -43,7 +42,6 @@ interface AccountPageProps extends LayoutProps {
 export default function AccountsPage({
   user,
   menus,
-  financementsacceptedansgroupe,
   memberships,
   groupe,
   tousfinancementsacceptedugroupe,
@@ -123,11 +121,10 @@ export default function AccountsPage({
                 </div>
               )}
 
-      {user[0].display_name}
+      {user[0].display_name}<br/>
 
-
-           {financementsacceptedansgroupe
-           	.filter(valide => valide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
+           {tousfinancementsacceptedugroupe
+           	.filter(valide => valide.uid.id.includes(user[0].id) && valide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
            	.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
             }
             </div>
@@ -354,26 +351,7 @@ export async function getServerSideProps(
     }
 
   )
-  const financementsacceptedansgroupe = await drupal.getResourceCollection(
-    "group_content--federage-group_node-financement",
-    {
-      params: new DrupalJsonApiParams()
-        .addInclude(["uid", "gid", "entity_id"])
-        .addFields("node--financement", ["field_estimation_du_prix","field_statut"])
-        .addFields("group--federage", ["id"])
-        .addFields("user--user", ["meta"])
-        .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
 
-        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
-
-        .addSort("created", "DESC")
-        .getQueryObject(),
-
-      withAuth: session.accessToken,
-
-    }
-
-  )
 
   const memberships = await drupal.getResourceCollection(
     "group_content--federage-group_membership",
@@ -426,7 +404,6 @@ export async function getServerSideProps(
     props: {
       ...(await getGlobalElements(context)),
       user,
-      financementsacceptedansgroupe,
       tousfinancementsacceptedugroupe,
       memberships,
       groupe,
