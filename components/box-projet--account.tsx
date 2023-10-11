@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import _ from 'lodash'
 import { NodeGroupRow } from "components/node--group--row"
+import { NodeGroupfinRow } from "components/node--groupfin--row-indigo"
 
 
 export function BoxProjetAccount({ node, financements, membres, user }: BoxProjetAccountProps) {
@@ -24,12 +25,16 @@ export function BoxProjetAccount({ node, financements, membres, user }: BoxProje
 												.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
 											} €
 												</p>
+
+
 												{key?.length ? (
 															<>
 												{node.filter(titredugroupe => titredugroupe.id.includes(key)).map(filteredtitredugroupe => {
 																	return (
-																				 <div key={filteredtitredugroupe.id} className="relative flex items-center ">
-																							<p className="text-3xl font-semibold">	{filteredtitredugroupe.label}</p><br />
+																				 <div key={filteredtitredugroupe.id}>
+
+<div className="relative flex items-center text-3xl font-semibold">
+																							{filteredtitredugroupe.label}
 
 
 																				<div className="ml-12 flex-shrink-2">
@@ -38,20 +43,12 @@ export function BoxProjetAccount({ node, financements, membres, user }: BoxProje
 
 
 																				</div>
-																				 </div>
-																			 )
-																})}
-															</>
-														) : (
-															< >
-												NAaN
-															</>
-														)}
+
+
+</div>
 
 
 
-
-<br/>
 Mes propositions non validées :
 
 			{financements
@@ -61,9 +58,43 @@ Mes propositions non validées :
 
 
 
-<br/>
 
-<br/>
+<div className="relative flex items-center">
+	<div className="col-span-10 text-right">
+<Link href={`/financement/new?gid=${encodeURIComponent(filteredtitredugroupe.id)}`}>
+
+<div className="inline-block px-3 py-1 bg-indigo-100  text-blue-700 transition-colors rounded-xl text-xs text-center font-semibold hover:bg-indigo-200 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+		Nouvel apport
+		</div>
+
+</Link>
+</div>
+
+<div className="col-span-10 text-right">
+<Link href={`/membre/new?gid=${encodeURIComponent(filteredtitredugroupe.id)}`}>
+
+<div className="inline-block px-3 py-1 bg-indigo-100 hover:bg-indigo-200 text-blue-700 transition-colors rounded-xl text-xs text-center font-semibold lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+	Ajouter un membre
+	</div>
+
+</Link>
+</div>
+
+
+
+<NodeGroupfinRow key={filteredtitredugroupe.id} node={filteredtitredugroupe} />
+</div>
+</div>
+
+)
+})}
+</>
+) : (
+< >
+NAaN
+</>
+)}
+
 
 <div className="grid grid-cols-12 gap-4">
 <div className="col-span-2 font-semibold">Transactions</div>
