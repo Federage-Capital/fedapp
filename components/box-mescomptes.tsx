@@ -54,7 +54,7 @@ Admin
 			<div key={index} className="grid grid-cols-12  gap-4 border border-gray-300" >
 
 
-<div className="col-span-6">{item.label}</div><div className="col-span-6">
+<div className="col-span-10">{item.label}</div><div className="col-span-2 text-4xl">
 
   <div>
 		 <input onChange={handleInput} class="hidden" name="num1" value={input.num1=
@@ -64,7 +64,7 @@ Admin
 )}`
 } type="text"></input>
 
-<input onChange={handleInput} class="hidden" name="num2" value={input.num1=
+<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
 `${(financements
 	.filter(valide => valide.gid.id.includes(item.id) && !valide.uid.id.includes(userinfo.id))
 	 .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
@@ -86,7 +86,7 @@ Admin
 
 
 
-		<div className="col-span-6">
+		<div className="col-span-10">
 
 
 		{item.uid.user_picture && (
@@ -103,11 +103,11 @@ Admin
 
 		)}
 		<span className="ml-5 mt-3 text-xl">{item.uid.display_name}</span>
-
+		<span className="ml-5 mt-3 text-xl">{item.label}</span>
 		</div>
 
 
-	<div className="col-span-6 ">
+	<div className="col-span-2">
 
 
 
@@ -126,7 +126,7 @@ Admin
 
 
 
-		<div className="col-span-6">
+		<div className="col-span-10">
 
 
 		{item.uid.user_picture && (
@@ -143,11 +143,11 @@ Admin
 
 		)}
 		<span className="ml-5 mt-3 text-xl">{item.uid.display_name}</span>
-
+		<span className="ml-5 mt-3 text-xl">{item.label}</span>
 		</div>
 
 
-	<div className="col-span-6 text-rose-500">
+	<div className="col-span-2 text-rose-500">
 
 
 
