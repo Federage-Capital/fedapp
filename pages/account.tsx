@@ -16,11 +16,13 @@ import { Layout, LayoutProps } from "components/layout";
 import classNames from "classnames"
 
 
-
 import { BoxProjetsOffre } from "components/box-projets-offre"
 import { BoxTransactions } from "components/box-tableau-transactions"
-
 import { BoxProjetAccount } from "components/box-projet--account"
+import { BoxMescomptes } from "components/box-mescomptes"
+import { BoxParticpations } from "components/box-mesparticipations"
+
+
 
 import { useState } from "react";
 
@@ -44,7 +46,11 @@ export default function AccountsPage({
   menus,
   memberships,
   groupe,
-  tousfinancementsacceptedugroupe,
+  allfinancements,
+  messousgroupes,
+  parentedegroupe,
+  financementsssgroupes,
+  sousgroupes,
   ...props
 }: AccountPageProps) {
 
@@ -96,10 +102,10 @@ export default function AccountsPage({
 
         <div className="title mb-4 py-3">
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-12 gap-4">
 
 
-
+<div className="col-span-2">
               {user[0].user_picture ? (
                 <Image
                   src={absoluteURL(user[0].user_picture.uri.url)}
@@ -120,10 +126,11 @@ export default function AccountsPage({
                   </div>
                 </div>
               )}
-
+              </div>
+<div className="col-span-3">
       {user[0].display_name}<br/>
 
-           {tousfinancementsacceptedugroupe
+           {allfinancements
            	.filter(valide => valide.uid.id.includes(user[0].id) && valide.entity_id.field_statut.id.includes('add21795-b0ad-45ab-ba10-a16859dcaf05'))
            	.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
             }
@@ -132,32 +139,36 @@ export default function AccountsPage({
 
 
 
-        </div>
-        <div className="actions">
 
+              <div className="col-span-7">
+                <Link href="/groupfederage/new" passHref>
+                  <span className="px-4 py-2 mr-4 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                    Nouveau projet
 
+                    {user.id}
 
-          <p className="text-lg mb-12">
-            <Link href="/groupfederage/new" passHref>
-              <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                Nouveau projet
+                  </span>
+                </Link>
 
-                {user.id
-                }
+                <Link href="/evolutionfin/new" passHref>
+                  <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                    nouvelle action dans 1 projet
 
-              </a>
-            </Link>
-          </p>
-          <p className="text-lg mb-12">
-            <Link href="/evolutionfin/new" passHref>
-              <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                nouvelle action dans 1 projet
+                    {user.id}
 
-                {user.id}
+                  </a>
+                </Link>
+                <Link href="/evolutionfin/new" passHref>
+                  <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+                    Sous groupe dans un projet
 
-              </a>
-            </Link>
-          </p>
+                    {user.id}
+
+                  </a>
+                </Link>
+              </div>
+
+</div>
         </div>
 
 
@@ -167,8 +178,8 @@ export default function AccountsPage({
           <div className="w-full">
 
             <span
-              className="px-5 py-3 p-4 text-xl font-semibold"
-            >  Opérations
+              className="py-3  text-xl font-semibold"
+            >  Activités
 
             </span>
             <ul
@@ -176,29 +187,53 @@ export default function AccountsPage({
               role="tablist"
               aria-label="liste des taches"
             >
-              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                <a
-                  className={
-                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                    (openTab === 1
-                      ? "bg-gray" + "-100"
-                      : "text-" + "gray-700")
-                  }
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+              <a
+                className={
+                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                  (openTab === 1
+                    ? "bg-gray" + "-100"
+                    : "text-" + "gray-700")
+                }
 
 
-                  onClick={e => {
-                    e.preventDefault();
-                    setOpenTab(1);
-                  }}
-                  data-toggle="tab"
-                  href="#link1"
-                  role="tablist"
-                  aria-label="tab 1"
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(1);
+                }}
+                data-toggle="tab"
+                href="#link1"
+                role="tablist"
+                aria-label="tab 0"
 
-                >
-                  En cours
-                </a>
-              </li>
+              >
+                Mes sous-groupes
+              </a>
+            </li>
+
+            <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+              <a
+                className={
+                  "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                  (openTab === 2
+                    ? "bg-gray" + "-100"
+                    : "text-" + "gray-700")
+                }
+
+
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(2);
+                }}
+                data-toggle="tab"
+                href="#link1"
+                role="tablist"
+                aria-label="tab 0"
+
+              >
+                Sous groupes auxquels je participe
+              </a>
+            </li>
               <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                 <a
                   className={
@@ -207,20 +242,21 @@ export default function AccountsPage({
                       ? "bg-gray" + "-100"
                       : "text-" + "gray-700")
                   }
+
+
                   onClick={e => {
                     e.preventDefault();
                     setOpenTab(2);
                   }}
                   data-toggle="tab"
-                  href="#link2"
+                  href="#link1"
                   role="tablist"
-                  aria-label="offres"
+                  aria-label="tab 1"
 
                 >
-                  Offres
+                  Projets
                 </a>
               </li>
-
               <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                 <a
                   className={
@@ -234,29 +270,83 @@ export default function AccountsPage({
                     setOpenTab(3);
                   }}
                   data-toggle="tab"
+                  href="#link2"
+                  role="tablist"
+                  aria-label="offres"
+
+                >
+                Apports
+                </a>
+              </li>
+
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 4
+                      ? "bg-gray" + "-100"
+                      : "text-" + "gray-700")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(4);
+                  }}
+                  data-toggle="tab"
                   href="#link4"
                   role="tablist"
                   aria-label="transactions"
 
                 >
-                  Transactions
+        Contrats
                 </a>
               </li>
             </ul>
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
-              <div className="px-4 py-5 flex-auto">
+              <div className="py-5 flex-auto">
                 <div className="tab-content tab-space">
-
-
-                  <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-
+                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
 
 
 
 
+              <BoxMescomptes sousgroupes={messousgroupes} userid={user[0].id} ttssgroupes={sousgroupes} parente={parentedegroupe} financements={financementsssgroupes} user={user} />
 
 
-                  <BoxProjetAccount node={groupe} financements={tousfinancementsacceptedugroupe} membres={memberships} user={user} />
+
+Sous groupes dont je suis Membre :
+
+<BoxParticpations sousgroupes={messousgroupes} ttssgroupes={sousgroupes} parente={parentedegroupe} financements={financementsssgroupes} user={user} />
+
+
+<br/>
+
+</div>
+
+<div className={openTab === 2 ? "block" : "hidden"} id="link2">
+
+
+
+
+
+
+
+<BoxProjetAccount node={groupe} financements={allfinancements} membres={memberships} user={user} />
+
+
+
+
+
+
+</div>
+                  <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+
+
+
+
+
+
+
+                  <BoxProjetAccount node={groupe} financements={allfinancements} membres={memberships} user={user} />
 
 
 
@@ -266,14 +356,14 @@ export default function AccountsPage({
 </div>
 
 
-                  <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                  <div className={openTab === 4 ? "block" : "hidden"} id="link4">
                   <BoxProjetsOffre key={groupe.id} user={user}
                   propositions={groupe}
                   />
                   </div>
 
 
-                  <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                  <div className={openTab === 5 ? "block" : "hidden"} id="link5">
                   <BoxTransactions key={user[0].id} user={user}
                   financementsdansgr={groupe}
                   />
@@ -332,15 +422,92 @@ export async function getServerSideProps(
 
     )
 
-  const tousfinancementsacceptedugroupe = await drupal.getResourceCollection(
+  const allfinancements = await drupal.getResourceCollection(
     "group_content--federage-group_node-financement",
     {
       params: new DrupalJsonApiParams()
         .addInclude(["uid", "gid", "entity_id"])
-        .addFields("node--financement", ["field_estimation_du_prix", "id", "field_statut","uid","title"])
+        .addFields("node--financement", ["field_estimation_du_prix", "id", "field_statut","uid","title","path"])
         .addFields("group--federage", ["id"])
         .addFields("user--user", ["meta","display_name","id", "name"])
-        .addFields("group_content--federage-group_node-financement", ["entity_id","uid","gid"])
+
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
+
+  const messousgroupes = await drupal.getResourceCollection(
+    "group_content--subgroup-group_membership",
+    {
+      params: new DrupalJsonApiParams()
+      .addInclude(["uid","gid"])
+
+
+
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
+
+  const sousgroupes = await drupal.getResourceCollection(
+    "group--subgroup",
+    {
+      params: new DrupalJsonApiParams()
+      .addInclude(["uid"])
+
+
+
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
+
+  const financementsssgroupes = await drupal.getResourceCollection(
+    "group_content--subgroup-group_node-financement",
+    {
+      params: new DrupalJsonApiParams()
+      .addInclude(["uid","uid.user_picture","gid","entity_id"])
+      .addFields("user--user", [
+        "display_name",
+        "drupal_internal__uid",
+        "user_picture",
+      ])
+      .addFields("file--file", ["uri", "resourceIdObjMeta"])
+
+
+
+        .addSort("created", "DESC")
+        .getQueryObject(),
+
+      withAuth: session.accessToken,
+
+    }
+
+  )
+
+
+  const parentedegroupe = await drupal.getResourceCollection(
+    "group_content--federage-subgroup-subgroup",
+    {
+      params: new DrupalJsonApiParams()
+      .addInclude(["uid","gid"])
+
+
 
 
         .addSort("created", "DESC")
@@ -361,7 +528,7 @@ export async function getServerSideProps(
 
         .addFields("user--user", ["drupal_internal__uid, display_name, user_picture"])
         .addFields("file--file", ["uri", "resourceIdObjMeta"])
-          .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+        .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
 
 
         .addSort("created", "DESC")
@@ -404,9 +571,13 @@ export async function getServerSideProps(
     props: {
       ...(await getGlobalElements(context)),
       user,
-      tousfinancementsacceptedugroupe,
+      allfinancements,
       memberships,
       groupe,
+      messousgroupes,
+      parentedegroupe,
+      financementsssgroupes,
+      sousgroupes,
     },
   };
 }

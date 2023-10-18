@@ -85,12 +85,12 @@ export function MenuDring() {
               <>
 
                 {dansesAdduser.map((adduser) => (
-                  <div key={adduser.id} className="divide-y divide-gray-200">
+                  <div key={adduser.id} className="grid grid-cols-1 divide-y-8">
 
                     # {adduser.id} <br />
-                    <br />
 
-{adduser.label}
+
+{adduser.payload.entity.label}
                   </div>
                 ))}
 

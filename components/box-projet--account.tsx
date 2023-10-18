@@ -136,6 +136,23 @@ NAaN
 
 		<div key={item.id} className="grid grid-cols-12 gap-4">
   <div className="col-span-2">{item.entity_id.uid.name}</div>
+
+	<Link href=	{item.entity_id.path.alias} passHref>
+
+		<a>
+voir l&apos;offre node
+
+		</a>
+	</Link>
+
+
+		<Link href=	{item.path.alias}  passHref>
+
+			<a>
+	voir l&apos;offre relation
+
+			</a>
+		</Link>
 <div className="col-span-8"><p>{item.entity_id.title}</p>
 <p>{item.entity_id.created}</p></div>
 <div className="col-span-2">{item.entity_id.field_estimation_du_prix}</div>
