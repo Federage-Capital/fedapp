@@ -42,22 +42,7 @@ export function BoxApportsSsgroup({ financement, subgroupid, stringcontent, subg
 
 
 		<div class="font-bold"> 	Ma somme dans ces sous groupes :	{sum}</div>
-		<div className="col-span-7">
 
-			<Link href="/evolutionfin/new" passHref>
-				<span className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-
-
-Apport
-
-				</span>
-			</Link>
-			<Link href="/evolutionfin/new" passHref>
-				<a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-				Inviter
-				</a>
-			</Link>
-		</div>
 
 		{subgroup
 			.filter(valide => valide.subgroup_tree.includes(subgroupid) && valide.type.includes("subgroup"))
@@ -66,6 +51,28 @@ Apport
 					<div key={index}  >
 
 
+
+
+<div className="col-span-7">
+
+
+
+	<Link href={`/financement/new?gid=${encodeURIComponent(item.uuid)}`} passHref>
+		<span className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+
+
+Apport
+
+		</span>
+	</Link>
+	<Link href={`/membre/new?gid=${encodeURIComponent(item.uuid)}`} passHref>
+		<a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+		Inviter
+
+
+		</a>
+	</Link>
+</div>
 														<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
 													`${(stringcontent
 														.filter(valide => valide.subgroup_tree.includes(item.subgroup_tree) && valide.group_type.includes("subgroup") && valide.uuid_1.includes(userid))
