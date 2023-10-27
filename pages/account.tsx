@@ -51,6 +51,7 @@ export default function AccountsPage({
   parentedegroupe,
   financementsssgroupes,
   sousgroupes,
+
   ...props
 }: AccountPageProps) {
 
@@ -140,33 +141,19 @@ export default function AccountsPage({
 
 
 
-              <div className="col-span-7">
-                <Link href="/groupfederage/new" passHref>
-                  <span className="px-4 py-2 mr-4 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                    Nouveau projet
 
-                    {user.id}
 
-                  </span>
-                </Link>
 
-                <Link href="/evolutionfin/new" passHref>
-                  <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                    nouvelle action dans 1 projet
+<div className="col-span-3">
+<Link href="/groupfederage/new" passHref>
+  <span className="px-4 py-2 mr-4 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+    Nouveau projet
 
-                    {user.id}
+    {user.id}
 
-                  </a>
-                </Link>
-                <Link href="/evolutionfin/new" passHref>
-                  <a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-                    Sous groupe dans un projet
-
-                    {user.id}
-
-                  </a>
-                </Link>
-              </div>
+  </span>
+</Link>
+</div>
 
 </div>
         </div>
@@ -226,7 +213,7 @@ export default function AccountsPage({
                   setOpenTab(2);
                 }}
                 data-toggle="tab"
-                href="#link1"
+                href="#link2"
                 role="tablist"
                 aria-label="tab 0"
 
@@ -238,7 +225,7 @@ export default function AccountsPage({
                 <a
                   className={
                     "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                    (openTab === 2
+                    (openTab === 3
                       ? "bg-gray" + "-100"
                       : "text-" + "gray-700")
                   }
@@ -246,10 +233,10 @@ export default function AccountsPage({
 
                   onClick={e => {
                     e.preventDefault();
-                    setOpenTab(2);
+                    setOpenTab(3);
                   }}
                   data-toggle="tab"
-                  href="#link1"
+                  href="#link3"
                   role="tablist"
                   aria-label="tab 1"
 
@@ -257,28 +244,6 @@ export default function AccountsPage({
                   Projets
                 </a>
               </li>
-              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
-                <a
-                  className={
-                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
-                    (openTab === 3
-                      ? "bg-gray" + "-100"
-                      : "text-" + "gray-700")
-                  }
-                  onClick={e => {
-                    e.preventDefault();
-                    setOpenTab(3);
-                  }}
-                  data-toggle="tab"
-                  href="#link2"
-                  role="tablist"
-                  aria-label="offres"
-
-                >
-                Apports
-                </a>
-              </li>
-
               <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
                 <a
                   className={
@@ -294,12 +259,36 @@ export default function AccountsPage({
                   data-toggle="tab"
                   href="#link4"
                   role="tablist"
+                  aria-label="offres"
+
+                >
+                Apports
+                </a>
+              </li>
+
+              <li className="-mb-px mr-2 last:mr-0 flex-left text-center">
+                <a
+                  className={
+                    "text-xs font-bold  px-5 py-3 rounded-md leading-normal " +
+                    (openTab === 5
+                      ? "bg-gray" + "-100"
+                      : "text-" + "gray-700")
+                  }
+                  onClick={e => {
+                    e.preventDefault();
+                    setOpenTab(5);
+                  }}
+                  data-toggle="tab"
+                  href="#link5"
+                  role="tablist"
                   aria-label="transactions"
 
                 >
         Contrats
                 </a>
               </li>
+
+
             </ul>
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
               <div className="py-5 flex-auto">
@@ -309,13 +298,11 @@ export default function AccountsPage({
 
 
 
-              <BoxMescomptes sousgroupes={messousgroupes} userid={user[0].id} ttssgroupes={sousgroupes} parente={parentedegroupe} financements={financementsssgroupes} user={user} />
+              <BoxMescomptes groupes={groupe}  sousgroupes={messousgroupes} userid={user[0].id} ttssgroupes={sousgroupes} parente={parentedegroupe} financementssg={financementsssgroupes} membres={memberships} user={user} />
 
 
 
-Sous groupes dont je suis Membre :
 
-<BoxParticpations sousgroupes={messousgroupes} ttssgroupes={sousgroupes} parente={parentedegroupe} financements={financementsssgroupes} user={user} />
 
 
 <br/>
@@ -330,7 +317,9 @@ Sous groupes dont je suis Membre :
 
 
 
-<BoxProjetAccount node={groupe} financements={allfinancements} membres={memberships} user={user} />
+
+
+<BoxParticpations sousgroupes={sousgroupes} userid={user[0].id} membershipssg={messousgroupes}   ttssgroupes={sousgroupes} parente={parentedegroupe} financements={financementsssgroupes} user={user} />
 
 
 
@@ -343,10 +332,8 @@ Sous groupes dont je suis Membre :
 
 
 
+<BoxProjetAccount node={groupe} financements={allfinancements} membres={memberships} user={user} />
 
-
-
-                  <BoxProjetAccount node={groupe} financements={allfinancements} membres={memberships} user={user} />
 
 
 
@@ -410,7 +397,7 @@ export async function getServerSideProps(
           .addInclude(["uid, uid.user_picture"])
 
           .addFields("user--user", ["display_name, user_picture"])
-          .addFields("group--federage", ["uid", "path", "label"])
+          .addFields("group--federage", ["uid", "path", "label","drupal_internal__id"])
           .addFields("file--file", ["uri", "resourceIdObjMeta"])
 
           .addSort("created", "DESC")
@@ -428,7 +415,7 @@ export async function getServerSideProps(
       params: new DrupalJsonApiParams()
         .addInclude(["uid", "gid", "entity_id"])
         .addFields("node--financement", ["field_estimation_du_prix", "id", "field_statut","uid","title","path"])
-        .addFields("group--federage", ["id"])
+        .addFields("group--federage", ["id", "meta"])
         .addFields("user--user", ["meta","display_name","id", "name"])
 
 
@@ -459,9 +446,12 @@ export async function getServerSideProps(
 
   )
 
+
+
   const sousgroupes = await drupal.getResourceCollection(
     "group--subgroup",
     {
+
       params: new DrupalJsonApiParams()
       .addInclude(["uid"])
 
@@ -487,6 +477,7 @@ export async function getServerSideProps(
         "drupal_internal__uid",
         "user_picture",
       ])
+
       .addFields("file--file", ["uri", "resourceIdObjMeta"])
 
 
@@ -506,7 +497,6 @@ export async function getServerSideProps(
     {
       params: new DrupalJsonApiParams()
       .addInclude(["uid","gid"])
-
 
 
 

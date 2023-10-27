@@ -3,125 +3,114 @@ import Link from 'next/link'
 import Image from 'next/image'
 import _ from 'lodash'
 import { absoluteURL } from "lib/utils"
-
+import { useState, useEffect } from "react";
 import { NodeGroupRow } from "components/node--group--row"
 import { NodeGroupfinRow } from "components/node--groupfin--row-indigo"
 
 
-export function BoxParticpations({ sousgroupes, parente, ttssgroupes, financements, user }: BoxParticpationsProps) {
+export function BoxParticpations({ sousgroupes, parente, userid, membershipssg, ttssgroupes, financements, user }: BoxParticpationsProps) {
 	const mesgroupes = _.groupBy(financements, 'gid.id')
+	//hook defined
 
+	const [input, setInput] = React.useState({
+			num1: "",
+			num2: "",
+	});
+	const [sum, setSum] = React.useState(undefined)
+
+	useEffect(() => {
+		 setSum(parseInt(input.num1) - parseInt(input.num2))
+	}, [input])
+
+	//handle input change
+
+	const handleInput = function(e){
+			setInput({
+					...input,
+					[e.target.name]: e.target.value
+			});
+	};
 	return (
 		<>
 
 
-
-
-
-
-
-{user
-	.map((userinfo,index) => (
-
-		<div key={index}>
-
-Admin
-
-{ttssgroupes
-	.filter(valide => valide.uid.id.includes(userinfo.id))
+{sousgroupes
+	.filter(valide => !valide.uid.id.includes(userid))
 
 		.map((item,index) => (
-			<div key={index} className="grid grid-cols-12  gap-4 border border-gray-300" >
+			<div key={index} className="grid grid-cols-12  gap-4 " >
+			<div className="col-span-12">
 
 
-<div className="col-span-6">{item.label}</div><div className="col-span-6">Somme : console.log(2 + 2);</div>
-<div className="col-span-12">
+</div>
+
+	<div className="col-span-12">
+{item.label}
+
+
+
+- {item.uid.display_name}
+
+
+
+</div>
+{financements?.length ? (
+			<>
 {financements
-	.filter(valide => valide.gid.id.includes(item.id))
 
-		.map((item,index) => (
-			<div key={index} className="grid grid-cols-12  gap-4 border border-gray-300" >
+	.filter(valide =>  valide.entity_id.uid.id.includes(userid) && valide.gid.id.includes(item.id))
 
+	.map(filteredtitredugroupe =>  (
+								 <div key={filteredtitredugroupe.id} className="col-span-12">
 
+<div className="relative flex items-center text-3xl font-semibold">
+											{filteredtitredugroupe.label}
 
-		<div className="col-span-6">
+											
+<br/>
+	{filteredtitredugroupe.entity_id.field_estimation_du_prix}
 
+								<div className="ml-12 flex-shrink-2">
 
-		{item.uid.user_picture && (
-
-
-			<Image
-				src={absoluteURL(item.uid.user_picture.uri.url)}
-				alt={item.uid.display_name}
-				title={item.uid.display_name}
-				width={50}
-				height={50}
-				className='h-8 w-8 rounded-full'
-			/>
-
-		)}
-		<span className="ml-5 mt-3 text-xl">{item.uid.display_name}</span>
-
-		</div>
+								{filteredtitredugroupe.entity_id.uid.display_name}
 
 
-	<div className="col-span-6">
+								</div>
+
+
+</div>
 
 
 
 
 
-	{item.entity_id.field_estimation_du_prix}</div>
+
+</div>
+
+)
+)}
+</>
+) : (
+< >
+NAaN
+</>
+)}
 
 </div>
 
 				))}
-</div>
-</div>
-
-				))}
-
-{_.map(mesgroupes,(value, key) => (
-
-									<div className="rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 " key={key}>
-{key}{value.label} truc
-									{financements
-										.filter(valide => valide.gid.id.includes(key) && valide.gid.uid.id.includes(userinfo.id))
-
-											.map((item,index) => (
-												<div key={index} className="grid grid-cols-12  gap-4 border border-gray-300" >
-{item.id}
-
-										  <div className="col-span-12">Titre du groupe (sousgroupe){item.gid.label}</div>
-											<div className="col-span-12">ID du groupe (sousgroupe){item.gid.id}</div>
-
-											<div className="col-span-12">Titre du financement{item.label}</div>
-											<div className="col-span-12">Montant du financement{item.entity_id.field_estimation_du_prix}</div>
-
-
-										<div className="col-span-8">Auteur du financement{item.uid.display_name}</div>
-
-									</div>
-
-													))}
-
-
-
-										</div>
-
-
-								))}
 
 
 
 
 
 
-</div>
 
 
 
-			))}
+
+
+
 
 
 
