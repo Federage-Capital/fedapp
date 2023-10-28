@@ -64,7 +64,7 @@ if (stringcontentError) return <div>Failed to load stringcontent</div>;
   if (!stringtest) return <div>Loading stringtest ...</div>
 	return (
 		<>
-{userid}
+
 
 
 		{stringtest?.length ? (

@@ -57,7 +57,7 @@ export function BoxApportsSsgroup({ financement, subgroupid, stringcontent, subg
 
 
 
-	<Link href={`/financement/new?gid=${encodeURIComponent(item.uuid)}`} passHref>
+	<Link href={`/subfinancement/new?gid=${encodeURIComponent(item.uuid)}`} passHref>
 		<span className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
 
 

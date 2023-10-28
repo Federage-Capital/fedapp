@@ -7,7 +7,7 @@ import { useRouter } from "next/router"
 import { getGlobalElements } from "lib/get-global-elements"
 import { Layout, LayoutProps } from "components/layout"
 import { PageHeader } from "components/page-header"
-import { FormFinancement } from "components/form--financement"
+import { FormFinancement } from "components/form--subfinancement"
 import { drupal } from "lib/drupal"
 
 interface NewFinancementPageProps extends LayoutProps {}

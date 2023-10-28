@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 import { DatePicker } from "components/datepickercomp"
 
-
 interface FormFinancementProps extends React.HTMLProps<HTMLFormElement> {}
 
 interface FormStatus {
@@ -21,13 +20,14 @@ export function FormFinancement({ className, categorieprj, response, ...props }:
    const query = router.query;
 
 
+
   const onSubmit = async (event) => {
     event.preventDefault()
     const data = new FormData(event.target)
 
     setFormStatus({ status: "fetching" })
 
-    const response = await fetch("/api/financements", {
+    const response = await fetch("/api/subfinancement", {
       method: "POST",
       body: data,
     })
@@ -41,7 +41,7 @@ export function FormFinancement({ className, categorieprj, response, ...props }:
       })
     }
 
-    router.push("/financement/validation" + '?gid=' + query.gid)
+    router.push("/membre/new" + '?gid=' + query.gid)
   }
 
 

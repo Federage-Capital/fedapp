@@ -57,7 +57,7 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 
 												<div class="text-5xl font-semibold mb-5">
 {sum}
-
+<br/>
 
 
 
@@ -66,7 +66,7 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 
 												{stringcontent
 
-													.filter(valide => valide.uuid.includes(subgroup) && valide.group_type.includes("subgroup") && valide.type_1.includes("financement") && valide.uuid_1.includes(userid)  )
+													.filter(valide => valide.uuid.includes(subgroup) && valide.group_type.includes("subgroup") && valide.type_1.includes("financement")   )
 
 													.map(group => (
 													<div key={group.id} className="grid grid-cols-12  gap-4 mb-5 ">
@@ -90,7 +90,7 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 								)}
 								</div>
 								<div className="col-span-9 text-base font-semibold">
-								{group.label}<br/>
+						{group.title}<br/>
 								<span className="text-sm  text-neutral-400">{group.created}</span>
 
 
