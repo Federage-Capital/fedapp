@@ -38,7 +38,6 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 
 
 
-<div class="text-5xl font-semibold mb-5"> {subgrouptitle} - {sum}<br/></div>
 
 
 
@@ -56,9 +55,14 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 					)}`
 					} type="text"></input>
 
+					<details className="mb-5 shadow sm:rounded-lg bg-white py-5 sm:p-6">
 
+																																			 <summary className="text-lg">
 
+																																			 <span class="text-5xl font-semibold mb-5"> {subgrouptitle} / {sum}</span>
 
+																																			 																																 </summary>
+																																			 																																 <span className="mt-8  text-sm text-gray-500">
 												{stringcontent
 
 													.filter(valide => valide.uuid.includes(subgroup) && valide.group_type.includes("subgroup") && valide.type_1.includes("financement") && valide.uuid_1.includes(userid)  )
@@ -155,6 +159,9 @@ className='h-8 w-8 rounded-full'
 
 
 
+
+																				 </span>
+																		 </details>
 
 
 

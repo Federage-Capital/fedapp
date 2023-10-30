@@ -33,25 +33,32 @@ export function BoxGroupFin({ financement, groupsfin, groupid, grouptitle, useri
 
 	return (
 		<>
+		<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
+	`${(groupsfin
+	.filter(valide => valide.uid.id.includes(userid) && valide.gid.id.includes(groupid))
+	.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
+	)}`
+	} type="text"></input>
+	<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
+	`${(groupsfin
+			.filter(valide => !valide.uid.id.includes(userid) && valide.gid.id.includes(groupid))
+		 .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
+	)}`
+	} type="text"></input>
+		<details className="mb-5 shadow sm:rounded-lg bg-white px-4 py-5 sm:p-6">
+
+																																 <summary className="text-lg">
+								 <span class="text-5xl font-semibold mb-5"> 	{grouptitle} / {sum}</span>
 
 
-				{grouptitle} <br/>
-		{sum}
+	
+
+																																 </summary>
+																																 <span className="mt-8  text-sm text-gray-500">
 
 
 
-			<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
-		`${(groupsfin
-		.filter(valide => valide.uid.id.includes(userid) && valide.gid.id.includes(groupid))
-		.reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
-		)}`
-		} type="text"></input>
-		<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
-		`${(groupsfin
-		  	.filter(valide => !valide.uid.id.includes(userid) && valide.gid.id.includes(groupid))
-		   .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
-		)}`
-		} type="text"></input>
+
 
 
 							{groupsfin
@@ -159,6 +166,8 @@ className='h-8 w-8 rounded-full'
 
 
 
+								 </span>
+						 </details>
 
 
 
