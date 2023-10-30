@@ -45,6 +45,7 @@ export default function AccountsPage({
   user,
   menus,
   memberships,
+  membershipssgroup,
   groupe,
   allfinancements,
   messousgroupes,
@@ -298,7 +299,8 @@ export default function AccountsPage({
 
 
 
-              <BoxMescomptes groupes={groupe}  sousgroupes={messousgroupes} userid={user[0].id} ttssgroupes={sousgroupes} parente={parentedegroupe} financementssg={financementsssgroupes} membres={memberships} user={user} />
+
+            <BoxMescomptes groupes={groupe} groupsfin={allfinancements} memberships={memberships} membershipssgroup={membershipssgroup}  sousgroupes={messousgroupes} userid={user[0].id} ttssgroupes={sousgroupes} parente={parentedegroupe} financementssg={financementsssgroupes} membres={memberships} user={user} />
 
 
 
@@ -413,11 +415,13 @@ export async function getServerSideProps(
     "group_content--federage-group_node-financement",
     {
       params: new DrupalJsonApiParams()
-        .addInclude(["uid", "gid", "entity_id"])
+        .addInclude(["uid", "uid.user_picture", "gid", "entity_id"])
         .addFields("node--financement", ["field_estimation_du_prix", "id", "field_statut","uid","title","path"])
         .addFields("group--federage", ["id", "meta"])
-        .addFields("user--user", ["meta","display_name","id", "name"])
+        .addFields("user--user", ["meta","display_name","id", "name", "user_picture",])
+    
 
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
 
         .addSort("created", "DESC")
         .getQueryObject(),
@@ -530,6 +534,27 @@ export async function getServerSideProps(
 
   )
 
+const membershipssgroup = await drupal.getResourceCollection(
+  "group_content--subgroup-group_membership",
+  {
+    params: new DrupalJsonApiParams()
+      .addInclude(["uid","gid", "uid.user_picture"])
+
+      .addFields("user--user", ["drupal_internal__uid, display_name, user_picture"])
+      .addFields("file--file", ["uri", "resourceIdObjMeta"])
+      .addFilter("uid.meta.drupal_internal__target_id", session.user.userId)
+
+
+      .addSort("created", "DESC")
+      .getQueryObject(),
+
+    withAuth: session.accessToken,
+
+  }
+
+)
+
+
 
 
   // Fetch user info
@@ -563,6 +588,7 @@ export async function getServerSideProps(
       user,
       allfinancements,
       memberships,
+      membershipssgroup,
       groupe,
       messousgroupes,
       parentedegroupe,

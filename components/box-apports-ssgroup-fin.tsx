@@ -8,7 +8,7 @@ import { NodeGroupRow } from "components/node--group--row"
 import { NodeGroupfinRow } from "components/node--groupfin--row-indigo"
 
 
-export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgroup, userid,  }: BoxSousgroupsFinProps) {
+export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgroup, subgrouptitle, userid,  }: BoxSousgroupsFinProps) {
 
 
 	const [input, setInput] = React.useState({
@@ -38,35 +38,30 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 
 
 
-					<div>
-
-
-														<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
-													`${(stringcontent
-														.filter(valide => valide.uuid.includes(subgroup) && valide.uuid_1.includes(userid))
-														.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-														)}`
-														} type="text"></input>
-														<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
-														`${(stringcontent
-															.filter(valide => valide.uuid.includes(subgroup) && !valide.uuid_1.includes(userid))
-															 .reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-														)}`
-														} type="text"></input>
-
-
-												<div class="text-5xl font-semibold mb-5">
-{sum}
-<br/>
+<div class="text-5xl font-semibold mb-5"> {subgrouptitle} - {sum}<br/></div>
 
 
 
-												</div>
+
+					<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
+				`${(stringcontent
+					.filter(valide => valide.uuid.includes(subgroup) && valide.uuid_1.includes(userid))
+					.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+					)}`
+					} type="text"></input>
+					<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
+					`${(stringcontent
+						.filter(valide => valide.uuid.includes(subgroup) && !valide.uuid_1.includes(userid))
+						 .reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+					)}`
+					} type="text"></input>
+
+
 
 
 												{stringcontent
 
-													.filter(valide => valide.uuid.includes(subgroup) && valide.group_type.includes("subgroup") && valide.type_1.includes("financement")   )
+													.filter(valide => valide.uuid.includes(subgroup) && valide.group_type.includes("subgroup") && valide.type_1.includes("financement") && valide.uuid_1.includes(userid)  )
 
 													.map(group => (
 													<div key={group.id} className="grid grid-cols-12  gap-4 mb-5 ">
@@ -120,7 +115,7 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 
 
 <div className="col-span-1">
-{group.id}
+
 {group.user_picture && (
 
 
@@ -136,7 +131,8 @@ className='h-8 w-8 rounded-full'
 )}
 </div>
 <div className="col-span-9 text-base font-semibold">
-{group.label}<br/>
+
+{group.title}<br/>
 <span className="text-sm  text-neutral-400">{group.created}</span>
 
 
@@ -157,7 +153,6 @@ className='h-8 w-8 rounded-full'
 												))}
 
 
-		</div>
 
 
 

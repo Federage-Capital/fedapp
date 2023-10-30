@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { absoluteURL,formatDate } from "lib/utils"
 import { useState, useEffect } from "react";
 import { BoxSousgroupsFin } from "components/box-apports-ssgroup-fin"
+
 import { NodeGroupRow } from "components/node--group--row"
 import { NodeGroupfinRow } from "components/node--groupfin--row-indigo"
 
@@ -33,8 +34,6 @@ export function BoxApportsSsgroup({ financement, subgroupid, stringcontent, subg
 
 	return (
 		<>
-
-
 
 
 
@@ -87,14 +86,9 @@ Apport
 														} type="text"></input>
 
 
-												<div class="text-5xl font-semibold mb-5">
 
 
-<div class="font-semibold"> {item.label}<br/></div>
-
-
-												</div>
-<BoxSousgroupsFin stringcontent={stringcontent} subgroup={item.uuid} userid={userid}/>
+												<BoxSousgroupsFin stringcontent={stringcontent} subgroup={item.uuid} subgrouptitle={item.label} userid={userid}/>
 
 
 

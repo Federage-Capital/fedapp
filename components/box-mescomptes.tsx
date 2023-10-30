@@ -7,6 +7,7 @@ import _ from 'lodash'
 import { absoluteURL } from "lib/utils"
 import { useState, useEffect } from "react";
 import { BoxProjetAccount } from "components/box-projet--account-integre"
+import { BoxGroupFin } from "components/box-apports-group-fin"
 
 
 import { BoxApportsSsgroup } from "components/box-apports-ssgroup"
@@ -23,7 +24,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 
 
-export function BoxMescomptes({   groupes, sousgroupes, membres, parente, userid, ttssgroupes, financementssg, user }: BoxMescomptesProps) {
+export function BoxMescomptes({   groupes, sousgroupes, membres, memberships, membershipssgroup, groupsfin, parente, userid, ttssgroupes, financementssg, user }: BoxMescomptesProps) {
 
 
 	const mesgroupes = _.groupBy(financementssg, 'gid.id')
@@ -54,94 +55,141 @@ const { data: stringtest, stringtestError } = useSWR('https://fed.septembre.io/s
 
 
 const { data: stringcontent, stringcontentError } = useSWR('https://fed.septembre.io/stringify-content/', fetcher)
+const { data: groupsmemberships, groupsmembershipsError } = useSWR(() => `https://fed.septembre.io/groupsmemberships_rest/`, fetcher);
+
 
 
 
 	if (stringtestError) return <div>Failed to load stringtest</div>;
 
 if (stringcontentError) return <div>Failed to load stringcontent</div>;
+if (groupsmembershipsError) return <div>Failed to load groupsmemberships</div>;
+ if (!groupsmemberships) return <div>Loading groupsmemberships ...</div>
  if (!stringcontent) return <div>Loading stringcontent ...</div>
   if (!stringtest) return <div>Loading stringtest ...</div>
 	return (
 		<>
-
-
-
-		{stringtest?.length ? (
+		{groupsmemberships?.length ? (
 			<>
-			{stringtest
-
-
-				.map(groupssubgroups => (
-				<span key={groupssubgroups.id} >
 
 
 
-	<li key={groupssubgroups.id} class="shadow-md bg-white mb-10 p-5 rounded-lg">
+						{groupsmemberships
+							.filter((userin) => userin.uuid_2.includes(userid))
+			.map((filterUser) => {
+
+			        return filterUser.subgroup_tree === "0" ? (
+			          <h2 key={filterUser.uuid}>
+
+	<BoxGroupFin groupsfin={groupsfin} groupid={filterUser.uuid} grouptitle={filterUser.label} userid={userid}/>
 
 
-	<div class="font-bold"> 	Ma valorisation :	{sum} dans : {groupssubgroups.label}</div>
+								</h2>
+			        ) : (
+			          <h2 key={filterUser.uuid}>
 
-	<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
-	`${(stringcontent
-	.filter(valide => valide.subgroup_tree.includes(groupssubgroups.subgroup_tree) && valide.type_1.includes("financement") && !valide.uuid_1.includes(userid))
-	.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-	)}`
-	} type="text"></input> <br/>
+								<div class="font-bold"> 	Ma valorisation :	{sum} dans : {filterUser.label}</div>
 
-	<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
-	`${(stringcontent
-		.filter(valide => valide.subgroup_tree.includes(groupssubgroups.subgroup_tree) && valide.type_1.includes("financement") && valide.uuid_1.includes(userid))
-		 .reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-	)}`
-	} type="text"></input>
+								<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
+								`${(stringcontent
+								.filter(valide => valide.subgroup_tree.includes(filterUser.subgroup_tree) && valide.type_1.includes("financement") && !valide.uuid_1.includes(userid))
+								.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+								)}`
+								} type="text"></input> <br/>
 
-	Somme de mes apports dans : {groupssubgroups.label} :
+								<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
+								`${(stringcontent
+								.filter(valide => valide.subgroup_tree.includes(filterUser.subgroup_tree) && valide.type_1.includes("financement") && valide.uuid_1.includes(userid))
+								 .reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+								)}`
+								} type="text"></input>
 
-		{stringcontent
-		.filter(valide => valide.subgroup_tree.includes(groupssubgroups.id) && valide.group_type.includes("federage") && !valide.field_statut.includes('177,178')  )
-		.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-		} €
-<br/>
+								Somme de mes apports dans : {filterUser.label} :
 
-	Somme de mes apports dans : {groupssubgroups.label} :
+								{stringcontent
+								.filter(valide => valide.subgroup_tree.includes(filterUser.id) && valide.group_type.includes("federage") && !valide.field_statut.includes('177,178')  )
+								.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+								} €
+								<br/>
 
-		{stringcontent
-		.filter(valide => valide.subgroup_tree.includes(groupssubgroups.id) && valide.group_type.includes("federage") && !valide.field_statut.includes('177,178')  && valide.uuid_1.includes(userid))
-		.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-		} €
-	<br/>
+								Somme de mes apports dans : {filterUser.label} :
 
-	somme sous groupe dont je suis créateur :
+								{stringcontent
+								.filter(valide => valide.subgroup_tree.includes(filterUser.id) && valide.group_type.includes("federage") && !valide.field_statut.includes('177,178')  && valide.uuid_1.includes(userid))
+								.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+								} €
+								<br/>
 
-	{stringcontent
-	.filter(valide => valide.subgroup_tree.includes(groupssubgroups.subgroup_tree) && valide.group_type.includes("subgroup") && valide.uuid_1.includes(userid))
-	.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-	} €
-	<br/>
+								somme sous groupe dont je suis créateur :
 
-	somme sous groupe dont je ne suis pas créateur :
-	{stringcontent
-	.filter(valide => valide.subgroup_tree.includes(groupssubgroups.subgroup_tree) && valide.group_type.includes("subgroup") && !valide.uuid_1.includes(userid))
-	.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-	} €
-	<br/>
+								{stringcontent
+								.filter(valide => valide.subgroup_tree.includes(filterUser.subgroup_tree) && valide.group_type.includes("subgroup") && valide.uuid_1.includes(userid))
+								.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+								} €
+								<br/>
 
-
-
-<BoxApportsSsgroup financement={financementssg} subgroup={stringtest} stringcontent={stringcontent} subgroupid={groupssubgroups.subgroup_tree} userid={userid}/>
-
-</li>
+								somme sous groupe dont je ne suis pas créateur :
+								{stringcontent
+								.filter(valide => valide.subgroup_tree.includes(filterUser.subgroup_tree) && valide.group_type.includes("subgroup") && !valide.uuid_1.includes(userid))
+								.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+								} €
+								<br/>
 
 
-				</span>
-			))}
-		</>
-		) : (
 
-		<p>  Aucun utilisateur</p>
+											{stringtest?.length ? (
+												<>
+												{stringtest
 
-		)}
+													.filter((usergroup) => usergroup.uuid.includes(filterUser.uuid))
+
+													.map(groupssubgroups => (
+													<span key={groupssubgroups.id} >
+
+									{groupssubgroups.uuid} uuid_2<br/>
+
+																		{groupssubgroups.label} uuid_2
+
+										<li key={groupssubgroups.id} class="shadow-md bg-white mb-10 p-5 rounded-lg">
+
+
+
+
+
+
+										<BoxApportsSsgroup financement={financementssg} subgroup={stringtest} stringcontent={stringcontent} subgroupid={groupssubgroups.subgroup_tree} userid={userid}/>
+
+									</li>
+
+
+													</span>
+												))}
+											</>
+											) : (
+
+											<p>  Aucun utilisateur</p>
+
+											)}
+
+
+
+								</h2>
+			        );
+			      })}
+
+
+
+
+
+	</>
+
+
+					) : (
+
+						<p>  Aucun utilisateur</p>
+
+						)}
+
 
 
 
