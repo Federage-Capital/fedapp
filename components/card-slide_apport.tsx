@@ -28,7 +28,7 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 
 										 <>
 										 <span className="ml-3">
-										 <p className="text-2xl inline-block text-blue-600 font-semibold">	 {userApport.length} Apport(s)</p>
+										 <p className="text-2xl inline-block fedblueblue font-semibold">	 {userApport.length} Apport(s)</p>
 
 									 		{showMenu ? (
 									 			<span onClick={changeState}>

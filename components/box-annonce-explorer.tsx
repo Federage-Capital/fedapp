@@ -44,8 +44,8 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 									<div className="relative w-[84px] h-6 flex">
 									{node.entity_id.field_statut.id?.length ? (
 
-												 <div className="px-1 bg-indigo-50 text-sm text-indigo-600 font-semibold">
-													 annonce
+												 <div className="px-2 bg-indigo-50 rounded-md text-sm fedblueblue font-semibold">
+													 Public
 												 </div>
 											 ) : (
 												 <>
@@ -76,10 +76,10 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 									</div>
 								</div>
 							</div>
-							<div className="self-stretch flex flex-col items-start justify-start text-gray-500">
+							<div className="self-stretch flex flex-col items-start justify-start">
 								<div className="self-stretch flex flex-col items-start justify-start">
-									<div className="self-stretch flex flex-col items-center justify-center">
-										<div className="self-stretch relative leading-[20px] font-medium">
+									<div className="self-stretch flex flex-col items-center justify-center fedblueblue">
+										<div className="self-stretch relative leading-[20px] font-semibold">
 
 
 																			 		{showMenu ? (
@@ -104,7 +104,7 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 																								{node.entity_id.body?.processed && (
 																								<div
 																								dangerouslySetInnerHTML={{ __html: node.entity_id.body?.processed }}
-																								className="text-sm mt-4"
+																								className="text-sm text-black mt-4"
 
 																								/>
 																								)}

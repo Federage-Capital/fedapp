@@ -90,7 +90,7 @@ export default function AlluserlistPage
 				<div>
 
 					<h1 className="max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
-					<p className="mb-3 text-zinc-500">Vous pouvez répondre à une demande de partenariat, effectuer une offre d’apport et intégrer plusieurs projets.</p>
+					<p className="mb-3 text-zinc-500">Offres de partenariat, valorisation de projets et communautés.</p>
 					<form onSubmit={onSubmit} className="mb-4">
 						<div className="items-center gap-4 sm:grid sm:grid-cols-7">
 							<input
@@ -156,7 +156,7 @@ export default function AlluserlistPage
 										href="#link1"
 										role="tablist"
 									>
-										Entreprises
+										Membres
 									</a>
 								</li>
 

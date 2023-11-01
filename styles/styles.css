@@ -1,3 +1,7 @@
+h1{
+  font-size: unset !important;
+}
+
 body{
   /* text-base/leading-6/font-medium */
 
@@ -335,3 +339,4 @@ display:none;  }
 display:none;  }
 
       }
+

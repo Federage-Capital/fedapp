@@ -98,12 +98,12 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
               aria-describedby="comments-description"
               name="comments"
               type="checkbox"
-              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              className="h-4 w-4 rounded border-gray-300 text-blue-700 focus:ring-blue-700"
             />
             <p className="ml-2 text-sm">
               Rester connecté
             </p>
-            <button className="ml-auto fedblueblue text-sm" onClick={redirectButton}>Mot de passe oublié</button>
+            <button className="ml-auto fedblueblue font-medium text-sm" onClick={redirectButton}>Mot de passe oublié ?</button>
           </div>
 
 
@@ -111,7 +111,7 @@ export function FormLogin({ className, ...props }: FormLoginProps) {
 
           <input
             type="submit"
-            className="px-3 fedblue py-2 text-md text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+            className="px-3 py-2 text-md w-full  text-white bg-black rounded-md cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
             disabled={formStatus?.status === "fetching"}
             value={
               formStatus?.status === "fetching" ? t("Patientez") : t("Connexion")

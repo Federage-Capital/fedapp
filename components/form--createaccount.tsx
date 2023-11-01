@@ -99,7 +99,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
           id="name"
           name="name"
           type="text"
-          placeholder="Dénomination sociale"
+          placeholder="Nom de la structure"
           className="relative block w-full px-3 py-2 mb-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
           {...register("name")}
         />
@@ -139,7 +139,7 @@ export function FormCreate({ className, ...props }: FormCreateProps) {
         <button
           type="submit"
           data-cy="btn-submit"
-          className="px-3 fedblue py-2 text-md mt-4 mb-4 text-white w-full transition-colors rounded-xl cursor-pointer bg-link hover:bg-white hover:text-whote border-link"
+          className="px-3 py-2 text-md mt-4 mb-4 text-white bg-black w-full rounded-md cursor-pointer bg-link hover:bg-black hover:text-white border-link"
         >
           Créer un compte
         </button>

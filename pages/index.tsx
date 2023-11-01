@@ -72,17 +72,18 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 
 
-                  <button class="bg-indigo-50 fedblueblue rounded px-3 mr-2">
-                    Nouveauté
+                  <button class="bg-indigo-50 fedblueblue font-medium rounded px-2 mr-2">
+                    NOUVEAUTÉ
                   </button>
-                  La version 0.1.0 est déployée <svg width="6" height="10" viewBox="0 0 6 10" fill="none" className="inline-block" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M0.292894 9.70711C-0.0976307 9.31658 -0.0976307 8.68342 0.292894 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292894C0.683417 -0.0976312 1.31658 -0.0976312 1.70711 0.292894L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683418 10.0976 0.292894 9.70711Z" fill="#012BDD" />
-                  </svg>
+                  
+                  <button class="font-medium">
+                  La version 0.1.1 est en ligne
+                 </button>
 
                 </p>
 
-                <h1 className="text-3xl font-bold">Le meilleur moyen</h1>
-                <h1 className="mb-4 text-3xl font-bold">de <span className="fedblueblue">mesurer sa valeur</span></h1>
+                <h1 className="text-5xl font-bold">Le meilleur moyen</h1>
+                <h1 className="mb-4 text-5xl font-bold">de <span className="fedblueblue">mesurer sa valeur</span></h1>
                 <h2 className="mb-10 text-lg font-medium text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 
                 <p className="flex mt-4 text-lm font-bold">Inscrivez-vous pour rejoindre la liste d&#39;attente.
@@ -97,7 +98,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
                 ) : null}
                 {status === "success" ? (
                   <div className="px-4 py-2 text-sm text-green-600 bg-green-100 border-green-200 rounded-md">
-                    Votre inscription est prise en compte !
+                    Votre inscription est prise en compte.
                   </div>
                 ) : null}
                 {Object.values(formState.errors)?.length ? (

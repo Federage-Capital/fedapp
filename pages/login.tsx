@@ -34,7 +34,7 @@ export default function LoginPage({ menus, blocks }: LoginPageProps) {
         <div className="flex flex-col justify-center items-center flex-1">
           <PageHeader heading={t("Accéder à mon compte")} className="text-semibold" />
           <div className="text-sm text-slate-500 -mt-10 mb-5">
-            Connectez-vous à federage.
+            Connectez-vous à votre compte.
             <div className="text-sm">
               Jamais inscrit ?
               <Link href={{

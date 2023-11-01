@@ -53,14 +53,14 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 		<div className="bg-slate-100">
 			<Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks} >
 				<PageHeader
-					heading={t("Accedez à mon compte")}
+					heading={t("Accedez à Federage")}
 				/>
 				{status === "unauthenticated" && (
 					<div className="container pb-1">
 						<div className="flex flex-col justify-center items-center flex-1">
 							<div className={`text-md text-slate-500 ${openTab === 1 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1`}>
 
-								Connectez-vous à Federage.
+								Connectez-vous votre compte.
 								<div className="text-md">
 									Jamais inscrit ?
 									<button className="ml-1 fedblueblue text-md" onClick={handleButtonClick}>Cliquez-ici</button>

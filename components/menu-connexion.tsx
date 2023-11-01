@@ -60,7 +60,7 @@ const MenuConnexion = (props: MenuConnexionProps) => {
 				</Link>
 			</button>
 			<div className="flex justify-center">
-				<button className="px-3 fedblue py-2 text-md text-white transition-colors rounded-xl
+				<button className="px-3 py-2 text-md text-white bg-black rounded-xl
 					cursor-pointer bg-link hover:bg-white hover:text-whote border-link w-5/6 w-full" onClick={buttonPage}>
 					<a className="text-lg">{t("Connexion")}</a>
 				</button>
