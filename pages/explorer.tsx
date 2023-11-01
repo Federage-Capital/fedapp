@@ -90,12 +90,12 @@ export default function AlluserlistPage
 				<div>
 
 					<h1 className="grandtitre max-w-4xl mb-3 text-4xl text-left md:text-5xl lg:text-4xl">Explorer</h1>
-					<p className="mb-3 text-zinc-500">Offres de partenariat, valorisation de projets et communautés.</p>
+					<p className="mb-3 text-black">Offres de partenariat, valorisation de projets et communautés.</p>
 					<form onSubmit={onSubmit} className="mb-4">
 						<div className="items-center gap-4 sm:grid sm:grid-cols-7">
 							<input
 								type="search"
-								placeholder="Rechercher un projet ou un membre"
+								placeholder="Rechercher une opportunité"
 								name="keywords"
 								required
 								className="relative block w-full col-span-5 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
@@ -111,7 +111,7 @@ export default function AlluserlistPage
 					</form>
 					{isError ? (
 						<div className="px-4 py-2 text-sm text-red-600 bg-red-100 border-red-200 rounded-md">
-							An error occured. Please try again.
+							Il y a une erreur. Veuillez recommencer.
 						</div>
 					) : null}
 					{!data?.pages?.length ? (
