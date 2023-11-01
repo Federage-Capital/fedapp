@@ -10,9 +10,9 @@ interface NodeArticleProps {
 export function NodeArticle({ node, ...props }: NodeArticleProps) {
   return (
     <article {...props}>
-    <div className="max-w-screen-md px-6 pb-6 mx-auto">
+    <div className="max-w-4xl px-6 pb-6 mx-auto">
 
-    <h1 className="mb-4 text-2xl font-black leading-tight">{node.title}</h1>
+    <h1 className="mb-4 text-5xl font-black leading-tight">{node.title}</h1>
       <div className="text-m text-gray-600">
         {node.uid?.display_name ? (
           <span>
@@ -34,7 +34,7 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
             priority
           />
           {node.field_image.resourceIdObjMeta.title && (
-            <figcaption className="py-2 text-sm text-center text-gray-600">
+            <figcaption className="font-serif py-2 text-sm text-center text-gray-600">
               {node.field_image.resourceIdObjMeta.title}
             </figcaption>
           )}
@@ -43,7 +43,7 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
       {node.body?.processed && (
         <div
           dangerouslySetInnerHTML={{ __html: node.body?.processed }}
-          className="text-lg leading-loose prose"
+          className="font-serif text-lg leading-loose prose"
           
         />
       )}

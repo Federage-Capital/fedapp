@@ -53,8 +53,8 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 		<div className="bg-slate-100">
 			<Layout meta={{ title: t("Connexion") }} menus={menus} blocks={blocks} >
 				<PageHeader
-					heading={t("Accedez à Federage")}
-				/>
+					heading={t("Accedez à Federage")} className="mb-2 text-5xl grandtitre" />
+          
 				{status === "unauthenticated" && (
 					<div className="container pb-1">
 						<div className="flex flex-col justify-center items-center flex-1">
@@ -74,12 +74,10 @@ export default function RegisterPage({ menus, blocks }: RegisterPageProps) {
 									compte pour modifier votre mot de passe.
 								</p>
 							</div>
-							<div className={`text-md text-slate-500 ${openTab === 3 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1 text-center`}>
+							<div className={`text-md justify-center text-center flex-1 text-slate-500 ${openTab === 3 ? "block" : "hidden"} -mt-10 mb-5 justify-center pt-1 text-center`}>
 								<p>
-									Inscrivez-vous pour trouver des partenaires
-								</p>
-								<p>
-									et financer vos projets professionnels.
+									Pour démarrer, enregistrez votre structure professionnelle.
+								
 								</p>
 							</div>
 						</div>

@@ -82,7 +82,7 @@ export default function AlluserlistPage
   return (
     <Layout meta={{ title: t("Blog") }} menus={menus} blocks={blocks}>
 
-<h1 className="px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
+<h1 className="grandtitre px-6 max-w-4xl mb-4 text-4xl text-left md:text-5xl lg:text-4xl">Blog</h1>
 
 
       <p className="px-6 mb-3 ">Tutoriels, cas d&apos;usage et explications sur le réseau.
@@ -151,12 +151,12 @@ export default function AlluserlistPage
 
                     <div className="col-span-2">
                     <Link href={node.path.alias} passHref>
-                      <a className="no-underline hover:text-blue-600">
+                      <a className="no-underline hover:text-fedblueblue">
                         <h2 className="mb-4 text-xl font-bold">{node.title}</h2>
                       </a>
                     </Link>                      <p className="m-0 text-base">{node.body.summary}</p>
                       <Link href={node.path.alias} passHref>
-                        <a className="flex items-center mt-4 text-l hover:text-blue-500">
+                        <a className="flex items-center mt-4 text-l hover:text-fedblueblue">
                           Lire la suite
                           <svg
                             viewBox="0 0 24 24"
