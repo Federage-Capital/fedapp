@@ -36,59 +36,67 @@ export function BoxApportsSsgroup({ financement, subgroupid, stringcontent, subg
 		<>
 
 
+		<div className="grid grid-cols-12 gap-4">
+		<div class="col-span-12 font-bold mb-5 mt-5"> 	Ma somme dans ces sous groupes :	{sum}</div>
 
 
 
 
-		<div class="font-bold"> 	Ma somme dans ces sous groupes :	{sum}</div>
+	<div class="col-span-12">
+
+
 
 
 		{subgroup
 			.filter(valide => valide.subgroup_tree.includes(subgroupid) && valide.type.includes("subgroup"))
 
 				.map((item,index) => (
-					<div key={index}  >
+					<div key={index} className="mb-5" >
 
+
+					<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
+				`${(stringcontent
+					.filter(valide => valide.subgroup_tree.includes(item.subgroup_tree) && valide.group_type.includes("subgroup") && valide.uuid_1.includes(userid))
+					.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+					)}`
+					} type="text"></input>
+					<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
+					`${(stringcontent
+						.filter(valide => valide.subgroup_tree.includes(item.subgroup_tree) && valide.group_type.includes("subgroup") && !valide.uuid_1.includes(userid))
+						 .reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
+					)}`
+					} type="text"></input>
 
 
 
 <div className="col-span-7">
 
 
-
+<div className="relative flex items-center">
+	<div className="mr-4">
 	<Link href={`/subfinancement/new?gid=${encodeURIComponent(item.uuid)}`} passHref>
-		<span className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
-
-
+	<div className="inline-block px-3 py-1 bg-indigo-100  text-blue-700 transition-colors rounded-xl text-xs text-center font-semibold hover:bg-indigo-200 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
 Apport
-
-		</span>
+		</div>
 	</Link>
+	</div>
+
+	<div >
 	<Link href={`/membre/new?gid=${encodeURIComponent(item.uuid)}`} passHref>
-		<a className="px-4 py-2 fedbutton text-white font-bold transition-colors rounded-xl text-base lg:px-4 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+	<div className="inline-block px-3 py-1 bg-indigo-100  text-blue-700 transition-colors rounded-xl text-xs text-center font-semibold hover:bg-indigo-200 lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
 		Inviter
-
-
-		</a>
+</div>
 	</Link>
 </div>
-														<input onChange={handleInput} class="hidden" name="num1" value={input.num1=
-													`${(stringcontent
-														.filter(valide => valide.subgroup_tree.includes(item.subgroup_tree) && valide.group_type.includes("subgroup") && valide.uuid_1.includes(userid))
-														.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-														)}`
-														} type="text"></input>
-														<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
-														`${(stringcontent
-															.filter(valide => valide.subgroup_tree.includes(item.subgroup_tree) && valide.group_type.includes("subgroup") && !valide.uuid_1.includes(userid))
-															 .reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
-														)}`
-														} type="text"></input>
+</div>
 
 
 
+</div>
 
-												<BoxSousgroupsFin stringcontent={stringcontent} subgroup={item.uuid} subgrouptitle={item.label} userid={userid}/>
+
+
+												<BoxSousgroupsFin stringcontent={stringcontent} subgroup={item.uuid} subgrouplink={item.view_group} subgrouptitle={item.label} userid={userid}/>
 
 
 
@@ -96,8 +104,8 @@ Apport
 
 						))}
 
-
-
+</div>
+									 </div>
 		</>
 	);
 }

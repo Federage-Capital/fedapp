@@ -419,7 +419,7 @@ export async function getServerSideProps(
         .addFields("node--financement", ["field_estimation_du_prix", "id", "field_statut","uid","title","path"])
         .addFields("group--federage", ["id", "meta"])
         .addFields("user--user", ["meta","display_name","id", "name", "user_picture",])
-    
+
 
         .addFields("file--file", ["uri", "resourceIdObjMeta"])
 

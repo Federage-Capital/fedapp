@@ -8,7 +8,7 @@ import { NodeGroupRow } from "components/node--group--row"
 import { NodeGroupfinRow } from "components/node--groupfin--row-indigo"
 
 
-export function BoxGroupFin({ financement, groupsfin, groupid, grouptitle, userid  }: BoxGroupFinProps) {
+export function BoxGroupFin({ financement, groupsfin, grouplink, groupid, grouptitle, userid  }: BoxGroupFinProps) {
 
 
 	const [input, setInput] = React.useState({
@@ -45,13 +45,47 @@ export function BoxGroupFin({ financement, groupsfin, groupid, grouptitle, useri
 		 .reduce((total, currentValue) => total = total + +currentValue.entity_id.field_estimation_du_prix,0)
 	)}`
 	} type="text"></input>
-		<details className="mb-5 shadow sm:rounded-lg bg-white px-4 py-5 sm:p-6">
 
-																																 <summary className="text-lg">
-								 <span class="text-5xl font-semibold mb-5"> 	{grouptitle} / {sum}</span>
+	<div className="min-w-0 flex-1">
+<p className="text-3xl font-semibold">
+
+{sum}
+
+</p>
+<div className="relative flex items-center text-3xl font-semibold">
+<Link
+				 href={grouplink}
+			 >
+
+{grouptitle}
+			 </Link>
 
 
-	
+																	<div className="ml-12 flex-shrink-2">
+
+																	proprio 2
+
+
+																	</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+								 <details>
+ <summary className="grid grid-cols-12 gap-4">
+
+																																						    <div class="col-span-2 font-semibold">Transactions</div>
+																																							<div className="col-span-8"></div>
+																																							 <div class="col-span-2"> Tout Voir</div>
 
 																																 </summary>
 																																 <span className="mt-8  text-sm text-gray-500">
@@ -86,8 +120,13 @@ export function BoxGroupFin({ financement, groupsfin, groupid, grouptitle, useri
 	 </div>
 	 <div className="col-span-9 text-base font-semibold">
 
+	 <Link
+						href={fins.entity_id.path.alias}
+						className="text-2xl font-medium font-semibold cursor-pointer text-gray-900"
+					>
 
-	 {fins.label}<br/>
+{fins.label}
+					</Link>
 	 <span className="text-sm  text-neutral-400">{fins.created}</span>
 
 
@@ -138,8 +177,13 @@ className='h-8 w-8 rounded-full'
 </div>
 <div className="col-span-9 text-base font-semibold">
 
+<Link
+				 href={fins.entity_id.path.alias}
+				 className="text-2xl font-medium font-semibold cursor-pointer text-gray-900"
+			 >
 
-{fins.label}<br/>
+{fins.label}
+			 </Link>
 <span className="text-sm  text-neutral-400">{fins.created}</span>
 
 
@@ -169,7 +213,7 @@ className='h-8 w-8 rounded-full'
 								 </span>
 						 </details>
 
-
+			</div>
 
 
 

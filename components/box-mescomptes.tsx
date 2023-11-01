@@ -79,16 +79,20 @@ if (groupsmembershipsError) return <div>Failed to load groupsmemberships</div>;
 			.map((filterUser) => {
 
 			        return filterUser.subgroup_tree === "0" ? (
-			          <h2 key={filterUser.uuid}>
+			          <h3 key={filterUser.uuid} className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
 
-	<BoxGroupFin groupsfin={groupsfin} groupid={filterUser.uuid} grouptitle={filterUser.label} userid={userid}/>
+								<BoxGroupFin groupsfin={groupsfin} groupid={filterUser.uuid} grouptitle={filterUser.label} grouplink={filterUser.view_group}userid={userid}/>
 
 
-								</h2>
+								</h3>
 			        ) : (
-			          <h2 key={filterUser.uuid}>
+			          <h3 key={filterUser.uuid} className="relative  space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 mb-5 shadow-sm focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
 
-								<div class="font-bold"> 	Ma valorisation :	{sum} dans : {filterUser.label}</div>
+								<div className="flex items-center">
+							<p className="text-3xl font-semibold">
+								Ma valorisation :	{sum} dans : {filterUser.label}</p>
+
+
 
 								<input onChange={handleInput} class="hidden" name="num2" value={input.num2=
 								`${(stringcontent
@@ -134,7 +138,7 @@ if (groupsmembershipsError) return <div>Failed to load groupsmemberships</div>;
 								.reduce((total, currentValue) => total = total + +currentValue.field_estimation_du_prix,0)
 								} €
 								<br/>
-
+	</div>
 
 
 											{stringtest?.length ? (
@@ -144,13 +148,12 @@ if (groupsmembershipsError) return <div>Failed to load groupsmemberships</div>;
 													.filter((usergroup) => usergroup.uuid.includes(filterUser.uuid))
 
 													.map(groupssubgroups => (
-													<span key={groupssubgroups.id} >
 
-									{groupssubgroups.uuid} uuid_2<br/>
 
-																		{groupssubgroups.label} uuid_2
 
-										<li key={groupssubgroups.id} class="shadow-md bg-white mb-10 p-5 rounded-lg">
+
+
+										<li key={groupssubgroups.id}  className="relative flex items-center space-x-3 mb-5 focus-within:ring-2 focus-within:ring-fedblueblue focus-within:ring-offset-2 hover:border-gray-400">
 
 
 
@@ -162,7 +165,6 @@ if (groupsmembershipsError) return <div>Failed to load groupsmemberships</div>;
 									</li>
 
 
-													</span>
 												))}
 											</>
 											) : (
@@ -173,7 +175,7 @@ if (groupsmembershipsError) return <div>Failed to load groupsmemberships</div>;
 
 
 
-								</h2>
+								</h3>
 			        );
 			      })}
 

@@ -20,6 +20,7 @@ const RESOURCE_TYPES = [
   "node--article",
   "node--financement",
   "group--federage",
+  "group--subgroup",
   "user--user",
 ]
 
@@ -50,6 +51,13 @@ export default function ResourcePage({
         />
       )}
       {resource.type === "group--federage" && (
+        <NodeGroupFinancement
+          node={resource as DrupalNode}
+
+        />
+      )}
+
+      {resource.type === "group--subgroup" && (
         <NodeGroupFinancement
           node={resource as DrupalNode}
 

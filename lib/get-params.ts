@@ -113,6 +113,37 @@ export function getParams(
 
   }
 
+  if (name === "group--subgroup") {
+    return params
+      .addInclude([
+        "uid",
+        "uid.user_picture",
+
+        "group_type",
+
+      ])
+      .addFields("group--subgroup", [
+        "status",
+        "path",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "field_description",
+        "field_estimation_du_prix",
+        "field_date_de_livraison",
+        "field_categorie",
+        "group_type",
+
+        "drupal_internal__id",
+      ])
+      .addFields("user--user", ["display_name", "drupal_internal__uid","user_picture", "satus"])
+        .addFields("file--file", ["uri", "resourceIdObjMeta"])
+      .addFields("group_relationship_type--group_relationship_type", ["id", "type","drupal_internal__id"])
+
+
+  }
+
   if (name === "group_content--federage-group_node-financement") {
     return params
       .addInclude([
@@ -138,6 +169,55 @@ export function getParams(
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta2"])
   }
 
+  if (name === "group_content--subgroup-group_membership") {
+    return params
+      .addInclude([
+        "uid",
+        "group_relationship_type",
+        "entity_id",
+      ])
+      .addFields("group_content--federage-group_membership", [
+        "title",
+        "status",
+        "path",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "group_type",
+        "drupal_internal__id",
+        "id",
+        "meta",
+      ])
+      .addFields("user--user", ["display_name", "user_picture", "status"])
+      .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
+  }
+
+  if (name === "group_content--subgroup-group_node-financement") {
+    return params
+      .addInclude([
+        "uid",
+        "gid",
+        "entity_id",
+        "group_type",
+      ])
+      .addFields("group_content--federage-group_node-financement", [
+        "label",
+        "status",
+        "path",
+        "body",
+        "created",
+        "uid",
+        "label",
+        "group_type",
+        "drupal_internal__id",
+        "id",
+        "meta",
+        "type",
+      ])
+      .addFields("user--user", ["display_name", "user_picture"])
+  }
+
   if (name === "group_content--federage-group_membership") {
     return params
       .addInclude([
@@ -161,6 +241,11 @@ export function getParams(
       .addFields("user--user", ["display_name", "user_picture", "status"])
       .addFields("group_relationship_type--group_relationship_type", ["id", "type","meta"])
   }
+
+
+
+
+
   if (name === "user--user") {
     return params
       .addInclude([

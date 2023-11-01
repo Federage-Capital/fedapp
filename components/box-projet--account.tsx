@@ -170,7 +170,7 @@ voir l&apos;offre node
 
 
 
-													<br/>
+									 
 													</div>
 													</div>
 

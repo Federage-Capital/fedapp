@@ -8,7 +8,7 @@ import { NodeGroupRow } from "components/node--group--row"
 import { NodeGroupfinRow } from "components/node--groupfin--row-indigo"
 
 
-export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgroup, subgrouptitle, userid,  }: BoxSousgroupsFinProps) {
+export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgroup, subgrouptitle, subgrouplink, userid,  }: BoxSousgroupsFinProps) {
 
 
 	const [input, setInput] = React.useState({
@@ -55,12 +55,42 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 					)}`
 					} type="text"></input>
 
-					<details className="mb-5 shadow sm:rounded-lg bg-white py-5 sm:p-6">
 
-																																			 <summary className="text-lg">
 
-																																			 <span class="text-5xl font-semibold mb-5"> {subgrouptitle} / {sum}</span>
+					<div className="min-w-0 flex-1">
+				<p className="text-3xl font-semibold">
 
+				{sum}
+
+				</p>
+				<div className="relative flex items-center text-3xl font-semibold">
+
+																																									 <Link href={subgrouplink} passHref>
+																																				 					<a>
+
+
+																																																																															{subgrouptitle}
+																																				 																					</a>
+																																				 																				</Link>
+
+																					<div className="ml-12 flex-shrink-2">
+
+																					proprio 2
+
+
+																					</div>
+
+
+				</div>
+
+
+
+																																				 <details>
+
+																																 																															<summary className="grid grid-cols-12 gap-4">
+																																																															<div class="col-span-2 font-semibold">Transactions</div>
+																																																														<div className="col-span-8"></div>
+																																																														 <div class="col-span-2"> Tout Voir</div>
 																																			 																																 </summary>
 																																			 																																 <span className="mt-8  text-sm text-gray-500">
 												{stringcontent
@@ -69,6 +99,7 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 
 													.map(group => (
 													<div key={group.id} className="grid grid-cols-12  gap-4 mb-5 ">
+
 
 
 								<div className="col-span-1">
@@ -89,7 +120,14 @@ export function BoxSousgroupsFin({ financement, subgroupid, stringcontent, subgr
 								)}
 								</div>
 								<div className="col-span-9 text-base font-semibold">
-						{group.title}<br/>
+								<Link href={`${group.title.replace(/è/g, 'e').replaceAll(' ', '-').replace('ù', 'u')}`} passHref>
+								<a>
+
+																				{group.title}
+																								</a>
+																							</Link>
+
+
 								<span className="text-sm  text-neutral-400">{group.created}</span>
 
 
@@ -163,6 +201,8 @@ className='h-8 w-8 rounded-full'
 																				 </span>
 																		 </details>
 
+
+																		 </div>
 
 
 		</>
