@@ -22,7 +22,7 @@ export function NodePage({ node }: NodePageProps) {
   return (
     <div className="container pt-15 pb-10">
       <article className="px-6 text-4xl text-left">
-        <h1 className="text-4xl">
+        <h1 className="text-4xl grandtitre">
           {node.title}
         </h1>
         <div className="mt-4 mb-4 text-text">

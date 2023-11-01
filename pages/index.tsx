@@ -72,17 +72,17 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
 
 
-                  <button class="bg-indigo-50 fedblueblue font-medium rounded px-2 mr-2">
+                  <button className="bg-indigo-50 fedblueblue font-semibold rounded px-2 mr-2">
                     NOUVEAUTÉ
                   </button>
                   
-                  <button class="font-medium">
-                  La version 0.1.1 est en ligne
+                  <button className="font-semibold">
+                  La version 0.2 est en ligne
                  </button>
 
                 </p>
 
-                <h1 className="text-5xl font-bold">Le meilleur moyen</h1>
+                <h1 className="text-5xl grandtitre font-bold">Le meilleur moyen</h1>
                 <h1 className="mb-4 text-5xl font-bold">de <span className="fedblueblue">mesurer sa valeur</span></h1>
                 <h2 className="mb-10 text-lg font-medium text-black">Federage construit un réseau économique coopératif pour les entreprises et les organisations. Financez vos opérations, intégrez des partenaires, libérez de la valeur. En quelques clics seulement. </h2>
 

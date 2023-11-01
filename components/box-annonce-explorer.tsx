@@ -44,8 +44,8 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 									<div className="relative w-[84px] h-6 flex">
 									{node.entity_id.field_statut.id?.length ? (
 
-												 <div className="px-2 bg-indigo-50 rounded-md text-sm fedblueblue font-semibold">
-													 Public
+												 <div className="px-2 bg-zinc-100 rounded-md text-sm text-gray-500 font-semibold">
+													 En attente
 												 </div>
 											 ) : (
 												 <>
@@ -71,7 +71,7 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 	</Link><br/>
 	{node.gid?.label}<br/>
 	GID ?	{node.gid.id}
-	<p className="mt-6 text-zinc-600 font-normal text-sm "> {node.entity_id.field_estimation_du_prix}€ - {formatDate(node.entity_id.field_date_de_livraison)}</p>
+	<p className="mt-6 text-zinc-600 font-semibold text-base "> {node.entity_id.field_estimation_du_prix}€ - {formatDate(node.entity_id.field_date_de_livraison)}</p>
 
 									</div>
 								</div>
@@ -83,14 +83,14 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 
 
 																			 		{showMenu ? (
-																			 <>	Détail de l&apos;offre		<span className="inline-block ml-2" onClick={changeState}>
+																			 <>	Détail de l&apos;offre		<span className="inline-block ml-1" onClick={changeState}>
 																			 				<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 																			 					<path fillRule="evenodd" clipRule="evenodd" d="M13.5899 8.78996C13.0432 9.3367 12.1568 9.3367 11.6101 8.78996L7 4.1799L2.38995 8.78996C1.84322 9.3367 0.956784 9.3367 0.410051 8.78996C-0.136684 8.24323 -0.136684 7.35679 0.410051 6.81006L6.01005 1.21005C6.55678 0.663316 7.44322 0.663316 7.98995 1.21005L13.5899 6.81006C14.1367 7.35679 14.1367 8.24323 13.5899 8.78996Z" fill="#012BDD" />
 																			 				</svg>
 																			 			</span>
 																						</>
 																			 		) : (
-																			 				 <>	Détail de l&apos;offre	<span className="inline-block ml-2" onClick={changeState}>
+																			 				 <>	Détail de l&apos;offre	<span className="inline-block ml-1" onClick={changeState}>
 																			 				<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 																			 					<path fillRule="evenodd" clipRule="evenodd" d="M0.410051 1.2101C0.956784 0.663365 1.84322 0.663365 2.38995 1.2101L7 5.82016L11.6101 1.2101C12.1568 0.663365 13.0432 0.663365 13.5899 1.2101C14.1367 1.75683 14.1367 2.64327 13.5899 3.19L7.98995 8.79001C7.44322 9.33675 6.55678 9.33675 6.01005 8.79001L0.410051 3.19C-0.136683 2.64327 -0.136683 1.75683 0.410051 1.2101Z" fill="#012BDD" />
 																			 				</svg>
@@ -104,7 +104,7 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 																								{node.entity_id.body?.processed && (
 																								<div
 																								dangerouslySetInnerHTML={{ __html: node.entity_id.body?.processed }}
-																								className="text-sm text-black mt-4"
+																								className="leading-normal text-slate-600 font-medium sm:text-base mt-4"
 
 																								/>
 																								)}
@@ -134,7 +134,7 @@ export function BoxAnnonceList({ node, useringroup, status }: BoxAnnonceListProp
 
 						{status === "authenticated" ? (
 					           <>
-										 <div className="self-stretch rounded-lg bg-blue-600 text-white shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
+										 <div className="self-stretch rounded-lg bg-black text-white shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
  				 							<div className="relative leading-[20px] font-semibold">
  				 					<Link href={`${node.entity_id.path.alias}?gid=${encodeURIComponent(node.gid.id)}`}
 

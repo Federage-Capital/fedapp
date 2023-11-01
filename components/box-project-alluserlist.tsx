@@ -32,7 +32,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 		return (
 			< div className="self-stretch flex flex-col items-center justify-start" >
 				<div className="self-stretch overflow-y-auto flex flex-col  items-start justify-start gap-[12px]">
-					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black1">
+					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl">
 					</div>
 					<div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
 						<div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
@@ -80,19 +80,19 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 									<div className="self-stretch flex flex-col items-center justify-center">
 										<div className="self-stretch relative leading-[20px] font-medium">
 											{node.field_description?.value && (
-												<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal pb-5 text-slate-600 text-base sm:text-base lg:text-lg leading-[20px]" />
+												<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal text-slate-600 text-base sm:text-base lg:text-lg leading-[20px]" />
 											)}
 										</div>
 									</div>
 								</div>
 							</div>
-							<div className="self-stretch flex flex-col items-center justify-center text-mediumblue-100">
+							<div className="self-stretch flex flex-col items-center justify-start text-mediumblue-100">
 								<div className="self-stretch rounded-lg overflow-hidden flex flex-row items-center justify-start">
 									<div className="flex-1 flex flex-col items-start justify-start">
 										<div className="self-stretch flex flex-row py-0 pr-7 pl-0">
 											<button className="relative leading-[20px] font-semibold fedblueblue flex justify-between" onClick={changeState}>
 												<CalculApport key={node.uuid} node={node} />
-												<span className="ml-3">
+												<span className="inline-block ml-1">
 													{showMenu ? (
 														<span onClick={changeState}>
 															<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,8 +127,8 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 	else if (status === "unauthenticated") {
 		return (
 			< div className="self-stretch flex flex-col items-center justify-start">
-				<div className="self-stretch overflow-y-auto flex flex-col  items-start justify-start gap-[22px]">
-					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl text-black1">
+				<div className="self-stretch overflow-y-auto flex flex-col items-start justify-start">
+					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl">
 					</div>
 					<div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
 						<div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
@@ -175,7 +175,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 									<div className="self-stretch flex flex-col items-center justify-center">
 										<div className="self-stretch relative leading-[20px] font-medium">
 											{node.field_description?.value && (
-												<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal pb-5 text-slate-600 text-base sm:text-base lg:text-lg leading-[20px]" />
+												<div dangerouslySetInnerHTML={{ __html: node.field_description?.value }} className="leading-normal text-slate-600 text-base sm:text-base lg:text-lg" />
 											)}
 										</div>
 									</div>

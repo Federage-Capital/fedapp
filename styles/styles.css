@@ -1,6 +1,7 @@
-h1{
-  font-size: unset !important;
+h1.grandtitre{
+  font-size: 30px !important;
 }
+
 
 body{
   /* text-base/leading-6/font-medium */

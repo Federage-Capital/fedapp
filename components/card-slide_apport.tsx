@@ -22,13 +22,13 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 
 
 
-				<div className="self-stretch flex flex-col  justify-start text-black1 pb-5 ">
+				<div className="self-stretch flex flex-col  justify-start text-black1">
 
 				{userApport?.length ? (
 
 										 <>
-										 <span className="ml-3">
-										 <p className="text-2xl inline-block fedblueblue font-semibold">	 {userApport.length} Apport(s)</p>
+										 <span className="ml-1">
+										 <p className="text-2xl inline-block fedblueblue font-semibold">	 {userApport.length} apport(s)</p>
 
 									 		{showMenu ? (
 									 			<span onClick={changeState}>
@@ -37,7 +37,7 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 									 				</svg>
 									 			</span>
 									 		) : (
-									 			<span className="inline-block ml-2" onClick={changeState}>
+									 			<span className="inline-block ml-1" onClick={changeState}>
 									 				<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									 					<path fillRule="evenodd" clipRule="evenodd" d="M0.410051 1.2101C0.956784 0.663365 1.84322 0.663365 2.38995 1.2101L7 5.82016L11.6101 1.2101C12.1568 0.663365 13.0432 0.663365 13.5899 1.2101C14.1367 1.75683 14.1367 2.64327 13.5899 3.19L7.98995 8.79001C7.44322 9.33675 6.55678 9.33675 6.01005 8.79001L0.410051 3.19C-0.136683 2.64327 -0.136683 1.75683 0.410051 1.2101Z" fill="#012BDD" />
 									 				</svg>
@@ -49,8 +49,8 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 		{showMenu && (
 			<>
 											 {userApport.map((userInApport,index) => (
-					<div key={userInApport.id} className="self-stretch rounded-t-lg rounded-b-none flex flex-row p-4 items-center justify-between border-[2px] border-solid border-gray-100">
-						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-0 items-start justify-start gap-[2px]">
+					<div key={userInApport.id} className="self-stretch rounded-t-lg rounded-b-lg flex flex-row p-4 mb-1 items-center justify-between border-[2px] border-solid border-gray-100">
+						<div className="flex-1 flex flex-col py-0 pr-2.5 pl-2 items-start justify-start gap-[2px]">
 							<div className="self-stretch relative leading-[20px] font-semibold">
 
 
@@ -98,10 +98,10 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 			}
 			</>
 		) : (
-			<p className="text-2xl text-blue-600 font-semibold">
+			<p className="text-2xl text-dimgray font-semibold">
 
 
-Pas d&lsquo;apports
+Contribution libre
 
 			</p>
 		)}
