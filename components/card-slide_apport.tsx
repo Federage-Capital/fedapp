@@ -25,9 +25,9 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 				<div className="self-stretch flex flex-col  justify-start text-black1">
 
 				{userApport?.length ? (
-
+										
 										 <>
-										 <span className="ml-1">
+										 <span className="inline-block ml-1">
 										 <p className="text-2xl inline-block fedblueblue font-semibold">	 {userApport.length} actionnaire(s)</p>
 
 									 		{showMenu ? (
@@ -55,8 +55,8 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 
 
 								 								{userInApport.title}
-								 								<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-								 									Valeur de la participation : 	{userInApport.field_estimation_du_prix}
+								 								<div className="self-stretch relative text-slate-500 font-semibold text-bas">
+								 									Participation en euros : 	{userInApport.field_estimation_du_prix}
 								 								</div>
 
 
@@ -101,7 +101,7 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 			<p className="text-2xl text-dimgray font-semibold">
 
 
-Contribution libre
+Capital ouvert ✔️
 
 			</p>
 		)}

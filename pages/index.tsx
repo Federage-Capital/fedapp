@@ -194,7 +194,7 @@ export default function IndexPage({ nodes, menus, blocks, teams, }: IndexPagePro
 
               </div>
               <div className="ml-3 content-end">
-                <Link href="./alluserlist" passHref>
+                <Link href="./explorer" passHref>
                   <a className="no-underline hover:text-blue-600">
                     <h2 className="text-xl">Explorer</h2>
                     <p>Parcourir des opportunités de partenariats</p> </a>

@@ -128,7 +128,7 @@ export default function AlluserlistPage
 									href="#link1"
 									role="tablist"
 								>
-									Annonces
+									Activités
 								</a>
 							</li>
 								<li className="-mb-px mr-2 last:mr-0 flex-left text-center">

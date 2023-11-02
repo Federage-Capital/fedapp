@@ -30,9 +30,9 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 
 	if (status === "authenticated") {
 		return (
-			< div className="self-stretch flex flex-col items-center justify-start" >
-				<div className="self-stretch overflow-y-auto flex flex-col  items-start justify-start gap-[12px]">
-					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl">
+			< div className="self-stretch flex flex-col mb-5 items-center justify-start" >
+				<div className="self-stretch overflow-y-auto flex flex-col items-start justify-start gap-[12px]">
+					<div className="self-stretch flex flex-col items-center tb-5 justify-start gap-[24px] text-9xl">
 					</div>
 					<div className="self-stretch rounded-lg bg-white flex flex-col p-4 items-start justify-start gap-[20px]">
 						<div className="self-stretch flex flex-col items-center justify-start gap-[20px]">
@@ -126,7 +126,7 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 	}
 	else if (status === "unauthenticated") {
 		return (
-			< div className="self-stretch flex flex-col items-center justify-start">
+			< div className="self-stretch flex flex-col mb-5 items-center justify-start">
 				<div className="self-stretch overflow-y-auto flex flex-col items-start justify-start">
 					<div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-9xl">
 					</div>
