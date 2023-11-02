@@ -28,7 +28,7 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 
 										 <>
 										 <span className="ml-1">
-										 <p className="text-2xl inline-block fedblueblue font-semibold">	 {userApport.length} apport(s)</p>
+										 <p className="text-2xl inline-block fedblueblue font-semibold">	 {userApport.length} actionnaire(s)</p>
 
 									 		{showMenu ? (
 									 			<span onClick={changeState}>
@@ -56,7 +56,7 @@ export default function SlideApport({  node }: SlideApportAllUserListProps) {
 
 								 								{userInApport.title}
 								 								<div className="self-stretch relative text-xs leading-[24px] font-semibold text-mediumblue-100">
-								 									Prix recherché : 	{userInApport.field_estimation_du_prix}
+								 									Valeur de la participation : 	{userInApport.field_estimation_du_prix}
 								 								</div>
 
 

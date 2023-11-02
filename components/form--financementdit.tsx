@@ -297,7 +297,7 @@ id="document"
 
                       <div className="grid gap-2">
                         <label htmlFor="document" className="font-semibold text-text">
-                          {t("Devis ou facture proforma")} <span className="text-sm text-red-500"></span>
+                          {t("Pièce-jointe")} <span className="text-sm text-red-500"></span>
                         </label>
                         <input
                           type="file"
