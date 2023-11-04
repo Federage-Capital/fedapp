@@ -114,9 +114,9 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 							</div>
 							{showMenu && <SlideApport showMenu={showMenu} node={node} />}
 						</div>
-						<div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
+						<div className="elf-stretch rounded-lg bg-black text-white shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
 							<div className="relative leading-[20px] font-semibold">
-								Contribuer
+								Proposer
 							</div>
 						</div>
 					</div>
@@ -200,12 +200,14 @@ export function BoxProjectList({ node, useringroup, status }: BoxProjectAlluserl
 
 
 
-
+													
 
 						</div>
 						<div className="self-stretch rounded-lg bg-gray-100 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.05)] h-[47px] overflow-hidden shrink-0 flex flex-row py-2.5 px-[18px] box-border items-center justify-center text-dimgray">
 							<div className="relative leading-[20px] font-semibold">
-								Contribuer
+							<Link href="/register" passHref>
+ 												Proposer
+ 									</Link>
 							</div>
 						</div>
 					</div>

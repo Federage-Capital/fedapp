@@ -23,10 +23,10 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
 
   return (
     <article {...props}>
-      <div className="flex">
+      <div className="flex mb-2">
         {node.user_picture ? (
 
-          <div className="overflow-hidden h-10 w-10 rounded-full mt-3 ml-5">
+          <div className="overflow-hidden h-10 w-10 rounded-full mt-3">
             <Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
               <Image
                 src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${node.user_picture?.uri.url}`}
@@ -72,7 +72,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
 
           {node.field_nom_affiche >= 0 ? (
             <Link href={node.name.replace(/è/g, 'e').replaceAll(' ', '-')} passHref>
-              <div className="text-slate-500 lowercase relative -top-3 text-sm max-w-xs truncate">
+              <div className="text-slate-500 font-semibold mr-4 lowercase relative -top-3 text-sm max-w-xs truncate">
                 app.federage.com/{node.name.replace(/è/g, 'e').replaceAll(' ', '-')}
               </div>
             </Link>
@@ -87,7 +87,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
         {node.field_description?.processed && (
           <div
             dangerouslySetInnerHTML={{ __html: node.field_description?.processed }}
-            className="text-sm leading-loose prose"
+            className="text-base"
           />
         )}
       </div>
@@ -102,7 +102,7 @@ export function UserProfile({ node, ...props }: UserProfileProps) {
       ) : (
         <>      <Link href="/register">
           <a >
-            <div className="inline-block px-3 py-1 fedblue text-white transition-colors rounded-xl text-sm text-center font-semibold lg:py-2 bg-secondary hover:bg-white hover:text-black border-secondary">
+            <div className="w-full justify-center px-3 py-2 sm:text-sm font-medium text-center text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-black">
               Proposer une collaboration
             </div>
           </a>
